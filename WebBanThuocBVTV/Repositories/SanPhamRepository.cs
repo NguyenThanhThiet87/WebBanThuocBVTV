@@ -15,6 +15,7 @@ namespace WebBanThuocBVTV.Repositories
             {
                 await ContextDB.Sanphams.AddAsync(entity);
                 await ContextDB.SaveChangesAsync();
+
                 return true;
             }
             catch (Exception ex)

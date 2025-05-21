@@ -170,3 +170,4 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net8.0\runtimes\browser\lib\net8.0\
 D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net8.0\WebBanThuocBVTV.csproj.AssemblyReference.cache
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net8.0\WebBanTh.3627943C.Up2Date
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net8.0\WebBanThuocBVTV.sourcelink.json

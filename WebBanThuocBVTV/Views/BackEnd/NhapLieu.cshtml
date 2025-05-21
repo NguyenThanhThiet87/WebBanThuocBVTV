@@ -16,7 +16,7 @@
 
 <form asp-action="ThemSp" asp-controller="BackEnd" method="post">
 	<h2>NHẬP LIỆU SẢN PHẨM @ViewBag.countsp Sản phẩm</h2>
-	<input type="text" oninput="handleFileSelect(this)" />
+	<input type="text" oninput="handleFileSelect(this)" name="UrlImg"/>
 	<img id="image" src="" width="200" height="200" style="background-color: black" />
 
 	<ul>

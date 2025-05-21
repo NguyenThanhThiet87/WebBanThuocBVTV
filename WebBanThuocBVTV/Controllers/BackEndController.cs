@@ -9,7 +9,7 @@ namespace WebBanThuocBVTV.Controllers
         SanPhamRepository sanPhamRepository = new SanPhamRepository();
         NhomSanPhamRepository nhomSanPhamRepository = new NhomSanPhamRepository();
         NhaSanXuatRepository nhaSanXuatRepository = new NhaSanXuatRepository();
-
+        HinhAnhRepository hinhAnhRepository = new HinhAnhRepository();
         public async Task<IActionResult> Index()
         {
             ViewBag.listnsp = await nhomSanPhamRepository.GetAllAsync();
@@ -18,7 +18,7 @@ namespace WebBanThuocBVTV.Controllers
             return View("NhapLieu");
         }
         [HttpPost]
-        public async Task<IActionResult> ThemSp(string TenSanPham, string ThanhPhan, string CongDung, string HuongDanSuDung, decimal Gia, int SoLuong, string MaNhomSp, string MaNhaSx)
+        public async Task<IActionResult> ThemSp(string UrlImg, string TenSanPham, string ThanhPhan, string CongDung, string HuongDanSuDung, decimal Gia, int SoLuong, string MaNhomSp, string MaNhaSx)
         {
             
             Sanpham sp = new Sanpham();
@@ -32,8 +32,18 @@ namespace WebBanThuocBVTV.Controllers
             sp.MaNhomSp = MaNhomSp;
             sp.MaNhaSx = MaNhaSx;
 
-            bool result= await sanPhamRepository.Add(sp);
-            ViewBag.Success = result;
+            bool resultSp= await sanPhamRepository.Add(sp);
+            if (resultSp)
+            {
+                Hinhanh img = new Hinhanh();
+                img.MaHinhAnh = await hinhAnhRepository.CreateId();
+                img.MaSanPham = sp.MaSanPham;
+                img.Url = UrlImg;
+                bool resultImg = await hinhAnhRepository.Add(img);
+                ViewBag.SuccessImg = resultImg;
+            }    
+
+            ViewBag.Success = resultSp;
             
             return RedirectToAction("Index","BackEnd");
         }
