@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
 
@@ -7,19 +8,24 @@ namespace WebBanThuocBVTV.Repositories
     public class HinhAnhRepository : IRepository<Hinhanh>
     {
         WebBanThuocBvtvContext ContextDB = new WebBanThuocBvtvContext();
-        public async Task<bool> Add(Hinhanh entity)
+
+        public async Task<AlertMessage> Add(Hinhanh entity)
         {
+            AlertMessage alertMessage = new AlertMessage();
+
             try
             {
                 await ContextDB.Hinhanhs.AddAsync(entity);
                 await ContextDB.SaveChangesAsync();
-                return true;
+                alertMessage.Type = "success";
+                alertMessage.Message = "Thêm ảnh thành công";
             }
             catch (Exception ex)
             {
-
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
             }
-            return false;
+            return alertMessage;
         }
 
         public async Task<string> CreateId()

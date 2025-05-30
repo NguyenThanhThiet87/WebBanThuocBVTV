@@ -1,0 +1,48 @@
+﻿.nhapmaotp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(80vh - 40px); /* Điều chỉnh chiều cao để không bị chồng lấn */
+    background-color: #fff;
+}
+
+.verify-code-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+
+    .verify-code-form p {
+        margin: 10px 0;
+        color: #666;
+    }
+
+    .verify-code-form input{
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .verify-code-form button{
+        width: 100%;
+        padding: 12px;
+        background-color: #ffb300;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .verify-code-form button:hover{
+            background-color: #ffca28;
+        }

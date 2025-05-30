@@ -5,12 +5,40 @@
       "PackagePath": "staticwebassets\\WebBanThuocBVTV.603c9i74ki.bundle.scp.css"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\ForgetPass.css",
+      "PackagePath": "staticwebassets\\css\\Login\\ForgetPass.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
+      "PackagePath": "staticwebassets\\css\\Login\\Index.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\InputInfoAccount.css",
+      "PackagePath": "staticwebassets\\css\\Login\\InputInfoAccount.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\NhapMaOTP.css",
+      "PackagePath": "staticwebassets\\css\\Login\\NhapMaOTP.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Register.css",
+      "PackagePath": "staticwebassets\\css\\Login\\Register.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\SweetAlert2\\Toast.css",
+      "PackagePath": "staticwebassets\\css\\SweetAlert2\\Toast.css"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",
+      "PackagePath": "staticwebassets\\js\\SweetAlert2\\Toast.js"
     },
     {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\site.js",

@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "D:\\WebBanThuocBVTV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\repositories\\hinhanhrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\repositories\\hinhanhrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\repositories\\sanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\repositories\\sanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\css\\shared\\_header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\css\\shared\\_header.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\views\\backend\\nhaplieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\views\\backend\\nhaplieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\views\\shared\\webbanthuocbvtv.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\views\\shared\\webbanthuocbvtv.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\repositories\\nhasanxuatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\repositories\\nhasanxuatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\css\\shared\\_navigation.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\css\\shared\\_navigation.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\repositories\\nhomsanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\repositories\\nhomsanphamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\models\\nhomsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\models\\nhomsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\controllers\\backendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\controllers\\backendcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\views\\shared\\_navigation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\views\\shared\\_navigation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,93 +38,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HinhAnhRepository.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\HinhAnhRepository.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Repositories\\HinhAnhRepository.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\HinhAnhRepository.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Repositories\\HinhAnhRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T02:40:09.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NhapLieu.cshtml",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\BackEnd\\NhapLieu.cshtml",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Views\\BackEnd\\NhapLieu.cshtml",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\BackEnd\\NhapLieu.cshtml",
-              "RelativeToolTip": "WebBanThuocBVTV\\Views\\BackEnd\\NhapLieu.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABBAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "_Navigation.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\_Navigation.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Views\\Shared\\_Navigation.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\_Navigation.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Views\\Shared\\_Navigation.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T17:07:48.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SanPhamRepository.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\SanPhamRepository.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Repositories\\SanPhamRepository.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\SanPhamRepository.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Repositories\\SanPhamRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T16:54:01.926Z",
+              "WhenOpened": "2025-05-30T06:12:09.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NhaSanXuatRepository.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NhaSanXuatRepository.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Repositories\\NhaSanXuatRepository.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NhaSanXuatRepository.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Repositories\\NhaSanXuatRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T16:28:32.981Z",
+              "Title": "_Navigation.css",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Navigation.css",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Navigation.css",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Navigation.css",
+              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Navigation.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-30T06:14:12.272Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NhomSanPhamRepository.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NhomSanPhamRepository.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Repositories\\NhomSanPhamRepository.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NhomSanPhamRepository.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Repositories\\NhomSanPhamRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAgAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T16:27:34.605Z",
+              "DocumentIndex": 0,
+              "Title": "_Header.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\_Header.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Views\\Shared\\_Header.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\_Header.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Views\\Shared\\_Header.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-30T06:09:17.246Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Nhomsanpham.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Models\\Nhomsanpham.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Models\\Nhomsanpham.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Models\\Nhomsanpham.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Models\\Nhomsanpham.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T03:50:30.95Z",
+              "DocumentIndex": 1,
+              "Title": "_Header.css",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Header.css",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Header.css",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Header.css",
+              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Header.css",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-30T06:08:47.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BackEndController.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Controllers\\BackEndController.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Controllers\\BackEndController.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Controllers\\BackEndController.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Controllers\\BackEndController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T03:22:40.254Z",
+              "DocumentIndex": 2,
+              "Title": "WebBanThuocBVTV.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\WebBanThuocBVTV.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Views\\Shared\\WebBanThuocBVTV.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Views\\Shared\\WebBanThuocBVTV.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Views\\Shared\\WebBanThuocBVTV.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-30T06:05:11.586Z",
               "EditorCaption": ""
             }
           ]

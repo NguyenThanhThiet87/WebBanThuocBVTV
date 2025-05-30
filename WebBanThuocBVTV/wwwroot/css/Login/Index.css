@@ -1,0 +1,87 @@
+﻿.Login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(80vh - 40px); /* Điều chỉnh chiều cao để không bị chồng lấn */
+    background-color: #fff;
+}
+
+.verify-code-form, .forgot-password-form, .login-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+    .verify-code-form h2, .forgot-password-form h2, .login-form h2 {
+        margin-bottom: 20px;
+        color: #2e7d32;
+    }
+
+    .verify-code-form p, .forgot-password-form p, .login-form p {
+        margin: 10px 0;
+        color: #666;
+    }
+
+    .verify-code-form input, .forgot-password-form input, .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 16px;
+    }
+
+        .verify-code-form input[type="text"] {
+            letter-spacing: 5px;
+        }
+
+    .verify-code-form button, .forgot-password-form button, .login-form button {
+        width: 100%;
+        padding: 12px;
+        background-color: #ffb300;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .verify-code-form button:hover, .forgot-password-form button:hover, .login-form button:hover {
+            background-color: #ffca28;
+        }
+
+.social-login {
+    margin-top: 20px;
+}
+
+    .social-login button {
+        width: 48%;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .social-login .facebook {
+        background-color: #3b5998;
+        padding: 5px 10px;
+        border: 5px black;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .social-login .google {
+        background-color: #db4437;
+        padding: 5px 10px;
+        border: 5px black;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+    }

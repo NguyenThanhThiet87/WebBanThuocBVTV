@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Data.SqlTypes;
+using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
 
@@ -9,20 +10,22 @@ namespace WebBanThuocBVTV.Repositories
     {
         WebBanThuocBvtvContext ContextDB = new WebBanThuocBvtvContext();
 
-        public async Task<bool> Add(Sanpham entity)
+        public async Task<AlertMessage> Add(Sanpham entity)
         {
+            AlertMessage alertMessage = new AlertMessage();
             try
             {
                 await ContextDB.Sanphams.AddAsync(entity);
                 await ContextDB.SaveChangesAsync();
-
-                return true;
+                alertMessage.Type = "success";
+                alertMessage.Message = "Thêm thành công";
             }
             catch (Exception ex)
             {
-
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
             }
-            return false;
+            return alertMessage;
         }
 
         public async Task<string> CreateId()

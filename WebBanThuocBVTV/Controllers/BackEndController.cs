@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories;
 namespace WebBanThuocBVTV.Controllers
@@ -20,7 +21,6 @@ namespace WebBanThuocBVTV.Controllers
         [HttpPost]
         public async Task<IActionResult> ThemSp(string UrlImg, string TenSanPham, string ThanhPhan, string CongDung, string HuongDanSuDung, decimal Gia, int SoLuong, string MaNhomSp, string MaNhaSx)
         {
-            
             Sanpham sp = new Sanpham();
             sp.MaSanPham = await sanPhamRepository.CreateId();
             sp.TenSanPham = TenSanPham;
@@ -32,16 +32,16 @@ namespace WebBanThuocBVTV.Controllers
             sp.MaNhomSp = MaNhomSp;
             sp.MaNhaSx = MaNhaSx;
 
-            bool resultSp= await sanPhamRepository.Add(sp);
-            if (resultSp)
-            {
-                Hinhanh img = new Hinhanh();
-                img.MaHinhAnh = await hinhAnhRepository.CreateId();
-                img.MaSanPham = sp.MaSanPham;
-                img.Url = UrlImg;
-                bool resultImg = await hinhAnhRepository.Add(img);
-                ViewBag.SuccessImg = resultImg;
-            }    
+            AlertMessage resultSp= await sanPhamRepository.Add(sp);
+            //if (resultSp)
+            //{
+            //    Hinhanh img = new Hinhanh();
+            //    img.MaHinhAnh = await hinhAnhRepository.CreateId();
+            //    img.MaSanPham = sp.MaSanPham;
+            //    img.Url = UrlImg;
+            //    bool resultImg = await hinhAnhRepository.Add(img);
+            //    ViewBag.SuccessImg = resultImg;
+            //}    
 
             ViewBag.Success = resultSp;
             

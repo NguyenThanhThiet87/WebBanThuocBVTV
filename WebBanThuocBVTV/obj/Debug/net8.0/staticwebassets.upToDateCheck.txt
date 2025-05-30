@@ -1,6 +1,13 @@
+wwwroot\css\Login\ForgetPass.css
+wwwroot\css\Login\Index.css
+wwwroot\css\Login\InputInfoAccount.css
+wwwroot\css\Login\NhapMaOTP.css
+wwwroot\css\Login\Register.css
 wwwroot\css\site.css
+wwwroot\css\SweetAlert2\Toast.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
+wwwroot\js\SweetAlert2\Toast.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.min.css

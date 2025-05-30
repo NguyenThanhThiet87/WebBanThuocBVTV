@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebBanThuocBVTV</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebBanThuocBVTV.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/SweetAlert2/Toast.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    @await Html.PartialAsync("_Header") <!-- Gọi partial view header -->
+    <!-- Navigation Bar -->
+    @await Html.PartialAsync("_Navigation") <!-- Gọi partial view navigation -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @using Newtonsoft.Json
+            @using WebBanThuocBVTV.Helper
+
+            @{
+                var alertJson = TempData["Alert"] as string;
+                string icon = "";
+                string title = "";
+
+                if (!string.IsNullOrEmpty(alertJson))
+                {
+                    var alert = JsonConvert.DeserializeObject<AlertMessage>(alertJson);
+                    icon = alert?.Type ?? "success";
+                    title = alert?.Message ?? "Thông báo";
+                    Console.WriteLine("TYPE: " + icon);
+                    Console.WriteLine("Message: " + title);
+                }
+            }
+
+            @if (!string.IsNullOrEmpty(alertJson))
+            {
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        showToast('@icon', '@title')
+                    });
+                </script>
+            }
+            @RenderBody()
+        </main>
+    </div>
+
+    @await Html.PartialAsync("_Footer") <!-- Gọi partial view footer -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/SweetAlert2/Toast.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿@{
+}
+<link href="~/css/Login/InputInfoAccount.css" rel="stylesheet" />
+<div class="inputInfoAccount-container">
+    <form class="inputInfoAccount-form" asp-action="RegisterAccount" asp-controller="Login">
+        <h2>Đăng ký tài khoản</h2>
+        <input name="email" type="email" placeholder="Nhập email của bạn" required value="@ViewBag.Email" readonly>
+        <input name="name" type="text" placeholder="Nhập tên của bạn" required value="">
+        <input name="password" type="text" placeholder="Nhập mật khẩu của bạn" required value="">
+        <button type="submit">Hoàn tất đăng ký</button>
+        <p><a asp-controller="Login" asp-action="Index">Đã có tài khoản? Đăng nhập</a></p>
+        <div class="social-login">
+            <button class="facebook">Facebook</button>
+            <button class="google">Google</button>
+        </div>
+    </form>
+</div>

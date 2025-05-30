@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f6aiXHp4ibzQzW26B8E7SJINSgCnP1CaFMulgo2epco=",
+  "Hash": "JB75pkUiu0jiOnOC2cwj9No5FHr9AnGhWcI6BiRPfAY=",
   "Source": "WebBanThuocBVTV",
   "BasePath": "_content/WebBanThuocBVTV",
   "Mode": "Default",
@@ -16,6 +16,720 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bootstrap4Theme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r7cyc8so8n",
+      "Integrity": "V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bootstrap4Theme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bootstrap4Theme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r7cyc8so8n",
+      "Integrity": "V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bootstrap4Theme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "borderlessTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gg86k6o52d",
+      "Integrity": "sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "borderlessTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "borderlessTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gg86k6o52d",
+      "Integrity": "sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "borderlessTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bulmaTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "31mulvc3cu",
+      "Integrity": "B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bulmaTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bulmaTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "31mulvc3cu",
+      "Integrity": "B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "bulmaTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "darkTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "le7pq7ggks",
+      "Integrity": "vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "darkTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "darkTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "le7pq7ggks",
+      "Integrity": "vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "darkTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "defaultTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f4gmpptkig",
+      "Integrity": "4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "defaultTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "defaultTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f4gmpptkig",
+      "Integrity": "4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "defaultTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "materialUITheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b9bn1ch6tu",
+      "Integrity": "QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "materialUITheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "materialUITheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b9bn1ch6tu",
+      "Integrity": "QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "materialUITheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "minimalTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "21ti32f7nx",
+      "Integrity": "dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "minimalTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "minimalTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "21ti32f7nx",
+      "Integrity": "dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "minimalTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "sweetAlert2.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i14mq6068q",
+      "Integrity": "CpCgMKT2SOyvaaZ6cQzFZOqHTaBQpClwJHaPWYOG2GM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "sweetAlert2.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qa39yjmmhv",
+      "Integrity": "DhlW8VDNhXaxB27DqEbUMup4uzR2GqApdajaJf7HdUU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "wordpressAdminTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jozt2lviqi",
+      "Integrity": "438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "wordpressAdminTheme.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "53if3c78bp",
+      "Integrity": "UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.js"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.css",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "wordpressAdminTheme.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jozt2lviqi",
+      "Integrity": "438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.js",
+      "SourceId": "SweetAlert2",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\",
+      "BasePath": "_content/SweetAlert2",
+      "RelativePath": "wordpressAdminTheme.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.js"
+    },
     {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net8.0\\scopedcss\\bundle\\WebBanThuocBVTV.styles.css",
       "SourceId": "WebBanThuocBVTV",
@@ -59,6 +773,111 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebBanThuocBVTV.bundle.scp.css"
     },
     {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\ForgetPass.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/Login/ForgetPass#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ahpw35674e",
+      "Integrity": "/n/DKcKsM45h4CwU1p13TnMhpnGe4zSEAcqbvD5PzHg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login\\ForgetPass.css"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/Login/Index#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ja0q7igjcv",
+      "Integrity": "Bc3yJUh09UOjkub6a+iEQh1er/+8F9TTTHRNwq+d4Sg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login\\Index.css"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\InputInfoAccount.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/Login/InputInfoAccount#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kowsdpm8dm",
+      "Integrity": "dCXeygd2g8dEBCzuV7BKeClhLDIHTLhS2HSHW59yiGc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login\\InputInfoAccount.css"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\NhapMaOTP.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/Login/NhapMaOTP#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n9x0n7o94p",
+      "Integrity": "laR1bIRHFcf6cAPsxFdq7A3PsO0U1e/nzvz67xem+5M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login\\NhapMaOTP.css"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Register.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/Login/Register#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cymsu770qa",
+      "Integrity": "NC0LLu/n4zNM8SGLNGBfC+fNCvhbL02gmMGK2BiciEs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login\\Register.css"
+    },
+    {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\site.css",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
@@ -78,6 +897,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\SweetAlert2\\Toast.css",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "css/SweetAlert2/Toast#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yeb10be8my",
+      "Integrity": "Cty4qDMiuglvTSMSRIPUgkt9i33HULv+H1Bcwtb4Kz0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SweetAlert2\\Toast.css"
     },
     {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\favicon.ico",
@@ -120,6 +960,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "js/SweetAlert2/Toast#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7jbbal1tyb",
+      "Integrity": "3eKNbjk2vPKoa3DKgkNPV32zuc5EhUu6tf15nJXtRnU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SweetAlert2\\Toast.js"
     },
     {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -1321,6 +2182,1674 @@
   ],
   "Endpoints": [
     {
+      "Route": "_content/SweetAlert2/bootstrap4Theme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31891"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bootstrap4Theme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bootstrap4Theme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31891"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-V96AtslGqQQCwUntk/kR032cyp9YjmU6fpHiS/7D+2w="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bootstrap4Theme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bootstrap4Theme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/borderlessTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/borderlessTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/borderlessTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sGPkQQ0X527PNXC9OqLx2pn0nJYrDVEAqKyU+KbU1O8="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/borderlessTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bulmaTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22266"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bulmaTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bulmaTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22266"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B1ydRzfcCbclRgSQoZ+G/mK2AI2rapRHmwM5sWVnfxg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/bulmaTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\bulmaTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/darkTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/darkTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/darkTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vcfv/Bi1DT4mb/0kYOb4VKFY1ixs04qu6djfCaYNJCg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/darkTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\darkTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/defaultTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23312"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/defaultTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/defaultTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23312"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4XehavCDLs+D/RP1bEFEPogoK9sh+zKSRE0y5uOKbng="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/defaultTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\defaultTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/materialUITheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/materialUITheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/materialUITheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QYYbParfjW6+l9VD0I++qgvkiyZrYykGQZYmfj/9GJs="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/materialUITheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\materialUITheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/minimalTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/minimalTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/minimalTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dj6Q+iC5NqFwbJGN30FCNFotuIkvMJVxdv1HZHMtJ1M="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/minimalTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/sweetAlert2.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "188472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CpCgMKT2SOyvaaZ6cQzFZOqHTaBQpClwJHaPWYOG2GM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Mar 2024 19:53:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CpCgMKT2SOyvaaZ6cQzFZOqHTaBQpClwJHaPWYOG2GM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/sweetAlert2.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\sweetAlert2.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "82782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DhlW8VDNhXaxB27DqEbUMup4uzR2GqApdajaJf7HdUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DhlW8VDNhXaxB27DqEbUMup4uzR2GqApdajaJf7HdUU="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/wordpressAdminTheme.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/wordpressAdminTheme.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UQwyDCflOyAlFdhJU8wBqtKVZe5AmqqNbtQDBlAAlgM="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/wordpressAdminTheme.min.css",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-438tekjqNZ4l4cv6XCrrUztf+QvRnOmJK6+HfCTKh6o="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SweetAlert2/wordpressAdminTheme.min.js",
+      "AssetFile": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\wordpressAdminTheme.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 20 Feb 2024 09:05:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/ForgetPass.ahpw35674e.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\ForgetPass.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1962"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/n/DKcKsM45h4CwU1p13TnMhpnGe4zSEAcqbvD5PzHg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:44:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ahpw35674e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login/ForgetPass.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/n/DKcKsM45h4CwU1p13TnMhpnGe4zSEAcqbvD5PzHg="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/ForgetPass.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\ForgetPass.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1962"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/n/DKcKsM45h4CwU1p13TnMhpnGe4zSEAcqbvD5PzHg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:44:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/n/DKcKsM45h4CwU1p13TnMhpnGe4zSEAcqbvD5PzHg="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/Index.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bc3yJUh09UOjkub6a+iEQh1er/+8F9TTTHRNwq+d4Sg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:37:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bc3yJUh09UOjkub6a+iEQh1er/+8F9TTTHRNwq+d4Sg="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/Index.ja0q7igjcv.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bc3yJUh09UOjkub6a+iEQh1er/+8F9TTTHRNwq+d4Sg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:37:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ja0q7igjcv"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login/Index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bc3yJUh09UOjkub6a+iEQh1er/+8F9TTTHRNwq+d4Sg="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/InputInfoAccount.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\InputInfoAccount.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1423"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dCXeygd2g8dEBCzuV7BKeClhLDIHTLhS2HSHW59yiGc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 07:00:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dCXeygd2g8dEBCzuV7BKeClhLDIHTLhS2HSHW59yiGc="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/InputInfoAccount.kowsdpm8dm.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\InputInfoAccount.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1423"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dCXeygd2g8dEBCzuV7BKeClhLDIHTLhS2HSHW59yiGc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 07:00:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kowsdpm8dm"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login/InputInfoAccount.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dCXeygd2g8dEBCzuV7BKeClhLDIHTLhS2HSHW59yiGc="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/NhapMaOTP.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\NhapMaOTP.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1117"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"laR1bIRHFcf6cAPsxFdq7A3PsO0U1e/nzvz67xem+5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 15:43:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-laR1bIRHFcf6cAPsxFdq7A3PsO0U1e/nzvz67xem+5M="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/NhapMaOTP.n9x0n7o94p.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\NhapMaOTP.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1117"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"laR1bIRHFcf6cAPsxFdq7A3PsO0U1e/nzvz67xem+5M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 15:43:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n9x0n7o94p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login/NhapMaOTP.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-laR1bIRHFcf6cAPsxFdq7A3PsO0U1e/nzvz67xem+5M="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/Register.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1375"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NC0LLu/n4zNM8SGLNGBfC+fNCvhbL02gmMGK2BiciEs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:53:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NC0LLu/n4zNM8SGLNGBfC+fNCvhbL02gmMGK2BiciEs="
+        }
+      ]
+    },
+    {
+      "Route": "css/Login/Register.cymsu770qa.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Register.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1375"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NC0LLu/n4zNM8SGLNGBfC+fNCvhbL02gmMGK2BiciEs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 22 May 2025 05:53:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cymsu770qa"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Login/Register.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NC0LLu/n4zNM8SGLNGBfC+fNCvhbL02gmMGK2BiciEs="
+        }
+      ]
+    },
+    {
       "Route": "css/site.c2tiyv64ts.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1399,6 +3928,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0="
+        }
+      ]
+    },
+    {
+      "Route": "css/SweetAlert2/Toast.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\SweetAlert2\\Toast.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Cty4qDMiuglvTSMSRIPUgkt9i33HULv+H1Bcwtb4Kz0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 11:18:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Cty4qDMiuglvTSMSRIPUgkt9i33HULv+H1Bcwtb4Kz0="
+        }
+      ]
+    },
+    {
+      "Route": "css/SweetAlert2/Toast.yeb10be8my.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\SweetAlert2\\Toast.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Cty4qDMiuglvTSMSRIPUgkt9i33HULv+H1Bcwtb4Kz0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 11:18:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yeb10be8my"
+        },
+        {
+          "Name": "label",
+          "Value": "css/SweetAlert2/Toast.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Cty4qDMiuglvTSMSRIPUgkt9i33HULv+H1Bcwtb4Kz0="
         }
       ]
     },
@@ -1563,6 +4174,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+        }
+      ]
+    },
+    {
+      "Route": "js/SweetAlert2/Toast.7jbbal1tyb.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3eKNbjk2vPKoa3DKgkNPV32zuc5EhUu6tf15nJXtRnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:25:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7jbbal1tyb"
+        },
+        {
+          "Name": "label",
+          "Value": "js/SweetAlert2/Toast.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3eKNbjk2vPKoa3DKgkNPV32zuc5EhUu6tf15nJXtRnU="
+        }
+      ]
+    },
+    {
+      "Route": "js/SweetAlert2/Toast.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "359"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3eKNbjk2vPKoa3DKgkNPV32zuc5EhUu6tf15nJXtRnU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 14:25:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3eKNbjk2vPKoa3DKgkNPV32zuc5EhUu6tf15nJXtRnU="
         }
       ]
     },

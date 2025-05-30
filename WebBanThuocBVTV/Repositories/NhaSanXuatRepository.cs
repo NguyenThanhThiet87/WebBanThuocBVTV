@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
 
@@ -7,7 +8,7 @@ namespace WebBanThuocBVTV.Repositories
     public class NhaSanXuatRepository : IRepository<Nhasanxuat>
     {
         WebBanThuocBvtvContext ContextDB = new WebBanThuocBvtvContext();
-        public Task<bool> Add(Nhasanxuat entity)
+        public Task<AlertMessage> Add(Nhasanxuat entity)
         {
             throw new NotImplementedException();
         }
