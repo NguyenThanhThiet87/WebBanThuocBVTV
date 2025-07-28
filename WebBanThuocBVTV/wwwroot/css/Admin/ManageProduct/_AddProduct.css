@@ -1,0 +1,170 @@
+﻿.modal-content .modal-body {
+    padding: 40px;
+}
+
+.modal-content .form-section {
+    margin-bottom: 30px;
+}
+
+    .modal-content .section-title {
+        color: #28a745;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e8f5e9;
+    }
+
+    .modal-content .form-control, .modal-content .form-select {
+        border: 2px solid #e1e5e9;
+        border-radius: 8px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+        .modal-content .form-control:focus, .modal-content .form-select:focus {
+            border-color: #28a745;
+            background: white;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.1);
+        }
+
+        .modal-content .form-control:hover, .modal-content .form-select:hover {
+            border-color: #28a745;
+        }
+
+    .modal-content .form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .modal-content .image-upload-area {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .modal-content .image-upload-area:hover {
+            border-color: #28a745;
+            background: #e8f5e9;
+        }
+
+    .modal-content .image-preview {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+        border: 3px solid #dee2e6;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        overflow: hidden;
+    }
+
+        .modal-content .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+    .modal-content .image-placeholder {
+        color: #6c757d;
+        font-size: 4rem;
+    }
+
+    .modal-content .btn-upload {
+        background-color:chocolate;
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-bottom: 15px;
+    }
+
+        .modal-content .btn-upload:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+    .modal-content .upload-info {
+        background: #e8f5e9;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+        .modal-content .upload-info h6 {
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+    .modal-content .info-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding: 5px 0;
+        border-bottom: 1px solid #d4edda;
+    }
+
+        .modal-content .info-item:last-child {
+            border-bottom: none;
+        }
+
+ .modal-footer {
+        padding: 30px 40px;
+        border-top: 1px solid #e9ecef;
+        background: #f8f9fa;
+    }
+
+    .modal-footer .btn-save {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .modal-footer .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+    .modal-footer .btn-reset {
+        background: #6c757d;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .modal-footer .btn-reset:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+    
+
+/* Custom styles for price formatting */
+    .modal-content .input-group-text {
+        background: #e8f5e9;
+        border-color: #28a745;
+        color: #28a745;
+        font-weight: 600;
+    }

@@ -1,0 +1,85 @@
+﻿@model WebBanThuocBVTV.Models.Donhang
+@{
+}
+<link href="~/css/Order/DetailOrder.css" rel="stylesheet" />
+<div class="detailOrder-container">
+    <div class="header">
+        <h2>Đơn hàng</h2>
+        <p>Cảm ơn bạn đã đặt hàng!</p>
+    </div>
+    <div class="content">
+        <div class="order-info">
+            <div class="info-row">
+                <span><strong>Mã đơn hàng:</strong> @Model.MaDonHang </span>
+                <span><strong>Ngày:</strong> @Model.NgayLap.Date</span>
+            </div>
+            <div class="info-row">
+                <span><strong>Thời gian nhận hàng:</strong> 3-5 ngày làm việc</span>
+            </div>
+            <div class="info-row">
+                <span><strong>Trạng thái:</strong> @Model.MaTrangThaiNavigation.TenTrangThai</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sản phẩm đã đặt</div>
+            @foreach(var item in Model.DonhangSanphams)
+            {
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="@item.MaSanPhamNavigation.Hinhanhs.First().Url" />
+                    </div>
+                    <div class="product-details">
+                        <div><strong>@item.MaSanPhamNavigation.TenSanPham</strong></div>
+                        <div>Số lượng: @item.SoLuongDatMua</div>
+                    </div>
+                    <div><strong>@String.Format("{0:N0}", @item.TongTien) VNĐ</strong></div>
+                </div>
+            }
+
+        </div>
+
+        <div class="section">
+            <div class="section-title">Thông tin khách hàng</div>
+            <div class="info-row">
+                <span class="info-label">Họ tên:</span>
+                <span>@Model.MaNdNavigation.HoTen</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Điện thoại:</span>
+                <span>@Model.MaNdNavigation.SoDienThoai</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Địa chỉ:</span>
+                <span>@Model.MaNdNavigation.DiaChi</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Tóm tắt đơn hàng</div>
+            <div class="info-row">
+                <span>Tạm tính:</span>
+                <span>180,000 vnđ</span>
+            </div>
+            <div class="info-row">
+                <span>Phí vận chuyển:</span>
+                <span>30,000 vnđ</span>
+            </div>
+            <div class="total-row">
+                <span>Tổng cộng:</span>
+                <span>210,000 vnđ</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            @if(Model.MaTrangThai=="CTT")
+            {
+                <button class="btn">Thanh toán ngay</button>
+            }else
+            {
+                <button class="btn">Theo dõi đơn hàng</button>
+            }
+            <button class="btn btn-secondary">Tiếp tục mua sắm</button>
+        </div>
+    </div>
+</div>

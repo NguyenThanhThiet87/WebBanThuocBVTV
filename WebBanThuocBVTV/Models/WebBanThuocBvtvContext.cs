@@ -17,11 +17,13 @@ public partial class WebBanThuocBvtvContext : DbContext
 
     public virtual DbSet<Binhluan> Binhluans { get; set; }
 
-    public virtual DbSet<Danhgium> Danhgia { get; set; }
+    public virtual DbSet<Danhgia> Danhgia { get; set; }
 
     public virtual DbSet<Donhang> Donhangs { get; set; }
 
     public virtual DbSet<DonhangSanpham> DonhangSanphams { get; set; }
+
+    public virtual DbSet<Giaodich> Giaodiches { get; set; }
 
     public virtual DbSet<Giohang> Giohangs { get; set; }
 
@@ -45,7 +47,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=THANHTHIET;Initial Catalog=WEB_BAN_THUOC_BVTV;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=THANHTHIET;Initial Catalog=WEB_BAN_THUOC_BVTV;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -83,7 +85,7 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasConstraintName("FK_BINHLUAN_SANPHAM");
         });
 
-        modelBuilder.Entity<Danhgium>(entity =>
+        modelBuilder.Entity<Danhgia>(entity =>
         {
             entity.HasKey(e => e.MaDanhGia).HasName("PK__DANHGIA__AA9515BF211F6315");
 
@@ -102,6 +104,7 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasMaxLength(36)
                 .IsUnicode(false)
                 .IsFixedLength();
+            entity.Property(e => e.GhiChu).HasMaxLength(255);
             entity.Property(e => e.MaNd)
                 .HasMaxLength(8)
                 .IsUnicode(false)
@@ -160,14 +163,39 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasConstraintName("PK_DONHANG_SANPHAM_SANPHAM");
         });
 
+        modelBuilder.Entity<Giaodich>(entity =>
+        {
+            entity.HasKey(e => e.MaGiaoDich);
+
+            entity.ToTable("GIAODICH");
+
+            entity.Property(e => e.MaGiaoDich)
+                .HasMaxLength(8)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.MaDonHang)
+                .HasMaxLength(36)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.MaNganHang)
+                .HasMaxLength(25)
+                .IsUnicode(false);
+            entity.Property(e => e.NoiDung).HasMaxLength(250);
+            entity.Property(e => e.ThoiGian).HasColumnType("datetime");
+
+            entity.HasOne(d => d.MaDonHangNavigation).WithMany(p => p.Giaodiches)
+                .HasForeignKey(d => d.MaDonHang)
+                .HasConstraintName("FK_GIAODICH_DONHANG");
+        });
+
         modelBuilder.Entity<Giohang>(entity =>
         {
-            entity.HasKey(e => e.MaGioHang).HasName("PK__GIOHANG__F5001DA34201ECA6");
+            entity.HasKey(e => e.MaGioHang).HasName("FK_GIOHANG");
 
             entity.ToTable("GIOHANG");
 
             entity.Property(e => e.MaGioHang)
-                .HasMaxLength(8)
+                .HasMaxLength(36)
                 .IsUnicode(false)
                 .IsFixedLength();
             entity.Property(e => e.MaNd)
@@ -183,12 +211,12 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<GiohangSanpham>(entity =>
         {
-            entity.HasKey(e => new { e.MaGioHang, e.MaSanPham });
+            entity.HasKey(e => new { e.MaGioHang, e.MaSanPham }).HasName("FK_GIOHANG_SANPHAM");
 
             entity.ToTable("GIOHANG_SANPHAM");
 
             entity.Property(e => e.MaGioHang)
-                .HasMaxLength(8)
+                .HasMaxLength(36)
                 .IsUnicode(false)
                 .IsFixedLength();
             entity.Property(e => e.MaSanPham)
@@ -199,12 +227,12 @@ public partial class WebBanThuocBvtvContext : DbContext
             entity.HasOne(d => d.MaGioHangNavigation).WithMany(p => p.GiohangSanphams)
                 .HasForeignKey(d => d.MaGioHang)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_GIOHANG_SANPHAM_GIOHANG");
+                .HasConstraintName("PK_GIOHANG_SANPHAM_GIOHANG");
 
             entity.HasOne(d => d.MaSanPhamNavigation).WithMany(p => p.GiohangSanphams)
                 .HasForeignKey(d => d.MaSanPham)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_GIOHANG_SANPHAM_SANPHAM");
+                .HasConstraintName("PK_GIOHANG_SANPHAM_SANPHAM");
         });
 
         modelBuilder.Entity<Hinhanh>(entity =>
@@ -243,6 +271,9 @@ public partial class WebBanThuocBvtvContext : DbContext
             entity.Property(e => e.DiaChi).HasMaxLength(255);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.GoogleId)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.HoTen).HasMaxLength(30);
             entity.Property(e => e.MaVaiTro)

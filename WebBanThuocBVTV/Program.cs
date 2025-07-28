@@ -1,12 +1,39 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System;
+using WebBanThuocBVTV.Helper;
+using WebBanThuocBVTV.Helper.VnPay;
+using WebBanThuocBVTV.Models;
+using WebBanThuocBVTV.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddRazorOptions(options =>
+    {
+        options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
+        //options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
+        //// Để chắc chắn, bạn cũng có thể thêm vào danh sách tìm kiếm chung (phòng trường hợp dùng ngoài Area)
+        options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
+        //options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
+    });
+
+builder.Services.AddScoped<SendOTP>();
+builder.Services.AddScoped<NguoiDungRepository>();
+builder.Services.AddScoped<DonHangRepository>();
+builder.Services.AddScoped<SanPhamRepository>();
+builder.Services.AddScoped<BinhLuanRepository>();
+builder.Services.AddScoped<DanhGiaRepository>();
+builder.Services.AddScoped<DonHangRepository>();
+builder.Services.AddScoped<GioHangRepository>();
+builder.Services.AddScoped<NhomSanPhamRepository>();
+builder.Services.AddScoped<NhaSanXuatRepository>();
+builder.Services.AddScoped<IVnPayService, VnPayService>();
+
+
 //Add services session
 builder.Services.AddSession(options =>
 {
@@ -23,10 +50,14 @@ builder.Services.AddAuthentication(options =>
 .AddCookie()
 .AddGoogle(options =>
 {
-    options.ClientId = "789605168129-1l28k16eubdb863sn76jcpni97v4muii.apps.googleusercontent.com";
-    options.ClientSecret = "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";
+    options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
     options.CallbackPath = "/Login/SignInGoogle";
+    options.SaveTokens = true; //Bật savetokens để lưu id_token
 });
+
+builder.Services.AddDbContext<WebBanThuocBvtvContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 var app = builder.Build();
@@ -49,7 +80,13 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

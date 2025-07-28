@@ -1,0 +1,135 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<WebBanThuocBVTV.Models.Sanpham>
+@using System.Globalization
+@{
+
+
+}
+<link href="~/css/Product/Index.css" rel="stylesheet" />
+
+<div class="product-container">
+	<div class="left-product">
+		<div class="nav-product">
+			<a class="btn btn-primary nav-title" data-bs-toggle="collapse" data-bs-target="#lst-typeproduct" aria-expanded="true" aria-controls="lst-typeproduct">
+				THUỐC BẢO VỆ THỰC VẬT
+			</a>
+			<form id="form-nav-product" asp-action="FilterProduct" asp-controller="Product">
+				<input id="maNhomSp" style="display:none" name="maNhomSp" value="@ViewBag.maNhomSp" />
+				<ul class="collapse show" id="lst-typeproduct">
+					@foreach (var nsp in ViewBag.nhomSanPham)
+					{
+						if (nsp.MaNhomSp == ViewBag.maNhomSp)
+						{
+							<li style="background-color:lightslategray; color:white;" onclick="selectGroup('@nsp.MaNhomSp')">@nsp.TenNhomSp</li>
+						}
+						else
+						{
+							<li onclick="selectGroup('@nsp.MaNhomSp')">@nsp.TenNhomSp</li>
+						}
+					}
+				</ul>
+			</form>
+		</div>
+		<div class="banner-product">
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Plasti_xtcige.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Chubeca_hsjlfs.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Plasti_xtcige.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Chubeca_hsjlfs.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+		</div>
+	</div>
+	<div class="right-product">
+		<div class="row row-cols-1 row-cols-md-4 g-4">
+			@foreach (var sp in Model)
+			{
+				int sumEvaluate=0;
+				int sumProductBuyed = 0;
+				<a href="@Url.Action("DetailProduct","Product",new {area = "Customer", maSp=@sp.MaSanPham})" style="text-decoration:none; color: black;">
+					<div class="col">
+						<div class="card">
+							<img src="@sp.Hinhanhs.First().Url" class="card-img-top" alt="error_img">
+							<div class="card-body">
+								<h5 class="card-title">@(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(sp.TenSanPham.ToLower() ?? "Không tên"))</h5>
+								<h5 class="card-text" style="color: red">@(String.Format("{0:N0}", @sp?.Gia)) vnđ</h5>
+								<p>
+									<i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+
+									@foreach(var evaluate in sp.Binhluans)
+									{
+										sumEvaluate += evaluate.MaDanhGia;
+									}
+									@(sumEvaluate == 0 ? 5 : sumEvaluate / sp.Binhluans.Count)
+									@foreach(var order in sp.DonhangSanphams)
+									{
+										if(order.MaDonHangNavigation.MaTrangThai=="HTO")
+										{
+											sumProductBuyed += order.SoLuongDatMua;
+										}
+									}
+									Đã bán @(sumProductBuyed >= 1000 ? sumProductBuyed / 1000 + "k" : sumProductBuyed)
+
+								</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			}
+		</div>
+		<br />
+		<br />
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				@Html.PagedListPager(Model, page => Url.Action("Index", new { page, ViewBag.maNhomSp }),
+				new PagedListRenderOptions
+				{
+					LiElementClasses = new[] { "page-item" },
+					PageClasses = new[] { "page-link" },
+					DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded,
+					DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded
+				})
+			</ul>
+		</nav>
+	</div>
+</div>
+<script>
+	function selectGroup(maNhomSp) {
+		document.getElementById('maNhomSp').value = maNhomSp;
+		document.getElementById('form-nav-product').submit();
+	}
+
+		 $(document).ready(function(){
+	$('.banner-product').slick({
+			infinite: true,   // Vòng lặp vô tận
+			speed: 500,       // Tốc độ chuyển động
+			slidesToShow: 4,  // Số slide hiển thị cùng lúc
+			slidesToScroll: 1, // Số slide di chuyển mỗi lần
+			autoplay: true,
+			autoplaySpeed: 2500,
+			arrows:true,
+			vertical: true,
+		})
+		 });
+</script>

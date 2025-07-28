@@ -39,7 +39,7 @@ namespace WebBanThuocBVTV.Repositories
             return newMaImg;
         }
 
-        public Task<bool> Delete(string id)
+        public Task<AlertMessage> Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +49,7 @@ namespace WebBanThuocBVTV.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> Update(Hinhanh entity)
+        public Task<AlertMessage> Update(Hinhanh entity)
         {
             throw new NotImplementedException();
         }

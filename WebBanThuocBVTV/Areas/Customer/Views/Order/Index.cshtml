@@ -1,0 +1,141 @@
+﻿@model List<WebBanThuocBVTV.Models.DonhangSanpham>
+@{
+    var tongTien = 0.0;
+}
+<link rel="stylesheet" href="~/css/Order/Index.css">
+<form class="order-container" asp-action="Payment" asp-controller="Order">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="payment-container">
+                <div class="payment-header">
+                    <h2><i class="fas fa-shopping-cart me-2"></i>Thanh Toán Đơn Hàng</h2>
+                    <p class="mb-0">Hoàn tất đơn hàng của bạn một cách an toàn</p>
+                </div>
+
+                <div class="row p-4">
+                    <!-- Thông tin sản phẩm -->
+                    <div class="col-lg-7">
+                        <h4 class="mb-4"><i class="fas fa-box me-2"></i>Sản phẩm đã chọn</h4>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <input type="hidden" name="orderItems[@i].MaSanPham" value="@Model[i].MaSanPham" /> 
+                            <input type="hidden" name="orderItems[@i].SoLuongDatMua" value="@Model[i].SoLuongDatMua" /> 
+                            <input type="hidden" name="orderItems[@i].TongTien" value="@Model[i].TongTien" /> 
+
+                            <div class="product-card">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="product-image">
+                                            <img src="@Model[i].MaSanPhamNavigation.Hinhanhs.First().Url"/>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="mb-1">@Model[i].MaSanPhamNavigation.TenSanPham</h6>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span>Số lượng: @Model[i].SoLuongDatMua</span>
+                                            <strong class="text-primary"> @(String.Format("{0:N0}", @Model[i].MaSanPhamNavigation.Gia)) vnđ</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            tongTien = tongTien + (Model[i].SoLuongDatMua * Model[i].MaSanPhamNavigation.Gia);
+                        }
+
+                        <!-- Thông tin giao hàng -->
+                        <h4 class="mb-4 mt-4"><i class="fas fa-truck me-2"></i>Thông tin giao hàng</h4>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Họ và tên</label>
+                                    <input type="text" class="form-control" placeholder="Nguyễn Văn A" value="@ViewBag.User?.HoTen" required readonly>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Số điện thoại</label>
+                                    <input type="tel" class="form-control" placeholder="0123456789" value="@ViewBag.User?.SoDienThoai"  required readonly>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="example@email.com" value="@ViewBag.User?.Email" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Địa chỉ giao hàng</label>
+                                <textarea class="form-control" rows="3" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố"  required readonly>@ViewBag.User?.DiaChi</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Ghi chú đơn hàng</label>
+                                <textarea name="ghiChu" class="form-control" rows="2" placeholder="Ghi chú thêm cho đơn hàng (tùy chọn)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thanh toán -->
+                    <div class="col-lg-5">
+                        <div class="sticky-top" style="top: 2rem;">
+                            <h4 class="mb-4"><i class="fas fa-credit-card me-2"></i>Phương thức thanh toán</h4>
+
+                            <div class="mb-3">
+                                <select name="pttt" class="form-select form-control" id="paymentMethod">
+                                    <option value="NH" selected>
+                                        💰 Thanh toán khi nhận hàng (COD)
+                                    </option>
+                                    <option value="banking">
+                                        🏦 Chuyển khoản ngân hàng
+                                    </option>
+                                    <option value="card">
+                                        💳 Thẻ tín dụng/Ghi nợ
+                                    </option>
+                                    <option value="momo">
+                                        📱 Ví MoMo
+                                    </option>
+                                    <option value="zalopay">
+                                        💙 ZaloPay
+                                    </option>
+                                    <option value="VP">
+                                        🔵 VNPay
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div id="paymentDetails" class="payment-details">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>Thanh toán khi nhận hàng:</strong> Bạn sẽ thanh toán trực tiếp cho shipper khi nhận được hàng.
+                                </div>
+                            </div>
+
+                            <!-- Tóm tắt đơn hàng -->
+                            <div class="price-summary mt-4">
+                                <h5 class="mb-3">Tóm tắt đơn hàng</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Tạm tính:</span>
+                                    <span> @(String.Format("{0:N0}", tongTien)) vnđ</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Phí vận chuyển:</span>
+                                    <span>30,000 ₫</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <strong>Tổng cộng:</strong>
+                                    <strong class="total-price">@(String.Format("{0:N0}", tongTien)) vnđ</strong>
+                                </div>
+                            </div>
+
+                            <button type="submit"  class="btn btn-success btn-pay w-100 mt-4">
+                                <i class="fas fa-lock me-2"></i>Đặt hàng ngay
+                            </button>
+
+                            <div class="security-info">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-shield-alt text-primary me-2"></i>
+                                    <small>Thông tin của bạn được bảo mật an toàn</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

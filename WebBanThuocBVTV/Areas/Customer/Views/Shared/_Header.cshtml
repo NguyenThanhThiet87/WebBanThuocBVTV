@@ -1,0 +1,310 @@
+﻿@{
+}
+<link href="~/css/Shared/_Header.css" rel="stylesheet" />
+<link href="~/css/Shared/_Loading.css" rel="stylesheet" />
+<div id="header" class="header-container">
+	<div class="header">
+		<!-- Logo -->
+		<div class="logo">
+			<div class="logo-circle">
+				<div class="logo-inner">
+					<span class="logo-leaf">🌾</span>
+				</div>
+			</div>
+			<div class="logo-text">
+				AGRI MART<br>
+				<small style="font-size: 10px; color: #666;">T&T</small>
+			</div>
+		</div>
+
+		<!-- Search Box -->
+		<div class="search-container">
+			<input type="text" class="search-box" placeholder="Tìm kiếm sản phẩm..." onkeyup="performSearch(this)">
+			<i class="fa-solid fa-magnifying-glass search-icon" style="color: #ffffff;"></i>
+			<div class="results-container hidden" id="resultsContainer"></div>
+		</div>
+
+		<!-- Header Items -->
+		<div class="header-items">
+			<a class="header-item" data-bs-toggle="modal" data-bs-target="#google_map_modal">
+				<i class="fa-solid fa-location-dot header-icon icon-location" style="color: #069322;"></i>
+				<div class="header-text">
+					Cửa hàng<br>
+					gần bạn
+				</div>
+			</a>
+
+			@await Html.PartialAsync("~/Areas/Customer/Views/GoogleMap/Index.cshtml")
+
+			<a class="header-item" href="@Url.Action("Index","Detection",new{area = "Customer"})">
+				<i class="fas fa-box-open header-icon icon-package" style="color: #069322;"></i>
+				<div class="header-text">
+					Nhận diện<br>
+					bệnh lá
+				</div>
+			</a>
+			@{
+				if (ViewBag.Account != null)
+				{
+					<a class="header-item" data-bs-toggle="modal" data-bs-target="#cartModalToggle">
+						<i class="fas fa-cart-shopping header-icon icon-cart" style="color: #069322;"></i>
+						<div class="header-text">
+							Giỏ hàng
+						</div>
+					</a>
+					<div class="modal fade" id="cartModalToggle" aria-hidden="true" aria-labelledby="cartModalToggleLabel2" tabindex="-1">
+						<div class="modal-dialog modal-dialog-centered modal-xl">
+							<div class="cart-container modal-content" id="cart-container">
+							</div>
+						</div>
+					</div>
+					<a class="header-item" href="@Url.Action("Index","Account",new{area = "Customer"})">
+						<i class="fas fa-user header-icon icon-user" style="color: #069322;"></i>
+						<div class="header-text">
+							@ViewBag.Account.HoTen
+						</div>
+					</a>
+				}
+				else
+				{
+					<a class="header-item" href="@Url.Action("Index","Login",new{area = "Customer"})">
+						<i class="fas fa-user header-icon icon-user" style="color: #069322;"></i>
+						<div class="header-text">
+							Đăng nhập
+						</div>
+					</a>
+				}
+			}
+		</div>
+	</div>
+</div>
+
+<script>
+	// Biến để quản lý thời gian chờ (debounce)
+	let debounceTimeout;
+
+	// Hàm tìm kiếm đã được viết
+	function performSearch(input) {
+		let keyword = input.value;
+		let resultsList = document.getElementById('resultsContainer');
+
+		if(keyword=="")
+		{
+			resultsList.classList.add("hidden");
+			return;
+		}
+		resultsList.classList.remove("hidden");
+		resultsList.innerHTML = '<div class="spinner"> <div class="cube1"></div> <div class="cube2"></div> </div>';
+		// Hủy bỏ yêu cầu tìm kiếm trước đó nếu người dùng vẫn đang gõ
+		clearTimeout(debounceTimeout);
+		// Điều này giúp giảm tải cho server, chỉ tìm khi người dùng ngừng gõ
+		debounceTimeout = setTimeout(() => {
+			$.ajax({
+				url: "@Url.Action("SearchProduct", "Product", new { area = "Customer" })", // Đảm bảo đúng đường dẫn
+				type: "POST",
+				data: { keyword: keyword },
+				success: function (response) {
+					resultsList.innerHTML = ''; // Xóa các kết quả cũ
+					resultsList.innerHTML= response // Hiển thị ô kết quả
+				},
+				error: function (xhr, status, error) {
+					console.error("Lỗi khi tìm kiếm:", error);
+					resultsList.classList.add("hidden");
+				}
+			});
+		}, 300);
+	}
+	document.addEventListener('click',(e)=>{
+		if(!e.target.closest('#resultsContainer'))
+		{
+			let resultsList = document.getElementById('resultsContainer');
+			resultsList.classList.add("hidden");
+		}
+	})
+	//Tải dữ liệu giỏ hàng khi load web
+	window.addEventListener('load', async ()=>{
+		var cart_container = document.getElementById("cart-container");
+		if(cart_container!=null)
+		{
+			try
+			{
+				var cart_container = document.getElementById("cart-container");
+				$.ajax({
+					url:"@Url.Action("Index", "Cart", new { area = "Customer" })",
+					type: "GET",
+					success: function (response) {
+						cart_container.innerHTML = ''; // Xóa các kết quả cũ
+						cart_container.innerHTML= response; // Hiển thị ô kết quả
+					},
+					error: function (xhr, status, error) {
+						console.error("Lỗi :", error);
+					}
+				})
+			}catch(error)
+			{
+				console.error('Lỗi khi gọi API:', error);
+			}
+		}
+	})
+	//tải dữ liệu giỏ hàng khi muốn hiển thị
+	document.addEventListener('show.bs.modal',(e)=>{
+		if(e.target.id ==='cartModalToggle')
+		{
+			var cart_container = document.getElementById("cart-container");
+			$.ajax({
+				url:"@Url.Action("Index","Cart",new {area = "Customer"})",
+				type: "GET",
+				success: function (response) {
+					cart_container.innerHTML = ''; // Xóa các kết quả cũ
+					cart_container.innerHTML= response; // Hiển thị ô kết quả
+				},
+				error: function (xhr, status, error) {
+					console.error("Lỗi :", error);
+				}
+			})
+		}
+	})
+	var updateSoLuongOnServer = async function(maSpCart, soluong)
+	{
+		$.ajax({
+			url:"@Url.Action("UpdateSoluongProduct", "Cart", new { area = "Customer" })",
+			type:"POST",
+			data: {maSp:maSpCart.value, soLuong: soluong},
+			success:function(response)
+			{
+				console.log(response.message);
+			},
+			error: function(response)
+			{
+				console.log(response.message);
+			}
+		})
+	}
+	var increaseQualityCart = function(btn) {
+		var soluong_input = btn.previousElementSibling;
+		var soluong = parseInt(soluong_input.value) || 1; //Lấy giá trị hiện tại, chuyển thành số
+		var soLuongTonElement = btn.parentElement.querySelector('#soLuongSpTon')
+		if(soluong >= soLuongTonElement.value)
+		{
+			showToast("warning","Vượt quá số lượng tồn kho");
+		}else
+		{
+			soluong = soluong + 1; //Tăng giá trị lên 1
+			soluong_input.value=soluong; //Gán giá trị mới cho input
+			var maSpCart = soLuongTonElement.previousElementSibling;
+			updateSoLuongOnServer(maSpCart, soluong);
+		}
+	};
+
+	var decreaseQualityCart = function(btn) {
+		var soluong_input = btn.nextElementSibling; // Lấy phần tử input bằng jQuery
+		var soluong = parseInt(soluong_input.value) || 1; // Lấy giá trị hiện tại, chuyển thành số
+		soluong = soluong<=1? 1 : soluong - 1 ; // Tăng giá trị lên 1
+		soluong_input.value=soluong; // Gán giá trị mới cho input
+		var maSpCart = btn.parentElement.querySelector('#soLuongSpTon').previousElementSibling;
+		updateSoLuongOnServer(maSpCart, soluong);
+	};
+
+	var changeQuality = function(input)
+	{
+		var soLuongTonElement = input.parentElement.querySelector('#soLuongSpTon')
+		var soluong = parseInt(input.value) || 1;
+		if(soluong >= soLuongTonElement.value)
+		{
+			showToast("warning","Vượt quá số lượng tồn kho");
+		}else
+		{
+			if(soluong<=0)
+				input.value = 1;
+			else
+			{
+				var maSpCart = soLuongTonElement.previousElementSibling;
+				updateSoLuongOnServer(maSpCart, soluong);
+			}
+		}
+	}
+
+	var removeProduct = function(btn)
+	{
+		showLoading("");
+		var maSpCart = btn.previousElementSibling;
+		var cart_container = document.getElementById("cart-container");
+		$.ajax({
+				url:"@Url.Action("RemoveProduct", "Cart", new { area = "Customer" })",
+				type: "POST",
+				data: {maSp: maSpCart.value},
+				success: function (response) {
+					if(response.success)
+					{
+						$.ajax({
+								url:"@Url.Action("Index", "Cart", new { area = "Customer" })",
+								type: "GET",
+								success: function (response) {
+									cart_container.innerHTML = ''; // Xóa các kết quả cũ
+									cart_container.innerHTML= response; // Hiển thị ô kết quả
+								},
+								error: function (xhr, status, error) {
+									console.error("Lỗi :", error);
+								}
+							  })
+							  hideLoading();
+					}else
+					{
+						showToast('error', response.message);
+						hideLoading();
+					}
+				},
+				error: function (xhr, status, error) {
+					console.error("Lỗi :", error);
+				}
+			})
+	}
+	var chooseAllProduct=function(input)
+	{
+		var lstcheckbox = document.getElementsByClassName("checkbox");
+		if(input.checked)
+		{
+			for(var i=0; i<lstcheckbox.length;i++)
+			{
+				lstcheckbox[i].checked = true;
+			}
+		}else
+		{
+			for(var i=0; i<lstcheckbox.length;i++)
+			{
+				lstcheckbox[i].checked = false;
+			}
+		}
+	}
+
+	var OrderProductFromCart=function(btn)
+	{
+		lstcheckbox = document.getElementsByClassName("checkbox");
+
+		lstSp = [];
+		for(var idx = 0; idx < lstcheckbox.length; idx++)
+		{
+			if(lstcheckbox[idx].checked)
+			{
+				var maSp = lstcheckbox[idx].value;
+				var product = {
+					MaSanPham: document.getElementsByClassName("maSp-" + maSp)[0]?.value ,
+					SoLuongDatMua: parseInt(document.getElementsByClassName("soluong-" + maSp)[0]?.value)
+				};
+				lstSp.push(product);
+			}
+		}
+		if(lstSp.length<=0)
+		{
+			showToast("warning","Bạn chưa chọn sản phẩm nào")
+		}else
+		{
+			var inputElement = document.getElementById("dataSubmit");
+			inputElement.value = JSON.stringify(lstSp);
+			console.log(inputElement.value);
+			var form = document.getElementsByClassName("cart-actions")[0];
+			form.submit();
+			console.log(lstSp);
+		}
+	}
+</script>

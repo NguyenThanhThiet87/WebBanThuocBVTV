@@ -15,7 +15,7 @@ public partial class Binhluan
 
     public int MaDanhGia { get; set; }
 
-    public virtual Danhgium MaDanhGiaNavigation { get; set; } = null!;
+    public virtual Danhgia MaDanhGiaNavigation { get; set; } = null!;
 
     public virtual Nguoidung MaNdNavigation { get; set; } = null!;
 

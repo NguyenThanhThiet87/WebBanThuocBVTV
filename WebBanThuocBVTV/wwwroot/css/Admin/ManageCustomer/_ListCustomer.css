@@ -1,0 +1,89 @@
+﻿.manage_customer-container .table-container {
+    overflow-x: auto;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 57vw;
+}
+
+    .customer-table th,
+    .customer-table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .customer-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .customer-table tr:hover {
+        background: #f9fafb;
+    }
+
+    .customer-table .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .customer-table .status-active {
+        background: #d1fae5;
+        color: #059669;
+    }
+
+    .customer-table .status-inactive {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    .customer-table .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .customer-table .btn {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .customer-table .btn-view {
+        background: #dbeafe;
+        color: #1d4ed8;
+    }
+
+        .customer-table .btn-view:hover {
+            background: #bfdbfe;
+        }
+
+    .customer-table .btn-edit {
+        background: #fef3c7;
+        color: #d97706;
+    }
+
+        .customer-table .btn-edit:hover {
+            background: #fde68a;
+        }
+
+    .customer-table .btn-delete {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+        .customer-table .btn-delete:hover {
+            background: #fecaca;
+        }
+
+.customer-table #title_empty_order {
+    text-align: center;
+}

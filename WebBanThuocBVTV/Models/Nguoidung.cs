@@ -11,6 +11,8 @@ public partial class Nguoidung
 
     public bool GioiTinh { get; set; }
 
+    public DateTime NgaySinh { get; set; }
+
     public string? SoDienThoai { get; set; }
 
     public string? DiaChi { get; set; }
@@ -22,6 +24,11 @@ public partial class Nguoidung
     public DateOnly? NgayBdlv { get; set; }
 
     public string MaVaiTro { get; set; } = null!;
+
+    public string? GoogleId { get; set; }
+    public DateTime NgayTao { get; set; }
+
+    public string DisplayGioiTinh { get { return GioiTinh == false ? "Nữ" : "Nam"; } }
 
     public virtual ICollection<Binhluan> Binhluans { get; set; } = new List<Binhluan>();
 

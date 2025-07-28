@@ -1,0 +1,301 @@
+﻿@using WebBanThuocBVTV.Helper
+@model List<WebBanThuocBVTV.Models.Nguoidung>
+@{
+}
+<link href="~/css/Admin/ManageCustomer/_ListCustomer.css" rel="stylesheet" />
+<link href="/css/Admin/ManageCustomer/Index.css" rel="stylesheet" />
+<div class="manage_customer-container">
+	<h1 class="page-title">Quản Lý Khách Hàng</h1>
+
+	<div class="content-container">
+		<!-- Thống kê -->
+		<div class="stats-grid">
+			<div class="stat-card">
+				<div class="stat-icon customers">👥</div>
+				<div class="stat-value">@ViewBag.TongKh</div>
+				<div class="stat-label">Tổng khách hàng</div>
+				<div class="stat-change">↗ +8% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon new">🆕</div>
+				<div class="stat-value">@ViewBag.KhMoi</div>
+				<div class="stat-label">Khách hàng mới</div>
+				<div class="stat-change">↗ +12% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon active">✅</div>
+				<div class="stat-value">1,089</div>
+				<div class="stat-label">Khách hàng hoạt động</div>
+				<div class="stat-change">↗ +5% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon inactive">⏸️</div>
+				<div class="stat-value">145</div>
+				<div class="stat-label">Khách hàng không hoạt động</div>
+				<div class="stat-change">↘ -3% so với tháng trước</div>
+			</div>
+		</div>
+
+		<!-- Thao tác nhanh -->
+		<div class="actions-section">
+			<h2 class="actions-title">Thao tác nhanh</h2>
+			<div class="actions-grid">
+				<a class="action-btn" href="@Url.Action("AddCustomer","ManageCustomer",new{area="Admin"})">
+					<span>➕</span>
+					Thêm khách hàng mới
+				</a>
+				<a class="action-btn" onclick="importCustomers()">
+					<span>📥</span>
+					Nhập khách hàng từ Excel
+				</a>
+				<a class="action-btn" onclick="exportCustomers()">
+					<span>📤</span>
+					Xuất danh sách khách hàng
+				</a>
+			</div>
+		</div>
+
+		<!-- Bảng khách hàng -->
+		<div class="customer_section-container">
+
+			<div class="table-header">
+				<h2 class="table-title">Danh sách sản phẩm</h2>
+				<div class="active-filters" id="activeFilters" style="display: none;">
+					<strong>Bộ lọc đang áp dụng:</strong>
+					<div id="filterTags"></div>
+				</div>
+
+				<div class="sort-options">
+					<label>Sắp xếp theo:</label>
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsCustomer>()" onchange="searchCustomers()">
+					</select>
+				</div>
+
+				<div class="search-container">
+					<input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." value="" id="searchInput">
+					<button class="search-btn" onclick="searchCustomers()">🔍 Tìm kiếm</button>
+				</div>
+			</div>
+
+			<div class="table-content">
+				<div class="filter-sidebar">
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
+
+					<div class="filter-section">
+						<div class="filter-title">🏭 Giới tính</div>
+						<select class="sort-select" id="genderSelect" asp-items="Html.GetEnumSelectList<GenderOptions>()">
+						</select>
+					</div>
+
+					<!-- Số lượng tồn kho -->
+					<div class="filter-section">
+						<div class="filter-title">🏭 Ngày tạo</div>
+						<select class="sort-select" id="createAtSelect" asp-items="Html.GetEnumSelectList<CreateAtOptions>()">
+						</select>
+					</div>
+
+					<div class="filter-actions">
+						<button class="btn-apply" onclick="applyFilters()">Áp dụng</button>
+						<button class="btn-reset" onclick="resetFilters()">Đặt lại</button>
+					</div>
+				</div>
+
+				<div class="customer-table">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="detail_customerModal" tabindex="-1" aria-labelledby="detail_customerModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	document.addEventListener("DOMContentLoaded",()=>{
+		searchCustomers("init");
+	})
+
+	var detailCustomer_modal = document.getElementById('detail_customerModal');
+	detailCustomer_modal.addEventListener('hide.bs.modal', function (event) {
+	  location.reload();
+	});
+
+	var model_container = document.getElementById("modal-container");
+
+	var detailCustomer=function(maNguoiDung)
+	{
+		$.ajax({
+		url:"@Url.Action("DetailCustomer", "ManageCustomer", new { area = "Admin" })",
+		method:"post",
+		data: {maNd:maNguoiDung},
+		success:function(res)
+		{
+			model_container.innerHTML=res;
+		},
+		error:function(res)
+		{
+			setAlert("Lỗi","error")
+		}
+		});
+	}
+
+
+	var enterEditMode=function()
+	{
+		var title = document.getElementById("modalTitle")
+		title.textContent = "Chỉnh sửa thông tin khách hàng";
+
+		var lstElementViewMode = document.getElementsByClassName("view-mode");
+		var lstElementEditMode = document.getElementsByClassName("edit-mode");
+		for(var i=0; i < lstElementViewMode.length;i++)
+		{
+			lstElementViewMode[i].classList.add("d-none");
+		}
+		for(var i=0; i < lstElementEditMode.length;i++)
+		{
+			lstElementEditMode[i].classList.remove("d-none");
+		}
+	}
+
+	var cancelEditMode = function()
+	{
+		var title = document.getElementById("modalTitle")
+		title.textContent = "Thông tin khách hàng";
+
+		var lstElementViewMode = document.getElementsByClassName("view-mode");
+		var lstElementEditMode = document.getElementsByClassName("edit-mode");
+		for(var i=0; i < lstElementViewMode.length;i++)
+		{
+			lstElementViewMode[i].classList.remove("d-none");
+		}
+		for(var i=0; i < lstElementEditMode.length;i++)
+		{
+			lstElementEditMode[i].classList.add("d-none");
+		}
+	}
+
+	var saveEdit = function(maNguoiDung)
+	{
+		showLoading("");
+
+		var id = maNguoiDung;
+		var name = document.getElementById("editCustomerName").value;
+		var gioiTinh = document.getElementById("editCustomerGender").value;
+		var ngaySinh = document.getElementById("editCustomerBirthday").value;
+
+		var ngayTao = document.getElementById("customerDateCreated").value;
+		var email = document.getElementById("editCustomerEmail").value;
+		var soDienThoai = document.getElementById("editCustomerPhone").value;
+		var diaChi = document.getElementById("editCustomerAddress").value;
+
+		var dataSend = {
+			MaNd: id,
+			HoTen: name,
+			GioiTinh: gioiTinh,
+			NgaySinh: ngaySinh,
+			SoDienThoai: soDienThoai,
+			DiaChi: diaChi,
+			Email: email,
+			NgayTao: ngayTao
+		}
+
+		$.ajax({
+		url:"@Url.Action("UpdateCustomer", "ManageCustomer", new { area = "Admin" })",
+		method:"post",
+		data: dataSend,
+		success:function(res)
+		{
+			model_container.innerHTML=res;
+			hideLoading()
+			showToast('success',"Cập nhật thành công");
+		},
+		error:function(res)
+		{
+			setAlert("Lỗi","error")
+			hideLoading()
+		}
+		});
+	}
+
+	var searchCustomers = function(status)
+	{
+		if(status !="init")
+		  showLoading("");
+
+		var name = document.getElementById("searchInput").value;
+		var sort = document.getElementById("sortSelect").value;
+
+		var tableCustomer = document.getElementsByClassName("customer-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("FilterCustomer","ManageCustomer",new{area ="Admin"})",
+			method:"POST",
+			data: {keyword: name, SortOption: sort},
+			success:function(res)
+			{
+				hideLoading()
+				tableCustomer.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+
+	var applyFilters = function()
+	{
+		showLoading("");
+
+		var GioiTinh = document.getElementById("genderSelect").value;
+		var NgayTao = document.getElementById("createAtSelect").value;
+		var Sort = document.getElementById("sortSelect").value;
+
+		var tableProduct = document.getElementsByClassName("customer-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("FilterCustomer", "ManageCustomer", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: name, gioiTinh: GioiTinh, ngayTao: NgayTao, sortOption: Sort},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+
+	var resetFilters = function()
+	{
+		showLoading("");
+
+		var tableProduct = document.getElementsByClassName("product-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("SearchProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: ""},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+</script>

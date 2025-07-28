@@ -1,0 +1,96 @@
+﻿.infoDetailProduct-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom:5vh;
+}
+
+.infoDetailProduct-container .product-title {
+    color: #2c3e50;
+    border-bottom: 3px solid #2b8a3e;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+    .infoDetailProduct-container .info-section {
+        margin-bottom: 25px;
+    }
+
+    .infoDetailProduct-container .section-title {
+        background-color: #2b8a3e;
+        color: white;
+        padding: 10px 15px;
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .infoDetailProduct-container .section-content {
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+
+    .infoDetailProduct-container .info-item {
+        margin-bottom: 10px;
+    }
+
+    .infoDetailProduct-container .info-label {
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .infoDetailProduct-container .composition-list {
+        list-style: none;
+        padding: 0;
+    }
+
+        .infoDetailProduct-container .composition-list li {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-left: 4px solid #2b8a3e;
+        }
+
+    .infoDetailProduct-container .usage-table {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+        .infoDetailProduct-container .usage-table th {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .infoDetailProduct-container .usage-table td {
+            padding: 10px;
+            vertical-align: top;
+            border: 1px solid #ddd;
+        }
+
+        .infoDetailProduct-container .usage-table .category {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+    .infoDetailProduct-container .note-box {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .infoDetailProduct-container .note-title {
+        font-weight: bold;
+        color: #856404;
+        margin-bottom: 10px;
+    }

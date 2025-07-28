@@ -1,0 +1,100 @@
+﻿@model WebBanThuocBVTV.Models.Sanpham;
+<link rel="stylesheet" href="/css/Product/DetailProduct.css" />
+
+<div class="detail_product-container">
+	<!-- Product Grid -->
+	<div class="product-grid">
+		<!-- Product Image Section -->
+		<div class="product-image-section">
+			@if (Model.Hinhanhs?.Any() == true)
+			{
+				var hinhanhs = Model.Hinhanhs.ToList();
+
+				<div class="product-image-main">
+					<img src="@hinhanhs[0].Url" alt="Thuốc trừ sâu X" class="product-image" />
+				</div>
+				<div class="product-image-thumbnails">
+					@for (int idx = 1; idx < hinhanhs?.Count; idx++)
+					{
+						var img = hinhanhs[idx];
+						<img src="@img.Url" alt="Hình @(idx + 1)" class="thumbnail" />
+					}
+				</div>
+			}else
+			{
+				<div class="product-image-main">
+					<img src="<img src=" https: //thumbs.dreamstime.com/blog/2012/07/uploading-technical-error-76339-image21759953.jpg" alt="Thuốc trừ sâu X" class="product-image">" alt="Thuốc trừ sâu X" class="product-image" />
+				</div>
+				<div class="product-image-thumbnails">
+				</div>
+			}
+
+		</div>
+
+		<!-- Product Info Section -->
+		<form class="product-info-section" asp-action="Index" asp-controller="Order" asp-area="Customer" asp-status="0" >
+			<input name="maSp" id="maSp" value="@Model.MaSanPham" type="hidden" />
+			<h1 class="product-title">@Model.TenSanPham</h1>
+			<div class="product-price-section">
+				<span class="product-price">@String.Format("{0:N0}",Model.Gia) VNĐ</span>
+			</div>
+			<div class="quantity-section">
+				<button type="button" class="quantity-btn decrease_quality" onclick="decreaseQuality(this)">-</button>
+				<input name="soLuong" type="number" id="quantity-input" value="1" min="1" onblur="changeQuality(this)" />
+				<button type="button" class="quantity-btn increase_quality" onclick="increaseQuality(this)">+</button>
+			</div>
+			<div class="product-actions">
+				<button class="add-to-cart" type="button" onclick="addGioHang()">Thêm vào giỏ hàng</button>
+			    <button class="buy-now" type="submit">Mua ngay</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- Product Description Section -->
+	@Html.Partial("_DecriptionDetailProduct", Model)
+
+	<!-- Comments and Ratings Section -->
+	@Html.Partial("_ReviewProduct", Model)
+</div>
+<script>
+	var increaseQuality = function() {
+		var soluong_input = $("#quantity-input"); // Lấy phần tử input bằng jQuery
+		var soluong = parseInt(soluong_input.val()) || 1; // Lấy giá trị hiện tại, chuyển thành số
+		soluong += 1; // Tăng giá trị lên 1
+		soluong_input.val(soluong); // Gán giá trị mới cho input
+	};
+	var decreaseQuality = function() {
+		var soluong_input = $("#quantity-input"); // Lấy phần tử input bằng jQuery
+		var soluong = parseInt(soluong_input.val()) || 1; // Lấy giá trị hiện tại, chuyển thành số
+		soluong = soluong<=1? 1 : soluong - 1 ; // Tăng giá trị lên 1
+		soluong_input.val(soluong); // Gán giá trị mới cho input
+	};
+	var changeQuality = function(input)
+	{
+		var soluong = parseInt(input.value) || 1;
+		if(soluong<0)
+		  input.value = 1;
+	}
+	var addGioHang = function()
+	{
+		var maSpElement = document.getElementById("maSp");
+		var soLuongElement = document.getElementById("quantity-input");
+		$.ajax({
+			url:"@Url.Action("AddProduct", "Cart", new { area = "Customer"})",
+			type: "POST",
+			data:{maSp: maSpElement.value, soLuong:soLuongElement.value},
+			success:function(response){
+				if(response.success)
+				{
+					showToast("success", response.message);
+				}else
+				{
+					showToast("warning", response.message);
+				}
+			},
+			error: function(response){
+				showToast('error', response.message);
+			}
+		});
+	}
+</script>

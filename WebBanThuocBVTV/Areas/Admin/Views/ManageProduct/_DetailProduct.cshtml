@@ -1,0 +1,148 @@
+﻿@model WebBanThuocBVTV.Models.Sanpham
+
+<link href="~/css/Admin/ManageProduct/DetailProduct.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h5 class="modal-title" id="customerModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Thông Tin Sản Phẩm</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+</div>
+
+<div class="modal-body detail_product-body p-5">
+	<div class="row">
+		<div class="col-md-3 text-center mb-3">
+			<img src="@Model.Hinhanhs.First().Url"
+				 alt="Avatar" class="img_product" id="customerAvatar">
+			<br />
+			<span id="customerId">ID: @Model.MaSanPham</span>
+			<input name="MaSanPham" type="hidden" value="@Model.MaSanPham" />
+			<input type="file" id="avatarInput" class="edit-mode d-none" accept="image/*">
+		</div>
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-user me-2"></i>Tên Sản Phẩm
+						</div>
+						<div class="info-value view-mode" id="productName">@Model.TenSanPham</div>
+						<input name="TenSanPham" type="text" class="form-control edit-mode d-none" id="editProductName" value="@Model.TenSanPham">
+					</div>
+
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-venus-mars me-2"></i>Giá
+						</div>
+						<div class="info-value view-mode" id="productPrice">@(String.Format("{0:N0}", @Model.Gia)) VNĐ</div>
+						<input name="Gia" type="text" class="form-control edit-mode d-none" id="editProductPrice" value="@Model.Gia">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-calendar me-2"></i>Số Lượng
+						</div>
+						<div class="info-value view-mode" id="productQuanlity">@Model.SoLuong</div>
+						<input name="SoLuong" type="number" class="form-control edit-mode d-none" id="editProductQuality" value="@Model.SoLuong">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-calendar me-2"></i>Hạn sử dụng
+						</div>
+						<div class="info-value view-mode" id="productExpiry">@Model.HanSd</div>
+						<input name="HanSd" type="date" class="form-control edit-mode d-none" id="editProductExpiry" value="@(Model!=null?Model.HanSd.ToString():"")">
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-calendar me-2"></i>Nhà Sản Xuất
+						</div>
+						<div class="info-value view-mode" id="productProvider">@Model.MaNhaSxNavigation.TenNhaSx</div>
+						<select name="MaNhaSx" class="form-control edit-mode d-none" id="editProductProvider">
+							@foreach (var item in ViewBag.lstNSX)
+							{
+								<option value="@item.MaNhaSx">@item.TenNhaSx</option>
+							}
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-calendar me-2"></i>Nhóm Sản Phẩm
+						</div>
+						<div class="info-value view-mode" id="productCategory">@Model.MaNhomSpNavigation.TenNhomSp</div>
+						<select name="MaNhomSp" class="form-control edit-mode d-none" id="editProductCategory">
+							@foreach (var item in ViewBag.lstNSP)
+							{
+								<option value="@item.MaNhomSp">@item.TenNhomSp</option>
+							}
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fas fa-venus-mars me-2"></i>Thành Phần
+				</div>
+				<div class="info-value view-mode" id="productIngredient">@Model.ThanhPhan</div>
+				<textarea name="ThanhPhan" class="form-control edit-mode d-none" id="editProductIngredient" rows="2">@Model.ThanhPhan</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fas fa-envelope me-2"></i>Công Dụng
+				</div>
+				<div class="info-value view-mode" id="productUse">@Model.CongDung</div>
+				<textarea name="CongDung" class="form-control edit-mode d-none" id="editProductUse" rows="4">@Model.CongDung</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fas fa-phone me-2"></i>Hướng Dẫn Sử Dụng
+				</div>
+				<div class="info-value view-mode" id="productGuide">@Model.HuongDanSd</div>
+				<textarea name="HuongDanSd" class="form-control edit-mode d-none" id="editProductGuide" rows="4">@Model.HuongDanSd</textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<div class="view-mode">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">
+			<i class="fas fa-times me-2"></i>Đóng
+		</button>
+		<button type="button" class="btn btn-edit" id="editButton" onclick="enterEditMode()">
+			<i class="fas fa-edit me-2"></i>Chỉnh sửa
+		</button>
+	</div>
+
+	<div class="edit-mode d-none">
+		<button type="button" class="btn btn-cancel" id="cancelButton" onclick="cancelEditMode()">
+			<i class="fas fa-times me-2"></i>Hủy
+		</button>
+		<button type="submit" class="btn btn-save" id="saveButton" onclick="saveEdit('@Model.MaSanPham')">
+			<i class="fas fa-save me-2"></i>Lưu thay đổi
+		</button>
+	</div>
+</div>

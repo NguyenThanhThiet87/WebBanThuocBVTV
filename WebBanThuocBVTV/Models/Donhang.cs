@@ -17,7 +17,11 @@ public partial class Donhang
 
     public string MaPhuongThucTt { get; set; } = null!;
 
+    public string? GhiChu { get; set; }
+
     public virtual ICollection<DonhangSanpham> DonhangSanphams { get; set; } = new List<DonhangSanpham>();
+
+    public virtual ICollection<Giaodich> Giaodiches { get; set; } = new List<Giaodich>();
 
     public virtual Nguoidung MaNdNavigation { get; set; } = null!;
 

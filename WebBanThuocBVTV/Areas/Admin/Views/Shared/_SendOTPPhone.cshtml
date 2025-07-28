@@ -1,0 +1,47 @@
+﻿@{
+}
+<link href="~/css/Admin/Share/_SendOTPPhone.css" rel="stylesheet" />
+<div class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+
+        <div class="otp-icon"></div>
+
+        <h2 class="modal-title">Xác thực OTP</h2>
+        <p class="modal-subtitle">
+            Chúng tôi đã gửi mã xác thực đến số điện thoại<br>
+            <span class="phone-display">+84 *** *** 789</span>
+        </p>
+
+        <div class="otp-input-container">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 0)">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 1)">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 2)">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 3)">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 4)">
+            <input type="text" class="otp-input" maxlength="1" oninput="handleOtpInput(this, 5)">
+        </div>
+
+        <button class="verify-btn" id="verifyBtn" onclick="verifyOtp()">
+            Xác thực
+        </button>
+
+        <div class="error-message" id="errorMessage">
+            Mã OTP không chính xác. Vui lòng thử lại.
+        </div>
+
+        <div class="success-message" id="successMessage">
+            Xác thực thành công!
+        </div>
+
+        <div class="resend-section">
+            <span>Không nhận được mã? </span>
+            <button class="resend-btn" id="resendBtn" onclick="resendOtp()">
+                Gửi lại mã
+            </button>
+            <span id="countdown" class="countdown" style="display: none;">
+                (<span id="timer">60</span>s)
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+﻿<link href="~/css/Home/Index.css" rel="stylesheet" />
+<div class="home-container">
+    <div id="carouselExampleIndicators" class="carousel slide banner">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Plasti_xtcige.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Chubeca_hsjlfs.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!--Banner AI phát hiện bệnh cây trồng-->
+	@Html.Partial("_BannerAI")
+
+    <!--Sản phẩm-->
+    <div class="feature-product">
+    </div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+        var container = document.getElementsByClassName("feature-product")[0];
+   //      $.ajax({
+   //          url:"@Url.Action("FeaturedProduct", "Product", new { area = "Customer" })",
+   //          method:"GET",
+   //          success: function(res)
+   //          {
+			// 	container.innerHTML = res;
+   //          },
+   //          error: function(error)
+   //          {
+			// 	console.error("Lỗi khi tải sản phẩm:", error);
+			// }
+   //      })
+	});
+</script>
+@* <script> *@
+@*     // Hàm này sẽ tự chạy khi trang được tải xong *@
+@*     document.addEventListener("DOMContentLoaded", function() { *@
+@*         // --- 1. Cấu hình Firebase --- *@
+@*             const firebaseConfig = { *@
+@*       apiKey: "AIzaSyCCIQ6Z12ilkZLnrH7SLNlRaUQh84-f0qE", *@
+@*       authDomain: "tech-shop-56e66.firebaseapp.com", *@
+@*       projectId: "tech-shop-56e66", *@
+@*       storageBucket: "tech-shop-56e66.appspot.com", *@
+@*       messagingSenderId: "1087638581355", *@
+@*       appId: "1:1087638581355:web:e83ed07dfa065df194c12e", *@
+@*       measurementId: "G-8PG1WWVB74" *@
+@*     }; *@
+@*         // Khởi tạo Firebase *@
+@*         firebase.initializeApp(firebaseConfig); *@
+@*         const auth = firebase.auth(); *@
+
+@*         const statusMessage = document.getElementById('status-message'); *@
+
+@*         // --- 2. Cấu hình reCAPTCHA vô hình --- *@
+@*         window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { *@
+@*             'size': 'invisible', // Rất quan trọng! *@
+@*             'callback': (response) => { *@
+@*                 // reCAPTCHA đã được giải. Giờ chúng ta có thể gửi SMS. *@
+@*                 // Thông thường, hàm này sẽ được gọi tự động nếu reCAPTCHA không thấy nghi ngờ gì. *@
+@*                 console.log("reCAPTCHA solved, proceeding to send SMS."); *@
+@*                 sendVerificationCode(); *@
+@*             } *@
+@*         }); *@
+@*         sendVerificationCode() *@
+@*         // --- 3. Hàm để gửi mã --- *@
+@*         function sendVerificationCode() { *@
+@*             // *** Đặt số điện thoại cố định của bạn ở đây *** *@
+@*             // Phải có mã quốc gia (+84) *@
+@*             const phoneNumber = "+84868642533"; *@
+
+@*             const appVerifier = window.recaptchaVerifier; *@
+
+@*             statusMessage.textContent = `Đang gửi mã OTP đến số ${phoneNumber}...`; *@
+
+@*             auth.signInWithPhoneNumber(phoneNumber, appVerifier) *@
+@*                 .then((confirmationResult) => { *@
+@*                   // SMS đã được gửi. *@
+@*                   // Lưu lại `confirmationResult` để có thể xác thực mã OTP sau này. *@
+@*                   window.confirmationResult = confirmationResult; *@
+
+@*                   const message = `Mã OTP đã được gửi thành công đến số ${phoneNumber}. Vui lòng kiểm tra tin nhắn.`; *@
+@*                   statusMessage.textContent = message; *@
+@*                   console.log(message); *@
+
+@*                   // Tại đây, bạn có thể hiện ra một ô để người dùng nhập mã OTP nhận được *@
+@*                   // Hoặc bạn có thể tự động chuyển hướng người dùng đến trang nhập mã. *@
+
+@*                 }).catch((error) => { *@
+@*                   // Lỗi khi gửi SMS *@
+@*                   const errorMessage = `Lỗi khi gửi mã OTP: ${error.message}`; *@
+@*                   statusMessage.textContent = errorMessage; *@
+@*                   console.error(errorMessage, error); *@
+@*                 }); *@
+@*         } *@
+
+@*         // --- 4. Render reCAPTCHA để kích hoạt luồng --- *@
+@*         // Dòng này sẽ khởi chạy reCAPTCHA. *@
+@*         // Nếu reCAPTCHA không nghi ngờ, nó sẽ gọi hàm 'callback' ở trên và tự động gửi mã. *@
+@*         // Nếu nó nghi ngờ, nó có thể hiện popup xác minh hình ảnh. *@
+@*         recaptchaVerifier.render().then(function(widgetId) { *@
+@*             window.recaptchaWidgetId = widgetId; *@
+@*             // Nếu callback không được gọi tự động, chúng ta có thể thử gọi hàm gửi mã trực tiếp. *@
+@*             // Tuy nhiên, cách làm chuẩn là chờ callback. *@
+@*             console.log("reCAPTCHA rendered. Widget ID:", widgetId); *@
+@*         }); *@
+@*     }); *@
+@* </script> *@

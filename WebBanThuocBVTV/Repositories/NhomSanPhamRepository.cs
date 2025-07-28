@@ -15,21 +15,21 @@ namespace WebBanThuocBVTV.Repositories
 
         public Task<string> CreateId()
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
 
-        public Task<bool> Delete(string id)
+        public Task<AlertMessage> Delete(string id)
         {
             throw new NotImplementedException();
         }
 
         public async Task<List<Nhomsanpham>> GetAllAsync()
         {
-            List<Nhomsanpham> listSp = await ContextDB.Nhomsanphams.ToListAsync();
-            return listSp;
+            List<Nhomsanpham> lstNSp = await ContextDB.Nhomsanphams.ToListAsync();
+            return lstNSp;
         }
 
-        public Task<bool> Update(Nhomsanpham entity)
+        public Task<AlertMessage> Update(Nhomsanpham entity)
         {
             throw new NotImplementedException();
         }

@@ -1,0 +1,200 @@
+﻿@model WebBanThuocBVTV.Models.Nguoidung
+@{
+}
+<link href="~/css/Admin/ManageCustomer/AddCustomer.css" rel="stylesheet" />
+<link href="~/css/Admin/Share/_SendOTPPhone.css" rel="stylesheet" />
+<div class="addCustomer-container">
+	<a class="btn-cancel text-decoration-none" href="@Url.Action("Index","ManageCustomer",new{area ="Admin"})">
+		<i class="fa-solid fa-arrow-left"></i>
+		Quay lại
+	</a>
+	<h1 class="page-title">Đăng ký khách hàng</h1>
+
+	<div class="card-body">
+		<!-- Form -->
+		<form id="customerForm" asp-action="InsertCustomer" asp-controller="ManageCustomer">
+			<!-- Step 1: Basic Information -->
+			<div class="form-step" id="formStep1">
+				<div class="row">
+					<!-- Left Column - Avatar & Personal Info -->
+					<div class="col-lg-6">
+						<!-- Avatar Upload -->
+						<div class="avatar-upload">
+							<div class="avatar-preview" id="avatarPreview">
+								<i class="fas fa-user"></i>
+							</div>
+							<button type="button" class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()">
+								<i class="fas fa-camera"></i>
+							</button>
+							<input type="file" id="avatarInput" accept="image/*" style="display: none;">
+						</div>
+
+						<!-- Personal Information -->
+						<div class="form-section">
+							<div class="section-title">
+								<i class="fas fa-user me-2"></i>
+								Thông tin cá nhân
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="floating-label">
+										<input name="HoTen" type="text" class="form-control" id="firstName" required value="@(Model!=null?Model.HoTen:"")">
+										<label for="firstName">Họ tên</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="floating-label">
+										<input name="NgaySinh" type="date" class="form-control" id="birthDate" required value="@(Model!=null?Model.NgaySinh.ToString():"")">
+										<label for="birthDate">Ngày sinh</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="floating-label">
+										<select name="GioiTinh" class="form-control" id="gender" required>
+											<option value="">Chọn giới tính</option>
+											<option value="true">Nam</option>
+											<option value="false">Nữ</option>
+										</select>
+										<label for="gender">Giới tính</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right Column - Contact Info -->
+					<div class="col-lg-6">
+						<div class="form-section">
+							<div class="section-title">
+								<i class="fas fa-address-book me-2"></i>
+								Thông tin liên hệ
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fas fa-envelope"></i>
+								</span>
+								<input name="Email" type="email" class="form-control" id="email" placeholder="Email" required value="@(Model!=null?Model.Email:"")">
+								<button class="btn btn-outline-primary" type="button" id="verifyEmailBtn" onclick="sendOTPEmail()">
+									Xác thực
+								</button>
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fas fa-phone"></i>
+								</span>
+								<input name="SoDienThoai" type="tel" class="form-control" id="phone" placeholder="Số điện thoại" required value="@(Model!=null?Model.SoDienThoai:"")">
+								<button class="btn btn-outline-primary" type="button" id="verifyPhoneBtn">
+									Xác thực
+								</button>
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fa-solid fa-lock"></i>
+								</span>
+								<input name="PassWord" type="password" class="form-control" id="password" placeholder="Mật khẩu" required value="@(Model!=null?Model.PassWord:"12345678")">
+								<span class="input-group-text label-password">
+									<i class="fa-solid fa-eye" onclick="togglePass('display')"></i>
+									<i class="fa-solid fa-eye-slash d-none" onclick="togglePass('hidden')"></i>
+								</span>
+							</div>
+
+							<div class="floating-label">
+								<input name="DiaChi" type="text" class="form-control" id="address" required value="@(Model!=null?Model.DiaChi:"")">
+								<label for="address">Địa chỉ</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn-primary" onclick="submitForm()">Đăng ký</button>
+		</form>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="verifyModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="verifyModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="modal-container">
+		</div>
+	</div>
+</div>
+
+<script>
+		var modal_container = document.getElementById("modal-container");
+	var verifyModal = document.getElementById("verifyModal");
+	var modal = new bootstrap.Modal(verifyModal);
+
+	var sendOTPEmail = function()
+	{
+		showLoading("");
+
+		var email = document.getElementById("email").value;
+
+		$.ajax({
+			url:"@Url.Action("SendOTPEmail", "ManageCustomer", new { area = "Admin" })",
+			method:"post",
+			data:{email:email},
+			success:function(res){
+				hideLoading();
+				if(res.success == null)
+				{
+					modal_container.innerHTML=res;
+					modal.show();
+				}else
+				{
+					showToast('warning',res.message);
+				}
+
+			},
+			error:function(res)
+			{
+				hideLoading();
+				showToast('error',res.message);
+			}
+		})
+	}
+	var verifyEmail=function()
+	{
+		var email = document.getElementById("email").value;
+
+		var otp =""
+		var inputs = document.getElementsByClassName("otp-input");
+
+		for(var i =0;i<inputs.length;i++)
+		{
+			otp+=inputs[i].value;
+		}
+
+		$.ajax({
+			url:"@Url.Action("VerifyOTPEmail", "ManageCustomer", new { area = "Admin" })",
+			method:"post",
+			data:{otp:otp, email:email},
+			success:function(res){
+				hideLoading();
+				if(res.success)
+				{
+					showToast('success',res.message);
+					var verifyBtn = document.getElementById("verifyEmailBtn");
+					verifyBtn.style.display="none";
+					modal.hide();
+				}else
+				{
+					showToast('warning',res.message);
+				}
+			},
+			error:function(res)
+			{
+				hideLoading();
+				showToast('error',res.message);
+			}
+		}
+		)
+	}
+
+</script>

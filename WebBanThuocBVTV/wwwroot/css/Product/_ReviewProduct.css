@@ -1,0 +1,125 @@
+﻿.review-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    .review-container .review-title {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e9ecef;
+    }
+
+    .review-container .review-item {
+        padding: 15px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .review-container .review-item:last-child {
+            border-bottom: none;
+        }
+
+    .review-container .reviewer-name {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+
+    .review-container .review-date {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .review-container .review-content {
+        margin-top: 8px;
+        color: #495057;
+        line-height: 1.5;
+    }
+
+    .review-container .star-rating {
+        color: #ffc107;
+        margin-left: 10px;
+    }
+
+        .review-container .star-rating .star {
+            font-size: 1rem;
+        }
+
+            .review-container .star-rating .star.filled {
+                color: #ffc107;
+            }
+
+            .review-container .star-rating .star.empty {
+                color: #e9ecef;
+            }
+
+    .review-container .review-form {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .review-container .form-label {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 8px;
+    }
+
+    .review-container .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+
+        .review-container .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+    .review-container .rating-input {
+        margin-bottom: 15px;
+    }
+
+    .review-container .rating-stars {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .review-container .rating-star {
+        font-size: 1.5rem;
+        color: #e9ecef;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+        .review-container .rating-star:hover,
+        .review-container .rating-star.active {
+            color: #ffc107;
+        }
+
+    .review-container .btn-submit {
+        background-color: #28a745;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .review-container .btn-submit:hover {
+            background-color: #218838;
+        }
+
+    .review-container .textarea-custom {
+        min-height: 100px;
+        resize: vertical;
+    }

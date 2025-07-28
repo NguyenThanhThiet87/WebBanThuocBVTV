@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - WebBanThuocBVTV</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/SweetAlert2/Toast.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Slick JS -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!--LottiesFile Library-->
+	@Html.Raw("<script src='https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js'></script>")
+	@Html.Raw("<script src='https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs' type='module'></script>")
+	<!--Firebase-->
+	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+	@await Html.PartialAsync("_Header") <!-- Gọi partial view header -->
+	<!-- Navigation Bar -->
+	@await Html.PartialAsync("_Navigation") <!-- Gọi partial view navigation -->
+	@await Html.PartialAsync("_breadcrumb") <!-- Gọi partial view breadcrumb -->
+	<div class="container" style="padding:5vh">
+		<main role="main" class="pb-3">
+			@using Newtonsoft.Json
+			@using WebBanThuocBVTV.Helper
+
+			@{
+				var alertJson = TempData["Alert"] as string;
+				string icon = "";
+				string title = "";
+
+				if (!string.IsNullOrEmpty(alertJson))
+				{
+					var alert = JsonConvert.DeserializeObject<AlertMessage>(alertJson);
+					icon = alert?.Type ?? "success";
+					title = alert?.Message ?? "Thông báo";
+					Console.WriteLine("TYPE: " + icon);
+					Console.WriteLine("Message: " + title);
+				}
+			}
+
+			@if (!string.IsNullOrEmpty(alertJson))
+			{
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+						showToast('@icon', '@title')
+		
+					});
+
+				</script>
+			}
+			@RenderBody()
+		</main>
+	</div>
+	@await Html.PartialAsync("_Footer") <!-- Gọi partial view footer -->
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="~/js/SweetAlert2/Toast.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

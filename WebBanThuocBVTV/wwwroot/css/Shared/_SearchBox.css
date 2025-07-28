@@ -1,0 +1,117 @@
+﻿.header-container .search-container {
+    position: relative;
+    flex: 1;
+    max-width: 350px;
+}
+
+.header-container .search-box {
+    width: 100%;
+    padding: 12px 50px 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+.header-container .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header-container .results-container {
+    margin-top: 10px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1;
+    min-width:18vw;
+}
+
+    .header-container .results-container.hidden {
+        display: none;
+    }
+
+.header-container .result-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+    .header-container .result-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .header-container .result-item:last-child {
+        border-bottom: none;
+    }
+
+.header-container .result-icon {
+    width: 40px;
+    height: 40px;
+    background: #e8f5e8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.header-container .result-content {
+    flex: 1;
+}
+
+.header-container .result-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.header-container .result-description {
+    color: #666;
+    font-size: 14px;
+}
+
+.header-container .no-results {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.header-container .loading {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+    .header-container .loading::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #4CAF50;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        margin-left: 10px;
+    }

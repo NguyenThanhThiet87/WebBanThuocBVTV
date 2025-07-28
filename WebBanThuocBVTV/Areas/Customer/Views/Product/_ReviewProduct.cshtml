@@ -1,0 +1,79 @@
+﻿@model WebBanThuocBVTV.Models.Sanpham;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link rel="stylesheet" href="/css/Product/_ReviewProduct.css" />
+<div class="review-container">
+	<h2 class="review-title">Bình luận & Đánh giá</h2>
+
+	<!-- Danh sách đánh giá -->
+	<div class="reviews-list">
+		@foreach (var item in Model.Binhluans)
+		{
+			<div class="review-item">
+				<div class="reviewer-name">
+					@item.MaNdNavigation.HoTen
+					<span class="review-date">(2025-06-01)</span>
+					<span class="star-rating">
+						@for (int i = 0; i < item.MaDanhGia; i++)
+						{
+							<span class="star filled">★</span>
+						}
+					</span>
+				</div>
+				<div class="review-content">@item.NoiDung</div>
+			</div>
+		}
+	</div>
+
+	<!-- Form đánh giá -->
+	<div class="review-form">
+		<form id="reviewForm" asp-action="ReviewingSanPham" asp-controller="Product" asp-route-maSp="@Model.MaSanPham" onsubmit="validateReviewForm(event)">
+			<div class="mb-3">
+				<label class="form-label">Đánh giá:</label>
+				<div class="rating-input">
+					<div class="rating-stars" id="ratingStars">
+						<input name="maDg" id="maDg" type="hidden" value=""/>
+						@foreach (var item in ViewBag.lstDanhGia)
+						{
+							<span class="rating-star" id="@item.MaDanhGia.ToString()" data-rating="@item.MaDanhGia" onclick="choseStar(this)">★</span>
+						}
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="reviewText" class="form-label">Viết bình luận hoặc đánh giá của bạn...</label>
+				<textarea name="content" class="form-control textarea-custom"
+						  id="reviewText"
+						  placeholder="Viết bình luận hoặc đánh giá của bạn..."></textarea>
+			</div>
+
+			<button type="submit" class="btn-submit">Gửi bình luận</button>
+		</form>
+	</div>
+</div>
+<script>
+		function choseStar(sp) {
+		var currentRate = parseInt(sp.id);
+		document.getElementById("maDg").value = currentRate.toString();
+		// Duyệt qua các sao từ 1 đến 5
+		for (var i = 1; i <= 5; i++) {
+			var star = document.getElementById(i.toString());
+			if (i <= currentRate) {
+				star.classList.add("active");
+			} else {
+				star.classList.remove("active");
+			}
+		}
+	}
+	function validateReviewForm(event) {
+		var rating = document.getElementById("maDg").value;
+		if (!rating || rating === "0" || parseInt(rating) < 1 || parseInt(rating) > 5) {
+			event.preventDefault();
+			alert("Vui lòng đánh giá sản phẩm");
+			return false; // Ngăn form gửi đi
+		}
+		return true; // Cho phép gửi form
+	}
+</script>

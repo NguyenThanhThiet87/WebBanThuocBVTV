@@ -1,0 +1,12 @@
+﻿@{
+}
+<link href="~/css/Login/Register.css" rel="stylesheet" />
+<div class="register-container">
+    <form class="register-form" asp-action="NhapMaOTP" asp-controller="Login">
+        <h2>Đăng ký tài khoản</h2>
+        <input name="flow" type="hidden" value="Register" >
+        <input name="email" type="email" placeholder="Nhập email của bạn" required>
+        <button type="submit">Tiếp theo</button>
+        <p><a asp-controller="Login" asp-action="Index">Đã có tài khoản? Đăng nhập</a></p>
+    </form>
+</div>

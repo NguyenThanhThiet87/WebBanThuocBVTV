@@ -1,0 +1,472 @@
+﻿@using WebBanThuocBVTV.Helper
+@model List<WebBanThuocBVTV.Models.Nguoidung>
+@{
+}
+@* <link href="~/css/Admin/ManageProduct/_ListProduct.css" rel="stylesheet" /> *@
+<link href="/css/Admin/ManageProduct/Index.css" rel="stylesheet" />
+<div class="manage_product-container">
+	<h1 class="page-title">Quản Lý Sản Phẩm</h1>
+
+	<div class="content-container">
+		<!-- Thống kê -->
+		<div class="stats-grid">
+			<div class="stat-card">
+				<div class="stat-icon customers">👥</div>
+				<div class="stat-value">@ViewBag.TongKh</div>
+				<div class="stat-label">Tổng sản phẩm</div>
+				<div class="stat-change">↗ +8% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon new">🆕</div>
+				<div class="stat-value">@ViewBag.KhMoi</div>
+				<div class="stat-label">Sản phẩm mới</div>
+				<div class="stat-change">↗ +12% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon active">✅</div>
+				<div class="stat-value">1,089</div>
+				<div class="stat-label">Khách hàng hoạt động</div>
+				<div class="stat-change">↗ +5% so với tháng trước</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-icon inactive">⏸️</div>
+				<div class="stat-value">145</div>
+				<div class="stat-label">Khách hàng không hoạt động</div>
+				<div class="stat-change">↘ -3% so với tháng trước</div>
+			</div>
+		</div>
+
+		<!-- Thao tác nhanh -->
+		<div class="actions-section">
+			<h2 class="actions-title">Thao tác nhanh</h2>
+			<div class="actions-grid">
+				<a class="action-btn" data-bs-toggle="modal" data-bs-target="#containerModal" onclick="addProductModal()">
+					<span>➕</span>
+					Thêm sản phẩm mới
+				</a>
+				<a class="action-btn" onclick="importCustomers()">
+					<span>📥</span>
+					Nhập sản phẩm từ Excel
+				</a>
+				<a class="action-btn" onclick="exportCustomers()">
+					<span>📤</span>
+					Xuất danh sách sản phẩm
+				</a>
+			</div>
+		</div>
+
+		<!-- Bảng sản phẩm -->
+		<div class="customer_section-container">
+
+			<div class="table-header">
+				<h2 class="table-title">Danh sách sản phẩm</h2>
+				<div class="active-filters" id="activeFilters" style="display: none;">
+					<strong>Bộ lọc đang áp dụng:</strong>
+					<div id="filterTags"></div>
+				</div>
+
+				<div class="sort-options">
+					<label>Sắp xếp theo:</label>
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptions>()" onchange="searchProduct()">
+					</select>
+				</div>
+
+				<div class="search-container">
+					<input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." value="" id="searchInput">
+					<button class="search-btn" onclick="searchProduct('')">🔍 Tìm kiếm</button>
+				</div>
+			</div>
+
+			<div class="table-content">
+				<div class="filter-sidebar">
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
+
+					<!-- Nhóm sản phẩm -->
+					<div class="filter-section">
+						<div class="filter-title">📦 Nhóm sản phẩm</div>
+						<select class="filter-select" id="productGroupSelect">
+							<option value="">Tất cả</option>
+							@foreach(var item in ViewBag.lstNSP)
+							{
+								<option value="@item.MaNhomSp">@item.TenNhomSp</option>
+							}
+						</select>
+					</div>
+
+					<!-- Nhà sản xuất -->
+					<div class="filter-section">
+						<div class="filter-title">🏭 Nhà sản xuất</div>
+						<select class="filter-select" id="manufacturerSelect" >
+							<option value="">Tất cả</option>
+							@foreach (var item in ViewBag.lstNSX)
+							{
+								<option value="@item.MaNhaSx">@item.TenNhaSx</option>
+							}
+						</select>
+					</div>
+
+					<!-- Khoảng giá -->
+					<div class="filter-section">
+						<div class="filter-title">💰 Khoảng giá</div>
+						<div style="margin-top: 10px;">
+							@{
+								var i = 1;
+								foreach(var item in Html.GetEnumSelectList<PriceArrange>())
+								{
+									<div class="filter-option">
+										<input type="radio" id="price@(i)" name="priceRange" value="@item.Value">
+										<label for="price1">@item.Text</label>
+									</div>
+									i++;
+								}
+							}
+						</div>
+					</div>
+
+					<!-- Số lượng tồn kho -->
+					<div class="filter-section">
+						<div class="filter-title">📊 Số lượng tồn kho</div>
+						<div style="margin-top: 10px;">
+							@{
+								foreach (var item in Html.GetEnumSelectList<QuantityOptions>())
+								{
+									<div class="filter-option">
+										<input type="radio" id="inStock" name="stockStatus" value="@item.Value">
+										<label for="inStock">@item.Text</label>
+									</div>
+								}
+							}
+						</div>
+					</div>
+
+					<div class="filter-actions">
+						<button class="btn-apply" onclick="applyFilters()">Áp dụng</button>
+						<button class="btn-reset" onclick="resetFilters()">Đặt lại</button>
+					</div>
+				</div>
+
+					<div class="product-table">
+
+					</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="containerModal" tabindex="-1" aria-labelledby="containerModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var model_container = document.getElementById("modal-container");
+
+
+	document.addEventListener("DOMContentLoaded",()=>{
+		searchProduct("init");
+	})
+
+	//detailProduct
+	var enterEditMode=function()
+	{
+		var lstElementViewMode = document.getElementsByClassName("view-mode");
+		var lstElementEditMode = document.getElementsByClassName("edit-mode");
+		for(var i=0; i < lstElementViewMode.length;i++)
+		{
+			lstElementViewMode[i].classList.add("d-none");
+		}
+		for(var i=0; i < lstElementEditMode.length;i++)
+		{
+			lstElementEditMode[i].classList.remove("d-none");
+		}
+	}
+
+	var cancelEditMode = function()
+	{
+		var lstElementViewMode = document.getElementsByClassName("view-mode");
+		var lstElementEditMode = document.getElementsByClassName("edit-mode");
+		for(var i=0; i < lstElementViewMode.length;i++)
+		{
+			lstElementViewMode[i].classList.remove("d-none");
+		}
+		for(var i=0; i < lstElementEditMode.length;i++)
+		{
+			lstElementEditMode[i].classList.add("d-none");
+		}
+	}
+
+	var saveEdit = function(maSanPham)
+	{
+		showLoading("");
+
+		var id = maSanPham;
+		var name = document.getElementById("editProductName").value;
+		var ingre = document.getElementById("editProductIngredient").value;
+		var usage =document.getElementById("editProductUse").value;
+		var guide = document.getElementById("editProductGuide").value;
+		var price =document.getElementById("editProductPrice").value;
+		var quantity =document.getElementById("editProductQuality").value;
+		var expiry=document.getElementById("editProductExpiry").value;
+		var category=document.getElementById("editProductCategory").value;
+		var provider = document.getElementById("editProductProvider").value;
+
+		var dataSend = {
+			MaSanPham: id,
+			TenSanPham: name,
+			ThanhPhan: ingre,
+			CongDung: usage,
+			HuongDanSd: guide,
+			Gia: price,
+			SoLuong: quantity,
+			MaNhomSp: category,
+			MaNhaSx: provider,
+			HanSd: expiry
+		}
+
+		$.ajax({
+		url:"@Url.Action("UpdateProduct", "ManageProduct", new { area = "Admin" })",
+		method:"post",
+		data: dataSend,
+		success:function(res)
+		{
+			if(res.type =="success")
+				detailProductModal(id);
+			hideLoading();
+			showToast(res.type,res.message);
+		},
+		error:function(err)
+		{
+			console.log("Lỗi",err);
+			hideLoading();
+		}
+		});
+	}
+
+	var searchProduct = function(status)
+	{
+		var name = "";
+		if(status!="init")
+		{
+			 showLoading("");
+			 name =document.getElementById("searchInput").value;
+		}
+
+		var sort = document.getElementById("sortSelect").value;
+
+		var tableProduct = document.getElementsByClassName("product-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: name, sortOption: sort},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+
+	var pageList = function(a, current_page, count_page)
+	{
+		var pageNumber = a.text;
+
+		if(pageNumber=="Previous")
+		{
+			pageNumber = current_page - 1;
+			pageNumber =  pageNumber > 1? pageNumber : 1;
+		}else if (pageNumber == "Next")
+		{
+			pageNumber = current_page + 1;
+			pageNumber = pageNumber > count_page? current_page: pageNumber;
+		}
+		console.log(pageNumber)
+
+		var tableProduct = document.getElementsByClassName("product-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("SearchProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: "", page: pageNumber},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+	var detailProductModal = function(maSanPham)
+	{
+		$.ajax({
+			url:"@Url.Action("DetailProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {maSp: maSanPham},
+			success:function(res)
+			{
+				model_container.innerHTML = res
+			},
+			error: function(err)
+			{
+				console.log(err)
+			}
+		})
+	}
+	var addProductModal = function()
+	{
+		$.ajax({
+			url:"@Url.Action("AddProductPartialView", "ManageProduct", new { area = "Admin" })",
+			method:"get",
+			success:function(res)
+			{
+				model_container.innerHTML = res
+			},
+			error: function(err)
+			{
+				console.log(err)
+			}
+		})
+	}
+	var addProduct = function()
+	{
+		showLoading("");
+		var id =document.getElementById("productId").value;
+		var name = document.getElementById("productName").value;
+		var category = document.getElementById("category").value;
+		var price = document.getElementById("price").value;
+		var quanlity = document.getElementById("quantity").value;
+		var provider = document.getElementById("provider").value;
+		var expiry = document.getElementById("expiryDate").value;
+		var composition =document.getElementById("composition").value;
+		var usage = document.getElementById("usage").value;
+		var instructions = document.getElementById("instructions").value;
+
+		const sanPham = {
+			MaSanPham: id,
+			TenSanPham: name,
+			MaNhomSp: category,
+			MaNhaSx: provider,
+			Gia: price,
+			SoLuong: quanlity,
+			HanSd: expiry,
+			ThanhPhan: composition,
+			CongDung: usage,
+			HuongDanSd: instructions
+		}
+
+		$.ajax({
+			url:"@Url.Action("AddProduct", "ManageProduct", new { area = "Admin" })",
+			method:"post",
+			data: sanPham,
+			success:function(res)
+			{
+				hideLoading()
+				showToast(res.type, res.message);
+				addProductModal()
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err)
+			}
+		})
+	}
+
+	var applyFilters = function()
+	{
+		showLoading("");
+		var nhomSp = document.getElementById("productGroupSelect").value;
+		var nhaSx = document.getElementById("manufacturerSelect").value;
+		var name = document.getElementById("searchInput").value;
+		var sort = document.getElementById("sortSelect").value;
+
+		var priceRadio = document.getElementsByName("priceRange");
+		var price = "";
+		for(var radio of priceRadio)
+		{
+			if(radio.checked)
+			{
+				price = radio.value
+				break;
+			}
+		}
+		var quantityRadio = document.getElementsByName("stockStatus");
+		var quantity = "";
+		for(var radio of quantityRadio)
+		{
+			if(radio.checked)
+			{
+				quantity = radio.value
+			}
+		}
+
+		var tableProduct = document.getElementsByClassName("product-table")[0];
+
+		$.ajax({
+			url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: name, maNhomSp: nhomSp, maNhaSx: nhaSx, sortOption: sort, priceArrange: price, quantityOption: quantity},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+
+	var resetFilters = function()
+	{
+		showLoading("");
+		var tableProduct = document.getElementsByClassName("product-table")[0];
+		var name = document.getElementById("searchInput").value;
+		var sort = document.getElementById("sortSelect").value;
+
+		var nhomSp = document.getElementById("productGroupSelect");
+		var nhaSx = document.getElementById("manufacturerSelect");
+		var priceRadio = document.getElementsByName("priceRange");
+		nhomSp.value = "";
+		nhaSx.value = "";
+		for(var radio of priceRadio)
+		{
+			radio.checked = false;
+		}
+		var quantityCheckBox = document.getElementsByName("stockStatus");
+		for(var checkbox of quantityCheckBox)
+		{
+			
+			checkbox.checked = false;
+		}
+		$.ajax({
+			url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {keyword: name, sortOption: sort},
+			success:function(res)
+			{
+				hideLoading()
+				tableProduct.innerHTML = res;
+			},
+			error: function(err)
+			{
+				hideLoading()
+				console.log(err);
+			}
+		})
+	}
+</script>

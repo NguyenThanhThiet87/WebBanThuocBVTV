@@ -1,0 +1,233 @@
+﻿.account-container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0 15px;
+}
+
+    .account-container > h2 {
+        color: #4caf50;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Tabs */
+    .account-container > div {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .account-container .tabs {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .account-container .tab-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #333;
+        position: relative;
+    }
+
+        .account-container .tab-btn.active {
+            color: #2e7d32;
+        }
+
+            .account-container .tab-btn.active::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 50%;
+                height: 2px;
+                background-color: #2e7d32;
+            }
+
+    /* Tab Content */
+    .account-container .tab-content {
+        display: none;
+    }
+
+        .account-container .tab-content.active {
+            display: block;
+        }
+
+        .account-container .tab-content h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+    /* Profile Section */
+    .account-container .profile-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .account-container .profile-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .account-container .profile-form .radio-gioitinh {
+            display: flex;
+            column-gap: 0px;
+            width: 30px;
+            align-items: center;
+            padding-left: 15px;
+        }
+
+            .account-container .profile-form .radio-gioitinh input {
+                margin-bottom: 3px;
+            }
+
+            .account-container .profile-form .radio-gioitinh label {
+                padding: 0px 0px 0px 5px;
+            }
+
+        .account-container .profile-form div {
+            display: flex;
+            column-gap: 10px;
+        }
+
+        .account-container .profile-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .account-container .profile-form a, .account-container .profile-form button {
+            background-color: #4caf50; /* Xanh nhạt */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 150px;
+            text-align: center;
+            height: fit-content;
+        }
+
+
+            .account-container .profile-form button:hover {
+                background-color: #388e3c;
+            }
+    /* Orders Section */
+    .account-container .orders-table {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .account-container #orders #animation-empty-cart {
+        width: 40%;
+        height: 100%;
+        margin: auto;
+    }
+    .account-container #orders #title_empty_order {
+        font-weight: normal;
+        font-size: 15px;
+        text-align: center;
+    }
+.account-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .account-container th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    .account-container th {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    /* Password Section */
+    .account-container .password-form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+
+        .account-container .password-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .account-container .password-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .account-container .password-form button {
+            background-color: #4caf50; /* Xanh nhạt */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 150px;
+            text-align: center;
+        }
+
+            .account-container .password-form button:hover {
+                background-color: #388e3c;
+            }
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+    .form-group.position-relative {
+        position: relative;
+    }
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 70%; /* Điều chỉnh để căn giữa theo chiều dọc */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+    .toggle-password .fa-eye-slash {
+        display: none; /* Ẩn biểu tượng mắt đóng ban đầu */
+    }
+
+    .toggle-password .fa-eye {
+        display: inline; /* Ẩn biểu tượng mắt đóng ban đầu */
+    }
+
+    .toggle-password.active .fa-eye {
+        display: none; /* Ẩn mắt mở khi active */
+    }
+
+    .toggle-password.active .fa-eye-slash {
+        display: inline; /* Hiển thị mắt đóng khi active */
+    }

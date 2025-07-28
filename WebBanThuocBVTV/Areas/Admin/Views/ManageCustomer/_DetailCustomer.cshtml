@@ -1,0 +1,127 @@
+﻿@model WebBanThuocBVTV.Models.Nguoidung
+
+<link href="~/css/Admin/ManageCustomer/_DetailCustomer.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h5 class="modal-title" id="customerModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Thông Tin Khách Hàng</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-3 text-center mb-3">
+			<img src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg"
+			alt="Avatar" class="customer-avatar" id="customerAvatar">
+			<br />
+			<span id="customerId">ID: @Model.MaNd</span>
+		</div>
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-user me-2"></i>Họ và tên
+						</div>
+						<div class="info-value view-mode" id="customerName">@Model.HoTen</div>
+						<input type="text" class="form-control edit-mode d-none" id="editCustomerName" value="@Model.HoTen">
+					</div>
+
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-venus-mars me-2"></i>Giới tính
+						</div>
+						<div class="info-value view-mode" id="customerGender">@Model.DisplayGioiTinh</div>
+						<select class="form-control edit-mode d-none" id="editCustomerGender" onchange="">
+								@if (Model.DisplayGioiTinh == "Nam")
+								{
+									<option value="true" selected>Nam</option>
+									<option value="false">Nữ</option>
+								}else
+								{
+									<option value="true">Nam</option>
+									<option value="false" selected>Nữ</option>
+								}
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-calendar me-2"></i>Ngày sinh
+						</div>
+						<div class="info-value view-mode" id="customerBirthday">@Model.NgaySinh.ToString("dd/MM/yyyy")</div>
+						<input type="date" class="form-control edit-mode d-none" id="editCustomerBirthday" value="@Model.NgaySinh.ToString("yyyy-MM-dd")">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-venus-mars me-2"></i>Ngày tạo lập
+						</div>
+						<div class="info-value" id="customerDateCreated">@Model.NgayTao.ToString("dd-MM-yyyy")</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-envelope me-2"></i>Email
+						</div>
+						<div class="info-value view-mode" id="customerEmail">@Model.Email</div>
+						<input type="email" class="form-control edit-mode d-none" id="editCustomerEmail" value="@Model.Email">
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fas fa-phone me-2"></i>Số điện thoại
+						</div>
+						<div class="info-value view-mode" id="customerPhone">@Model.SoDienThoai</div>
+						<input type="tel" class="form-control edit-mode d-none" id="editCustomerPhone" value="@Model.SoDienThoai">
+					</div>
+				</div>
+
+			</div>
+
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fas fa-map-marker-alt me-2"></i>Địa chỉ
+				</div>
+				<div class="info-value view-mode" id="customerAddress">@Model.DiaChi</div>
+				<textarea class="form-control edit-mode d-none" id="editCustomerAddress" rows="2">@Model.DiaChi</textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<div class="view-mode">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">
+			<i class="fas fa-times me-2"></i>Đóng
+		</button>
+		<button type="button" class="btn btn-edit" id="editButton" onclick="enterEditMode()">
+			<i class="fas fa-edit me-2"></i>Chỉnh sửa
+		</button>
+	</div>
+
+	<div class="edit-mode d-none">
+		<button type="button" class="btn btn-cancel" id="cancelButton" onclick="cancelEditMode()">
+			<i class="fas fa-times me-2"></i>Hủy
+		</button>
+		<button type="button" class="btn btn-save" id="saveButton" onclick="saveEdit('@Model.MaNd')">
+			<i class="fas fa-save me-2"></i>Lưu thay đổi
+		</button>
+	</div>
+</div>

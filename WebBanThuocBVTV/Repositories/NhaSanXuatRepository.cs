@@ -18,7 +18,7 @@ namespace WebBanThuocBVTV.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> Delete(string id)
+        public Task<AlertMessage> Delete(string id)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +29,7 @@ namespace WebBanThuocBVTV.Repositories
             return listNsx;
         }
 
-        public Task<bool> Update(Nhasanxuat entity)
+        public Task<AlertMessage> Update(Nhasanxuat entity)
         {
             throw new NotImplementedException();
         }
