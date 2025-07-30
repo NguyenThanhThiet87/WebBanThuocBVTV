@@ -131,7 +131,7 @@ namespace WebBanThuocBVTV.Repositories
             if (dh.MaTrangThai == "DVC")
             {
                 dh.MaTrangThai = "DGH";
-                
+                dh.Ngay
                 _contextDB.Update(dh);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";

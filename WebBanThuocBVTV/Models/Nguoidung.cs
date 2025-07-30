@@ -26,7 +26,7 @@ public partial class Nguoidung
     public string MaVaiTro { get; set; } = null!;
 
     public string? GoogleId { get; set; }
-    public DateTime? NgayTao { get; set; }
+    public DateTime NgayTao { get; set; }
 
     public string DisplayGioiTinh { get { return GioiTinh == false ? "Nữ" : "Nam"; } }
 
