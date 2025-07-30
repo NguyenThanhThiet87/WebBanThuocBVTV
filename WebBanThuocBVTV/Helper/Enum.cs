@@ -87,4 +87,15 @@ namespace WebBanThuocBVTV.Helper
         [Display(Name = "Hết hàng (< 10)")]
         OutOfShock
     }
+    public enum SortOptionsOrder
+    {
+        [Display(Name = "Ngày tạo mới nhất")]
+        DateAsc,
+        [Display(Name = "Ngày tạo cũ nhất")]
+        DateDesc,
+        [Display(Name = "Giá thấp đến cao")]
+        PriceAsc,
+        [Display(Name = "Giá cao đến thấp")]
+        PriceDesc
+    }
 }

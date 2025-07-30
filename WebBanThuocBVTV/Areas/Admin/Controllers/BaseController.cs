@@ -13,17 +13,18 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             var json = HttpContext.Session.GetString("SideBar");
-            if(!String.IsNullOrEmpty(json))
+            if (!String.IsNullOrEmpty(json))
             {
                 SideBar currentSidebar = System.Text.Json.JsonSerializer.Deserialize<SideBar>(json);
                 ViewBag.CurrentSideBar = currentSidebar;
-            }else
+            }
+            else
             {
                 ViewBag.CurrentSideBar = SideBar.TongQuan;
-            }    
+            }
 
-                // Lấy thông tin user từ session
-                var userJson = HttpContext.Session.GetString("Account");
+            // Lấy thông tin user từ session
+            var userJson = HttpContext.Session.GetString("Account");
             if (!string.IsNullOrEmpty(userJson))
             {
                 var user = System.Text.Json.JsonSerializer.Deserialize<Nguoidung>(userJson);
@@ -49,8 +50,9 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         {
             try
             {
-                HttpContext.Session.SetString("SideBar",System.Text.Json.JsonSerializer.Serialize(sidebar));
-            }catch(Exception ex)
+                HttpContext.Session.SetString("SideBar", System.Text.Json.JsonSerializer.Serialize(sidebar));
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

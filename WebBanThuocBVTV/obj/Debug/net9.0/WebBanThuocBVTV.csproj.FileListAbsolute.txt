@@ -331,4 +331,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\34mqekvsza-u9a3w8
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\8x1t88t8rw-bij0zlie27.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\epxdu2iuks-fkkot5ev2r.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\bxz8gfo7kn-h82qphi5kb.gz
-D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\staxsp946t-ipczoeivgk.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\w8jqwbpiqw-h8a2nk6zfd.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\staxsp946t-ex22loy5qt.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\zppn7k00k1-oqs9mekud6.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\3314ts26fo-qkcuplcypn.gz

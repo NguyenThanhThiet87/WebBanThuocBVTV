@@ -37,6 +37,18 @@
       "PackagePath": "staticwebassets\\css\\Admin\\ManageCustomer\\_ListCustomer.css"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageOrder\\Index.css",
+      "PackagePath": "staticwebassets\\css\\Admin\\ManageOrder\\Index.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageOrder\\_DetailOrder.css",
+      "PackagePath": "staticwebassets\\css\\Admin\\ManageOrder\\_DetailOrder.css"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageOrder\\_ListOrder.css",
+      "PackagePath": "staticwebassets\\css\\Admin\\ManageOrder\\_ListOrder.css"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\DetailProduct.css",
       "PackagePath": "staticwebassets\\css\\Admin\\ManageProduct\\DetailProduct.css"
     },

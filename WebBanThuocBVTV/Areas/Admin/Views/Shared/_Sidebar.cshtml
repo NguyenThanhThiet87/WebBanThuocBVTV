@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link @(ViewBag.CurrentSideBar == SideBar.DonHang ? "active" : "")">
+                <a class="nav-link @(ViewBag.CurrentSideBar == SideBar.DonHang ? "active" : "")" href="@Url.Action("Index", "ManageOrder", new { area = "Admin" })">
                     <i class="fas fa-shopping-cart"></i>
                     <span>Đơn hàng</span>
                 </a>

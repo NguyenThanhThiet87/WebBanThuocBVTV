@@ -5,6 +5,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Product\_DecriptionDetailProduct.
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageCustomer\AddCustomer.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Product\_ReviewProduct.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Shared\_Navigation.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageOrder\_DetailOrder.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageProduct\_AddProduct.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
@@ -94,6 +95,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\SweetAlert2\Toast.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageCustomer\_DetailCustomer.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageOrder\Index.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
@@ -101,6 +103,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.j
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation\LICENSE.md
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageOrder\_ListOrder.css
 wwwroot\css\Account\Index.css
 wwwroot\css\Account\UpdateEmail.css
 wwwroot\css\Account\UpdatePhone.css
@@ -110,6 +113,9 @@ wwwroot\css\Admin\ManageCustomer\_DetailCustomer.css
 wwwroot\css\Admin\ManageCustomer\_ListCustomer.css
 wwwroot\css\Admin\ManageCustomer\AddCustomer.css
 wwwroot\css\Admin\ManageCustomer\Index.css
+wwwroot\css\Admin\ManageOrder\_DetailOrder.css
+wwwroot\css\Admin\ManageOrder\_ListOrder.css
+wwwroot\css\Admin\ManageOrder\Index.css
 wwwroot\css\Admin\ManageProduct\_AddProduct.css
 wwwroot\css\Admin\ManageProduct\_ListProduct.css
 wwwroot\css\Admin\ManageProduct\DetailProduct.css

@@ -31,6 +31,7 @@ builder.Services.AddScoped<DonHangRepository>();
 builder.Services.AddScoped<GioHangRepository>();
 builder.Services.AddScoped<NhomSanPhamRepository>();
 builder.Services.AddScoped<NhaSanXuatRepository>();
+builder.Services.AddScoped<TrangThaiRepository>();
 builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 

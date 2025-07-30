@@ -1,0 +1,98 @@
+﻿@{
+}
+@model WebBanThuocBVTV.Models.Donhang
+
+<div class="modal-header">
+	<h5 class="modal-title" id="customerModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Thông Tin Đơn hàng</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+</div>
+
+<div class="modal-body detail_order-body p-5">
+	<div class="order-info">
+		<div class="info-row">
+			<span><strong>Mã đơn hàng:</strong> @Model.MaDonHang </span>
+			<span><strong>Ngày:</strong> @Model.NgayLap.Date</span>
+		</div>
+		<div class="info-row">
+			<span><strong>Thời gian nhận hàng:</strong> 3-5 ngày làm việc</span>
+		</div>
+		<div class="info-row">
+			<span class="stateOrder"><strong>Trạng thái:</strong> @Model.MaTrangThaiNavigation.TenTrangThai</span>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="section-title">Sản phẩm đã đặt</div>
+		@foreach (var item in Model.DonhangSanphams)
+		{
+			<div class="product-item">
+				<div class="product-image">
+					<img src="@item.MaSanPhamNavigation.Hinhanhs.First().Url" />
+				</div>
+				<div class="product-details">
+					<div><strong>@item.MaSanPhamNavigation.TenSanPham</strong></div>
+					<div>Số lượng: @item.SoLuongDatMua</div>
+				</div>
+				<div><strong>@String.Format("{0:N0}", @item.TongTien) VNĐ</strong></div>
+			</div>
+		}
+	</div>
+
+	<div class="section">
+		<div class="section-title">Thông tin khách hàng</div>
+		<div class="info-row">
+			<span class="info-label">Họ tên:</span>
+			<span>@Model.MaNdNavigation.HoTen</span>
+		</div>
+		<div class="info-row">
+			<span class="info-label">Điện thoại:</span>
+			<span>@Model.MaNdNavigation.SoDienThoai</span>
+		</div>
+		<div class="info-row">
+			<span class="info-label">Địa chỉ:</span>
+			<span>@Model.MaNdNavigation.DiaChi</span>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="section-title">Tóm tắt đơn hàng</div>
+		<div class="info-row">
+			<span>Tạm tính:</span>
+			<span>180,000 vnđ</span>
+		</div>
+		<div class="info-row">
+			<span>Phí vận chuyển:</span>
+			<span>30,000 vnđ</span>
+		</div>
+		<div class="total-row">
+			<span>Tổng cộng:</span>
+			<span>210,000 vnđ</span>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<div class="view-mode">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+			<i class="fas fa-times me-2"></i>Đóng
+		</button>
+
+		@{
+			if (Model.MaTrangThaiNavigation.MaTrangThai == "DXL")
+			{
+				<button type="button" class="btn" id="sendButton" onclick="sendOrder('@Model.MaDonHang')">
+					<i class="fas fa-edit me-2"></i>Gửi hàng
+				</button>
+			}
+			else if (Model.MaTrangThaiNavigation.MaTrangThai == "DVC")
+			{
+				<button type="button" class="btn btn-edit" id="transferredButton" onclick="transferredOrder('@Model.MaDonHang')">
+					<i class="fas fa-edit me-2"></i>Đã chuyển
+				</button>
+			}
+		}
+	</div>
+</div>
