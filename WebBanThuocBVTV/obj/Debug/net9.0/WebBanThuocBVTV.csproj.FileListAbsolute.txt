@@ -309,7 +309,6 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\staticwebassets\msbuild.buil
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.WebBanThuocBVTV.props
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.WebBanThuocBVTV.props
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\staticwebassets.pack.json
-D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\WebBanTh.3627943C.Up2Date
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\WebBanThuocBVTV.dll
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\refint\WebBanThuocBVTV.dll
