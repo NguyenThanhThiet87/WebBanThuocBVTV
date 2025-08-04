@@ -1,1 +1,24 @@
-﻿
+﻿/*Featured product*/
+.feature-product {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+    .feature-product .card-img, .card-img-top {
+        height: 25vh;
+        width: fit-content;
+        margin: auto;
+        max-width: 200px;
+    }
+
+    .feature-product .card {
+        transition: transform 0.3s ease;
+    }
+
+        .feature-product .card:hover {
+            transform: scale(1.05);
+        }

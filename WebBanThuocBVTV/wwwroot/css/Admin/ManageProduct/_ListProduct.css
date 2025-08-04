@@ -57,7 +57,6 @@
         cursor: pointer;
         font-size: 12px;
         font-weight: 500;
-        transition: all 0.2s;
     }
 
     .product-table .btn-view {
@@ -78,12 +77,19 @@
             background: #fde68a;
         }
 
-    .product-table .btn-delete {
+    .product-table .btn-discontinue {
         background: #fee2e2;
         color: #dc2626;
     }
 
-        .product-table .btn-delete:hover {
+        .product-table .btn-discontinue:hover {
             background: #fecaca;
         }
+    .product-table .btn-sell {
+        background: #7bff14;
+        color: #000000;
+    }
 
+        .product-table .btn-sell:hover {
+            background: #7bff14;
+        }

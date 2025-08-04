@@ -59,7 +59,14 @@
 						</div>
 					</div>
 					<a class="header-item" href="@Url.Action("Index","Account",new{area = "Customer"})">
-						<i class="fas fa-user header-icon icon-user" style="color: #069322;"></i>
+						@if(ViewBag.Account.Avatar != null)
+						{
+							<img name="avatar" src="@(ViewBag.Account?.Avatar??"")" alt="Alternate Text" class="avatar" />
+						}else
+						{
+							<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+						}
+
 						<div class="header-text">
 							@ViewBag.Account.HoTen
 						</div>
@@ -67,7 +74,7 @@
 				}
 				else
 				{
-					<a class="header-item" href="@Url.Action("Index","Login",new{area = "Customer"})">
+					<a class="header-item" href="@Url.Action("Index","Login",new{area="Shared"})">
 						<i class="fas fa-user header-icon icon-user" style="color: #069322;"></i>
 						<div class="header-text">
 							Đăng nhập

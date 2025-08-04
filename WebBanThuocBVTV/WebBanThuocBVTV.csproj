@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Models\Danhgia.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.27.6" />
     <PackageReference Include="Google.Maps.Routing.V2" Version="1.0.0" />
     <PackageReference Include="MailKit" Version="4.12.1" />
+    <PackageReference Include="Markdig" Version="0.41.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.5" />
@@ -24,6 +30,10 @@
     <PackageReference Include="VNPAY.NET" Version="8.5.0" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
     <PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\Shared\" />
   </ItemGroup>
 
 </Project>

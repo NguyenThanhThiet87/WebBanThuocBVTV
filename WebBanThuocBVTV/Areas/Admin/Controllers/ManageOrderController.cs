@@ -13,11 +13,15 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
     {
         readonly DonHangRepository _donHangRepository;
         readonly TrangThaiRepository _trangThaiRepository;
+        readonly NguoiDungRepository _nguoiDungRepository;
+        readonly SanPhamRepository _sanPhamRepository;
 
-        public ManageOrderController(DonHangRepository donHangRepository, TrangThaiRepository trangThaiRepository)
+        public ManageOrderController(DonHangRepository donHangRepository, TrangThaiRepository trangThaiRepository, NguoiDungRepository nguoiDungRepository, SanPhamRepository sanPhamRepository)
         {
             _donHangRepository = donHangRepository;
             _trangThaiRepository = trangThaiRepository;
+            _nguoiDungRepository = nguoiDungRepository;
+            _sanPhamRepository = sanPhamRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -66,6 +70,94 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         {
             AlertMessage alertMessage = await _donHangRepository.TransferredOrder(maDh);
             return alertMessage;
+        }
+        [HttpPost]
+        public async Task<AlertMessage> DeleteOrder(string maDh)
+        {
+            AlertMessage alertMessage = await _donHangRepository.DeleteOrder(maDh);
+            return alertMessage;
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddOrderPartialView()
+        {
+
+            return PartialView("_AddOrder");
+        }
+        public async Task<IActionResult> GetInfoCustomer(string maNd)
+        {
+            var nguoiDung = await _nguoiDungRepository.GetById(maNd);
+            if(nguoiDung!=null)
+            {
+                return Json(new { success = true, data = nguoiDung });
+            }    
+            return Json(new { success = false, data = nguoiDung });
+        }
+        public async Task<IActionResult> GetInfoProduct(string maSp)
+        {
+            var sanPham = await _sanPhamRepository.GetByIdBase(maSp);
+            if (sanPham != null)
+            {
+                return Json(new { success = true, data = sanPham });
+            }
+            return Json(new { success = false, data = sanPham });
+        }
+        [HttpPost]
+        public async Task<AlertMessage> AddOrder(Donhang dh)
+        {
+            dh.MaDonHang = _donHangRepository.CreateId();
+            dh.NgayLap = DateTime.Now;
+            dh.MaTrangThai = "PCD";
+            double sumPrice = 0;
+            foreach(var dhsp in dh.DonhangSanphams)
+            {
+                dhsp.MaDonHang = dh.MaDonHang;
+                sumPrice += dh.TongTien;
+            }
+            dh.TongTien = sumPrice;
+            AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+            return alertMessage;
+        }
+        [HttpPost]
+        public async Task<AlertMessage> AddOrderGuest(Donhang dh, Nguoidung nd)
+        {
+            nd.MaNd = await _nguoiDungRepository.CreateId();
+            AlertMessage alertCreatUser = await _nguoiDungRepository.AddGuest(nd);
+            if(alertCreatUser.Type=="success")
+            {
+                dh.MaDonHang = _donHangRepository.CreateId();
+                dh.MaNd = nd.MaNd;
+                dh.NgayLap = DateTime.Now;
+                dh.MaTrangThai = "PCD";
+                double sumPrice = 0;
+                foreach (var dhsp in dh.DonhangSanphams)
+                {
+                    dhsp.MaDonHang = dh.MaDonHang;
+                    sumPrice += dh.TongTien;
+                }
+                dh.TongTien = sumPrice;
+                AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+                return alertMessage;
+            }else if(alertCreatUser.Type=="exist")
+            {
+                nd.MaNd = alertCreatUser.Message;
+                dh.MaDonHang = _donHangRepository.CreateId();
+                dh.MaNd = nd.MaNd;
+                dh.NgayLap = DateTime.Now;
+                dh.MaTrangThai = "PCD";
+                double sumPrice = 0;
+                foreach (var dhsp in dh.DonhangSanphams)
+                {
+                    dhsp.MaDonHang = dh.MaDonHang;
+                    sumPrice += dh.TongTien;
+                }
+                dh.TongTien = sumPrice;
+                AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+                return alertMessage;
+            }    
+            else
+            {
+                return alertCreatUser;
+            }
         }
     }
 }

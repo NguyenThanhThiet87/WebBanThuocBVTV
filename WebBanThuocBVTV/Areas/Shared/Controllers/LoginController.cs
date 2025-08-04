@@ -22,6 +22,7 @@ using WebBanThuocBVTV.Areas.Customer.Controllers;
 
 namespace WebBanThuocBVTV.Areas.Shared.Controllers
 {
+    [Area("Shared")]
     public class LoginController : BaseController
     {
         NguoiDungRepository _nguoiDungRepository;
@@ -51,6 +52,8 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
         [HttpPost]
         public async Task<IActionResult> NhapMaOTP(string email, string flow)
         {
+
+
             if (string.IsNullOrEmpty(email))
             {
                 SetAlert("Email không hợp lệ", "error");
@@ -84,23 +87,28 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             return View("NhapMaOTP");
         }
 
+        public IActionResult SetNewPass(string email)
+        {
+            ViewBag.Email = email;  
+            return View();
+        }
 
         [HttpPost]
         public IActionResult VerifyOTP(string otpCode, string email)
         {
-            IActionResult actionReturned;
+            string actionReturned;
 
             string flow = HttpContext.Session.GetString("Flow") ?? "Register";
             switch (flow)
             {
                 case "Forget":
-                    actionReturned = RedirectToAction("ForgetPass");
+                    actionReturned = Url.Action("SetNewPass", "Login", new { Email = email });
                     break;
                 case "Register":
-                    actionReturned = RedirectToAction("InputInfoAccount");
+                    actionReturned = Url.Action("InputInfoAccount", "Login", new { Email = email });
                     break;
                 default:
-                    actionReturned = RedirectToAction("Index");
+                    actionReturned = Url.Action("Index", "Login", new { Email = email });
                     break;
             }
             HttpContext.Session.Remove("Flow"); // Xóa flow sau khi xử lý
@@ -110,20 +118,18 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             if (string.IsNullOrEmpty(otpJson)) //check otp từ session
             {
                 SetAlert("Mã OTP chưa được gửi", "warning");
-                return RedirectToAction("NhapMaOTP");
+                return RedirectToAction("NhapMaOTP_Forget", new {email=email});
             }
             //nếu otp từ session tồn tại
-            var OTP = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(otpJson);
+            OTPCode OTP = System.Text.Json.JsonSerializer.Deserialize<OTPCode>(otpJson);
 
-            if (otpCode == OTP["otpCode"])
+            if (email == OTP.email && otpCode == OTP.code)
             {
                 HttpContext.Session.Remove("OTPCode");
-                SetAlert("Xác thực email thành công", "success");
-                return actionReturned;
+                return Json(new { success = true, message = "Xác thực email thành công", redirectUrl =  actionReturned });
             }
             else
-                SetAlert("Mã OTP không đúng", "error"); 
-            return View("NhapMaOTP");
+                return Json(new { success = false, message = "Mã OTP không đúng", redirectUrl = "" });
         }
         public IActionResult InputInfoAccount()
         {
@@ -144,6 +150,8 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             Nguoidung Account = new Nguoidung();
             Account.MaNd = nguoiDung.MaNd;
             Account.HoTen = nguoiDung.HoTen;
+            Account.Avatar = nguoiDung.Avatar;
+            Account.MaVaiTro = nguoiDung.MaVaiTro;
 
             HttpContext.Session.SetString("Account", System.Text.Json.JsonSerializer.Serialize(Account));
             switch (nguoiDung.MaVaiTro)
@@ -151,13 +159,12 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
                 case "KH":
                     ViewBag.Layout = "~/Views/Shared/WebBanThuocBVTV.cshtml"; // Layout cho khách hàng
                     SetAlert("Đăng nhập thành công - Chào mừng Khách Hàng", "success");
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new {area = "Customer"});
                 case "NV":
-
-                    break;
                 case "AD":
-
-                    break;
+                    ViewBag.Layout = "~/Views/Shared/WebBanThuocBVTV.cshtml"; // Layout cho khách hàng
+                    SetAlert("Đăng nhập thành công - Chào mừng Quản Lý", "success");
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
                 default:
                     break;
             }
@@ -179,14 +186,6 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             AlertMessage result = await _nguoiDungRepository.Add(nguoiDung);
             SetAlert(result.Message, result.Type);
 
-            if(result.Type=="success")
-            {
-                Giohang gioHang = new Giohang();
-                gioHang.MaGioHang = _gioHangRepository.CreateId();
-                gioHang.MaNd = nguoiDung.MaNd;
-                gioHang.TongTien = 0;
-                AlertMessage result2 = await _gioHangRepository.Add(gioHang);
-            }    
             return RedirectToAction("Index");
         }
         //LOGIN WITH GOOGLE
@@ -238,11 +237,13 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
                 Nguoidung userUpdated = await _nguoiDungRepository.GetByEmail(email);
                 Nguoidung Account = new Nguoidung();
                 Account.MaNd = userUpdated.MaNd;
-                Account.HoTen = user.HoTen;
+                Account.HoTen = userUpdated.HoTen;
+                Account.Avatar = userUpdated.Avatar;
+                Account.MaVaiTro = userUpdated.MaVaiTro;
 
-                SetAlert("Đăng nhập thành công", result.Type);
+                SetAlert("Đăng nhập thành công - Chào mừng Khách Hàng", "success");
                 HttpContext.Session.SetString("Account", System.Text.Json.JsonSerializer.Serialize(Account));
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new {area="Customer"});
             }
             SetAlert(result.Message, result.Type);
             return RedirectToAction("Index");
@@ -276,28 +277,95 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             }
             return null;
         }
+        
+
         [HttpPost]
-        public async Task<IActionResult> NhapMaOTP_Forget(string email)
+        public async Task<IActionResult> SendOTPEmailForForget(string email)
         {
             HttpContext.Session.SetString("Flow", "Forget"); // Xóa mã OTP cũ nếu có
-            if (!await _nguoiDungRepository.EmailIsExist(email))
+            bool isExist = await _nguoiDungRepository.EmailIsExist(email);
+            if (!isExist)
             {
-                SetAlert("Email chưa được đăng ký", "error");
-                return RedirectToAction("ForgetPass");
-            }
-
-            AlertMessage result = await _sendOTP.SendOTPByEmail(email, "Anh/Chị");
-            if (result.Type == "error")
-            {
-                SetAlert(result.Message, result.Type);
-                return RedirectToAction("ForgetPass");
+                return Json(new { success = false, message = "Email chưa đăng ký tài khoản" });
             }
             else
             {
-                HttpContext.Session.SetString("OTPCode", result.Message); // Lưu mã OTP vào session
+                AlertMessage alertMessage = await _sendOTP.SendOTPByEmail(email, email);
+                if (alertMessage.Type == "success")
+                {
+                    OTPCode data = new OTPCode()
+                    {
+                        email = email,
+                        code = alertMessage.Message
+                    };
+
+                    HttpContext.Session.SetString("OTP", System.Text.Json.JsonSerializer.Serialize(data));
+
+                    return PartialView("_SendOTPEmail", email);
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                }
             }
-            ViewBag.Email = email;
-            return View("NhapMaOTP");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendOTPEmailForRegister(string email)
+        {
+            HttpContext.Session.SetString("Flow", "Register"); // Xóa mã OTP cũ nếu có
+            bool isExist = await _nguoiDungRepository.EmailIsExist(email);
+            if (isExist)
+            {
+                return Json(new { success = false, message = "Email đã đăng ký tài khoản" });
+            }
+            else
+            {
+                AlertMessage alertMessage = await _sendOTP.SendOTPByEmail(email, email);
+                if (alertMessage.Type == "success")
+                {
+                    OTPCode data = new OTPCode()
+                    {
+                        email = email,
+                        code = alertMessage.Message
+                    };
+
+                    HttpContext.Session.SetString("OTP", System.Text.Json.JsonSerializer.Serialize(data));
+
+                    return PartialView("_SendOTPEmail", email);
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                }
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePass(string email, string newPass, string comfPass)
+        {
+            if (newPass != comfPass)
+            {
+                SetAlert("Mật khẩu xác nhận không khớp", "warning");
+            }
+            else
+            {
+                AlertMessage result = await _nguoiDungRepository.ChangePassVerified(email, newPass);
+
+                if (result.Type == "success")
+                {
+                    SetAlert(result.Message, result.Type);
+
+                    return RedirectToAction("Index");
+                }
+                SetAlert(result.Message, result.Type);
+            }
+
+            ViewBag.email = email;
+            ViewBag.newPass = newPass;
+            ViewBag.comfPass = comfPass;
+
+            return View("SetNewPass");
         }
 
     }

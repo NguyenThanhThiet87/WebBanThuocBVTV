@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.27.6, )"
+            },
             "Google.Maps.Routing.V2": {
               "target": "Package",
               "version": "[1.0.0, )"
@@ -62,6 +66,10 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.12.1, )"
+            },
+            "Markdig": {
+              "target": "Package",
+              "version": "[0.41.3, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",

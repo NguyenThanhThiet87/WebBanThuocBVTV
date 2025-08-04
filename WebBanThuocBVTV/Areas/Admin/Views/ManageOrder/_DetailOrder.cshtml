@@ -1,7 +1,7 @@
 ﻿@{
 }
 @model WebBanThuocBVTV.Models.Donhang
-
+<link href="~/css/Admin/ManageOrder/_DetailOrder.css" rel="stylesheet" />
 <div class="modal-header">
 	<h5 class="modal-title" id="customerModalLabel">
 		<i class="fas fa-user-circle me-2"></i>
@@ -17,7 +17,7 @@
 			<span><strong>Ngày:</strong> @Model.NgayLap.Date</span>
 		</div>
 		<div class="info-row">
-			<span><strong>Thời gian nhận hàng:</strong> 3-5 ngày làm việc</span>
+			<span><strong>Thời gian nhận hàng: </strong>@(Model.NgayGiaoHang != null ? Model.NgayGiaoHang : "3-5 ngày làm việc")</span>
 		</div>
 		<div class="info-row">
 			<span class="stateOrder"><strong>Trạng thái:</strong> @Model.MaTrangThaiNavigation.TenTrangThai</span>
@@ -59,17 +59,9 @@
 
 	<div class="section">
 		<div class="section-title">Tóm tắt đơn hàng</div>
-		<div class="info-row">
-			<span>Tạm tính:</span>
-			<span>180,000 vnđ</span>
-		</div>
-		<div class="info-row">
-			<span>Phí vận chuyển:</span>
-			<span>30,000 vnđ</span>
-		</div>
 		<div class="total-row">
 			<span>Tổng cộng:</span>
-			<span>210,000 vnđ</span>
+			<span>@String.Format("{0:N0}", @Model.TongTien) VNĐ</span>
 		</div>
 	</div>
 </div>
@@ -81,13 +73,13 @@
 		</button>
 
 		@{
-			if (Model.MaTrangThaiNavigation.MaTrangThai == "DXL")
+			if (Model.MaTrangThaiNavigation.MaTrangThai == "PCD")
 			{
 				<button type="button" class="btn" id="sendButton" onclick="sendOrder('@Model.MaDonHang')">
 					<i class="fas fa-edit me-2"></i>Gửi hàng
 				</button>
 			}
-			else if (Model.MaTrangThaiNavigation.MaTrangThai == "DVC")
+			else if (Model.MaTrangThaiNavigation.MaTrangThai == "INT")
 			{
 				<button type="button" class="btn btn-edit" id="transferredButton" onclick="transferredOrder('@Model.MaDonHang')">
 					<i class="fas fa-edit me-2"></i>Đã chuyển

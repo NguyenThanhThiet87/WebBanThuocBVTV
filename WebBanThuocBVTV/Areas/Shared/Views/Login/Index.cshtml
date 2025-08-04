@@ -1,7 +1,7 @@
 ﻿
 <link rel="stylesheet" href="~/css/Login/Index.css">
-<div class="Login-container">
-    <form class="login-form" asp-action="LoginAccount" asp-controller="Login">
+<div class="login-container">
+    <form class="login-form" asp-action="LoginAccount" asp-controller="Login" asp-area="Shared">
         <h2>Đăng nhập tài khoản</h2>
         <input name="email" type="email" placeholder="Nhập email của bạn" required>
         <input name="password" type="password" placeholder="Nhập mật khẩu" required>

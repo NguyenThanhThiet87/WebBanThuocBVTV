@@ -39,7 +39,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             if(donHang != null && response.VnPayResponseCode=="00")
             {
                 ViewBag.DonHang = donHang;  
-                donHang.MaTrangThai = "DXL";
+                donHang.MaTrangThai = "PCD";
                 donHang.MaPhuongThucTt = "VP";
                 _contextDB.Donhangs.Update(donHang);
 

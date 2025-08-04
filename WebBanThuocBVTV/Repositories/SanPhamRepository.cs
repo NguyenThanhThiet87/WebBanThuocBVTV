@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Data.SqlTypes;
+using System.Threading.Tasks;
 using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
@@ -20,6 +21,13 @@ namespace WebBanThuocBVTV.Repositories
             AlertMessage alertMessage = new AlertMessage();
             try
             {
+                if(entity.Hinhanhs.Count >0)
+                {
+                    Hinhanh img = entity.Hinhanhs.First();
+
+                    img.MaHinhAnh = await CreateIdImg();
+                    await _contextDB.Hinhanhs.AddAsync(img);
+                }    
                 await _contextDB.Sanphams.AddAsync(entity);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
@@ -32,6 +40,16 @@ namespace WebBanThuocBVTV.Repositories
             }
             return alertMessage;
         }
+        public async Task<string> CreateIdImg()
+        {
+            string newMaImg = String.Empty;
+            var lastMaImg = await _contextDB.Hinhanhs.OrderByDescending(img => img.MaHinhAnh).Select(img => img.MaHinhAnh).FirstOrDefaultAsync();
+            if (lastMaImg == null)
+                newMaImg = "img0001";
+            else
+                newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
+            return newMaImg;
+        }    
 
         public async Task<string> CreateId()
         {
@@ -44,11 +62,43 @@ namespace WebBanThuocBVTV.Repositories
             return newMaSp;
         }
 
-        public Task<AlertMessage> Delete(string id)
+        public async Task<AlertMessage> Discontinue(string id) //ngừng kinh doanh sản phẩm
         {
-            throw new NotImplementedException();
+            AlertMessage alertMessage = new AlertMessage();
+            Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
+            if(sp.IsActive)
+            {
+                sp.IsActive = false;
+                _contextDB.Update(sp);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Ngừng kinh doanh thành công";
+            }else
+            {
+                alertMessage.Type = "warning";
+                alertMessage.Message = "Sản phẩm đã ngừng kinh doanh";
+            }
+            return alertMessage;
         }
-
+        public async Task<AlertMessage> Sell(string id) //kinh doanh sản phẩm
+        {
+            AlertMessage alertMessage = new AlertMessage();
+            Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
+            if (!sp.IsActive)
+            {
+                sp.IsActive = true;
+                _contextDB.Update(sp);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "kinh doanh sản phẩm thành công";
+            }
+            else
+            {
+                alertMessage.Type = "warning";
+                alertMessage.Message = "Sản phẩm đang kinh doanh";
+            }
+            return alertMessage;
+        }
         public async Task<List<Sanpham>> GetAllAsync()
         {
             List<Sanpham> lstSp = await _contextDB.Sanphams
@@ -70,6 +120,23 @@ namespace WebBanThuocBVTV.Repositories
                               .Include(sp => sp.MaNhaSxNavigation)
                               .Include(sp => sp.Binhluans)
                               .ThenInclude(bl => bl.MaNdNavigation)
+                              .Include(sp => sp.Binhluans)
+                              .ThenInclude(bl => bl.Phanhois)
+                              .ThenInclude(ph => ph.MaNhanVienNavigation)
+                              .FirstAsync();
+                return sp;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public async Task<Sanpham> GetByIdBase(string maSp)
+        {
+            try
+            {
+                Sanpham? sp = await _contextDB.Sanphams
+                              .Where(sp => sp.MaSanPham == maSp)
                               .FirstAsync();
                 return sp;
             }
@@ -101,21 +168,11 @@ namespace WebBanThuocBVTV.Repositories
             int count = await _contextDB.Sanphams.CountAsync();
             return count;
         }
-        //public async Task<List<Sanpham>> FilterProduct(string maNhomSp)
-        //{
-        //    List<Sanpham> lstSp = await _contextDB.Sanphams
-        //                          .Where(sp => sp.MaNhomSp == maNhomSp)
-        //                          .Include(sp => sp.Hinhanhs).Include(sp => sp.Binhluans)
-        //                          .Include(sp => sp.DonhangSanphams)
-        //                          .ThenInclude(dhsp => dhsp.MaDonHangNavigation)
-        //                          .ToListAsync();
-        //    return lstSp;
-        //}
 
         public async Task<List<Sanpham>> FeatureProduct()
         {
             List<Sanpham> lstSp = await _contextDB.Sanphams
-                .GroupJoin(_contextDB.DonhangSanphams.Where(dhsp => dhsp.MaDonHangNavigation.MaTrangThai == "HTO"), 
+                .GroupJoin(_contextDB.DonhangSanphams.Where(dhsp => dhsp.MaDonHangNavigation.MaTrangThai == "CMP"), 
                                                                       sp => sp.MaSanPham,
                                                                       dhsp => dhsp.MaSanPham, 
                                                                       (sp, group) => new { sanPham = sp, tongMua = group.Sum(gp => gp.SoLuongDatMua) })
@@ -125,15 +182,17 @@ namespace WebBanThuocBVTV.Repositories
             
             return lstSp.GetRange(0, 4);
         } 
-        public async Task<List<Sanpham>> FilterProduct(string name="", string maNhomSp = "", string maNhaSx = "", PriceArrange? priceArrange=null, QuantityOptions? quantityOption = null, SortOptions sort=SortOptions.IdAsc)
+        public async Task<List<Sanpham>> FilterProduct(string name="", bool isActive=true, string maNhomSp = "", string maNhaSx = "", PriceArrange? priceArrange=null, QuantityOptions? quantityOption = null, SortOptions? sort=null, SortPrice? sortPrice=null)
         {
             IQueryable<Sanpham> query = _contextDB.Sanphams
                                   .Where(sp => sp.TenSanPham.Contains(name)
                                                          && sp.MaNhaSx.Contains(maNhaSx)
-                                                         && sp.MaNhomSp.Contains(maNhomSp))
+                                                         && sp.MaNhomSp.Contains(maNhomSp) 
+                                                         && sp.IsActive == isActive)
                                   .Include(sp => sp.MaNhomSpNavigation)
                                   .Include(sp => sp.MaNhaSxNavigation)
-                                  .Include(sp => sp.Hinhanhs).Include(sp => sp.Binhluans)
+                                  .Include(sp => sp.Hinhanhs)
+                                  .Include(sp => sp.Binhluans)
                                   .Include(sp => sp.DonhangSanphams)
                                   .ThenInclude(dhsp => dhsp.MaDonHangNavigation);
 
@@ -194,9 +253,40 @@ namespace WebBanThuocBVTV.Repositories
                     query = query.OrderBy(sp => sp.TenSanPham);
                     break;
             }
-
+           switch(sortPrice)
+            {
+                case SortPrice.priceAsc:
+                    query = query.OrderBy(sp => sp.Gia);
+                    break;
+                case SortPrice.priceDesc:
+                    query = query.OrderByDescending(sp => sp.Gia);
+                    break;
+                default:
+                    break;
+            }    
             return await query.ToListAsync();
         }
-        
+
+        public Task<AlertMessage> Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
+        public Dictionary<string, int> Statistic()
+        {
+            Dictionary<string, int> statistic = new Dictionary<string, int>();
+
+            int spCurrent = _contextDB.Sanphams.Where(sp => sp.IsActive).Count();
+            int spNoneActive = _contextDB.Sanphams.Where(sp => !sp.IsActive).Count();                    
+            statistic.Add("Count", spCurrent);
+            statistic.Add("CountNoneActive", spNoneActive);
+
+            return statistic;
+        }
+        public async Task<List<Sanpham>> GetOutOfStockProduct()
+        {
+            return await _contextDB.Sanphams.Where(sp => sp.SoLuong < 10)
+                                      .Include(sp => sp.MaNhomSpNavigation)
+                                      .ToListAsync();
+        }
     }
 }

@@ -15,39 +15,44 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         private SanPhamRepository _sanPhamRepository;
         private BinhLuanRepository _binhLuanRepository;
         private DanhGiaRepository _danhGiaRepository;
-        public ProductController(SanPhamRepository sanPhamRepository, BinhLuanRepository binhLuanRepository, DanhGiaRepository danhGiaRepository)
+        private NhaSanXuatRepository _nhaSanXuatRepository;
+        public ProductController(SanPhamRepository sanPhamRepository, BinhLuanRepository binhLuanRepository, DanhGiaRepository danhGiaRepository, NhaSanXuatRepository nhaSanXuatRepository)
         {
             _sanPhamRepository = sanPhamRepository;
             _binhLuanRepository = binhLuanRepository;
             _danhGiaRepository = danhGiaRepository;
+            _nhaSanXuatRepository = nhaSanXuatRepository;
         }
-        public async Task<IActionResult> Index(int? page, string maNhomSp )
+        public async Task<IActionResult> Index()
         {
             AddBreadcrum(new BreadcrumItem() { Text="Sản Phẩm", Url= Url.Action("Index","Product",new {area = "Customer"})});//thêm vào breadcrum
             HttpContext.Session.SetString("IndexPage", "Product");//lưu vào session vị trí hiện tại của trang
 
+            ViewBag.nhomSanPham = await nhomSanPhamRepository.GetAllAsync();
+            @ViewBag.maNhomSp = "P&H";
+            ViewBag.NhaSx =  await _nhaSanXuatRepository.GetAllAsync();
+
+            return View();
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> FilterProduct(string maNhaSx, string maNhomSp, PriceArrange? priceArrange, QuantityOptions? quantityOption, SortPrice sortPrice, int? page)
+        {
+            maNhaSx = maNhaSx ?? "";
+            maNhomSp = maNhomSp ?? "";
             if (page == null)
                 page = 1;
 
-            if (string.IsNullOrEmpty(maNhomSp))
-                maNhomSp = "P&H";
-
-            ViewBag.nhomSanPham = await nhomSanPhamRepository.GetAllAsync();
-            List<Sanpham> lstSanPham = null;
-            lstSanPham = await _sanPhamRepository.FilterProduct(maNhomSp);
+            List<Sanpham> lstProducts = await _sanPhamRepository.FilterProduct(maNhomSp: maNhomSp, maNhaSx: maNhaSx, sortPrice: sortPrice);
 
             int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
             int pageNumber = page ?? 1;
 
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageCount = lstProducts.Count / pageSize;
 
-            ViewBag.maNhomSp = maNhomSp;
-            return View(lstSanPham.ToPagedList(pageNumber, pageSize));
-        }
-        [HttpPost]
-        public async Task<IActionResult> FilterProduct(string maNhomSp)
-        {
-            return RedirectToAction("Index",new { maNhomSp});
+            return PartialView("_ListProduct", lstProducts.ToPagedList(pageNumber, pageSize));
         }
         public async Task<IActionResult> DetailProduct(string maSp)
         {

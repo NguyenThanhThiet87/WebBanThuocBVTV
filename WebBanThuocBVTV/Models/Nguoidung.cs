@@ -10,25 +10,27 @@ public partial class Nguoidung
     public string HoTen { get; set; } = null!;
 
     public bool GioiTinh { get; set; }
-
-    public DateTime NgaySinh { get; set; }
+    public string DisplayGioiTinh => GioiTinh ? "Nam" : "Nữ";
 
     public string? SoDienThoai { get; set; }
 
     public string? DiaChi { get; set; }
 
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; }
 
-    public string PassWord { get; set; } = null!;
+    public string? PassWord { get; set; }
 
-    public DateOnly? NgayBdlv { get; set; }
+    public DateTime? NgayBdlv { get; set; }
 
     public string MaVaiTro { get; set; } = null!;
 
     public string? GoogleId { get; set; }
-    public DateTime NgayTao { get; set; }
 
-    public string DisplayGioiTinh { get { return GioiTinh == false ? "Nữ" : "Nam"; } }
+    public DateTime? NgayTao { get; set; }
+
+    public DateTime? NgaySinh { get; set; }
+
+    public string? Avatar { get; set; }
 
     public virtual ICollection<Binhluan> Binhluans { get; set; } = new List<Binhluan>();
 
@@ -37,4 +39,6 @@ public partial class Nguoidung
     public virtual ICollection<Giohang> Giohangs { get; set; } = new List<Giohang>();
 
     public virtual Vaitro MaVaiTroNavigation { get; set; } = null!;
+
+    public virtual ICollection<Phanhoi> Phanhois { get; set; } = new List<Phanhoi>();
 }

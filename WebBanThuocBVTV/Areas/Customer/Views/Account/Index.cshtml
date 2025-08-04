@@ -12,13 +12,27 @@
 			<button class="tab-btn @(ViewBag.active=="password"?"active":"")" data-tab="password">Đổi mật khẩu</button>
 		</div>
 		<form asp-action="Logout" asp-controller="Account" method="post">
-			<button id="logout-btn" class="btn btn-primary" type="submit">Đăng xuất</button>
+			<button id="logout-btn" class="btn btn-danger" type="submit">Đăng xuất</button>
 		</form>
 	</div>
 	<!-- Profile Section -->
 	<section id="profile" class="tab-content @(ViewBag.active=="personal"?"active":"")">
 		<h3>Thông tin cá nhân</h3>
-		<form class="profile-form" asp-action="ChangePersonal" asp-controller="Account">
+		<form class="profile-form" asp-action="ChangePersonal" asp-controller="Account" enctype="multipart/form-data">
+
+			<!-- Avatar Upload -->
+			<div class="avatar-upload">
+				<div class="avatar-preview" id="avatarPreview">
+					<i class="fas fa-user iconAvatarCustomer @(ViewBag.User.Avatar==null?"":"d-none")"></i>
+					<img src="@(ViewBag.User.Avatar??"")" alt="Alternate Text" class="imgAvatar @(ViewBag.User.Avatar==null?"d-none": "")" />
+				</div>
+				<button type="button" class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()">
+					<i class="fas fa-camera"></i>
+				</button>
+				<input type="file" id="avatarInput" name="avatar" class="d-none" accept="image/*" value="@ViewBag?.avatar" onchange="reviewImage(this)">
+			</div>
+
+
 			<label>Họ và tên</label>
 			<input name="name" type="text" id="fullName" value="@ViewBag.User.HoTen" required>
 
@@ -157,30 +171,4 @@
 	</section>
 </div>
 
-<script>
-		// Tab switching
-	const tabButtons = document.querySelectorAll('.tab-btn');
-	const tabContents = document.querySelectorAll('.tab-content');
-
-	tabButtons.forEach(button => {
-	  button.addEventListener('click', () => {
-		tabButtons.forEach(btn => btn.classList.remove('active'));
-		tabContents.forEach(content => content.classList.remove('active'));
-
-		button.classList.add('active');
-		document.getElementById(button.getAttribute('data-tab')).classList.add('active');
-	  });
-	});
-
-		function togglePassword(inputId, toggleElement) {
-		var input = document.getElementById(inputId);
-		var toggle = toggleElement;
-		if (input.type === "password") {
-			input.type = "text";
-			toggle.classList.add("active");
-		} else {
-			input.type = "password";
-			toggle.classList.remove("active");
-		}
-	}
-</script>
+<script src="~/js/Customer/Account/Index.js"></script>

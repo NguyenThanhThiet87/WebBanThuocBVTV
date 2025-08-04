@@ -2,48 +2,19 @@
 @{
 }
 <link href="~/css/Admin/ManageOrder/Index.css" rel="stylesheet" />
-<link href="~/css/Admin/ManageOrder/_DetailOrder.css" rel="stylesheet" />
 <link href="~/css/Admin/ManageOrder/_ListOrder.css" rel="stylesheet" />
 <div class="manage_order-container">
 	<!-- Header -->
 	<h1 class="page-title">Quản Lý Đơn Hàng</h1>
 
 	<div class="content-container">
-		<!-- Thống kê -->
-		<div class="stats-grid">
-			<div class="stat-card">
-				<div class="stat-icon customers">👥</div>
-				<div class="stat-value">@ViewBag.TongKh</div>
-				<div class="stat-label">Tổng khách hàng</div>
-				<div class="stat-change">↗ +8% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon new">🆕</div>
-				<div class="stat-value">@ViewBag.KhMoi</div>
-				<div class="stat-label">Khách hàng mới</div>
-				<div class="stat-change">↗ +12% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon active">✅</div>
-				<div class="stat-value">1,089</div>
-				<div class="stat-label">Khách hàng hoạt động</div>
-				<div class="stat-change">↗ +5% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon inactive">⏸️</div>
-				<div class="stat-value">145</div>
-				<div class="stat-label">Khách hàng không hoạt động</div>
-				<div class="stat-change">↘ -3% so với tháng trước</div>
-			</div>
-		</div>
-
 		<!-- Thao tác nhanh -->
 		<div class="actions-section">
 			<h2 class="actions-title">Thao tác nhanh</h2>
 			<div class="actions-grid">
-				<a class="action-btn" href="@Url.Action("AddCustomer","ManageCustomer",new{area="Admin"})">
+				<a class="action-btn" data-bs-toggle="modal" data-bs-target="#detail_orderModal" onclick="addOrderModal()">
 					<span>➕</span>
-					Thêm khách hàng mới
+					Thêm đơn hàng mới
 				</a>
 				<a class="action-btn" onclick="importCustomers()">
 					<span>📥</span>
@@ -73,7 +44,7 @@
 
 				<div class="search-container">
 					<input type="text" class="search-input" placeholder="Tìm kiếm đơn hàng..." value="" id="searchInput">
-					<button class="search-btn" onclick="searchOrder()">🔍 Tìm kiếm</button>
+					<button class="search-btn" onclick="applyFilters()">🔍 Tìm kiếm</button>
 				</div>
 			</div>
 
@@ -83,18 +54,19 @@
 
 					<div class="filter-section">
 						<div class="filter-title">🏭 Trạng thái</div>
-						<select class="sort-select" id="stateSelect">
-							<option value="">Tất cả</option>
+						<select class="sort-select" id="stateSelect" onchange="applyFilters()">
 							@foreach (var item in ViewBag.TrangThaiDonHang)
 							{
-								<option value="@item.MaTrangThai">@item.TenTrangThai</option>
+								if(item.MaTrangThai=="PCD")
+								{
+									<option value="@item.MaTrangThai" selected>@item.TenTrangThai</option>
+								}else
+								{
+									<option value="@item.MaTrangThai">@item.TenTrangThai</option>
+								}
+								
 							}
 						</select>
-					</div>
-
-					<div class="filter-actions">
-						<button class="btn-apply" onclick="applyFilters()">Áp dụng</button>
-						<button class="btn-reset" onclick="resetFilters()">Đặt lại</button>
 					</div>
 				</div>
 
@@ -106,57 +78,29 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="detail_orderModal" tabindex="-1" aria-labelledby="detail_orderModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog modal-xl">
 			<div class="modal-content" id="modal-container">
 			</div>
 		</div>
 	</div>
 </div>
+<script src="~/js/Admin/ManageOrder/_AddOrder.js"></script>
 <script>
 	document.addEventListener("DOMContentLoaded",()=>{
-		searchOrder("init");
+		applyFilters();
 	})
 
 	var detailOrder_modal = document.getElementById('detail_orderModal');
 	detailOrder_modal.addEventListener('hide.bs.modal', function (event) {
-	  applyFilters();
+	  applyFilters("init");
 	});
 
 	var model_container = document.getElementById("modal-container");
 
-	var searchOrder = function(status)
+	var applyFilters = function(status)
 	{
-		var name = "";
 		if(status!="init")
-		{
-			 showLoading("");
-			 name =document.getElementById("searchInput").value;
-		}
-
-		var sort = document.getElementById("sortSelect").value;
-
-		var tableProduct = document.getElementsByClassName("order-table")[0];
-
-		$.ajax({
-			url:"@Url.Action("FilterOrder", "ManageOrder", new { area = "Admin" })",
-			method:"POST",
-			data: {id: name, sortOption: sort},
-			success:function(res)
-			{
-				hideLoading()
-				tableProduct.innerHTML = res;
-			},
-			error: function(err)
-			{
-				hideLoading()
-				console.log(err);
-			}
-		})
-	}
-
-	var applyFilters = function()
-	{
-		showLoading("");
+			showLoading("");
 		var name = document.getElementById("searchInput").value;
 		var TrangThai = document.getElementById("stateSelect").value;
 		var Sort = document.getElementById("sortSelect").value;
@@ -166,7 +110,7 @@
 		$.ajax({
 			url:"@Url.Action("FilterOrder", "ManageOrder", new { area = "Admin" })",
 			method:"POST",
-			data: {keyword: name, state: TrangThai, sortOption: Sort},
+			data: {id: name, state: TrangThai, sortOption: Sort},
 			success:function(res)
 			{
 				hideLoading()
@@ -184,7 +128,7 @@
 	{
 		showLoading("");
 		var TrangThai = document.getElementById("stateSelect");
-		TrangThai.value = "";
+		TrangThai.value = "DXL";
 
 		searchOrder();
 	}
@@ -251,4 +195,31 @@
 		}
 		});
 	}
+	var deleteOrder = function(maDonHang)
+	{
+		showLoading("");
+		$.ajax({
+		url:"@Url.Action("DeleteOrder", "ManageOrder", new { area = "Admin" })",
+		method:"post",
+		data: {maDh: maDonHang},
+		success:function(res)
+		{
+			if(res.type="success")
+			{
+				applyFilters("init");
+			}
+			console.log(res)
+			hideLoading();
+			showToast(res.type, res.message);
+		},
+		error:function(res)
+		{
+		   hideLoading();
+		   console.log(res);
+		}
+		});
+	}
+
+	//Add Order
+
 </script>

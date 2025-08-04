@@ -22,10 +22,6 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         {
             AddBreadcrum(new BreadcrumItem() { Text = "Trang Chủ", Url = Url.Action("Index", "Home", new { area = "Customer" }) });
             Nguoidung Account = new Nguoidung();
-            Account.MaNd = "nd000001";
-            Account.HoTen = "Nguyễn Thanh Thiệt";
-
-            HttpContext.Session.SetString("Account", System.Text.Json.JsonSerializer.Serialize(Account));
 
             HttpContext.Session.SetString("IndexPage", "Home");//lưu vào session vị trí hiện tại của trang
 

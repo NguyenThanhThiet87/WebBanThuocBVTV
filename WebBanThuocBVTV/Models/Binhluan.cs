@@ -20,4 +20,6 @@ public partial class Binhluan
     public virtual Nguoidung MaNdNavigation { get; set; } = null!;
 
     public virtual Sanpham MaSanPhamNavigation { get; set; } = null!;
+
+    public virtual ICollection<Phanhoi> Phanhois { get; set; } = new List<Phanhoi>();
 }

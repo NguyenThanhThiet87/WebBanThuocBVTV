@@ -1,0 +1,106 @@
+﻿.setnewpass-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+    .setnewpass-container .title {
+        font-size: 28px;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .setnewpass-container .form-group {
+        margin-bottom: 24px;
+        position: relative;
+    }
+
+    .setnewpass-container .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #4a5568;
+        font-size: 14px;
+
+    }
+
+    .setnewpass-container .form-input {
+        width: 100%;
+        padding: 14px 16px;
+        padding-right: 50px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: #f8fafc;
+    }
+
+        .setnewpass-container .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .setnewpass-container .form-input.readonly {
+            background-color: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+    .setnewpass-container .toggle-password {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #64748b;
+        font-size: 18px;
+        padding: 4px;
+        border-radius: 4px;
+        transition: color 0.2s ease;
+    }
+
+        .setnewpass-container .toggle-password:hover {
+            color: #374151;
+        }
+
+    .setnewpass-container .input-wrapper {
+        position: relative;
+    }
+
+    .setnewpass-container .submit-btn {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 8px;
+    }
+
+        .setnewpass-container .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+
+        }
+
+        .setnewpass-container .submit-btn:active {
+            transform: translateY(0);
+        }

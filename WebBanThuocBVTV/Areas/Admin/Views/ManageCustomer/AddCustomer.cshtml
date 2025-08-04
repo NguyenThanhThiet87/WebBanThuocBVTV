@@ -12,7 +12,7 @@
 
 	<div class="card-body">
 		<!-- Form -->
-		<form id="customerForm" asp-action="InsertCustomer" asp-controller="ManageCustomer">
+		<form id="customerForm" asp-action="InsertCustomer" asp-controller="ManageCustomer" enctype="multipart/form-data">
 			<!-- Step 1: Basic Information -->
 			<div class="form-step" id="formStep1">
 				<div class="row">
@@ -21,12 +21,13 @@
 						<!-- Avatar Upload -->
 						<div class="avatar-upload">
 							<div class="avatar-preview" id="avatarPreview">
-								<i class="fas fa-user"></i>
+								<i class="fas fa-user iconAvatarCustomer"></i>
+								<img src="#" alt="Alternate Text" class="d-none imgAvatar" />
 							</div>
 							<button type="button" class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()">
 								<i class="fas fa-camera"></i>
 							</button>
-							<input type="file" id="avatarInput" accept="image/*" style="display: none;">
+							<input type="file" id="avatarInput" name="avatar" accept="image/*" value="@ViewBag?.avatar" style="display: none;" onchange="reviewImage(this)">
 						</div>
 
 						<!-- Personal Information -->
@@ -56,8 +57,23 @@
 									<div class="floating-label">
 										<select name="GioiTinh" class="form-control" id="gender" required>
 											<option value="">Chọn giới tính</option>
-											<option value="true">Nam</option>
-											<option value="false">Nữ</option>
+											@{
+												if(Model==null)
+												{
+													<option value="true">Nam</option>
+													<option value="false">Nữ</option>
+												}
+												else if(Model.GioiTinh)
+												{
+													<option value="true" selected>Nam</option>
+													<option value="false">Nữ</option>
+												}else if(!Model.GioiTinh)
+												{
+													<option value="true">Nam</option>
+													<option value="false" selected>Nữ</option>
+												}
+											}
+											
 										</select>
 										<label for="gender">Giới tính</label>
 									</div>
@@ -126,7 +142,7 @@
 </div>
 
 <script>
-		var modal_container = document.getElementById("modal-container");
+	var modal_container = document.getElementById("modal-container");
 	var verifyModal = document.getElementById("verifyModal");
 	var modal = new bootstrap.Modal(verifyModal);
 
@@ -196,5 +212,14 @@
 		}
 		)
 	}
+		var reviewImage = function(input)
+	{
 
+		var file = input.files[0];
+		var imgElement = document.getElementsByClassName("imgAvatar")[0];
+		var iconElement = document.getElementsByClassName("iconAvatarCustomer")[0];
+		iconElement.classList.add("d-none");
+		imgElement.classList.remove("d-none");
+		imgElement.src = URL.createObjectURL(file);
+	}
 </script>

@@ -1,5 +1,4 @@
-﻿@{
-}
+﻿@model List<WebBanThuocBVTV.Models.Donhang>
 
 <!-- Main Content -->
 <!-- Dashboard Content -->
@@ -9,43 +8,44 @@
 	<!-- Stats Cards -->
 	<div class="stats-cards">
 		<div class="stat-card">
-			<div class="stat-card-icon products">
-				<i class="fas fa-spray-can"></i>
-			</div>
-			<h3>156</h3>
-			<p>Sản phẩm BVTV</p>
-			<div class="stat-change positive">
-				<i class="fas fa-arrow-up"></i> +12% so với tháng trước
-			</div>
-		</div>
-		<div class="stat-card">
 			<div class="stat-card-icon orders">
 				<i class="fas fa-shopping-cart"></i>
 			</div>
-			<h3>89</h3>
+			<h3>@ViewBag.statisticOrder["dhCurrentMonth"]</h3>
 			<p>Đơn hàng mới</p>
 			<div class="stat-change positive">
-				<i class="fas fa-arrow-up"></i> +8% so với tuần trước
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticOrder["percent"] so với tháng trước
 			</div>
 		</div>
 		<div class="stat-card">
 			<div class="stat-card-icon revenue">
 				<i class="fas fa-dollar-sign"></i>
 			</div>
-			<h3>2.5M</h3>
+			<h3>@ViewBag.statisticOrder["revenueCurrentMonth"]</h3>
 			<p>Doanh thu (VNĐ)</p>
 			<div class="stat-change positive">
-				<i class="fas fa-arrow-up"></i> +15% so với tháng trước
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticOrder["percentRevenue"]% so với tháng trước
 			</div>
 		</div>
 		<div class="stat-card">
 			<div class="stat-card-icon customers">
 				<i class="fas fa-users"></i>
 			</div>
-			<h3>234</h3>
+			<h3>@ViewBag.statisticUser["ndCurrentMonth"]</h3>
 			<p>Khách hàng</p>
 			<div class="stat-change positive">
-				<i class="fas fa-arrow-up"></i> +5% so với tháng trước
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticUser["percent"]% so với tháng trước
+			</div>
+		</div>
+		<div class="stat-card">
+			<div class="stat-card-icon products">
+				<i class="fas fa-spray-can"></i>
+			</div>
+			<h3>@ViewBag.statisticProduct["Count"]</h3>
+			<p>Sản phẩm BVTV</p>
+			<div class="stat-change positive">
+				<i class="fa-solid fa-shop-lock" style="color: #f22c54;"></i>
+				@ViewBag.statisticProduct["CountNoneActive"] sản phẩm ngừng kinh doanh
 			</div>
 		</div>
 	</div>
@@ -102,27 +102,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>#DH001</td>
-								<td>Nguyễn Văn A</td>
-								<td>Thuốc trừ sâu ABC</td>
-								<td>250,000₫</td>
-								<td><span class="order-status completed">Hoàn thành</span></td>
-							</tr>
-							<tr>
-								<td>#DH002</td>
-								<td>Trần Thị B</td>
-								<td>Phân bón NPK</td>
-								<td>180,000₫</td>
-								<td><span class="order-status pending">Đang xử lý</span></td>
-							</tr>
-							<tr>
-								<td>#DH003</td>
-								<td>Lê Văn C</td>
-								<td>Thuốc diệt cỏ XYZ</td>
-								<td>320,000₫</td>
-								<td><span class="order-status cancelled">Đã hủy</span></td>
-							</tr>
+							@foreach(var dh in Model)
+							{
+								<tr>
+									<td>@dh.MaDonHang</td>
+									<td>@dh.MaNdNavigation.HoTen</td>
+									<td>@dh.DonhangSanphams.FirstOrDefault().MaSanPhamNavigation.TenSanPham ,...</td>
+									<td>@dh.TongTien</td>
+									<td><span class="order-status completed">@dh.MaTrangThaiNavigation.TenTrangThai</span></td>
+								</tr>
+							}
 						</tbody>
 					</table>
 				</div>
@@ -133,33 +122,30 @@
 			<div class="dashboard-card">
 				<h5>Thông báo</h5>
 				<div class="notifications">
-					<div class="notification-item">
-						<div class="notification-icon info">
-							<i class="fas fa-info"></i>
+					@if (ViewBag.CountProcessingOrder > 0)
+					{
+						<div class="notification-item">
+							<div class="notification-icon info">
+								<i class="fas fa-info"></i>
+							</div>
+							<div>
+								<strong>Đơn hàng mới</strong>
+								<p class="mb-0 small text-muted">Có @ViewBag.CountProcessingOrder đơn hàng mới cần xử lý</p>
+							</div>
 						</div>
-						<div>
-							<strong>Đơn hàng mới</strong>
-							<p class="mb-0 small text-muted">Có 5 đơn hàng mới cần xử lý</p>
+					}
+					@foreach (var item in ViewBag.OutOfStock)
+					{
+						<div class="notification-item">
+							<div class="notification-icon warning">
+								<i class="fas fa-exclamation"></i>
+							</div>
+							<div>
+								<strong>Sản phẩm hết hàng</strong>
+								<p class="mb-0 small text-muted">@item.MaNhomSpNavigation.TenNhomSp @item.TenSanPham (@item.MaSanPham) sắp hết hàng</p>
+							</div>
 						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-icon warning">
-							<i class="fas fa-exclamation"></i>
-						</div>
-						<div>
-							<strong>Sản phẩm hết hàng</strong>
-							<p class="mb-0 small text-muted">Thuốc trừ sâu ABC sắp hết hàng</p>
-						</div>
-					</div>
-					<div class="notification-item">
-						<div class="notification-icon success">
-							<i class="fas fa-check"></i>
-						</div>
-						<div>
-							<strong>Cập nhật thành công</strong>
-							<p class="mb-0 small text-muted">Đã cập nhật thông tin sản phẩm</p>
-						</div>
-					</div>
+					}
 				</div>
 			</div>
 		</div>

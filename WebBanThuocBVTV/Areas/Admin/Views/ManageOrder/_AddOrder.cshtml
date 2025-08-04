@@ -1,0 +1,161 @@
+﻿<link href="/css/Admin/ManageOrder/_AddOrder.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h5 class="modal-title" id="addOrderModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Tạo đơn hàng mới</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+<div class="modal-body position-relative">
+	<div class="tabs">
+		<button class="tab-button active" onclick="toggleTabAddOrder(this,'guest')">
+			Khách vãng lai
+		</button>
+		<button class="tab-button" onclick="toggleTabAddOrder(this,'customer')">
+			Khách hàng
+		</button>
+	</div>
+
+	<!-- Tab Khách vãng lai -->
+	<form id="guest-tab" class="tab-content active">
+		<h3 class="section-title">Thông tin khách hàng</h3>
+
+		<div class="form-row">
+			<div class="form-group">
+				<label for="guest-name">Họ và tên <span class="required">*</span></label>
+				<input type="text" id="guest-name" placeholder="Nhập họ và tên..." required>
+			</div>
+			<div class="form-group">
+				<label for="guest-phone">Số điện thoại <span class="required">*</span></label>
+				<input type="tel" id="guest-phone" placeholder="Nhập số điện thoại..." required>
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group">
+				<label for="guest-email">Email (tùy chọn)</label>
+				<input type="email" id="guest-email" placeholder="Nhập email ..." >
+			</div>
+			<div class="form-group">
+				<label for="guest-gender">Giới tính</label>
+				<select id="guest-gender" required>
+					<option value="male">Nam</option>
+					<option value="female">Nữ</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="guest-address">Địa chỉ <span class="required">*</span></label>
+			<textarea id="guest-address" placeholder="Nhập địa chỉ đầy đủ..." required></textarea>
+		</div>
+	</form>
+	<!-- Tab Khách hàng -->
+	<div id="customer-tab" class="tab-content">
+		<div class="form-group customer-search">
+			<label for="customer-code">Mã khách hàng <span class="required">*</span></label>
+			<input type="text" id="customer-code" placeholder="Nhập mã khách hàng...">
+			<button class="search-button" onclick="searchCustomer()">Tìm kiếm</button>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group">
+				<input type="hidden" id="customer-id">
+				<label for="customer-name">Họ và tên <span class="required">*</span></label>
+				<input type="text" id="customer-name" placeholder="Họ và tên ..." readonly required>
+			</div>
+			<div class="form-group">
+				<label for="customer-phone">Số điện thoại <span class="required">*</span></label>
+				<input type="tel" id="customer-phone" placeholder="Số điện thoại ..." required readonly>
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group">
+				<label for="customer-email">Email (tùy chọn)</label>
+				<input type="email" id="customer-email" placeholder="Email ..." readonly>
+			</div>
+			<div class="form-group">
+				<label for="customer-gender">Giới tính <span class="required">*</span></label>
+				<input type="text" id="customer-gender" placeholder="Giới tính ..." readonly required>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="customer-address">Địa chỉ <span class="required">*</span></label>
+			<textarea id="customer-address" placeholder="Địa chỉ ..." readonly required></textarea>
+		</div>
+	</div>
+
+	<div class="order-section">
+		<h3 class="section-title">Thông tin đơn hàng</h3>
+
+		<button class="add-product-btn" onclick="addProductOrder()">+ Thêm sản phẩm</button>
+
+		<div id="product-list">
+			<div class="product-row">
+				<div class="form-group">
+					<label>Sản phẩm</label>
+					<input class="maSp" type="text" placeholder="Mã sản phẩm" onchange="getSp(this)">
+				</div>
+
+				<div class="form-group">
+					<label>Tên sản phẩm</label>
+					<input class="nameProduct" type="text" readonly>
+				</div>
+
+				<div class="form-group">
+					<label>Số lượng</label>
+					<input min="1" class="quantityProduct" type="number" onchange="SumPrice(this)">
+				</div>
+
+				<div class="form-group">
+					<label>Đơn giá</label>
+					<input class="priceProduct" type="text" placeholder="vnđ" readonly>
+				</div>
+
+				<div class="form-group">
+					<label>Thành tiền</label>
+					<input class="totalProduct" type="text" placeholder="vnđ" readonly>
+				</div>
+
+				<button class="remove-btn" onclick="deleteProductOrder(this)">
+					<i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+				</button>
+			</div>
+
+		</div>
+
+		<div class="total-section">
+			<div class="total-row final">
+				<span>Tổng cộng:</span>
+				<span id="guest-total">0 VNĐ</span>
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group">
+				<label>Phương thức thanh toán</label>
+				<select>
+					<option>Thanh toán khi nhận hàng</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label>Ghi chú</label>
+			<textarea id="note-guest" placeholder="Nhập ghi chú cho đơn hàng..."></textarea>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-reset me-2" data-bs-dismiss="modal" aria-label="Close">
+		<i class="bi bi-arrow-clockwise me-2"></i>Hủy
+	</button>
+	<button type="button" class="btn btn-save" onclick="addOrder()">
+		<i class="bi bi-check-lg me-2"></i>Tạo đơn
+	</button>
+</div>

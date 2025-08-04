@@ -129,7 +129,7 @@
     }
 
     .modal-footer .btn-save {
-        background-color: green;
+        background-color: #02d102;
         color: white;
         border: none;
         padding: 12px 30px;
@@ -144,7 +144,7 @@
         }
 
     .modal-footer .btn-reset {
-        background: #6c757d;
+        background: #7d8893;
         border: none;
         color: white;
         padding: 12px 30px;

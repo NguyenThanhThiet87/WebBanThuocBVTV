@@ -13,16 +13,33 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        readonly NguoiDungRepository _nguoiDungRepository;
+        readonly SanPhamRepository _sanPhamRepository;
+        readonly DonHangRepository _donHangRepository;
+        public HomeController(ILogger<HomeController> logger, NguoiDungRepository nguoiDungRepository, SanPhamRepository sanPhamRepository, DonHangRepository donHangRepository)
         {
             _logger = logger;
+            _nguoiDungRepository = nguoiDungRepository;
+            _sanPhamRepository = sanPhamRepository;
+            _donHangRepository = donHangRepository;
         }
 
         public async Task<IActionResult> Index()
         {
             SavePointSideBar(SideBar.TongQuan);
-            return View();
+            Dictionary<string,int> staUser = _nguoiDungRepository.Statistic();
+            ViewBag.statisticUser = staUser;
+            Dictionary<string, int> staProduct = _sanPhamRepository.Statistic();
+            ViewBag.statisticProduct = staProduct;
+            Dictionary<string, int> staOrder = _donHangRepository.Statistic();
+            ViewBag.statisticOrder = staOrder;
+            ViewBag.CountProcessingOrder = await _donHangRepository.CountProcessingOrder();
+            List<Sanpham> lstOutOsStock = await _sanPhamRepository.GetOutOfStockProduct();
+            ViewBag.OutOfStock = lstOutOsStock;
+
+            List<Donhang> dh = await _donHangRepository.GetNewOrders();
+
+            return View(dh);
         }
     }
 }

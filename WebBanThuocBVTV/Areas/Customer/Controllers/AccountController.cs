@@ -15,17 +15,18 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         private readonly SendOTP _sendOTP;
         private NguoiDungRepository _nguoiDungRepository;
         private DonHangRepository _donHangRepository;
-
-        public AccountController(SendOTP sendOTP, NguoiDungRepository nguoiDungRepository, DonHangRepository donHangRepository)
+        private Cloudinary_Net _cloudinary_Net;
+        public AccountController(SendOTP sendOTP, NguoiDungRepository nguoiDungRepository, DonHangRepository donHangRepository, IConfiguration _config)
         {
             _sendOTP = sendOTP;
             _nguoiDungRepository = nguoiDungRepository;
             _donHangRepository = donHangRepository;
+            _cloudinary_Net = new Cloudinary_Net(_config);
         }
-        
+
         public async Task<IActionResult> Index()
         {
-            AddBreadcrum(new BreadcrumItem() { Text = "Tài Khoản", Url = Url.Action("Index", "Account", new {area = "Customer"}) });//thêm vào breadcrum
+            AddBreadcrum(new BreadcrumItem() { Text = "Tài Khoản", Url = Url.Action("Index", "Account", new { area = "Customer" }) });//thêm vào breadcrum
 
             Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(HttpContext.Session?.GetString("Account"));
             if (account == null)
@@ -50,7 +51,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         }
         public async Task<IActionResult> UpdatePhone()
         {
-            AlertMessage result= await _sendOTP.SendOTPByPhone("0868642533");
+            AlertMessage result = await _sendOTP.SendOTPByPhone("0868642533");
             SetAlert(result.Message, result.Type);
             return View();
         }
@@ -90,23 +91,32 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             return View("Index");
         }
 
-        public async Task<IActionResult> ChangePersonal(string email, string name, string gioiTinh, string phone, string address)
+        public async Task<IActionResult> ChangePersonal(string email, string name, string gioiTinh, string phone, string address, IFormFile avatar)
         {
-            Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(HttpContext.Session.GetString("Account"));
-            Nguoidung oldUser = await _nguoiDungRepository.GetById(user.MaNd);
-
-
-            oldUser.Email = email;
-            oldUser.HoTen = name;
-            oldUser.SoDienThoai = phone;
-            oldUser.DiaChi = address;
-            oldUser.GioiTinh = bool.Parse(gioiTinh);
-
             try
             {
+                Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(HttpContext.Session.GetString("Account"));
+                Nguoidung oldUser = await _nguoiDungRepository.GetById(user.MaNd);
+
+                if (oldUser.Avatar != null)
+                    _cloudinary_Net.Remove(oldUser.Avatar);
+
+                if(avatar!=null)
+                {
+                    string urlAvatar = _cloudinary_Net.Upload(avatar, "ND");
+                    oldUser.Avatar = urlAvatar;
+                }    
+
+                oldUser.Email = email;
+                oldUser.HoTen = name;
+                oldUser.SoDienThoai = phone;
+                oldUser.DiaChi = address;
+                oldUser.GioiTinh = bool.Parse(gioiTinh);
+                
+
                 await _nguoiDungRepository.Update(oldUser);
                 user.HoTen = name;
-                HttpContext.Session.SetString("Account", JsonSerializer.Serialize(user));
+                HttpContext.Session.SetString("Account", JsonSerializer.Serialize(oldUser));
                 SetAlert("Cập nhật thông tin cá nhân thành công", "success");
                 return RedirectToAction("Index");
             }
@@ -116,6 +126,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 return RedirectToAction("Index");
             }
         }
+        
         [HttpPost]
         public async Task<IActionResult> SendOTP_Json(string email)
         {
@@ -130,57 +141,111 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
             return Json(new { success = false, message = result.Message });
         }
-
         [HttpPost]
-        public async Task<IActionResult> VerifyOTP(string email, string otpCode)
+        public async Task<IActionResult> SendOTPEmail(string email)
         {
-            ViewBag.Email = email;
-            ViewBag.OtpCode = otpCode;
-
-            //check email tồn tại chưa
-            if (await _nguoiDungRepository.EmailIsExist(email))
+            bool isExist = await _nguoiDungRepository.EmailIsExist(email);
+            if (isExist)
             {
-                SetAlert("Tài khoản Email đã tồn tại", "warning");
-                return View("UpdateEmail");
-            }
-
-            var otpJson = HttpContext.Session.GetString("OTP");
-            
-            if (string.IsNullOrEmpty(otpJson)) //check otp từ session
-            {
-                SetAlert("Mã OTP chưa được gửi", "warning");
-                return View("UpdateEmail");
-            }
-            //nếu otp từ session tồn tại
-            var OTP = JsonSerializer.Deserialize<Dictionary<string, string>>(otpJson);
-            if (email == OTP["email"] && otpCode == OTP["otpCode"])
-            {
-                var account = HttpContext.Session.GetString("Account");
-                Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(account);
-
-                try
-                {
-                    await _nguoiDungRepository.UpdateEmail(user.MaNd, email);
-                    SetAlert("Cập nhật Email thành công", "success");
-                    return RedirectToAction("Index");
-                }
-                catch(Exception ex)
-                {
-                    SetAlert($"Cập nhật Email thất bại: {ex.Message}", "error");
-                    return RedirectToAction("UpdateEmail");
-                }
+                return Json(new { success = false, message = "Email đã đăng ký tài khoản" });
             }
             else
             {
-                SetAlert("Mã OTP chưa đúng", "warning");
-                return View("UpdateEmail");
+                AlertMessage alertMessage = await _sendOTP.SendOTPByEmail(email, email);
+                if (alertMessage.Type == "success")
+                {
+                    OTPCode data = new OTPCode()
+                    {
+                        email = email,
+                        code = alertMessage.Message
+                    };
+
+                    HttpContext.Session.SetString("OTP", System.Text.Json.JsonSerializer.Serialize(data));
+
+                    return PartialView("_SendOTPEmail", email);
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                }
             }
+        }
+        //[HttpPost]
+        //public async Task<IActionResult> VerifyOTP(string email, string otpCode)
+        //{
+        //    ViewBag.Email = email;
+        //    ViewBag.OtpCode = otpCode;
+
+        //    //check email tồn tại chưa
+        //    if (await _nguoiDungRepository.EmailIsExist(email))
+        //    {
+        //        SetAlert("Tài khoản Email đã tồn tại", "warning");
+        //        return View("UpdateEmail");
+        //    }
+
+        //    var otpJson = HttpContext.Session.GetString("OTP");
+
+        //    if (string.IsNullOrEmpty(otpJson)) //check otp từ session
+        //    {
+        //        SetAlert("Mã OTP chưa được gửi", "warning");
+        //        return View("UpdateEmail");
+        //    }
+        //    //nếu otp từ session tồn tại
+        //    var OTP = JsonSerializer.Deserialize<Dictionary<string, string>>(otpJson);
+        //    if (email == OTP["email"] && otpCode == OTP["otpCode"])
+        //    {
+        //        var account = HttpContext.Session.GetString("Account");
+        //        Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(account);
+
+        //        try
+        //        {
+        //            await _nguoiDungRepository.UpdateEmail(user.MaNd, email);
+        //            SetAlert("Cập nhật Email thành công", "success");
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            SetAlert($"Cập nhật Email thất bại: {ex.Message}", "error");
+        //            return RedirectToAction("UpdateEmail");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        SetAlert("Mã OTP chưa đúng", "warning");
+        //        return View("UpdateEmail");
+        //    }
+        //}
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyOTP(string otpCode, string email)
+        {
+            var otpJson = HttpContext.Session.GetString("OTP");
+            if (string.IsNullOrEmpty(otpJson)) //check otp từ session
+            {
+                SetAlert("Mã OTP chưa được gửi", "warning");
+                return RedirectToAction("NhapMaOTP", new { email = email });
+            }
+            //nếu otp từ session tồn tại
+            OTPCode OTP = System.Text.Json.JsonSerializer.Deserialize<OTPCode>(otpJson);
+
+            if (email == OTP.email && otpCode == OTP.code)
+            {
+                Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(HttpContext.Session.GetString("Account"));
+                Nguoidung oldUser = await _nguoiDungRepository.GetById(user.MaNd);
+
+                await _nguoiDungRepository.UpdateEmail(user.MaNd, email);
+                HttpContext.Session.Remove("OTPCode");
+                return Json(new { success = true, message = "Xác thực email thành công", redirectUrl = Url.Action("Index", "Account", new { area = "Admin" }) });
+            }
+            else
+                return Json(new { success = false, message = "Mã OTP không đúng", redirectUrl = "" });
         }
 
         [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+
             SetAlert("Đăng xuất thành công", "success");
             return RedirectToAction("Index", "Home");
         }

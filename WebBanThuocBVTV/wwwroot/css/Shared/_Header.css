@@ -214,7 +214,11 @@
     .header-container .header-text {
         line-height: 1.2;
     }
-
+    .header-container .header-item .avatar {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
 
 
 /* Responsive */

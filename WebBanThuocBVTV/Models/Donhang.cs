@@ -19,6 +19,8 @@ public partial class Donhang
 
     public string? GhiChu { get; set; }
 
+    public DateTime? NgayGiaoHang { get; set; }
+
     public virtual ICollection<DonhangSanpham> DonhangSanphams { get; set; } = new List<DonhangSanpham>();
 
     public virtual ICollection<Giaodich> Giaodiches { get; set; } = new List<Giaodich>();

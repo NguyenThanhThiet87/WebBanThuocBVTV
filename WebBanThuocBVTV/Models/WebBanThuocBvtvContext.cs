@@ -37,6 +37,8 @@ public partial class WebBanThuocBvtvContext : DbContext
 
     public virtual DbSet<Nhomsanpham> Nhomsanphams { get; set; }
 
+    public virtual DbSet<Phanhoi> Phanhois { get; set; }
+
     public virtual DbSet<Phuongthucthanhtoan> Phuongthucthanhtoans { get; set; }
 
     public virtual DbSet<Sanpham> Sanphams { get; set; }
@@ -47,7 +49,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=THANHTHIET;Initial Catalog=WEB_BAN_THUOC_BVTV;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Server=THANHTHIET;Database=WEB_BAN_THUOC_BVTV;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -66,7 +68,7 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasMaxLength(6)
                 .IsUnicode(false)
                 .IsFixedLength();
-            entity.Property(e => e.ThoiGian).HasColumnType("datetime");
+            entity.Property(e => e.ThoiGian).HasPrecision(0);
             entity.Property(e => e.NoiDung).HasMaxLength(1024);
 
             entity.HasOne(d => d.MaDanhGiaNavigation).WithMany(p => p.Binhluans)
@@ -87,7 +89,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Danhgia>(entity =>
         {
-            entity.HasKey(e => e.MaDanhGia).HasName("PK__DANHGIA__AA9515BF211F6315");
+            entity.HasKey(e => e.MaDanhGia).HasName("PK__DANHGIA__AA9515BFBF89769E");
 
             entity.ToTable("DANHGIA");
 
@@ -96,7 +98,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Donhang>(entity =>
         {
-            entity.HasKey(e => e.MaDonHang).HasName("PK__DONHANG__129584AD9582A6C9");
+            entity.HasKey(e => e.MaDonHang).HasName("PK__DONHANG__129584AD8D4445A6");
 
             entity.ToTable("DONHANG");
 
@@ -119,6 +121,7 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasMaxLength(3)
                 .IsUnicode(false)
                 .IsFixedLength();
+            entity.Property(e => e.NgayGiaoHang).HasColumnType("datetime");
             entity.Property(e => e.NgayLap).HasColumnType("datetime");
 
             entity.HasOne(d => d.MaNdNavigation).WithMany(p => p.Donhangs)
@@ -237,7 +240,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Hinhanh>(entity =>
         {
-            entity.HasKey(e => e.MaHinhAnh).HasName("PK__HINHANH__A9C37A9B615D3AF5");
+            entity.HasKey(e => e.MaHinhAnh).HasName("PK__HINHANH__A9C37A9B46B03C22");
 
             entity.ToTable("HINHANH");
 
@@ -259,7 +262,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Nguoidung>(entity =>
         {
-            entity.HasKey(e => e.MaNd).HasName("PK__NGUOIDUN__2725D7247BB6C94A");
+            entity.HasKey(e => e.MaNd).HasName("PK__NGUOIDUN__2725D724DAAF00B7");
 
             entity.ToTable("NGUOIDUNG");
 
@@ -268,6 +271,9 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .IsUnicode(false)
                 .IsFixedLength()
                 .HasColumnName("MaND");
+            entity.Property(e => e.Avatar)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.DiaChi).HasMaxLength(255);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
@@ -280,7 +286,11 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasMaxLength(2)
                 .IsUnicode(false)
                 .IsFixedLength();
-            entity.Property(e => e.NgayBdlv).HasColumnName("NgayBDLV");
+            entity.Property(e => e.NgayBdlv)
+                .HasColumnType("datetime")
+                .HasColumnName("NgayBDLV");
+            entity.Property(e => e.NgaySinh).HasColumnType("datetime");
+            entity.Property(e => e.NgayTao).HasColumnType("datetime");
             entity.Property(e => e.PassWord)
                 .HasMaxLength(255)
                 .IsUnicode(false);
@@ -297,7 +307,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Nhasanxuat>(entity =>
         {
-            entity.HasKey(e => e.MaNhaSx).HasName("PK__NHASANXU__C87A6D20449EF457");
+            entity.HasKey(e => e.MaNhaSx).HasName("PK__NHASANXU__C87A6D20A2B80E79");
 
             entity.ToTable("NHASANXUAT");
 
@@ -313,7 +323,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Nhomsanpham>(entity =>
         {
-            entity.HasKey(e => e.MaNhomSp).HasName("PK__NHOMSANP__5A1AD2F952051279");
+            entity.HasKey(e => e.MaNhomSp).HasName("PK__NHOMSANP__5A1AD2F95C1C91B5");
 
             entity.ToTable("NHOMSANPHAM");
 
@@ -327,9 +337,49 @@ public partial class WebBanThuocBvtvContext : DbContext
                 .HasColumnName("TenNhomSP");
         });
 
+        modelBuilder.Entity<Phanhoi>(entity =>
+        {
+            entity.HasKey(e => e.MaPhanHoi).HasName("PK__PHANHOI__3458D20F51505AF3");
+
+            entity.ToTable("PHANHOI");
+
+            entity.HasIndex(e => new { e.ThoiGianBinhLuan, e.MaNdBinhLuan, e.MaSpBinhLuan }, "UQ_PhanHoiChoBinhLuan").IsUnique();
+
+            entity.Property(e => e.MaNdBinhLuan)
+                .HasMaxLength(8)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("MaND_BinhLuan");
+            entity.Property(e => e.MaNhanVien)
+                .HasMaxLength(8)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.MaSpBinhLuan)
+                .HasMaxLength(6)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("MaSP_BinhLuan");
+            entity.Property(e => e.NgayPhanHoi)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ThoiGianBinhLuan)
+                .HasPrecision(0)
+                .HasColumnName("ThoiGian_BinhLuan");
+
+            entity.HasOne(d => d.MaNhanVienNavigation).WithMany(p => p.Phanhois)
+                .HasForeignKey(d => d.MaNhanVien)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PhanHoi_NhanVien");
+
+            entity.HasOne(d => d.Binhluan).WithMany(p => p.Phanhois)
+                .HasForeignKey(d => new { d.MaNdBinhLuan, d.MaSpBinhLuan, d.ThoiGianBinhLuan })
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PhanHoi_BinhLuan");
+        });
+
         modelBuilder.Entity<Phuongthucthanhtoan>(entity =>
         {
-            entity.HasKey(e => e.MaPhuongThucTt).HasName("PK__PHUONGTH__2AC557DF114076BF");
+            entity.HasKey(e => e.MaPhuongThucTt).HasName("PK__PHUONGTH__2AC557DF709C1480");
 
             entity.ToTable("PHUONGTHUCTHANHTOAN");
 
@@ -345,7 +395,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Sanpham>(entity =>
         {
-            entity.HasKey(e => e.MaSanPham).HasName("PK__SANPHAM__FAC7442D4658BE1F");
+            entity.HasKey(e => e.MaSanPham).HasName("PK__SANPHAM__FAC7442D307B2581");
 
             entity.ToTable("SANPHAM");
 
@@ -357,6 +407,7 @@ public partial class WebBanThuocBvtvContext : DbContext
             entity.Property(e => e.HuongDanSd)
                 .HasMaxLength(2500)
                 .HasColumnName("HuongDanSD");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.MaNhaSx)
                 .HasMaxLength(5)
                 .IsUnicode(false)
@@ -383,7 +434,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Trangthai>(entity =>
         {
-            entity.HasKey(e => e.MaTrangThai).HasName("PK__TRANGTHA__AADE4138D2C56548");
+            entity.HasKey(e => e.MaTrangThai).HasName("PK__TRANGTHA__AADE413890F623CE");
 
             entity.ToTable("TRANGTHAI");
 
@@ -396,7 +447,7 @@ public partial class WebBanThuocBvtvContext : DbContext
 
         modelBuilder.Entity<Vaitro>(entity =>
         {
-            entity.HasKey(e => e.MaVaiTro).HasName("PK__VAITRO__C24C41CF6527D19E");
+            entity.HasKey(e => e.MaVaiTro).HasName("PK__VAITRO__C24C41CFB6FF3FF4");
 
             entity.ToTable("VAITRO");
 

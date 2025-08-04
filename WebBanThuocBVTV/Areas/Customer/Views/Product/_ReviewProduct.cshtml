@@ -22,7 +22,19 @@
 					</span>
 				</div>
 				<div class="review-content">@item.NoiDung</div>
+
+				@if (item.Phanhois.Count > 0)
+				{
+					<div class="reply-section">
+						<div class="reply-item">
+							<div class="reply-author">Trả lời bởi: <strong>@item.Phanhois.FirstOrDefault().MaNhanVienNavigation.HoTen (Nhân viên CSKH)</strong></div>
+							<div class="reply-content">@item.Phanhois.FirstOrDefault().NoiDungPhanHoi</div>
+							<div class="reply-date">Ngày: @item.Phanhois.FirstOrDefault().NgayPhanHoi</div>
+						</div>
+					</div>
+				}
 			</div>
+			
 		}
 	</div>
 

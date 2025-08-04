@@ -15,10 +15,10 @@ builder.Services.AddControllersWithViews()
     .AddRazorOptions(options =>
     {
         options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
-        //options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
+        options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
         //// Để chắc chắn, bạn cũng có thể thêm vào danh sách tìm kiếm chung (phòng trường hợp dùng ngoài Area)
         options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
-        //options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
+        options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
     });
 
 builder.Services.AddScoped<SendOTP>();
@@ -87,7 +87,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 
 app.Run();

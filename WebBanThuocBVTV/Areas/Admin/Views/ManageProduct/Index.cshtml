@@ -8,34 +8,6 @@
 	<h1 class="page-title">Quản Lý Sản Phẩm</h1>
 
 	<div class="content-container">
-		<!-- Thống kê -->
-		<div class="stats-grid">
-			<div class="stat-card">
-				<div class="stat-icon customers">👥</div>
-				<div class="stat-value">@ViewBag.TongKh</div>
-				<div class="stat-label">Tổng sản phẩm</div>
-				<div class="stat-change">↗ +8% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon new">🆕</div>
-				<div class="stat-value">@ViewBag.KhMoi</div>
-				<div class="stat-label">Sản phẩm mới</div>
-				<div class="stat-change">↗ +12% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon active">✅</div>
-				<div class="stat-value">1,089</div>
-				<div class="stat-label">Khách hàng hoạt động</div>
-				<div class="stat-change">↗ +5% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon inactive">⏸️</div>
-				<div class="stat-value">145</div>
-				<div class="stat-label">Khách hàng không hoạt động</div>
-				<div class="stat-change">↘ -3% so với tháng trước</div>
-			</div>
-		</div>
-
 		<!-- Thao tác nhanh -->
 		<div class="actions-section">
 			<h2 class="actions-title">Thao tác nhanh</h2>
@@ -73,7 +45,7 @@
 
 				<div class="search-container">
 					<input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." value="" id="searchInput">
-					<button class="search-btn" onclick="searchProduct('')">🔍 Tìm kiếm</button>
+					<button class="search-btn" onclick="applyFilters()">🔍 Tìm kiếm</button>
 				</div>
 			</div>
 
@@ -81,12 +53,18 @@
 				<div class="filter-sidebar">
 					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
 
+					<div class="filter-section">
+						<div class="filter-title">📦 Trạng Thái Sản Phẩm</div>
+						<select class="filter-select" id="activeGroupSelect" asp-items="Html.GetEnumSelectList<IsActiveProduct>()">
+						</select>
+					</div>
+
 					<!-- Nhóm sản phẩm -->
 					<div class="filter-section">
 						<div class="filter-title">📦 Nhóm sản phẩm</div>
 						<select class="filter-select" id="productGroupSelect">
 							<option value="">Tất cả</option>
-							@foreach(var item in ViewBag.lstNSP)
+							@foreach (var item in ViewBag.lstNSP)
 							{
 								<option value="@item.MaNhomSp">@item.TenNhomSp</option>
 							}
@@ -96,7 +74,7 @@
 					<!-- Nhà sản xuất -->
 					<div class="filter-section">
 						<div class="filter-title">🏭 Nhà sản xuất</div>
-						<select class="filter-select" id="manufacturerSelect" >
+						<select class="filter-select" id="manufacturerSelect">
 							<option value="">Tất cả</option>
 							@foreach (var item in ViewBag.lstNSX)
 							{
@@ -111,7 +89,7 @@
 						<div style="margin-top: 10px;">
 							@{
 								var i = 1;
-								foreach(var item in Html.GetEnumSelectList<PriceArrange>())
+								foreach (var item in Html.GetEnumSelectList<PriceArrange>())
 								{
 									<div class="filter-option">
 										<input type="radio" id="price@(i)" name="priceRange" value="@item.Value">
@@ -145,9 +123,8 @@
 					</div>
 				</div>
 
-					<div class="product-table">
-
-					</div>
+				<div class="product-table">
+				</div>
 			</div>
 		</div>
 
@@ -164,9 +141,8 @@
 <script>
 	var model_container = document.getElementById("modal-container");
 
-
 	document.addEventListener("DOMContentLoaded",()=>{
-		searchProduct("init");
+		applyFilters();
 	})
 
 	//detailProduct
@@ -245,35 +221,35 @@
 		});
 	}
 
-	var searchProduct = function(status)
-	{
-		var name = "";
-		if(status!="init")
-		{
-			 showLoading("");
-			 name =document.getElementById("searchInput").value;
-		}
+	// var searchProduct = function(status)
+	// {
+	// 	var name = "";
+	// 	if(status!="init")
+	// 	{
+	// 		 showLoading("");
+	// 		 name =document.getElementById("searchInput").value;
+	// 	}
+	// 	var trangThaiSp = document.getElementById("activeGroupSelect").value;
+	// 	var sort = document.getElementById("sortSelect").value;
 
-		var sort = document.getElementById("sortSelect").value;
+	// 	var tableProduct = document.getElementsByClassName("product-table")[0];
 
-		var tableProduct = document.getElementsByClassName("product-table")[0];
-
-		$.ajax({
-			url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
-			method:"POST",
-			data: {keyword: name, sortOption: sort},
-			success:function(res)
-			{
-				hideLoading()
-				tableProduct.innerHTML = res;
-			},
-			error: function(err)
-			{
-				hideLoading()
-				console.log(err);
-			}
-		})
-	}
+	// 	$.ajax({
+	// 		url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
+	// 		method:"POST",
+	// 		data: {keyword: name, sortOption: sort, isActive :trangThaiSp},
+	// 		success:function(res)
+	// 		{
+	// 			hideLoading()
+	// 			tableProduct.innerHTML = res;
+	// 		},
+	// 		error: function(err)
+	// 		{
+	// 			hideLoading()
+	// 			console.log(err);
+	// 		}
+	// 	})
+	// }
 
 	var pageList = function(a, current_page, count_page)
 	{
@@ -341,6 +317,7 @@
 	}
 	var addProduct = function()
 	{
+
 		showLoading("");
 		var id =document.getElementById("productId").value;
 		var name = document.getElementById("productName").value;
@@ -352,24 +329,29 @@
 		var composition =document.getElementById("composition").value;
 		var usage = document.getElementById("usage").value;
 		var instructions = document.getElementById("instructions").value;
+		var imgFile  = document.getElementById("imageInput").files[0];
 
-		const sanPham = {
-			MaSanPham: id,
-			TenSanPham: name,
-			MaNhomSp: category,
-			MaNhaSx: provider,
-			Gia: price,
-			SoLuong: quanlity,
-			HanSd: expiry,
-			ThanhPhan: composition,
-			CongDung: usage,
-			HuongDanSd: instructions
-		}
+		const formData = new FormData();
+
+	    formData.append('sp.MaSanPham', id);
+	    formData.append('sp.TenSanPham', name);
+	    formData.append('sp.MaNhomSp', category);
+	    formData.append('sp.MaNhaSx', provider);
+	    formData.append('sp.Gia', price);
+	    formData.append('sp.SoLuong', quanlity);
+	    formData.append('sp.HanSd', expiry);
+	    formData.append('sp.ThanhPhan', composition);
+	    formData.append('sp.CongDung', usage);
+	    formData.append('sp.HuongDanSd', instructions);
+
+		formData.append('imgProduct', imgFile);
 
 		$.ajax({
 			url:"@Url.Action("AddProduct", "ManageProduct", new { area = "Admin" })",
 			method:"post",
-			data: sanPham,
+			data: formData,
+			contentType: false,
+		processData: false,
 			success:function(res)
 			{
 				hideLoading()
@@ -387,6 +369,7 @@
 	var applyFilters = function()
 	{
 		showLoading("");
+		var trangThaiSp = document.getElementById("activeGroupSelect").value;
 		var nhomSp = document.getElementById("productGroupSelect").value;
 		var nhaSx = document.getElementById("manufacturerSelect").value;
 		var name = document.getElementById("searchInput").value;
@@ -417,7 +400,7 @@
 		$.ajax({
 			url:"@Url.Action("FilterProduct", "ManageProduct", new { area = "Admin" })",
 			method:"POST",
-			data: {keyword: name, maNhomSp: nhomSp, maNhaSx: nhaSx, sortOption: sort, priceArrange: price, quantityOption: quantity},
+			data: {keyword: name, isActive: trangThaiSp, maNhomSp: nhomSp, maNhaSx: nhaSx, sortOption: sort, priceArrange: price, quantityOption: quantity},
 			success:function(res)
 			{
 				hideLoading()
@@ -450,7 +433,7 @@
 		var quantityCheckBox = document.getElementsByName("stockStatus");
 		for(var checkbox of quantityCheckBox)
 		{
-			
+
 			checkbox.checked = false;
 		}
 		$.ajax({
@@ -466,6 +449,59 @@
 			{
 				hideLoading()
 				console.log(err);
+			}
+		})
+	}
+
+	var reviewImage = function(input)
+	{
+		var file = input.files[0];
+		var previewElement = document.getElementById("imageProduct");
+		previewElement.src = URL.createObjectURL(file);
+	}
+	var discontinueProduct = function(maSanPham)
+	{
+		showLoading("");
+		$.ajax({
+			url:"@Url.Action("DiscontinueProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {maSp: maSanPham},
+			success:function(res)
+			{
+				if(res.type=="success")
+				{
+					applyFilters();
+				}
+				showToast(res.type, res.message);
+				hideLoading();
+			},
+			error: function(err)
+			{
+				console.log(err)
+				hideLoading();
+			}
+		})
+	}
+	var sellProduct = function(maSanPham)
+	{
+		showLoading("");
+		$.ajax({
+			url:"@Url.Action("SellProduct", "ManageProduct", new { area = "Admin" })",
+			method:"POST",
+			data: {maSp: maSanPham},
+			success:function(res)
+			{
+				if(res.type=="success")
+				{
+					applyFilters();
+				}
+				showToast(res.type, res.message);
+				hideLoading();
+			},
+			error: function(err)
+			{
+				console.log(err)
+				hideLoading();
 			}
 		})
 	}

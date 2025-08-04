@@ -10,19 +10,3 @@
         border-radius: 0 60px;
     }
 
-/*Featured product*/
-    .home-container .feature-product .card-img, .card-img-top {
-        height: 25vh;
-        width: fit-content;
-        margin: auto;
-        max-width: 200px;
-    }
-
-    .home-container .feature-product .card {
-        transition: transform 0.3s ease;
-    }
-
-        .home-container .feature-product .card:hover {
-            transform: scale(1.05);
-        }
-

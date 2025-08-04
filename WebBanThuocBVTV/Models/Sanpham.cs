@@ -15,7 +15,7 @@ public partial class Sanpham
 
     public string? HuongDanSd { get; set; }
 
-    public double Gia { get; set; } = 0!;
+    public double? Gia { get; set; }
 
     public int SoLuong { get; set; }
 
@@ -24,6 +24,8 @@ public partial class Sanpham
     public string MaNhaSx { get; set; } = null!;
 
     public DateOnly? HanSd { get; set; }
+
+    public bool IsActive { get; set; }
 
     public virtual ICollection<Binhluan> Binhluans { get; set; } = new List<Binhluan>();
 

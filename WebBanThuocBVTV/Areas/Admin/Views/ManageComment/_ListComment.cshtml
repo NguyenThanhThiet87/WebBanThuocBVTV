@@ -1,0 +1,121 @@
+﻿@model IPagedList<WebBanThuocBVTV.Models.Binhluan>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using System.Globalization
+@{
+	var count = 0;
+}
+@if (Model.Count > 0)
+{
+	<thead>
+		<tr>
+			<th style="width: 20%;">Khách hàng</th>
+			<th>Đánh giá</th>
+			<th style="width: 20%;">Sản phẩm</th>
+			<th style="width: 15%;">Ngày đánh giá</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			var id = "replyCollapse" + count;
+			count = count + 1;
+
+			<tr class="comment-row">
+
+				<td>
+					<div class="author-info">
+						<div class="avatar">
+							@if (item.MaNdNavigation.Avatar != null)
+							{
+								<img name="avatar" src="@item.MaNdNavigation.Avatar" alt="Alternate Text" class="avatar" />
+							}
+							else
+							{
+								<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+							}
+						</div>
+						<div class="author-details">
+							<h4>@item.MaNdNavigation.HoTen</h4>
+							<div class="author-email">@item.MaNdNavigation.Email</div>
+						</div>
+					</div>
+				</td>
+				<td class="comment-content">
+					<div class="rating-stars">
+						<span class="star @(item.MaDanhGia >= 1?"filled":"")">★</span>
+						<span class="star @(item.MaDanhGia >= 2?"filled":"")">★</span>
+						<span class="star @(item.MaDanhGia >= 3?"filled":"")">★</span>
+						<span class="star @(item.MaDanhGia >= 4?"filled":"")">★</span>
+						<span class="star @(item.MaDanhGia >= 5?"filled":"")">★</span>
+						<span class="rating-text">(@item.MaDanhGia/5 sao)</span>
+					</div>
+					<div class="comment-text">@item.NoiDung</div>
+					<div class="comment-meta">
+						<div class="comment-actions">
+							@if(item.Phanhois.Count() == 0)
+							{
+								<button data-bs-toggle="modal" data-bs-target="#commentModal" onclick="replyCommentModal('@item.ThoiGian', '@item.MaNd', '@item.MaSanPham')">Trả lời</button>
+							}else
+							{
+								<button onclick="showToast('warning', 'Bình luận đã được phản hồi')">Trả lời</button>
+								<a class="reply-toggle has-reply" data-bs-toggle="collapse" href="#@id" role="button" aria-expanded="false" aria-controls="@id">
+									<i class="fa-solid fa-reply" style="color: #007fff; font-size:15px;"></i>
+								</a>
+							}
+						</div>
+
+					</div>
+					@if(item.Phanhois.Count>0)
+					{
+						<div class="reply-section collapse" id="@id">
+							<div class="reply-item">
+								<div class="reply-author">Trả lời bởi: <strong>@item.Phanhois.FirstOrDefault().MaNhanVienNavigation.HoTen</strong></div>
+								<div class="reply-content">@item.Phanhois.FirstOrDefault().NoiDungPhanHoi</div>
+								<div class="reply-date">Ngày: @item.Phanhois.FirstOrDefault().NgayPhanHoi</div>
+							</div>
+							<div class="comment-actions">
+								<button data-bs-toggle="modal" data-bs-target="#commentModal" onclick="EditReplyModal(@item.Phanhois.FirstOrDefault().MaPhanHoi)">Chỉnh sửa</button>
+								<button class="delete" onclick="deleteComment('@item.Phanhois.FirstOrDefault().MaPhanHoi')">Xóa</button>
+							</div>
+						</div>
+					}
+				</td>
+				<td>
+					<div class="product-info">
+						<div class="product-code">@item.MaSanPhamNavigation.MaSanPham</div>
+						<div class="product-name">@item.MaSanPhamNavigation.TenSanPham</div>
+					</div>
+				</td>
+				<td class="submitted-date">
+					@item.ThoiGian
+				</td>
+			</tr>
+			
+		}
+
+	</tbody>
+}
+else
+{
+	<lottie-player id="animation-empty-user" class="w-100 h-50" src="https://lottie.host/3fbc8aea-fdf2-4ce8-9a98-7a3de0c5cee5/No6vcVStET.json" style="height: 50vh !important" background="##FFFFFF" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
+	<p id="title_empty_order">Khách hàng không tồn tại</p>
+}
+@if (ViewBag.PageCount > 0)
+{
+	<nav aria-label="Page navigation" class="pt-3">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Previous</a></li>
+			@{
+				int i = ViewBag.PageNumber <= 6 ? 1 : (ViewBag.PageNumber / 6) * 6;
+				int end = i + 5;
+				while (i <= ViewBag.PageCount && i <= end)
+				{
+					<li class="page-item @(i == ViewBag.PageNumber ? "active":"")"><a class="page-link" onclick="pageList(this)">@i</a></li>
+					i++;
+				}
+			}
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Next</a></li>
+		</ul>
+	</nav>
+}

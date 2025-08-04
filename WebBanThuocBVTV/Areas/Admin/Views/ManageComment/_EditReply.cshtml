@@ -1,0 +1,60 @@
+﻿@{
+}
+@model WebBanThuocBVTV.Models.Phanhoi
+
+<link href="~/css/Admin/ManageComment/_ReplyComment.css" rel="stylesheet" />
+<!-- Header -->
+<div class="modal-header">
+	<h3 class="modal-title">Chỉnh sửa trả lời đánh giá khách hàng</h3>
+	<button class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+</div>
+
+<!-- Body -->
+<div class="modal-body">
+	<!-- Thông tin bình luận gốc -->
+	<div class="comment-info">
+		<div class="comment-header">
+			<div class="customer-avatar">
+				@if (Model.Binhluan.MaNdNavigation.Avatar != null)
+				{
+					<img name="avatar" src="@Model.Binhluan.MaNdNavigation.Avatar" alt="Alternate Text" class="avatar" />
+				}
+				else
+				{
+					<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+				}
+			</div>
+			<div class="customer-info">
+				<div class="customer-name">@Model.Binhluan.MaNdNavigation.HoTen</div>
+				<div class="comment-date">@Model.Binhluan.ThoiGian</div>
+			</div>
+			<div class="rating-stars">
+				<span class="star @(Model.Binhluan.MaDanhGia >= 1?"":"empty")">★</span>
+				<span class="star @(Model.Binhluan.MaDanhGia >= 2?"":"empty")">★</span>
+				<span class="star @(Model.Binhluan.MaDanhGia >= 3?"":"empty")">★</span>
+				<span class="star @(Model.Binhluan.MaDanhGia >= 4?"":"empty")">★</span>
+				<span class="star @(Model.Binhluan.MaDanhGia >= 5?"":"empty")">★</span>
+				<span style="margin-left: 8px; color: #666; font-size: 12px;">(@Model.Binhluan.MaDanhGia/5 sao)</span>
+			</div>
+		</div>
+		<div class="comment-content">
+			<strong>Sản phẩm:</strong> @Model.Binhluan.MaSanPhamNavigation.TenSanPham<br>
+			<strong>Nội dung:</strong>
+			<textarea class="form-textarea" maxlength="1000" readonly>@Model.Binhluan.NoiDung</textarea>
+		</div>
+	</div>
+
+	<!-- Form trả lời -->
+	<div class="reply-form" id="replyForm">
+		<div class="form-group">
+			<label for="replyContent" class="form-label">Nội dung trả lời <span style="color: red;">*</span></label>
+			<textarea id="replyContent" class="form-textarea" placeholder="Nhập nội dung trả lời cho khách hàng..." maxlength="1000">@Model.NoiDungPhanHoi</textarea>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<div class="modal-footer">
+	<button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+	<button type="button" class="btn btn-primary" id="submitBtn" onclick="EditReply('@Model.MaPhanHoi', '@ViewBag.Account.MaNd')">Lưu Thay Đổi</button>
+</div>

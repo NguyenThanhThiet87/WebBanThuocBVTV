@@ -45,7 +45,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 gioHangSanPham.MaGioHang = gioHang.MaGioHang;
                 gioHangSanPham.MaSanPham = maSp;
                 gioHangSanPham.SoLuong = soLuong;
-                gioHangSanPham.TongTien = soLuong * sp.Gia;
+                gioHangSanPham.TongTien = (double)(sp.Gia * soLuong);
 
                 AlertMessage alert = await _gioHangRepository.AddSanPham(gioHangSanPham);
                 return Json(new { success = true, message = alert.Message});

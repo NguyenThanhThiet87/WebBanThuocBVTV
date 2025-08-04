@@ -1,4 +1,4 @@
-﻿.modal-header {
+﻿#google_map_modal .modal-header {
     background: #28a745;
     color: white;
     padding: 20px;
@@ -6,7 +6,7 @@
     position: relative;
 }
 
-.close-btn {
+#google_map_modal  .close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -24,27 +24,27 @@
     transition: background 0.2s;
 }
 
-    .close-btn:hover {
+    #google_map_modal .close-btn:hover {
         background: rgba(255, 255, 255, 0.2);
     }
 
-.modal-header h2 {
+#google_map_modal  .modal-header h2 {
     margin-bottom: 5px;
     font-size: 22px;
 }
 
-.modal-header p {
+#google_map_modal .modal-header p {
     opacity: 0.9;
     font-size: 14px;
 }
 
-.modal-body {
+#google_map_modal .modal-body {
     padding: 25px;
     max-height: 60vh;
     overflow-y: auto;
 }
 
-.map-container {
+#google_map_modal .map-container {
     width: 100%;
     height: 350px;
     border-radius: 8px;
@@ -58,22 +58,22 @@
     position: relative;
 }
 
-    .map-container iframe {
+    #google_map_modal .map-container iframe {
         width: 100%;
         height: 100%;
     }
 
-.modal-footer {
+#google_map_modal .modal-footer {
     padding: 20px 25px;
     background: #f8f9fa;
     border-top: 1px solid #dee2e6;
     text-align: center;
     justify-content: center;
 }
-    .modal-footer .fa-phone-volume {
+    #google_map_modal .modal-footer .fa-phone-volume {
         padding-right: 4px;
     }
-.btn {
+#google_map_modal .btn {
     background: #007bff;
     color: white;
     padding: 10px 20px;
@@ -87,14 +87,14 @@
     display: inline-block;
 }
 
-    .btn:hover {
+    #google_map_modal .btn:hover {
         background: #0056b3;
     }
 
-.btn-success {
+#google_map_modal .btn-success {
     background: #28a745;
 }
 
-    .btn-success:hover {
+    #google_map_modal .btn-success:hover {
         background: #1e7e34;
     }

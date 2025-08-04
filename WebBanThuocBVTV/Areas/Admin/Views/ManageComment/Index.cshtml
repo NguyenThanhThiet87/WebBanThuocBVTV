@@ -1,0 +1,47 @@
+﻿@using WebBanThuocBVTV.Helper
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<WebBanThuocBVTV.Models.Binhluan>
+
+<link href="~/css/Admin/ManageComment/Index.css" rel="stylesheet" />
+<div class="manage_comment-container">
+	<div class="header">
+		<h1>Quản lý đánh giá sản phẩm</h1>
+	</div>
+
+	<div class="filter-bar">
+		<div class="search-box">
+			<input id="searchInput" type="text" placeholder="Tìm kiếm đánh giá sản phẩm">
+			<button type="submit" onclick="applyFilters()">🔍</button>
+		</div>
+	</div>
+
+	<div class="action-bar">
+		<select class="evaluate-filter comment-type-filter" asp-items="@Html.GetEnumSelectList<EvaluateOptions>()" onchange="applyFilters()">
+			<option value="" selected>Lọc theo đánh giá</option>
+		</select>
+
+		<select class="reply-filter comment-type-filter" asp-items="@Html.GetEnumSelectList<IsReply>()" onchange="applyFilters()">
+		</select>
+
+		<select class="state-filter comment-type-filter" asp-items="@Html.GetEnumSelectList<StateComment>()" onchange="applyFilters()">
+		</select>
+
+		<div class="results-info">@Model.Count mục</div>
+	</div>
+
+	<table class="comments-table">
+		
+	</table>
+
+	<!-- Modal -->
+	<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="CommentModalLabel" data-bs-backdrop="static" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/Admin/ManageComment/Index.js"></script>

@@ -28,8 +28,32 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/Account/UpdateEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxVcGRhdGVFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageComment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlQ29tbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageComment/_EditReply.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlQ29tbWVudFxfRWRpdFJlcGx5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageComment/_ListComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlQ29tbWVudFxfTGlzdENvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageComment/_ReplyComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlQ29tbWVudFxfUmVwbHlDb21tZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageCustomer/AddCustomer.cshtml]
@@ -50,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageOrder/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageOrder/_AddOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlT3JkZXJcX0FkZE9yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/ManageOrder/_DetailOrder.cshtml]
@@ -90,6 +118,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/Shared/_Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/Shared/_Topbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Admin/Views/_ViewImports.cshtml]
@@ -168,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcUHJvZHVjdFxfRmVhdHVyZVByb2R1Y3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Product/_ListProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcUHJvZHVjdFxfTGlzdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Product/_ReviewProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcUHJvZHVjdFxfUmV2aWV3UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -228,10 +264,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXExvZ2luXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/Login/SetNewPass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXExvZ2luXFNldE5ld1Bhc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/Login/_SendOTPEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXExvZ2luXF9TZW5kT1RQRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/WebBanThuocBVTV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXFdlYkJhblRodW9jQlZUVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/_breadcrumb.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXF9icmVhZGNydW1iLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/_Loading.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXF9Mb2FkaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

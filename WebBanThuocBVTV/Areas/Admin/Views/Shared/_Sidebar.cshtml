@@ -37,23 +37,20 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link @(ViewBag.CurrentSideBar == SideBar.BinhLuan ? "active" : "")">
+                <a href="@Url.Action("Index", "ManageComment", new{area="Admin"})" class="nav-link @(ViewBag.CurrentSideBar == SideBar.BinhLuan ? "active" : "")">
                     <i class="fas fa-tags"></i>
                     <span>Bình luận</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link @(ViewBag.CurrentSideBar == SideBar.KhoHang ? "active" : "")">
-                    <i class="fas fa-warehouse"></i>
-                    <span>Kho hàng</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link @(ViewBag.CurrentSideBar == SideBar.BaoCao ? "active" : "")">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Báo cáo</span>
-                </a>
-            </li>
+            @if(ViewBag.Account.MaVaiTro == "QL")
+            {
+                <li class="nav-item">
+                    <a href="#" class="nav-link @(ViewBag.CurrentSideBar == SideBar.KhoHang ? "active" : "")">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Nhân viên</span>
+                    </a>
+                </li>
+            }
         </ul>
     </nav>
 </div>

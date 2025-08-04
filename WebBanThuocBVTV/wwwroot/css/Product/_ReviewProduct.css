@@ -42,6 +42,38 @@
         line-height: 1.5;
     }
 
+.reply-section {
+    border-top: 1px solid #f0f0f0;
+    font-size: 15px;
+}
+
+.reply-item {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 3px solid #0073aa;
+}
+
+.reply-author {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+    .reply-author strong {
+        color: #0073aa;
+    }
+
+.reply-content {
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.reply-date {
+    font-size: 11px;
+    color: #999;
+}
+
     .review-container .star-rating {
         color: #ffc107;
         margin-left: 10px;

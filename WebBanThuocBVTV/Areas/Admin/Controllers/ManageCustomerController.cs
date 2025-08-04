@@ -12,13 +12,14 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
     [Area("Admin")]
     public class ManageCustomerController : BaseController
     {
-
+        Cloudinary_Net _cloudinary_Net;
         NguoiDungRepository _nguoiDungRepository;
         SendOTP _sendOTP;
-        public ManageCustomerController(NguoiDungRepository nguoiDungRepository, SendOTP sendOTP)
+        public ManageCustomerController(NguoiDungRepository nguoiDungRepository, SendOTP sendOTP, IConfiguration _config)
         {
             _nguoiDungRepository = nguoiDungRepository;
             _sendOTP = sendOTP;
+            _cloudinary_Net = new Cloudinary_Net(_config);
         }
         public async Task<IActionResult> Index()
         {
@@ -27,7 +28,7 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
             List<Nguoidung> lstUser = await _nguoiDungRepository.GetAllCustomer();
 
             ViewBag.TongKh = lstUser.Count;
-            ViewBag.KhMoi = lstUser.Where(user => user.NgayTao.Month == DateTime.Now.Month && user.NgayTao.Year == DateTime.Now.Year).Count();
+            ViewBag.KhMoi = lstUser.Where(user => user.NgayTao.Value.Month == DateTime.Now.Month && user.NgayTao.Value.Year == DateTime.Now.Year).Count();
             return View(lstUser);
         }
 
@@ -115,7 +116,7 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
             }  
         }
         [HttpPost]
-        public async Task<IActionResult> InsertCustomer(Nguoidung nd)
+        public async Task<IActionResult> InsertCustomer(Nguoidung nd, IFormFile avatar)
         {
             var json =  HttpContext.Session.GetString("verifyEmail");
             if(!string.IsNullOrEmpty(json))
@@ -124,9 +125,11 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
 
                 if (verifyEmailObject.email == nd.Email && verifyEmailObject.status)
                 {
+                    string urlAvatar = _cloudinary_Net.Upload(avatar,"ND");
                     nd.MaNd = await _nguoiDungRepository.CreateId();
                     nd.NgayTao = DateTime.Now;
                     nd.MaVaiTro = "KH";
+                    nd.Avatar = urlAvatar;
 
                     AlertMessage alertMessage = await _nguoiDungRepository.Add(nd);
                     SetAlert(alertMessage.Message, alertMessage.Type);
@@ -135,10 +138,12 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
                 else
                 {
                     SetAlert("Email chưa được xác thực", "warning");
+                    ViewBag.avatar = avatar;
                     return View("AddCustomer", nd);
                 }
             }
             SetAlert("Email chưa được xác thực", "warning");
+            ViewBag.avatar = avatar;
             return View("AddCustomer", nd);
         }
 
@@ -166,14 +171,14 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FilterCustomer(string keyword, GenderOptions gioiTinh, CreateAtOptions ngayTao, SortOptionsCustomer SortOption, int? page)
+        public async Task<IActionResult> FilterCustomer(string keyword, CategoryCustomer loaiKh, GenderOptions gioiTinh, CreateAtOptions ngayTao, SortOptionsCustomer SortOption, int? page)
         {
             keyword = keyword ?? "";
 
             if (page == null)
                 page = 1;
 
-            List<Nguoidung> lstCustomers = await _nguoiDungRepository.FilterCustomer(keyword, gioiTinh, ngayTao, SortOption);
+            List<Nguoidung> lstCustomers = await _nguoiDungRepository.FilterCustomer(keyword, loaiKh, gioiTinh, ngayTao, SortOption);
 
             int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 

@@ -14,19 +14,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         {
             //Lấy thông tin breadcrum
             var breadCrum = HttpContext.Session.GetString("Breadcrum");
-            if (string.IsNullOrEmpty(breadCrum))
-            {
-                //Tạo session lưu breadcrum
-                List<BreadcrumItem> breadcrumStack = new List<BreadcrumItem>();
-                BreadcrumItem breadcrumItem = new BreadcrumItem() { Text = "Trang chủ", Url = "/" };
-                if (!breadcrumStack.Contains(breadcrumItem))
-                    breadcrumStack.Add(breadcrumItem);
-
-                HttpContext.Session.SetString("Breadcrum", System.Text.Json.JsonSerializer.Serialize(breadcrumStack));
-
-                ViewBag.Breadcrum = breadcrumStack;
-            }
-            else
+            if (!string.IsNullOrEmpty(breadCrum))
             {
                 List<BreadcrumItem> breadcrumStack = System.Text.Json.JsonSerializer.Deserialize<List<BreadcrumItem>>(breadCrum);
 

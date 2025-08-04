@@ -4,16 +4,18 @@ using Twilio.TwiML.Voice;
 using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
+using static Grpc.Core.Metadata;
 
 namespace WebBanThuocBVTV.Repositories
 {
     public class NguoiDungRepository : IRepository<Nguoidung>
     {
         WebBanThuocBvtvContext _contextDB;
-
-        public NguoiDungRepository(WebBanThuocBvtvContext contextDB)
+        GioHangRepository _gioHangRepository;
+        public NguoiDungRepository(WebBanThuocBvtvContext contextDB, GioHangRepository gioHangRepository)
         {
             _contextDB = contextDB;
+            _gioHangRepository = gioHangRepository;
         }
 
         public async Task<AlertMessage> Add(Nguoidung entity)
@@ -30,9 +32,15 @@ namespace WebBanThuocBVTV.Repositories
                 {
                     //Mã hóa password
                     entity.PassWord = BCrypt.Net.BCrypt.HashPassword(entity.PassWord);
-
+                    entity.NgayTao = DateTime.Now;
                     await _contextDB.Nguoidungs.AddAsync(entity);
+
+                    Giohang gioHang = new Giohang();
+                    gioHang.MaNd = entity.MaNd;
+                    gioHang.MaGioHang = _gioHangRepository.CreateId();
+                    await _contextDB.Giohangs.AddAsync(gioHang);
                     await _contextDB.SaveChangesAsync();
+
                     alertMessage.Type = "success";
                     alertMessage.Message = "Tạo tài khoản thành công";
                 }
@@ -43,6 +51,37 @@ namespace WebBanThuocBVTV.Repositories
                 }
             }
 
+            return alertMessage;
+        }
+        public async Task<AlertMessage> AddGuest(Nguoidung entity)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+            Nguoidung nd = await _contextDB.Nguoidungs.Where(nd => nd.HoTen.Trim().ToLower() == entity.HoTen.Trim().ToLower() 
+                                                             && nd.SoDienThoai.Trim() == entity.SoDienThoai.Trim() 
+                                                             && nd.MaVaiTro == "GU").FirstOrDefaultAsync();
+            if(nd==null)
+            {
+                try
+                {
+                    entity.MaVaiTro = "GU";
+                    entity.NgayTao = DateTime.Now;
+                    await _contextDB.Nguoidungs.AddAsync(entity);
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "Tạo tài khoản thành công";
+                }
+                catch (Exception ex)
+                {
+                    alertMessage.Type = "error";
+                    alertMessage.Message = ex.Message;
+                }
+            }else
+            {
+                nd.DiaChi = entity.DiaChi;
+                _contextDB.Update(nd);
+                alertMessage.Type = "exist";
+                alertMessage.Message = nd.MaNd;
+            }
+            await _contextDB.SaveChangesAsync();
             return alertMessage;
         }
         public async Task<bool> EmailIsExist(string email)
@@ -72,7 +111,6 @@ namespace WebBanThuocBVTV.Repositories
         {
             throw new NotImplementedException();
         }
-
         public async Task<AlertMessage> Update(Nguoidung entity)
         {
             AlertMessage alertMessage = new AlertMessage();
@@ -136,7 +174,14 @@ namespace WebBanThuocBVTV.Repositories
             }
             else//Đăng ký tài khoản
             {
+                nguoidung.MaNd = await CreateId();
+                nguoidung.NgayTao = DateTime.Now;
                 await _contextDB.Nguoidungs.AddAsync(nguoidung);
+                Giohang gioHang = new Giohang();
+                gioHang.MaNd = nguoidung.MaNd;
+                gioHang.MaGioHang = _gioHangRepository.CreateId();
+                await _contextDB.Giohangs.AddAsync(gioHang);
+
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Đăng ký tài khoản thành công";
@@ -182,6 +227,34 @@ namespace WebBanThuocBVTV.Repositories
                 return alertMessage;
             }
         }
+
+        public async Task<AlertMessage> ChangePassVerified(string email, string newPass)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+            Nguoidung user = await _contextDB.Nguoidungs.Where(nd => nd.Email == email && nd.MaVaiTro != "GU").FirstOrDefaultAsync();
+            if(user != null)
+            {
+                try
+                {
+                    user.PassWord = BCrypt.Net.BCrypt.HashPassword(newPass);
+                    _contextDB.Nguoidungs.Update(user);
+                    await _contextDB.SaveChangesAsync();
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "Đổi mật khẩu thành công";
+                }
+                catch (Exception ex)
+                {
+                    alertMessage.Type = "error";
+                    alertMessage.Message = ex.Message;
+                }
+            }else
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = "Tài khoản không tồn tại";
+            }    
+            return alertMessage;
+        }
+
         public async Task<List<Nguoidung>> SearchNguoiDung(string keyword)
         {
             if (string.IsNullOrWhiteSpace(keyword))
@@ -192,10 +265,10 @@ namespace WebBanThuocBVTV.Repositories
                                  .ToListAsync();
             return lstNd;
         }
-        public async Task<List<Nguoidung>> FilterCustomer(string name, GenderOptions gioiTinh, CreateAtOptions ngayTao, SortOptionsCustomer sort)
+        public async Task<List<Nguoidung>> FilterCustomer(string name, CategoryCustomer loaiKh, GenderOptions gioiTinh, CreateAtOptions ngayTao, SortOptionsCustomer sort)
         {
             IQueryable<Nguoidung> query = _contextDB.Nguoidungs
-                                  .Where(nd => nd.HoTen.Contains(name) && nd.MaVaiTro=="KH");
+                                  .Where(nd => nd.HoTen.Contains(name) && nd.MaVaiTro == loaiKh.ToString());
 
             switch (gioiTinh)
             {
@@ -256,6 +329,26 @@ namespace WebBanThuocBVTV.Repositories
             }
 
             return await query.ToListAsync();
+        }
+        public Dictionary<string, int> Statistic()
+        {
+            Dictionary<string, int> statistic = new Dictionary<string, int>();
+
+            int ndCurrentMonth = _contextDB.Nguoidungs.Where(nd => nd.MaVaiTro == "KH" 
+                                                     && nd.NgayTao.Value.Month == DateTime.Now.Month 
+                                                     && nd.NgayTao.Value.Year == DateTime.Now.Year)
+                                        .Count();
+            int ndPrevMonth = _contextDB.Nguoidungs.Where(nd => nd.MaVaiTro == "KH"
+                                                     && nd.NgayTao.Value.Month == DateTime.Now.AddMonths(-1).Month
+                                                     && nd.NgayTao.Value.Year == DateTime.Now.Year)
+                                        .Count();
+
+            int percent = ((ndCurrentMonth - ndPrevMonth) / (ndPrevMonth==0?1:ndPrevMonth)) * 100;
+
+            statistic.Add("ndCurrentMonth", ndCurrentMonth);
+            statistic.Add("percent", percent);
+
+            return statistic;
         }
     }
 }

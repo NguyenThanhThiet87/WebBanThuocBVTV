@@ -2,8 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(80vh - 40px); /* Điều chỉnh chiều cao để không bị chồng lấn */
     background-color: #fff;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 
 .verify-code-form, .forgot-password-form, .login-form {

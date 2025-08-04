@@ -107,15 +107,13 @@
 
 					<div class="image-upload-area">
 						<div class="image-preview" id="imagePreview">
-							<span class="image-placeholder">
-								<i class="bi bi-image"></i>
-							</span>
+							<img src="#" alt="Alternate Text" id="imageProduct"/>
 						</div>
 
 						<button type="button" class="btn btn-upload" onclick="document.getElementById('imageInput').click()">
 							<i class="bi bi-upload me-2"></i>Chọn Hình Ảnh
 						</button>
-						<input type="file" id="imageInput" class="d-none" accept="image/*" onchange="previewImage(this)">
+						<input type="file" id="imageInput" class="d-none" accept="image/*" onchange="reviewImage(this)">
 
 						<p class="text-muted small mb-0">
 							Chọn hình ảnh có định dạng JPG, PNG hoặc WebP

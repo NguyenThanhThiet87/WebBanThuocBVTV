@@ -8,34 +8,6 @@
 	<h1 class="page-title">Quản Lý Khách Hàng</h1>
 
 	<div class="content-container">
-		<!-- Thống kê -->
-		<div class="stats-grid">
-			<div class="stat-card">
-				<div class="stat-icon customers">👥</div>
-				<div class="stat-value">@ViewBag.TongKh</div>
-				<div class="stat-label">Tổng khách hàng</div>
-				<div class="stat-change">↗ +8% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon new">🆕</div>
-				<div class="stat-value">@ViewBag.KhMoi</div>
-				<div class="stat-label">Khách hàng mới</div>
-				<div class="stat-change">↗ +12% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon active">✅</div>
-				<div class="stat-value">1,089</div>
-				<div class="stat-label">Khách hàng hoạt động</div>
-				<div class="stat-change">↗ +5% so với tháng trước</div>
-			</div>
-			<div class="stat-card">
-				<div class="stat-icon inactive">⏸️</div>
-				<div class="stat-value">145</div>
-				<div class="stat-label">Khách hàng không hoạt động</div>
-				<div class="stat-change">↘ -3% so với tháng trước</div>
-			</div>
-		</div>
-
 		<!-- Thao tác nhanh -->
 		<div class="actions-section">
 			<h2 class="actions-title">Thao tác nhanh</h2>
@@ -72,15 +44,19 @@
 				</div>
 
 				<div class="search-container">
-					<input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." value="" id="searchInput">
-					<button class="search-btn" onclick="searchCustomers()">🔍 Tìm kiếm</button>
+					<input type="text" class="search-input" placeholder="Tìm kiếm khách hàng..." value="" id="searchInput">
+					<button class="search-btn" onclick="applyFilters()">🔍 Tìm kiếm</button>
 				</div>
 			</div>
 
 			<div class="table-content">
 				<div class="filter-sidebar">
 					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
-
+					<div class="filter-section">
+						<div class="filter-title">🏭 Loại khách hàng</div>
+						<select class="sort-select" id="categorySelect" asp-items="Html.GetEnumSelectList<CategoryCustomer>()">
+						</select>
+					</div>
 					<div class="filter-section">
 						<div class="filter-title">🏭 Giới tính</div>
 						<select class="sort-select" id="genderSelect" asp-items="Html.GetEnumSelectList<GenderOptions>()">
@@ -117,7 +93,7 @@
 </div>
 <script>
 	document.addEventListener("DOMContentLoaded",()=>{
-		searchCustomers("init");
+		applyFilters();
 	})
 
 	var detailCustomer_modal = document.getElementById('detail_customerModal');
@@ -139,7 +115,7 @@
 		},
 		error:function(res)
 		{
-			setAlert("Lỗi","error")
+			console.log("Lỗi","error")
 		}
 		});
 	}
@@ -222,37 +198,38 @@
 		});
 	}
 
-	var searchCustomers = function(status)
-	{
-		if(status !="init")
-		  showLoading("");
+	// var searchCustomers = function(status)
+	// {
+	// 	if(status !="init")
+	// 	  showLoading("");
 
-		var name = document.getElementById("searchInput").value;
-		var sort = document.getElementById("sortSelect").value;
+	// 	var name = document.getElementById("searchInput").value;
+	// 	var sort = document.getElementById("sortSelect").value;
 
-		var tableCustomer = document.getElementsByClassName("customer-table")[0];
+	// 	var tableCustomer = document.getElementsByClassName("customer-table")[0];
 
-		$.ajax({
-			url:"@Url.Action("FilterCustomer","ManageCustomer",new{area ="Admin"})",
-			method:"POST",
-			data: {keyword: name, SortOption: sort},
-			success:function(res)
-			{
-				hideLoading()
-				tableCustomer.innerHTML = res;
-			},
-			error: function(err)
-			{
-				hideLoading()
-				console.log(err);
-			}
-		})
-	}
+	// 	$.ajax({
+	// 		url:"@Url.Action("FilterCustomer","ManageCustomer",new{area ="Admin"})",
+	// 		method:"POST",
+	// 		data: {keyword: name, SortOption: sort},
+	// 		success:function(res)
+	// 		{
+	// 			hideLoading()
+	// 			tableCustomer.innerHTML = res;
+	// 		},
+	// 		error: function(err)
+	// 		{
+	// 			hideLoading()
+	// 			console.log(err);
+	// 		}
+	// 	})
+	// }
 
 	var applyFilters = function()
 	{
 		showLoading("");
-
+		var name = document.getElementById("searchInput").value;
+		var Category = document.getElementById("categorySelect").value;
 		var GioiTinh = document.getElementById("genderSelect").value;
 		var NgayTao = document.getElementById("createAtSelect").value;
 		var Sort = document.getElementById("sortSelect").value;
@@ -262,7 +239,7 @@
 		$.ajax({
 			url:"@Url.Action("FilterCustomer", "ManageCustomer", new { area = "Admin" })",
 			method:"POST",
-			data: {keyword: name, gioiTinh: GioiTinh, ngayTao: NgayTao, sortOption: Sort},
+			data: {keyword: name, loaiKh: Category, gioiTinh: GioiTinh, ngayTao: NgayTao, sortOption: Sort},
 			success:function(res)
 			{
 				hideLoading()
@@ -298,4 +275,5 @@
 			}
 		})
 	}
+
 </script>

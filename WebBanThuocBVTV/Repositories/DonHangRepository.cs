@@ -108,9 +108,9 @@ namespace WebBanThuocBVTV.Repositories
             AlertMessage alertMessage = new AlertMessage();
 
             Donhang dh = _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh).FirstOrDefault();
-            if( dh.MaTrangThai == "DXL")
+            if(dh.MaTrangThai == "PCD")
             {
-                dh.MaTrangThai = "DVC";
+                dh.MaTrangThai = "INT";
                 _contextDB.Update(dh);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
@@ -128,10 +128,10 @@ namespace WebBanThuocBVTV.Repositories
             AlertMessage alertMessage = new AlertMessage();
 
             Donhang dh = _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh).FirstOrDefault();
-            if (dh.MaTrangThai == "DVC")
+            if (dh.MaTrangThai == "INT")
             {
-                dh.MaTrangThai = "DGH";
-                dh.Ngay
+                dh.MaTrangThai = "SHP";
+                dh.NgayGiaoHang = DateTime.Now;
                 _contextDB.Update(dh);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
@@ -143,6 +143,78 @@ namespace WebBanThuocBVTV.Repositories
                 alertMessage.Message = "Đơn hàng chưa vận chuyển";
             }
             return alertMessage;
+        }
+        public async Task<AlertMessage> DeleteOrder(string maDh)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+
+            Donhang dh = _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh)
+                                            .Include(dh => dh.DonhangSanphams)
+                                            .FirstOrDefault();
+            if(dh.MaPhuongThucTt!="NH")
+            {
+                Giaodich gd = _contextDB.Giaodiches.Where(gd => gd.MaDonHang == dh.MaDonHang).FirstOrDefault();
+                _contextDB.Remove(gd);
+            }    
+            if (dh.MaTrangThai == "CMP" || dh.MaTrangThai=="PCD")
+            {          
+                _contextDB.RemoveRange(dh.DonhangSanphams);
+                _contextDB.Remove(dh);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Xóa thành công";
+            }
+            else
+            {
+                alertMessage.Type = "warning";
+                alertMessage.Message = "Đơn hàng chưa hoàn thành";
+            }
+            return alertMessage;
+        }
+        public Dictionary<string, int> Statistic()
+        {
+            Dictionary<string, int> statistic = new Dictionary<string, int>();
+
+            int dhCurrentMonth = _contextDB.Donhangs.Where(dh => dh.NgayLap.Month == DateTime.Now.Month
+                                                     && dh.NgayLap.Year == DateTime.Now.Year)
+                                                    .Count();
+            int dhPrevMonth = _contextDB.Donhangs.Where(dh => dh.NgayLap.Month == DateTime.Now.AddMonths(-1).Month
+                                                     && dh.NgayLap.Year == DateTime.Now.Year)
+                                                    .Count();
+
+            int percent = ((dhCurrentMonth - dhPrevMonth) / (dhPrevMonth == 0 ? 1 : dhPrevMonth)) * 100;
+
+            int revenueCurrentMonth = (int)  _contextDB.Donhangs.Where(dh => dh.MaTrangThai == "CMP" 
+                                                       && dh.NgayLap.Month == DateTime.Now.Month
+                                                       && dh.NgayLap.Year == DateTime.Now.Year)
+                                                .Sum(dh => dh.TongTien);
+            int revenuePrevMonth = (int) _contextDB.Donhangs.Where(dh => dh.MaTrangThai == "CMP"
+                                                       && dh.NgayLap.Month == DateTime.Now.AddMonths(-1).Month
+                                                       && dh.NgayLap.Year == DateTime.Now.Year)
+                                                .Sum(dh => dh.TongTien);
+
+            int percentRevenue = ((revenueCurrentMonth - revenuePrevMonth) / (revenuePrevMonth == 0 ? 1 : revenuePrevMonth)) * 100;
+
+            statistic.Add("dhCurrentMonth", dhCurrentMonth);
+            statistic.Add("percent", percent);
+            statistic.Add("revenueCurrentMonth", revenueCurrentMonth);
+            statistic.Add("percentRevenue", percentRevenue);
+
+            return statistic;
+        }
+        public async Task<List<Donhang>> GetNewOrders()
+        {
+            List<Donhang> lstDh = await _contextDB.Donhangs.Where(dh => dh.NgayLap >= DateTime.Now.AddDays(-7))
+                .Include(dh => dh.MaTrangThaiNavigation)
+                .Include(dh => dh.DonhangSanphams)
+                .ThenInclude(dhsp => dhsp.MaSanPhamNavigation)
+                .Include(dh => dh.MaNdNavigation)
+                .ToListAsync();
+            return lstDh;
+        }
+        public async Task<int> CountProcessingOrder()
+        {
+            return _contextDB.Donhangs.Where(dh => dh.MaTrangThai == "PCD").Count();
         }
     }
 }

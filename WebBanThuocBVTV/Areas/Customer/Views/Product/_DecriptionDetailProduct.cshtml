@@ -1,7 +1,9 @@
-﻿@model WebBanThuocBVTV.Models.Sanpham;
+﻿@using Markdig
+@model WebBanThuocBVTV.Models.Sanpham;
 @{
-
+    
 }
+
 <link rel="stylesheet" href="/css/Product/_DecriptionDetailProduct.css" />
 
 <div class="infoDetailProduct-container">
@@ -46,54 +48,8 @@
     </div>
 
     <!-- Hướng dẫn sử dụng -->
-    <div class="info-section">
-        <h3 class="section-title">Hướng dẫn sử dụng</h3>
-        <div class="section-content">
-            <table class="table usage-table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="width: 20%;">Loại cây</th>
-                        <th style="width: 40%;">Đối tượng sử dụng</th>
-                        <th style="width: 25%;">Liều lượng</th>
-                        <th style="width: 15%;">Thời điểm</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                        <td class="category">CÂY TRỒNG</td>
-                        <td>Cây ăn trái (Sầu riêng, cây có múi, xoài, na, thanh long, nhãn...)</td>
-                        <td>Pha 25 – 50g/25 lít nước<br>Hoặc pha 200 – 400g cho phuy 200 lít nước</td>
-                        <td>Phun trong giai đoạn: Phân hóa mầm hoa - Trái non và đường trái</td>
-                    </tr>
-                    <tr>
-                        <td class="category">CÂY TRỒNG</td>
-                        <td>Cây lương thực: Lúa, bắp...</td>
-                        <td>Pha 25 – 50g/25 lít nước<br>Hoặc pha 200 – 400g cho phuy 200 lít nước</td>
-                        <td>Rau lấy củ: Phun vào giai đoạn sau hồi xanh, trước ra hoa, trái non</td>
-                    </tr>
-                    <tr>
-                        <td class="category">CÂY TRỒNG</td>
-                        <td>Đậu đỗ: Đậu phộng, đậu nành, đậu xanh...</td>
-                        <td>Pha 12,5 – 25g/25 lít nước<br>Hoặc pha 100 – 200g cho phuy 200 lít nước</td>
-                        <td>Phun vào các giai đoạn 30, 45 và 55 ngày sau khi gieo</td>
-                    </tr>
-                    <tr>
-                        <td class="category">CÂY TRỒNG</td>
-                        <td>Cây lương thực: Lúa, bắp...</td>
-                        <td>Pha 12,5 – 25g/25 lít nước<br>Hoặc pha 100 – 200g cho phuy 200 lít nước</td>
-                        <td>Phun vào giai đoạn trước và sau khi ra hoa</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="note-box">
-                <div class="note-title">LƯU Ý - HƯỚNG DẪN AN TOÀN VÀ BẢO QUẢN:</div>
-                <p>
-                    <strong>- Bảo quản:</strong> Giữ trong bao bì kín, nơi khô ráo, thoáng mát.<br>
-                    <strong>- An toàn:</strong> Tránh xa tầm tay trẻ em, thức phẩm và nguồn nước sinh hoạt.
-                </p>
-            </div>
-        </div>
-    </div>
+     <div class="info-section"> 
+         <h3 class="section-title">Hướng dẫn sử dụng</h3>
+        @Html.Raw(Markdown.ToHtml(Model.HuongDanSd ?? ""))
+     </div> 
 </div>

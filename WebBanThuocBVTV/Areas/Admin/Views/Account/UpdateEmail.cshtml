@@ -1,0 +1,115 @@
+﻿@{
+}
+<link href="~/css/Account/UpdateEmail.css" rel="stylesheet" />
+<div class="updateEmail-container">
+	<div class="card">
+		<div class="card-header">
+			<h4 class="mb-0">Quản lý tài khoản</h4>
+			<small>Cập nhật Email</small>
+		</div>
+
+		<div class="card-body">
+			<div>
+				<!-- Email Input -->
+				<div class="mb-3">
+					<label for="email" class="form-label">Cập nhật Email</label>
+					<div class="input-group">
+						<input name="email" type="email" class="form-control" id="email_updateEmail" placeholder="Nhập email mới" value="@(ViewBag.Email??"")" required>
+						<button class="btn btn-success" id="btn-sendcode" type="button" onclick="sendOTP()">
+							Gửi mã
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="verifyModal" tabindex="-1" aria-labelledby="verifyModalLabel" data-bs-backdrop="static" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="modal-container">
+
+		</div>
+	</div>
+</div>
+<script>
+	var verifyModal = document.getElementById("verifyModal");
+	var modal = new bootstrap.Modal(verifyModal);
+	var modalContainer = document.getElementById("modal-container");
+
+	var sendOTP = function()
+	{
+		showLoading("");
+
+		var email = document.getElementById("email_updateEmail").value;
+		$.ajax({
+			url:"@Url.Action("SendOTPEmail", "Account", new { area = "Admin" })",
+			method: "POST",
+			data: {email},
+			success: function(res)
+			{
+				if(res.success != null && res.success==false)
+				{
+					setTimeout(()=>{
+						showToast("error",res.message)
+					},50);
+					modal.hide();
+				}else
+				{
+					modalContainer.innerHTML = res;
+					modal.show();
+				}
+				hideLoading();
+			},
+			error: function(err)
+			{
+				console.log(err);
+				hideLoading();
+				modal.hide();
+			}
+		})
+	}
+	var verifyEmail=function()
+		{
+			var email = document.getElementById("email_updateEmail").value;
+
+			var otp =""
+			var inputs = document.getElementsByClassName("otp-input");
+
+			for(var i =0;i<inputs.length;i++)
+			{
+				otp+=inputs[i].value;
+			}
+
+			$.ajax({
+				url:"@Url.Action("VerifyOTP", "Account", new { area = "Admin" })",
+				method:"post",
+				data:{otpCode:otp, email:email},
+				success:function(res){
+					hideLoading();
+					if(res.success)
+					{
+						showToast('success', 'Xác thực thành công! Đang chuyển trang...');
+						// Đợi một chút để người dùng đọc toast rồi mới chuyển trang
+						setTimeout(function() {
+							  window.location.href = res.redirectUrl;
+						}, 1500); // Chuyển trang sau 1.5 giây
+
+						var verifyBtn = document.getElementById("verifyEmailBtn");
+						verifyBtn.style.display="none";
+						modal.hide();
+					}else
+					{
+						showToast('warning',res.message);
+					}
+				},
+				error:function(res)
+				{
+					hideLoading();
+					showToast('error',res.message);
+				}
+			}
+			)
+		}
+
+</script>

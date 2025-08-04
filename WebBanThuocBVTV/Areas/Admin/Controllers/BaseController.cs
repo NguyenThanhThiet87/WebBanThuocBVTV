@@ -7,7 +7,7 @@ using WebBanThuocBVTV.Models;
 
 namespace WebBanThuocBVTV.Areas.Admin.Controllers
 {
-    [Area("Customer")]
+    [Area("Admin")]
     public class BaseController : Controller
     {
         public override void OnActionExecuted(ActionExecutedContext context)

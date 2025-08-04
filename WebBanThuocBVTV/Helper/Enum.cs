@@ -98,4 +98,53 @@ namespace WebBanThuocBVTV.Helper
         [Display(Name = "Giá cao đến thấp")]
         PriceDesc
     }
+    public enum IsActiveProduct
+    {
+        [Display(Name = "Đang Kinh Doanh")]
+        Active,
+        [Display(Name = "Ngừng Kinh Doanh")]
+        None
+    }
+    public enum CategoryCustomer
+    {
+        [Display(Name = "Khách hàng")]
+        KH,
+        [Display(Name = "Vãng lai")]
+        GU
+    }
+    public enum EvaluateOptions
+    {
+        [Display(Name = "1 sao")]
+        one,
+        [Display(Name = "2 sao")]
+        two,
+        [Display(Name = "3 sao")]
+        three,
+        [Display(Name = "4 sao")]
+        four,
+        [Display(Name = "5 sao")]
+        five
+    }
+    public enum SortPrice
+    {
+        [Display(Name = "Giảm dần")]
+        priceDesc,
+        [Display(Name = "Tăng dần")]
+        priceAsc
+    }
+    public enum StateComment
+    {
+        [Display(Name = "Mới nhất")]
+        newComment,
+        [Display(Name = "Cũ nhất")]
+        oldComment
+    }
+    public enum IsReply
+    {
+        [Display(Name = "Chưa phản hồi")]
+        none,
+        [Display(Name = "Đã phản hồi")]
+        done
+    }
+    
 }

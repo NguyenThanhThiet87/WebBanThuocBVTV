@@ -23,9 +23,16 @@
 					<td>#@item.MaNd</td>
 					<td>@item.HoTen</td>
 					<td>@item.DisplayGioiTinh</td>
-					<td>@item.Email</td>
-					<td>@(item.DiaChi.Length>12?item.DiaChi.Replace(item.DiaChi.Substring(12), "..."): item.DiaChi)</td>
-					<td>@item.NgayTao.Date.ToString("dd/MM/yyyy")</td>
+					<td>@item?.Email</td>
+					@if(item.DiaChi!=null)
+					{
+						<td>@(item?.DiaChi.Length > 12 ? item?.DiaChi.Replace(item.DiaChi.Substring(12), "...") : item?.DiaChi)</td>
+					}else
+					{
+						<td>...</td>
+					}
+					
+					<td>@item?.NgayTao.Value.Date.ToString("dd/MM/yyyy")</td>
 					<td>
 						<div class="action-buttons">
 							<button class="btn-view btn btn-lg" data-bs-toggle="modal" data-bs-target="#detail_customerModal" onclick="detailCustomer('@item.MaNd')">

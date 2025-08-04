@@ -61,7 +61,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                         donHangSanPham.MaSanPham = maSp;
                         donHangSanPham.SoLuongDatMua = soLuong;
                         donHangSanPham.MaSanPhamNavigation = sp;
-                        donHangSanPham.TongTien = soLuong * donHangSanPham.MaSanPhamNavigation.Gia;
+                        donHangSanPham.TongTien = (double)(soLuong * donHangSanPham.MaSanPhamNavigation.Gia);
 
                         listSanPhamOrder = new List<DonhangSanpham>();
                         listSanPhamOrder.Add(donHangSanPham);
@@ -74,7 +74,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
                             dhsp.MaDonHang = maDonHang;
                             dhsp.MaSanPhamNavigation = sp;
-                            dhsp.TongTien = dhsp.SoLuongDatMua * dhsp.MaSanPhamNavigation.Gia;
+                            dhsp.TongTien = (double)(dhsp.SoLuongDatMua * dhsp.MaSanPhamNavigation.Gia);
                         }
                     }    
 
@@ -107,7 +107,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 donhang.MaPhuongThucTt = pttt;
                 donhang.GhiChu = ghiChu;
                 donhang.TongTien = orderItems.Sum(dh => dh.TongTien);
-                donhang.MaTrangThai = pttt=="NH"?"DXL":"CTT";
+                donhang.MaTrangThai = pttt=="NH"?"PCD":"UNP";
 
                 foreach (DonhangSanpham sp in orderItems)
                 {
@@ -146,5 +146,6 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             SetAlert("Đơn hàng không tồn tại", "warning");
             return RedirectToAction("Index", "Home");
         }
+        
     }
 }
