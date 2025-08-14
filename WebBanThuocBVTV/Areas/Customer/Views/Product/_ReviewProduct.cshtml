@@ -11,17 +11,29 @@
 		@foreach (var item in Model.Binhluans)
 		{
 			<div class="review-item">
-				<div class="reviewer-name">
-					@item.MaNdNavigation.HoTen
-					<span class="review-date">(2025-06-01)</span>
-					<span class="star-rating">
-						@for (int i = 0; i < item.MaDanhGia; i++)
-						{
-							<span class="star filled">★</span>
-						}
-					</span>
+				<div class="review-user">
+					<div class="reviewer-section">
+						<div class="info">
+							@if (item.MaNdNavigation.Avatar != null)
+							{
+								<img name="avatar" src="@item.MaNdNavigation.Avatar" alt="Alternate Text" class="avatar" />
+							}
+							else
+							{
+								<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+							}
+							<span>@item.MaNdNavigation.HoTen</span>
+						</div>
+						<span class="review-date">@item.ThoiGian</span>
+						<span class="star-rating">
+							@for (int i = 0; i < item.MaDanhGia; i++)
+							{
+								<span class="star filled">★</span>
+							}
+						</span>
+					</div>
+					<div class="review-content">@item.NoiDung</div>
 				</div>
-				<div class="review-content">@item.NoiDung</div>
 
 				@if (item.Phanhois.Count > 0)
 				{
@@ -65,27 +77,4 @@
 		</form>
 	</div>
 </div>
-<script>
-		function choseStar(sp) {
-		var currentRate = parseInt(sp.id);
-		document.getElementById("maDg").value = currentRate.toString();
-		// Duyệt qua các sao từ 1 đến 5
-		for (var i = 1; i <= 5; i++) {
-			var star = document.getElementById(i.toString());
-			if (i <= currentRate) {
-				star.classList.add("active");
-			} else {
-				star.classList.remove("active");
-			}
-		}
-	}
-	function validateReviewForm(event) {
-		var rating = document.getElementById("maDg").value;
-		if (!rating || rating === "0" || parseInt(rating) < 1 || parseInt(rating) > 5) {
-			event.preventDefault();
-			alert("Vui lòng đánh giá sản phẩm");
-			return false; // Ngăn form gửi đi
-		}
-		return true; // Cho phép gửi form
-	}
-</script>
+<script src="~/js/Customer/Product/_ReviewProduct.js"></script>

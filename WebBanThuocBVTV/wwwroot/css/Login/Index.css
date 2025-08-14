@@ -86,3 +86,12 @@
         color: white;
         text-decoration: none;
     }
+.input-wrapper{
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 0%;
+}

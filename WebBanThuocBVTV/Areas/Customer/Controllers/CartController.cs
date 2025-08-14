@@ -27,6 +27,16 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
 
                 Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
+                if (gioHang.TongTien < 0)
+                {
+                    double sum = 0;
+                    foreach(var item in gioHang.GiohangSanphams)
+                    {
+                        sum += item.TongTien;
+                    }
+                    gioHang.TongTien = sum;
+                    await _gioHangRepository.Update(gioHang);
+                }
                 return PartialView(gioHang);
             }
             return null;
@@ -46,9 +56,15 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 gioHangSanPham.MaSanPham = maSp;
                 gioHangSanPham.SoLuong = soLuong;
                 gioHangSanPham.TongTien = (double)(sp.Gia * soLuong);
+                gioHang.TongTien += gioHangSanPham.TongTien;
 
-                AlertMessage alert = await _gioHangRepository.AddSanPham(gioHangSanPham);
-                return Json(new { success = true, message = alert.Message});
+                AlertMessage alertSanPham = await _gioHangRepository.AddSanPham(gioHangSanPham);
+                if (alertSanPham.Type == "success")
+                {
+                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                    return Json(new { success = true, message = alert.Message });
+                }
+                return Json(new { success = false, message = alertSanPham.Message});
             }
             return Json(new { success = false, message = "Bạn chưa đăng nhập" });
         }
@@ -62,10 +78,16 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
 
                 GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
-
-                AlertMessage alert = await _gioHangRepository.Delete(gioHangSanPham);
-
-                return Json(new { success = true, message = alert.Message });
+                gioHang.TongTien -= gioHangSanPham.TongTien;
+                if (gioHang.TongTien < 0)
+                    gioHang.TongTien = 0;
+                AlertMessage alertSanPham = await _gioHangRepository.Delete(gioHangSanPham);
+                if (alertSanPham.Type == "success")
+                {
+                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                    return Json(new { success = true, message = alert.Message });
+                }
+                return Json(new { success = false, message = alertSanPham.Message });
             }
             return Json(new { success = false, message = "Bạn chưa đăng nhập" });
         }
@@ -79,13 +101,19 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
 
                 GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
+                gioHang.TongTien -= gioHangSanPham.TongTien;
                 double gia = gioHangSanPham.TongTien / gioHangSanPham.SoLuong;
                 gioHangSanPham.SoLuong = soLuong;
                 gioHangSanPham.TongTien = gioHangSanPham.SoLuong * gia;
+                gioHang.TongTien += gioHangSanPham.TongTien;
 
-                AlertMessage alert = await _gioHangRepository.UpdateProduct(gioHangSanPham);
-
-                return Json(new { success = true, message = alert.Message });
+                AlertMessage alertSanPham = await _gioHangRepository.UpdateProduct(gioHangSanPham);
+                if(alertSanPham.Type=="success")
+                {
+                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                    return Json(new { success = true, message = alert.Message });
+                }    
+                return Json(new { success = false, message = alertSanPham.Message });
             }
             return Json(new { success = false, message = "Bạn chưa đăng nhập" });
         }

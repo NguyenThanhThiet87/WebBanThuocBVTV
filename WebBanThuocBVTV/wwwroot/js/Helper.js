@@ -13,3 +13,19 @@
 		eyeSlash.classList.add("d-none");
 	}
 }
+
+var nextCell = function (input, event, currentIdx) {
+	if (currentIdx != 6) {
+		if (event.which != 8 && event.data != null) {
+			input.nextElementSibling.focus();
+		}
+	}
+}
+var previous = function (input, event, currentIdx) {
+	if (currentIdx != 1 && input.value == "") {
+		if (event.which == 8) {
+			input.focus();
+			input.previousElementSibling.focus();
+		}
+	}
+}

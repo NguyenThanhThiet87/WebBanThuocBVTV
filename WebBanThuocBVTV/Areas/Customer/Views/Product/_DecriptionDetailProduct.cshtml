@@ -1,7 +1,7 @@
 ﻿@using Markdig
 @model WebBanThuocBVTV.Models.Sanpham;
 @{
-    
+
 }
 
 <link rel="stylesheet" href="/css/Product/_DecriptionDetailProduct.css" />
@@ -32,7 +32,13 @@
                     foreach (var tp in thanhphans)
                     {
                         var token = tp.Split(":");
-                        <li><strong>@token[0]:</strong> @token[1]</li>
+                        if(token.Length>=2)
+                        {
+                            <li><strong>@token[0]:</strong> @token[1]</li>
+                        }else
+                        {
+                            <li><strong>@token[0]</strong></li>
+                        }
                     }
                 }
             </ul>

@@ -52,8 +52,6 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
         [HttpPost]
         public async Task<IActionResult> NhapMaOTP(string email, string flow)
         {
-
-
             if (string.IsNullOrEmpty(email))
             {
                 SetAlert("Email không hợp lệ", "error");
@@ -192,11 +190,10 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
         [HttpGet]
         public IActionResult GoogleLogin()
         {
-            var properties = new AuthenticationProperties { RedirectUri = Url.Action("SignInGoogle", "Login") };
+            var properties = new AuthenticationProperties { RedirectUri = Url.Action(nameof(SignInGoogle), "Login", new {area="Shared"}) };
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
         [HttpGet]
-        [Route("/SignInGoogle")]
         public async Task<IActionResult> SignInGoogle()
         {
             var authenticateResult = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);

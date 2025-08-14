@@ -95,7 +95,15 @@
         cursor: pointer;
         margin: 5px;
     }
-
+    .detailOrder-container .btn-danger {
+        background-color: #fe0000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+    }
         .detailOrder-container .btn:hover {
             background-color: #45a049;
         }

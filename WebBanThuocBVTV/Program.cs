@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -44,8 +45,7 @@ builder.Services.AddSession(options =>
 // Thêm authentication
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
 })
 .AddCookie()
@@ -53,8 +53,16 @@ builder.Services.AddAuthentication(options =>
 {
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    options.CallbackPath = "/Login/SignInGoogle";
     options.SaveTokens = true; //Bật savetokens để lưu id_token
+    options.Events = new OAuthEvents
+    {
+        OnRedirectToAuthorizationEndpoint = ctx =>
+        {
+            var sep = ctx.RedirectUri.Contains("?") ? "&" : "?";
+            ctx.Response.Redirect(ctx.RedirectUri + sep + "prompt=select_account");
+            return Task.CompletedTask;
+        }
+    };
 });
 
 builder.Services.AddDbContext<WebBanThuocBvtvContext>(options =>
@@ -67,7 +75,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -77,7 +84,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

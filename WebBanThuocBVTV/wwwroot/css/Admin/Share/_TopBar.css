@@ -187,16 +187,7 @@
 
 
 
-.chart-container {
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #d4edda 0%, #e6f7e6 100%);
-    border-radius: 12px;
-    color: #155724;
-    border: 2px dashed rgba(30, 126, 52, 0.2);
-}
+
 
 .recent-orders table {
     width: 100%;

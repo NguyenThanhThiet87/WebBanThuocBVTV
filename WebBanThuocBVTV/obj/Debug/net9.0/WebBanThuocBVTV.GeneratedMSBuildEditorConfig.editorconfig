@@ -148,8 +148,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcQWNjb3VudFxVcGRhdGVQaG9uZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/BackEnd/NhapLieu.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcQmFja0VuZFxOaGFwTGlldS5jc2h0bWw=
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Account/_SendOTPEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcQWNjb3VudFxfU2VuZE9UUEVtYWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Account/_SendOTPPhone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcQWNjb3VudFxfU2VuZE9UUFBob25lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Cart/Index.cshtml]
@@ -166,10 +170,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Customer/Views/Home/_BannerAI.cshtml]
@@ -270,6 +270,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/Login/_SendOTPEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXExvZ2luXF9TZW5kT1RQRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/Login/_SendOTPPhone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2hhcmVkXFZpZXdzXExvZ2luXF9TZW5kT1RQUGhvbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/WebBanThuocBVTV/WebBanThuocBVTV/Areas/Shared/Views/WebBanThuocBVTV.cshtml]

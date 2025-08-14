@@ -21,13 +21,13 @@ namespace WebBanThuocBVTV.Repositories
             AlertMessage alertMessage = new AlertMessage();
             try
             {
-                if(entity.Hinhanhs.Count >0)
+                if (entity.Hinhanhs.Count > 0)
                 {
                     Hinhanh img = entity.Hinhanhs.First();
 
                     img.MaHinhAnh = await CreateIdImg();
                     await _contextDB.Hinhanhs.AddAsync(img);
-                }    
+                }
                 await _contextDB.Sanphams.AddAsync(entity);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
@@ -49,7 +49,7 @@ namespace WebBanThuocBVTV.Repositories
             else
                 newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
             return newMaImg;
-        }    
+        }
 
         public async Task<string> CreateId()
         {
@@ -66,14 +66,15 @@ namespace WebBanThuocBVTV.Repositories
         {
             AlertMessage alertMessage = new AlertMessage();
             Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
-            if(sp.IsActive)
+            if (sp.IsActive)
             {
                 sp.IsActive = false;
                 _contextDB.Update(sp);
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Ngừng kinh doanh thành công";
-            }else
+            }
+            else
             {
                 alertMessage.Type = "warning";
                 alertMessage.Message = "Sản phẩm đã ngừng kinh doanh";
@@ -156,7 +157,8 @@ namespace WebBanThuocBVTV.Repositories
                 alertMessage.Message = "Cập nhật sản phẩm thành công";
                 return alertMessage;
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 alertMessage.Type = "error";
                 alertMessage.Message = ex.Message;
@@ -172,22 +174,22 @@ namespace WebBanThuocBVTV.Repositories
         public async Task<List<Sanpham>> FeatureProduct()
         {
             List<Sanpham> lstSp = await _contextDB.Sanphams
-                .GroupJoin(_contextDB.DonhangSanphams.Where(dhsp => dhsp.MaDonHangNavigation.MaTrangThai == "CMP"), 
+                .GroupJoin(_contextDB.DonhangSanphams.Where(dhsp => dhsp.MaDonHangNavigation.MaTrangThai == "CMP"),
                                                                       sp => sp.MaSanPham,
-                                                                      dhsp => dhsp.MaSanPham, 
+                                                                      dhsp => dhsp.MaSanPham,
                                                                       (sp, group) => new { sanPham = sp, tongMua = group.Sum(gp => gp.SoLuongDatMua) })
                 .OrderByDescending(sp => sp.tongMua).Select(sp => sp.sanPham)
-                .Include(sp=>sp.Hinhanhs)
+                .Include(sp => sp.Hinhanhs)
                 .ToListAsync();
-            
+
             return lstSp.GetRange(0, 4);
-        } 
-        public async Task<List<Sanpham>> FilterProduct(string name="", bool isActive=true, string maNhomSp = "", string maNhaSx = "", PriceArrange? priceArrange=null, QuantityOptions? quantityOption = null, SortOptions? sort=null, SortPrice? sortPrice=null)
+        }
+        public async Task<List<Sanpham>> FilterProduct(string name = "", bool isActive = true, string maNhomSp = "", string maNhaSx = "", PriceArrange? priceArrange = null, QuantityOptions? quantityOption = null, SortOptions? sort = null, SortPrice? sortPrice = null)
         {
             IQueryable<Sanpham> query = _contextDB.Sanphams
                                   .Where(sp => sp.TenSanPham.Contains(name)
                                                          && sp.MaNhaSx.Contains(maNhaSx)
-                                                         && sp.MaNhomSp.Contains(maNhomSp) 
+                                                         && sp.MaNhomSp.Contains(maNhomSp)
                                                          && sp.IsActive == isActive)
                                   .Include(sp => sp.MaNhomSpNavigation)
                                   .Include(sp => sp.MaNhaSxNavigation)
@@ -196,7 +198,7 @@ namespace WebBanThuocBVTV.Repositories
                                   .Include(sp => sp.DonhangSanphams)
                                   .ThenInclude(dhsp => dhsp.MaDonHangNavigation);
 
-            switch(priceArrange)
+            switch (priceArrange)
             {
                 case PriceArrange.Bel150:
                     query = query.Where(sp => sp.Gia < 150000);
@@ -209,9 +211,9 @@ namespace WebBanThuocBVTV.Repositories
                     break;
                 default:
                     break;
-            }    
+            }
 
-            switch(quantityOption)
+            switch (quantityOption)
             {
                 case QuantityOptions.Avaiable:
                     query = query.Where(sp => sp.SoLuong >= 10);
@@ -221,7 +223,7 @@ namespace WebBanThuocBVTV.Repositories
                     break;
                 default:
                     break;
-            }    
+            }
 
             switch (sort)
             {
@@ -253,7 +255,7 @@ namespace WebBanThuocBVTV.Repositories
                     query = query.OrderBy(sp => sp.TenSanPham);
                     break;
             }
-           switch(sortPrice)
+            switch (sortPrice)
             {
                 case SortPrice.priceAsc:
                     query = query.OrderBy(sp => sp.Gia);
@@ -263,7 +265,7 @@ namespace WebBanThuocBVTV.Repositories
                     break;
                 default:
                     break;
-            }    
+            }
             return await query.ToListAsync();
         }
 
@@ -276,7 +278,7 @@ namespace WebBanThuocBVTV.Repositories
             Dictionary<string, int> statistic = new Dictionary<string, int>();
 
             int spCurrent = _contextDB.Sanphams.Where(sp => sp.IsActive).Count();
-            int spNoneActive = _contextDB.Sanphams.Where(sp => !sp.IsActive).Count();                    
+            int spNoneActive = _contextDB.Sanphams.Where(sp => !sp.IsActive).Count();
             statistic.Add("Count", spCurrent);
             statistic.Add("CountNoneActive", spNoneActive);
 
@@ -287,6 +289,45 @@ namespace WebBanThuocBVTV.Repositories
             return await _contextDB.Sanphams.Where(sp => sp.SoLuong < 10)
                                       .Include(sp => sp.MaNhomSpNavigation)
                                       .ToListAsync();
+        }
+        public async Task<AlertMessage> SellProduct(List<Dictionary<string, int>> lstSp)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+            List<Sanpham> lst = new List<Sanpham>();
+            foreach (var item in lstSp)
+            {
+                string maSp = item.Keys.First();
+                int soLuong = item.Values.First();
+                Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == maSp).FirstOrDefaultAsync();
+                if (sp != null)
+                {
+                    if (sp.SoLuong >= soLuong)
+                    {
+                        sp.SoLuong -= soLuong;
+                        lst.Add(sp);
+                    }
+                    else
+                    {
+                        alertMessage.Type = "warning";
+                        alertMessage.Message = $"Sản phẩm {sp.TenSanPham} không đủ hàng";
+                        return alertMessage;
+                    }
+                }
+                else
+                {
+                    alertMessage.Type = "error";
+                    alertMessage.Message = $"Sản phẩm {maSp} không tồn tại";
+                    return alertMessage;
+                }
+            }
+            foreach (var sp in lst)
+            {
+                _contextDB.Update(sp);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Mua hàng thành công";
+            }    
+            return alertMessage;
         }
     }
 }

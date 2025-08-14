@@ -119,7 +119,7 @@
 									}
 									@hienThi
 								</td>
-								<td>@item.TongTien</td>
+								<td>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @item.TongTien) VNĐ</td>
 								<td style="color: #2e7d32;">@item.MaTrangThaiNavigation.TenTrangThai</td>
 								<td>
 									<a href="@Url.Action("DetailOrder","Order",new{area="Customer", maDonHang=item.MaDonHang})">
@@ -133,7 +133,6 @@
 			</div>
 		}
 	</section>
-
 	<!-- Password Section -->
 	<section id="password" class="tab-content @(ViewBag.active=="password"?"active":"")">
 		<h3>Đổi mật khẩu</h3>

@@ -1,5 +1,5 @@
 ﻿@model List<WebBanThuocBVTV.Models.Donhang>
-
+<link href="~/css/Admin/Home/Index.css" rel="stylesheet" />
 <!-- Main Content -->
 <!-- Dashboard Content -->
 <div class="dashboard-content">
@@ -21,7 +21,7 @@
 			<div class="stat-card-icon revenue">
 				<i class="fas fa-dollar-sign"></i>
 			</div>
-			<h3>@ViewBag.statisticOrder["revenueCurrentMonth"]</h3>
+			<h3>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", ViewBag.statisticOrder["revenueCurrentMonth"])</h3>
 			<p>Doanh thu (VNĐ)</p>
 			<div class="stat-change positive">
 				<i class="fas fa-arrow-up"></i> @ViewBag.statisticOrder["percentRevenue"]% so với tháng trước
@@ -55,11 +55,7 @@
 		<div class="dashboard-card">
 			<h5>Biểu đồ doanh thu</h5>
 			<div class="chart-container">
-				<i class="fas fa-chart-line fa-3x"></i>
-				<div class="ms-3">
-					<p>Biểu đồ doanh thu 6 tháng gần đây</p>
-					<small class="text-muted">Tích hợp với thư viện Chart.js</small>
-				</div>
+				<canvas id="revenueChart"></canvas>
 			</div>
 		</div>
 
@@ -102,7 +98,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach(var dh in Model)
+							@foreach (var dh in Model)
 							{
 								<tr>
 									<td>@dh.MaDonHang</td>
@@ -151,3 +147,4 @@
 		</div>
 	</div>
 </div>
+<script src="~/js/Admin/Home/Index.js"></script>

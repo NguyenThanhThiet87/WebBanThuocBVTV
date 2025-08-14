@@ -76,24 +76,12 @@
 
                             <div class="mb-3">
                                 <select name="pttt" class="form-select form-control" id="paymentMethod">
-                                    <option value="NH" selected>
-                                        💰 Thanh toán khi nhận hàng (COD)
-                                    </option>
-                                    <option value="banking">
-                                        🏦 Chuyển khoản ngân hàng
-                                    </option>
-                                    <option value="card">
-                                        💳 Thẻ tín dụng/Ghi nợ
-                                    </option>
-                                    <option value="momo">
-                                        📱 Ví MoMo
-                                    </option>
-                                    <option value="zalopay">
-                                        💙 ZaloPay
-                                    </option>
-                                    <option value="VP">
-                                        🔵 VNPay
-                                    </option>
+                                    @foreach (var item in ViewBag.LstPTThanhToan)
+                                    {
+                                        <option value="@item.MaPhuongThucTt">
+                                            @item.TenPhuongThucTt
+                                        </option>
+                                    }
                                 </select>
                             </div>
 

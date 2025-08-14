@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using WebBanThuocBVTV.Helper;
 using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories.Interfaces;
@@ -215,6 +217,78 @@ namespace WebBanThuocBVTV.Repositories
         public async Task<int> CountProcessingOrder()
         {
             return _contextDB.Donhangs.Where(dh => dh.MaTrangThai == "PCD").Count();
+        }
+
+        public async Task<List<Phuongthucthanhtoan>> GetAllPTThanhToan()
+        {
+            return await _contextDB.Phuongthucthanhtoans.ToListAsync();
+        }
+        public async Task<AlertMessage> CancelOrder(string maDh)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+
+            Donhang dh = _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh)
+                                            .Include(dh => dh.DonhangSanphams)
+                                            .FirstOrDefault();
+            if (dh.MaTrangThai == "PCD" && dh.MaPhuongThucTt != "NH")
+            {
+                Giaodich gd = _contextDB.Giaodiches.Where(gd => gd.MaDonHang == dh.MaDonHang).FirstOrDefault();
+                _contextDB.Remove(gd);
+            }
+            if (dh.MaTrangThai == "PCD" || (dh.MaPhuongThucTt != "NH" && dh.MaTrangThai == "UNP"))
+            {
+                _contextDB.RemoveRange(dh.DonhangSanphams);
+                _contextDB.Remove(dh);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Hủy đơn thành công";
+            }
+            else
+            {
+                alertMessage.Type = "warning";
+                alertMessage.Message = "Đơn hàng đang vận chuyển";
+            }
+            return alertMessage;
+        }
+        public async Task<Donhang> GetDonHangNotPayment(string maDh)
+        {
+            Donhang dh = await _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh && dh.MaPhuongThucTt != "NH").Include(dh => dh.MaNdNavigation).Include(dh => dh.MaPhuongThucTtNavigation).FirstOrDefaultAsync();
+            return dh;
+        }
+        public async Task<AlertMessage> CompletingOrder(string maDh)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+
+            Donhang dh = _contextDB.Donhangs.Where(dh => dh.MaDonHang == maDh)
+                                            .FirstOrDefault();
+            if (dh.MaTrangThai == "SHP")
+            {
+                dh.MaTrangThai = "CMP";
+                dh.NgayGiaoHang = DateTime.Now;
+                _contextDB.Update(dh);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Xác nhận nhận hàng thành công";
+            }
+            else
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = "Đơn hàng chưa vận chuyển";
+            }
+            return alertMessage;
+        }
+
+        public async Task<Dictionary<DateTime,double>> RevenueClostSixMonth()
+        {
+            DateTime today = DateTime.Today;
+            DateTime dateMin = new DateTime(today.Year, today.Month - 6, 1);
+
+            Dictionary<DateTime, double> lst = await _contextDB.Donhangs.Where(dh => dh.MaTrangThai == "CMP" && dh.NgayGiaoHang!=null && dh.NgayGiaoHang.Value > dateMin)
+                .GroupBy(dh => new {dh.NgayGiaoHang.Value.Month, dh.NgayGiaoHang.Value.Year})
+                .Select(g => new {g.Key.Month, g.Key.Year, Total = g.Sum(dh => (double)(dh.TongTien))})
+                .ToDictionaryAsync(x => new DateTime(x.Year,x.Month,1), x=>x.Total);
+            
+            return lst;
         }
     }
 }

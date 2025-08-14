@@ -9,12 +9,43 @@
     timer: 2500,
     timerProgressBar: true,
 });
+
 function showToast(type, message) {
     setTimeout(() => {
-        Toast.fire({
-            icon: type,
-            title: message,
-        });
+        var funct = null;
+        switch (type) {
+            case "success":
+                funct = iziToast.success({
+                    title: 'Success',
+                    message: message,
+                    position: "topLeft",
+                    theme: 'light'
+                });
+                break;
+            case "warning":
+                iziToast.warning({
+                    title: 'Warning',
+                    message: message,
+                    position: "topLeft",
+                    theme: 'light'
+                });
+                break;
+            case "error":
+                iziToast.error({
+                    title: 'Error',
+                    message: message,
+                    position: "topLeft",
+                    theme: 'light'
+                });
+                break;
+            default:
+                funct = iziToast.success({
+                    title: 'Success',
+                    message: message,
+                    position: "topLeft",
+                    theme: 'light'
+                });
+        }
     }, 100);
 }
 function showLoading(message) {

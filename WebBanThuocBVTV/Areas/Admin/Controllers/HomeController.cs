@@ -16,6 +16,7 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         readonly NguoiDungRepository _nguoiDungRepository;
         readonly SanPhamRepository _sanPhamRepository;
         readonly DonHangRepository _donHangRepository;
+
         public HomeController(ILogger<HomeController> logger, NguoiDungRepository nguoiDungRepository, SanPhamRepository sanPhamRepository, DonHangRepository donHangRepository)
         {
             _logger = logger;
@@ -40,6 +41,12 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
             List<Donhang> dh = await _donHangRepository.GetNewOrders();
 
             return View(dh);
+        }
+
+        public async Task<List<KeyValuePair<DateTime, double>>> RevenueClostSixMonth()
+        {
+            Dictionary<DateTime, double> lst = await _donHangRepository.RevenueClostSixMonth();
+            return lst.ToList();
         }
     }
 }

@@ -103,10 +103,12 @@ namespace WebBanThuocBVTV.Repositories
         {
             throw new NotImplementedException();
         }
+
         public async Task<List<Nguoidung>> GetAllCustomer()
         {
             return await _contextDB.Nguoidungs.Where(nd => nd.MaVaiTro == "KH").ToListAsync();
         }
+
         public Task<List<Nguoidung>> GetAllAsync()
         {
             throw new NotImplementedException();
@@ -138,9 +140,19 @@ namespace WebBanThuocBVTV.Repositories
             await _contextDB.SaveChangesAsync();
             return nguoidung;
         }
+        public async Task<Nguoidung> UpdatePhone(string id, string phone)
+        {
+            Nguoidung nguoidung = await _contextDB.Nguoidungs.Where(user => user.MaNd == id).FirstOrDefaultAsync();
+            nguoidung.SoDienThoai = phone;
+            _contextDB.Nguoidungs.Update(nguoidung);
+            await _contextDB.SaveChangesAsync();
+            return nguoidung;
+        }
+
         public async Task<Nguoidung> Login(string email, string password)
         {
-            Nguoidung nguoidung = await _contextDB.Nguoidungs.Where(user => user.Email == email).FirstOrDefaultAsync();
+            Nguoidung nguoidung = await _contextDB.Nguoidungs.Where(user => user.Email == email && user.GoogleId == null).FirstOrDefaultAsync();
+
             if (nguoidung == null || !BCrypt.Net.BCrypt.Verify(password, nguoidung.PassWord))
             {
                 return null;
@@ -202,8 +214,15 @@ namespace WebBanThuocBVTV.Repositories
         public async Task<AlertMessage> ChangePass(string email, string oldPass, string newPass)
         {
             AlertMessage alertMessage = new AlertMessage();
-            Nguoidung user = await Login(email, oldPass);
-            if (user == null)
+            Nguoidung user = await _contextDB.Nguoidungs.Where(user => user.Email == email).FirstOrDefaultAsync();
+
+            if(user != null && user.GoogleId != null)
+            {
+                alertMessage.Type = "warning";
+                alertMessage.Message = "Tài khoản của bạn hiện đang liên kết bằng google, không thể đổi mật khẩu";
+                return alertMessage;
+            }
+            else if (user == null || !BCrypt.Net.BCrypt.Verify(oldPass, user.PassWord))
             {
                 alertMessage.Type = "error";
                 alertMessage.Message = "Mật khẩu cũ không đúng";

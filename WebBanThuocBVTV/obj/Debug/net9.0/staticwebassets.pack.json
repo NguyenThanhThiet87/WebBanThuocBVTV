@@ -165,6 +165,10 @@
       "PackagePath": "staticwebassets\\css\\Product\\_ReviewProduct.css"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\WebBanThuocBVTV.css",
+      "PackagePath": "staticwebassets\\css\\Shared\\WebBanThuocBVTV.css"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Shared\\_Footer.css",
       "PackagePath": "staticwebassets\\css\\Shared\\_Footer.css"
     },
@@ -205,12 +209,60 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\Home\\Index.js"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageComment\\Index.js",
       "PackagePath": "staticwebassets\\js\\Admin\\ManageComment\\Index.js"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageCustomer\\AddCustomer.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageCustomer\\AddCustomer.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageCustomer\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageCustomer\\Index.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageCustomer\\_DetailCustomer.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageCustomer\\_DetailCustomer.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageCustomer\\_ListCustomer.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageCustomer\\_ListCustomer.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageOrder\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageOrder\\Index.js"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageOrder\\_AddOrder.js",
       "PackagePath": "staticwebassets\\js\\Admin\\ManageOrder\\_AddOrder.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageOrder\\_DetailOrder.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageOrder\\_DetailOrder.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageOrder\\_ListOrder.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageOrder\\_ListOrder.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageProduct\\Index.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_AddProduct.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageProduct\\_AddProduct.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_DetailProduct.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageProduct\\_DetailProduct.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_ListProduct.js",
+      "PackagePath": "staticwebassets\\js\\Admin\\ManageProduct\\_ListProduct.js"
     },
     {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\Index.js",
@@ -221,6 +273,22 @@
       "PackagePath": "staticwebassets\\js\\Customer\\Account\\UpdateEmail.js"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Account\\UpdatePhone.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Cart\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Cart\\Index.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Detection\\Index.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Detection\\Index.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Order\\Detail.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Order\\Detail.js"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Product\\Detail.js",
       "PackagePath": "staticwebassets\\js\\Customer\\Product\\Detail.js"
     },
@@ -229,12 +297,32 @@
       "PackagePath": "staticwebassets\\js\\Customer\\Product\\Index.js"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Product\\_FeatureProduct.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Product\\_FeatureProduct.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Product\\_ReviewProduct.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Product\\_ReviewProduct.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Shared\\_Footer.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Shared\\_Footer.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Shared\\_Header.js",
+      "PackagePath": "staticwebassets\\js\\Customer\\Shared\\_Header.js"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Helper.js",
       "PackagePath": "staticwebassets\\js\\Helper.js"
     },
     {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\OTP\\SendSMS.js",
       "PackagePath": "staticwebassets\\js\\OTP\\SendSMS.js"
+    },
+    {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\ForgetPass.js",
+      "PackagePath": "staticwebassets\\js\\Shared\\Login\\ForgetPass.js"
     },
     {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",

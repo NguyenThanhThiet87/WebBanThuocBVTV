@@ -1,37 +1,35 @@
 ﻿var verifyModal = document.getElementById("verifyModal");
-//var modal = new bootstrap.Modal(verifyModal);
-
+var modal = new bootstrap.Modal(verifyModal);
 var modalContainer = document.getElementById("modal-container");
 
 var sendOTP = function () {
 	showLoading("");
 
-	var email = document.getElementById("email_updateEmail").value;
+	var email = document.getElementById("email").value;
+	if (email == "" || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.trim()) == false) {
+		showToast("warning", "Email không hợp lệ");
+		hideLoading();
+		return;
+	}
 	$.ajax({
 		url: "/Customer/Account/SendOTPEmail",
 		method: "POST",
 		data: { email },
 		success: function (res) {
-			if (res.success != null && res.success == false) {
-				setTimeout(() => {
-					showToast("error", res.message)
-				}, 50);
-				modal.hide();
-			} else {
-				modalContainer.innerHTML = res;
-				modal.show();
-			}
+			modalContainer.innerHTML = res;
+			modal.show();
 			hideLoading();
 		},
 		error: function (err) {
 			console.log(err);
 			hideLoading();
-			modal.hide();
 		}
 	})
 }
+
 var verifyEmail = function () {
-	var email = document.getElementById("email_updateEmail").value;
+	showLoading("");
+	var email = document.getElementById("email").value;
 
 	var otp = ""
 	var inputs = document.getElementsByClassName("otp-input");
@@ -66,4 +64,28 @@ var verifyEmail = function () {
 		}
 	}
 	)
+}
+
+var resendOTP = function () {
+	showLoading("");
+
+	var email = document.getElementById("email").value;
+	if (email == "" || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.trim()) == false) {
+		showToast("warning", "Email không hợp lệ");
+		console.log(modal);
+		hideLoading();
+		return;
+	}
+	$.ajax({
+		url: "/Customer/Account/SendOTPEmail",
+		method: "POST",
+		data: { email },
+		success: function (res) {
+			hideLoading();
+		},
+		error: function (err) {
+			console.log(err);
+			hideLoading();
+		}
+	})
 }

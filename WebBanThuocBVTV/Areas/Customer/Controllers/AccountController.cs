@@ -51,8 +51,6 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         }
         public async Task<IActionResult> UpdatePhone()
         {
-            AlertMessage result = await _sendOTP.SendOTPByPhone("0868642533");
-            SetAlert(result.Message, result.Type);
             return View();
         }
 
@@ -83,7 +81,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             {
                 SetAlert("Bạn chưa đăng nhập", "warning");
                 return RedirectToAction("Index", "Home");
-            }
+            }    
             Nguoidung currentUser = await _nguoiDungRepository.GetById(account.MaNd);
             ViewBag.User = currentUser;
 
@@ -170,51 +168,37 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 }
             }
         }
-        //[HttpPost]
-        //public async Task<IActionResult> VerifyOTP(string email, string otpCode)
-        //{
-        //    ViewBag.Email = email;
-        //    ViewBag.OtpCode = otpCode;
+        [HttpPost]
+        public async Task<IActionResult> SendOTPPhone(string phone)
+        {
+                AlertMessage alertMessage = await _sendOTP.SendOTPByPhone(phone);
+                if (alertMessage.Type == "success")
+                {
+                    return PartialView("_SendOTPPhone", phone);
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                }
+        }
 
-        //    //check email tồn tại chưa
-        //    if (await _nguoiDungRepository.EmailIsExist(email))
-        //    {
-        //        SetAlert("Tài khoản Email đã tồn tại", "warning");
-        //        return View("UpdateEmail");
-        //    }
+        [HttpPost]
+        public async Task<IActionResult> VerifyOTPByPhone(string phone, string otpCode)
+        {
+           AlertMessage alertMessage = _sendOTP.CheckOTPByPhone(phone, otpCode);
+            
+            if (alertMessage.Type == "success")
+            {
+                Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(HttpContext.Session.GetString("Account"));
+                Nguoidung oldUser = await _nguoiDungRepository.GetById(user.MaNd);
 
-        //    var otpJson = HttpContext.Session.GetString("OTP");
-
-        //    if (string.IsNullOrEmpty(otpJson)) //check otp từ session
-        //    {
-        //        SetAlert("Mã OTP chưa được gửi", "warning");
-        //        return View("UpdateEmail");
-        //    }
-        //    //nếu otp từ session tồn tại
-        //    var OTP = JsonSerializer.Deserialize<Dictionary<string, string>>(otpJson);
-        //    if (email == OTP["email"] && otpCode == OTP["otpCode"])
-        //    {
-        //        var account = HttpContext.Session.GetString("Account");
-        //        Nguoidung user = JsonSerializer.Deserialize<Nguoidung>(account);
-
-        //        try
-        //        {
-        //            await _nguoiDungRepository.UpdateEmail(user.MaNd, email);
-        //            SetAlert("Cập nhật Email thành công", "success");
-        //            return RedirectToAction("Index");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            SetAlert($"Cập nhật Email thất bại: {ex.Message}", "error");
-        //            return RedirectToAction("UpdateEmail");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        SetAlert("Mã OTP chưa đúng", "warning");
-        //        return View("UpdateEmail");
-        //    }
-        //}
+                await _nguoiDungRepository.UpdatePhone(user.MaNd, phone);
+                HttpContext.Session.Remove("OTPCode");
+                return Json(new { success = true, message = "Xác thực số điện thoại thành công", redirectUrl = Url.Action("Index", "Account", new { area = "Customer" }) });
+            }
+            else
+                return Json(new { success = false, message = "Mã OTP không đúng", redirectUrl = "" });
+        }
 
         [HttpPost]
         public async Task<IActionResult> VerifyOTP(string otpCode, string email)
@@ -235,7 +219,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
                 await _nguoiDungRepository.UpdateEmail(user.MaNd, email);
                 HttpContext.Session.Remove("OTPCode");
-                return Json(new { success = true, message = "Xác thực email thành công", redirectUrl = Url.Action("Index", "Account", new { area = "Admin" }) });
+                return Json(new { success = true, message = "Xác thực email thành công", redirectUrl = Url.Action("Index", "Account", new { area = "Customer" }) });
             }
             else
                 return Json(new { success = false, message = "Mã OTP không đúng", redirectUrl = "" });

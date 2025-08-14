@@ -9,12 +9,12 @@
     .cart-container .cart-cancel {
         float: right;
     }
-.cart-container h2 {
-    font-size: 20px;
-    color: white;
-    margin-bottom: 15px;
-    text-align: center;
-}
+    .cart-container h2 {
+        font-size: 20px;
+        color: #066e00;
+        margin-bottom: 15px;
+        text-align: center;
+    }
 
 .cart-table {
     width: 100%;
@@ -133,7 +133,7 @@
     }
 
     .quantity-controls input {
-        width: 35px;
+        width: 75px;
         padding: 3px;
     }
 

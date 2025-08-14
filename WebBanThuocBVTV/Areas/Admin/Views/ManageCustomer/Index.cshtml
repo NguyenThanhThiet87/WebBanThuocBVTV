@@ -16,14 +16,6 @@
 					<span>➕</span>
 					Thêm khách hàng mới
 				</a>
-				<a class="action-btn" onclick="importCustomers()">
-					<span>📥</span>
-					Nhập khách hàng từ Excel
-				</a>
-				<a class="action-btn" onclick="exportCustomers()">
-					<span>📤</span>
-					Xuất danh sách khách hàng
-				</a>
 			</div>
 		</div>
 
@@ -39,7 +31,7 @@
 
 				<div class="sort-options">
 					<label>Sắp xếp theo:</label>
-					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsCustomer>()" onchange="searchCustomers()">
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsCustomer>()" onchange="applyFilters()">
 					</select>
 				</div>
 
@@ -91,189 +83,6 @@
 		</div>
 	</div>
 </div>
-<script>
-	document.addEventListener("DOMContentLoaded",()=>{
-		applyFilters();
-	})
-
-	var detailCustomer_modal = document.getElementById('detail_customerModal');
-	detailCustomer_modal.addEventListener('hide.bs.modal', function (event) {
-	  location.reload();
-	});
-
-	var model_container = document.getElementById("modal-container");
-
-	var detailCustomer=function(maNguoiDung)
-	{
-		$.ajax({
-		url:"@Url.Action("DetailCustomer", "ManageCustomer", new { area = "Admin" })",
-		method:"post",
-		data: {maNd:maNguoiDung},
-		success:function(res)
-		{
-			model_container.innerHTML=res;
-		},
-		error:function(res)
-		{
-			console.log("Lỗi","error")
-		}
-		});
-	}
-
-
-	var enterEditMode=function()
-	{
-		var title = document.getElementById("modalTitle")
-		title.textContent = "Chỉnh sửa thông tin khách hàng";
-
-		var lstElementViewMode = document.getElementsByClassName("view-mode");
-		var lstElementEditMode = document.getElementsByClassName("edit-mode");
-		for(var i=0; i < lstElementViewMode.length;i++)
-		{
-			lstElementViewMode[i].classList.add("d-none");
-		}
-		for(var i=0; i < lstElementEditMode.length;i++)
-		{
-			lstElementEditMode[i].classList.remove("d-none");
-		}
-	}
-
-	var cancelEditMode = function()
-	{
-		var title = document.getElementById("modalTitle")
-		title.textContent = "Thông tin khách hàng";
-
-		var lstElementViewMode = document.getElementsByClassName("view-mode");
-		var lstElementEditMode = document.getElementsByClassName("edit-mode");
-		for(var i=0; i < lstElementViewMode.length;i++)
-		{
-			lstElementViewMode[i].classList.remove("d-none");
-		}
-		for(var i=0; i < lstElementEditMode.length;i++)
-		{
-			lstElementEditMode[i].classList.add("d-none");
-		}
-	}
-
-	var saveEdit = function(maNguoiDung)
-	{
-		showLoading("");
-
-		var id = maNguoiDung;
-		var name = document.getElementById("editCustomerName").value;
-		var gioiTinh = document.getElementById("editCustomerGender").value;
-		var ngaySinh = document.getElementById("editCustomerBirthday").value;
-
-		var ngayTao = document.getElementById("customerDateCreated").value;
-		var email = document.getElementById("editCustomerEmail").value;
-		var soDienThoai = document.getElementById("editCustomerPhone").value;
-		var diaChi = document.getElementById("editCustomerAddress").value;
-
-		var dataSend = {
-			MaNd: id,
-			HoTen: name,
-			GioiTinh: gioiTinh,
-			NgaySinh: ngaySinh,
-			SoDienThoai: soDienThoai,
-			DiaChi: diaChi,
-			Email: email,
-			NgayTao: ngayTao
-		}
-
-		$.ajax({
-		url:"@Url.Action("UpdateCustomer", "ManageCustomer", new { area = "Admin" })",
-		method:"post",
-		data: dataSend,
-		success:function(res)
-		{
-			model_container.innerHTML=res;
-			hideLoading()
-			showToast('success',"Cập nhật thành công");
-		},
-		error:function(res)
-		{
-			setAlert("Lỗi","error")
-			hideLoading()
-		}
-		});
-	}
-
-	// var searchCustomers = function(status)
-	// {
-	// 	if(status !="init")
-	// 	  showLoading("");
-
-	// 	var name = document.getElementById("searchInput").value;
-	// 	var sort = document.getElementById("sortSelect").value;
-
-	// 	var tableCustomer = document.getElementsByClassName("customer-table")[0];
-
-	// 	$.ajax({
-	// 		url:"@Url.Action("FilterCustomer","ManageCustomer",new{area ="Admin"})",
-	// 		method:"POST",
-	// 		data: {keyword: name, SortOption: sort},
-	// 		success:function(res)
-	// 		{
-	// 			hideLoading()
-	// 			tableCustomer.innerHTML = res;
-	// 		},
-	// 		error: function(err)
-	// 		{
-	// 			hideLoading()
-	// 			console.log(err);
-	// 		}
-	// 	})
-	// }
-
-	var applyFilters = function()
-	{
-		showLoading("");
-		var name = document.getElementById("searchInput").value;
-		var Category = document.getElementById("categorySelect").value;
-		var GioiTinh = document.getElementById("genderSelect").value;
-		var NgayTao = document.getElementById("createAtSelect").value;
-		var Sort = document.getElementById("sortSelect").value;
-
-		var tableProduct = document.getElementsByClassName("customer-table")[0];
-
-		$.ajax({
-			url:"@Url.Action("FilterCustomer", "ManageCustomer", new { area = "Admin" })",
-			method:"POST",
-			data: {keyword: name, loaiKh: Category, gioiTinh: GioiTinh, ngayTao: NgayTao, sortOption: Sort},
-			success:function(res)
-			{
-				hideLoading()
-				tableProduct.innerHTML = res;
-			},
-			error: function(err)
-			{
-				hideLoading()
-				console.log(err);
-			}
-		})
-	}
-
-	var resetFilters = function()
-	{
-		showLoading("");
-
-		var tableProduct = document.getElementsByClassName("product-table")[0];
-
-		$.ajax({
-			url:"@Url.Action("SearchProduct", "ManageProduct", new { area = "Admin" })",
-			method:"POST",
-			data: {keyword: ""},
-			success:function(res)
-			{
-				hideLoading()
-				tableProduct.innerHTML = res;
-			},
-			error: function(err)
-			{
-				hideLoading()
-				console.log(err);
-			}
-		})
-	}
-
-</script>
+<script src="~/js/Admin/ManageCustomer/Index.js"></script>
+<script src="~/js/Admin/ManageCustomer/_ListCustomer.js"></script>
+<script src="~/js/Admin/ManageCustomer/_DetailCustomer.js"></script>

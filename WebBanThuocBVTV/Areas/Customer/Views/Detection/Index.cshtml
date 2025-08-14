@@ -1,5 +1,5 @@
 ﻿<link rel="stylesheet" href="/css/Detection/Index.css" />
-<form class="detection_plant-container" asp-action="Detection" asp-controller="Detection" enctype="multipart/form-data">
+<div class="detection_plant-container">
 	<h1>🌿 Nhận diện bệnh lá cây</h1>
 
 	<div class="detection_plant-top">
@@ -11,6 +11,7 @@
 				<div class="upload-hint guide">Hỗ trợ: JPG, PNG, JPEG (tối đa 5MB)</div>
 			}
 			<img id="img_uploaded" src="@(ViewBag.Img??"")" class="preview-img" alt="Chọn ảnh lá cây">
+			<br />
 			<input name="img" type="file" id="fileInput" accept="image/*" onchange="ChoosePicture(this)">
 		</div>
 
@@ -18,32 +19,17 @@
 			<div class="result-title">🔍 Kết quả chẩn đoán</div>
 			<div class="diagnosis-box">
 				<div class="disease-name">🟡 Khả năng @ViewBag?.Result</div>
-				<div class="confidence">📊 Độ tin cậy: @(ViewBag?.Conf)%</div>
+				<div class="confidence">📊 Độ tin cậy: @(ViewBag?.Conf * 100)%</div>
 			</div>
 		</div>
 	</div>
 
-	<button class="btn" type="submit">
+	<button class="btn" onclick="Detect()">
 		🔬 Nhận diện bệnh lá
 	</button>
 
 	<div class="footer">
 		<p>⚠️ Kết quả chỉ mang tính chất tham khảo. Nên tham khảo ý kiến chuyên gia để có phương pháp điều trị chính xác.</p>
 	</div>
-</form>
-<script>
-	function ChoosePicture(input)
-	{
-		var img = document.getElementById("img_uploaded")
-		var reader = new FileReader();
-		reader.onload = function(e) {
-			img.src = e.target.result; // Gán Data URL cho img.src
-			// Ẩn các phần tử có class "guide"
-			 var guides = document.getElementsByClassName("guide")
-			for (let guide of guides) {
-				guide.style.display = "none";
-			}
-		};
-		reader.readAsDataURL(input.files[0]); // Đọc file đầu tiên
-	}
-</script>
+</div>
+<script src="~/js/Customer/Detection/Index.js"></script>>

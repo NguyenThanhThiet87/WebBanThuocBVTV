@@ -32,7 +32,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             return Redirect(url);
         }
 
-        public async Task<IActionResult> PaymentCallbackVnpayAsync()
+        public async Task<IActionResult> PaymentCallbackVnpay()
         {
             PaymentResponseModel response = _vnPayService.PaymentExecute(Request.Query);
             Donhang donHang = await _contextDB.Donhangs.Where(dh => dh.MaDonHang == response.OrderId).FirstOrDefaultAsync();

@@ -23,9 +23,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.22.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NumSharp" Version="0.30.0" />
     <PackageReference Include="Otp.NET" Version="1.4.0" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.7" />
     <PackageReference Include="SweetAlert2" Version="1.0.1" />
+    <PackageReference Include="System.Numerics.Tensors" Version="9.0.8" />
     <PackageReference Include="Twilio" Version="7.11.1" />
     <PackageReference Include="VNPAY.NET" Version="8.5.0" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
@@ -33,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\Shared\" />
+    <Folder Include="wwwroot\js\Customer\Home\" />
   </ItemGroup>
 
 </Project>

@@ -80,6 +80,10 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 AlertMessage result = await _binhLuanRepository.Add(binhluan);
                 SetAlert(result.Message, result.Type);
             }
+            else
+            {
+                SetAlert("Bạn chưa đăng nhập tài khoản", "warning");
+            }    
             return RedirectToAction("DetailProduct", new { maSp });
         }
 

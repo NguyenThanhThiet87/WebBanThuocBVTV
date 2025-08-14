@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CloudinaryDotNet;
+using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -76,8 +77,9 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                             dhsp.MaSanPhamNavigation = sp;
                             dhsp.TongTien = (double)(dhsp.SoLuongDatMua * dhsp.MaSanPhamNavigation.Gia);
                         }
-                    }    
-
+                    }
+                    List<Phuongthucthanhtoan> lstPTThanhToan = await _donHangRepository.GetAllPTThanhToan();
+                    ViewBag.LstPTThanhToan = lstPTThanhToan;
                     return View(listSanPhamOrder);
                 }
             }
@@ -90,7 +92,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             if (status == 0)
                 return RedirectToAction("DetailProduct", "Product", new { maSp });
             else
-                return  Json(new {success = alertMessage.Type, message = alertMessage.Message });
+                return RedirectToAction("Index", "Home");
         }
         [HttpPost]
         public async Task<IActionResult> PaymentAsync(List<DonhangSanpham> orderItems, string ghiChu, string pttt)
@@ -112,6 +114,19 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 foreach (DonhangSanpham sp in orderItems)
                 {
                     sp.MaDonHang = donhang.MaDonHang;
+                }
+                List<Dictionary<string, int>> lstSp = new List<Dictionary<string, int>>();
+                foreach (DonhangSanpham dhsp in orderItems)
+                {
+                    Dictionary<string, int> sp = new Dictionary<string, int>();
+                    sp.Add(dhsp.MaSanPham, dhsp.SoLuongDatMua);
+                    lstSp.Add(sp);
+                }
+                AlertMessage alertSellProduct = await _sanPhamRepository.SellProduct(lstSp);
+                if(alertSellProduct.Type != "success")
+                {
+                    SetAlert(alertSellProduct.Message, alertSellProduct.Type);
+                    return RedirectToAction("Index", "Order");
                 }
 
                 AlertMessage result = await _donHangRepository.Add(orderItems, donhang);
@@ -146,6 +161,43 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             SetAlert("Đơn hàng không tồn tại", "warning");
             return RedirectToAction("Index", "Home");
         }
+        [HttpPost]
+        public async Task<AlertMessage> CancelOrder(string maDonHang)
+        {
+            AlertMessage alertMessage = await _donHangRepository.CancelOrder(maDonHang);
+            if (alertMessage.Type == "success")
+                RemoveBreadcrum(maDonHang);
+            return alertMessage;
+        }
+        [HttpPost] 
         
+        public async Task<IActionResult> PaymentOrderNotPaymented(string maDonHang)
+        {
+            Donhang dh = await _donHangRepository.GetDonHangNotPayment(maDonHang);
+            if(dh!=null)
+            {
+                PaymentInformationModel paymentInformationModel = new PaymentInformationModel();
+                paymentInformationModel.OrderId = dh.MaDonHang;
+                paymentInformationModel.OrderType = "270000";
+                paymentInformationModel.Amount = dh.TongTien;
+                paymentInformationModel.Name = dh.MaNdNavigation.HoTen;
+                paymentInformationModel.OrderDescription = $"thanh toán {dh.MaPhuongThucTtNavigation.TenPhuongThucTt}";
+
+                return RedirectToAction("CreatePaymentUrlVnpay", "VnPay", paymentInformationModel);
+            }
+            BreadcrumItem breadcrumItem = TopBreadcrum();
+            List<string> urls = breadcrumItem.Url.Split("/").ToList();
+            return RedirectToAction(urls[2], urls[1], new { maDonHang = urls[3]??"" });
+        }
+        [HttpPost]
+        public async Task<IActionResult> CompletingOrder(string maDonHang)
+        {
+            AlertMessage alertMessage = await _donHangRepository.CompletingOrder(maDonHang);
+            if (alertMessage.Type == "success")
+            {
+                SetAlert(alertMessage.Message, alertMessage.Type);
+            }
+            return RedirectToAction("DetailOrder", "Order", new { maDonHang = maDonHang });
+        }
     }
 }

@@ -89,17 +89,33 @@
               "target": "Package",
               "version": "[9.0.5, )"
             },
+            "Microsoft.ML.OnnxRuntime": {
+              "target": "Package",
+              "version": "[1.22.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "NumSharp": {
+              "target": "Package",
+              "version": "[0.30.0, )"
             },
             "Otp.NET": {
               "target": "Package",
               "version": "[1.4.0, )"
             },
+            "SixLabors.ImageSharp.Drawing": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
             "SweetAlert2": {
               "target": "Package",
               "version": "[1.0.1, )"
+            },
+            "System.Numerics.Tensors": {
+              "target": "Package",
+              "version": "[9.0.8, )"
             },
             "Twilio": {
               "target": "Package",

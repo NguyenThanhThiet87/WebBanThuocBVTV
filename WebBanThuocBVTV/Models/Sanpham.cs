@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 namespace WebBanThuocBVTV.Models;
-
 public partial class Sanpham
 {
     public string MaSanPham { get; set; } = null!;

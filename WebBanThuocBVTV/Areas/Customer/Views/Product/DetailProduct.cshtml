@@ -36,7 +36,7 @@
 			<input name="maSp" id="maSp" value="@Model.MaSanPham" type="hidden" />
 			<h1 class="product-title">@Model.MaNhomSpNavigation.TenNhomSp @Model.TenSanPham</h1>
 			<div class="product-price-section">
-				<span class="product-price">@String.Format("{0:N0}",Model.Gia) VNĐ</span>
+				<span class="product-price">@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", Model.Gia) VNĐ</span>
 			</div>
 			<div class="quantity-section">
 				<button type="button" class="quantity-btn decrease_quality" onclick="decreaseQuality(this)">-</button>
@@ -56,5 +56,4 @@
 	<!-- Comments and Ratings Section -->
 	@Html.Partial("_ReviewProduct", Model)
 </div>
-<script src="~/js/Customer/Product/Detail.js">
-</script>
+<script src="~/js/Customer/Product/Detail.js"></script>

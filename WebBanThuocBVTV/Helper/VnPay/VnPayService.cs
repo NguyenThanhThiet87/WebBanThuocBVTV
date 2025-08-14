@@ -32,8 +32,7 @@ namespace WebBanThuocBVTV.Helper.VnPay
             pay.AddRequestData("vnp_TxnRef", model.OrderId);
 
 
-            var paymentUrl =
-                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
+            var paymentUrl = pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
 
             return paymentUrl;
         }

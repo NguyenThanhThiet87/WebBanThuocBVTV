@@ -7,6 +7,12 @@ using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Rest.Verify.V2.Service;
 
+using System;
+using System.Collections.Generic;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
 
 namespace WebBanThuocBVTV.Helper
 {
@@ -16,6 +22,9 @@ namespace WebBanThuocBVTV.Helper
         public SendOTP(IConfiguration config)
         {
             _config = config;
+            var accountSid = "ACcfe8b4e065015b6e32ce8a032ea9ec96";
+            var authToken = "98a25c919228e99df8ddd51bbad33d2b";
+            TwilioClient.Init(accountSid, authToken);
         }
         private string CreateOTP()
         {
@@ -80,20 +89,53 @@ Agri T&T"
             AlertMessage alertMessage = new AlertMessage();
             try
             {
-                string otpCode = CreateOTP();
+                var verification = VerificationResource.Create(
+                                   to: phoneNumber,
+                                   channel: "sms",
+                                   pathServiceSid: "VAad7e4833b5525ce5d58aed402cb55faf"
+                                   );
 
-                                                                          
                 alertMessage.Type = "success";
-                alertMessage.Message = "Gửi mã OTP thành công";
-            }catch(Exception ex)
-            {
-                    alertMessage.Type = "error";
-                    alertMessage.Message = "Gửi mã OTP thất bại: " + ex.Message;
+                alertMessage.Message = "Mã OTP đã được gửi đến số điện thoại của bạn. Vui lòng kiểm tra tin nhắn SMS.";
+                return alertMessage;
             }
-            return alertMessage;
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = "Gửi mã OTP thất bại: " + ex.Message;
+                return alertMessage;
+            }
         }
+        public AlertMessage CheckOTPByPhone(string phoneNumber, string code)
+        {
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                var serviceSid = "VAad7e4833b5525ce5d58aed402cb55faf";
+                var check = VerificationCheckResource.Create(
+                    to: phoneNumber,
+                    code: code,
+                    pathServiceSid: serviceSid
+                );
+                if(check.Status == "approved")
+                {
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "Xác thực thành công";
+                }else
+                {
+                    alertMessage.Type = "error";
+                    alertMessage.Message = "Mã OTP không hợp lệ";
+                }    
 
-
+                return alertMessage;
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = "Gửi mã OTP thất bại: " + ex.Message;
+                return alertMessage;
+            }
+        }
 
     }
 

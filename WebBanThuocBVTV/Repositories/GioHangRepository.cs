@@ -102,9 +102,22 @@ namespace WebBanThuocBVTV.Repositories
             GiohangSanpham gioHangSp = await _contextDB.GiohangSanphams.Where(gh => gh.MaGioHang == maGioHang && gh.MaSanPham == maSp).FirstOrDefaultAsync();
             return gioHangSp;
         }
-        public Task<AlertMessage> Update(Giohang entity)
+        public async Task<AlertMessage> Update(Giohang entity)
         {
-            throw new NotImplementedException();
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                _contextDB.Giohangs.Update(entity);
+                await _contextDB.SaveChangesAsync();
+                alertMessage.Type = "success";
+                alertMessage.Message = "Cập nhật thành công";
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
+            return alertMessage;
         }
         public async Task<AlertMessage> UpdateProduct(GiohangSanpham entity)
         {

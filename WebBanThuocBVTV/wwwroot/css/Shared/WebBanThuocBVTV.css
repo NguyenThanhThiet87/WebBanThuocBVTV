@@ -1,0 +1,23 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr; /* hàng trên cao auto, hàng dưới chiếm phần còn lại */
+    height: 100vh; /* toàn màn hình */
+}
+
+/* Khối 3 thanh ở trên: đứng yên vì KHÔNG nằm trong vùng cuộn */
+#topbar {
+    position: relative; /* không cần fixed */
+    z-index: 1000;
+    background: #fff; /* có nền để che nội dung khi cuộn */
+}
+
+/* Chỉ phần này cuộn */
+#scroll-area {
+    min-height: 0; /* bắt buộc để overflow hoạt động trong grid */
+    overflow: auto; /* thanh cuộn sẽ nằm sát mép phải viewport */
+}

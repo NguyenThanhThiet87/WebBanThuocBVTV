@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"] - WebBanThuocBVTV</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/css/SweetAlert2/Toast.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -20,49 +21,62 @@
 	<!--Firebase-->
 	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+	<!--iziToast-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="~/css/Shared/WebBanThuocBVTV.css" rel="stylesheet" />
 </head>
-<body>
-	@await Html.PartialAsync("_Header") <!-- Gọi partial view header -->
-	<!-- Navigation Bar -->
-	@await Html.PartialAsync("_Navigation") <!-- Gọi partial view navigation -->
-	@await Html.PartialAsync("_breadcrumb") <!-- Gọi partial view breadcrumb -->
-	<div class="container" style="padding:5vh">
-		<main role="main" class="pb-3">
-			@using Newtonsoft.Json
-			@using WebBanThuocBVTV.Helper
-			@{
-				var alertJson = TempData["Alert"] as string;
-				string icon = "";
-				string title = "";
 
-				if (!string.IsNullOrEmpty(alertJson))
-				{
-					var alert = JsonConvert.DeserializeObject<AlertMessage>(alertJson);
-					icon = alert?.Type ?? "success";
-					title = alert?.Message ?? "Thông báo";
-					Console.WriteLine("TYPE: " + icon);
-					Console.WriteLine("Message: " + title);
-				}
-			}
-
-			@if (!string.IsNullOrEmpty(alertJson))
-			{
-				<script>
-					document.addEventListener("DOMContentLoaded", function () {
-						showToast('@icon', '@title')
-		
-					});
-
-				</script>
-			}
-			@RenderBody()
-		</main>
+<body class="app-layout">
+	<div id="topbar">
+		@await Html.PartialAsync("_Header") <!-- Gọi partial view header -->
+		@await Html.PartialAsync("_Navigation") <!-- Gọi partial view navigation -->
+		@await Html.PartialAsync("_breadcrumb") <!-- Gọi partial view breadcrumb -->
 	</div>
-	@await Html.PartialAsync("_Footer") <!-- Gọi partial view footer -->
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<div id="scroll-area">
+		<div id="app-content" class="container" style="padding:2vh">
+			<main role="main" class="pb-3">
+				@using Newtonsoft.Json
+				@using WebBanThuocBVTV.Helper
+				@{
+					var alertJson = TempData["Alert"] as string;
+					string icon = "";
+					string title = "";
+
+					if (!string.IsNullOrEmpty(alertJson))
+					{
+						var alert = JsonConvert.DeserializeObject<AlertMessage>(alertJson);
+						icon = alert?.Type ?? "success";
+						title = alert?.Message ?? "Thông báo";
+					}
+				}
+
+				@if (!string.IsNullOrEmpty(alertJson))
+				{
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+						showToast('@icon', '@title')
+						});
+					</script>
+				}
+				@RenderBody()
+			</main>
+		</div>
+		@if(ViewBag.Account!=null)
+		{
+			<div class="modal fade" id="cartModalToggle" aria-hidden="true" aria-labelledby="cartModalToggleLabel2" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered modal-xl">
+					<div class="cart-container modal-content" id="cart-container">
+					</div>
+				</div>
+			</div>
+		}
+		@await Html.PartialAsync("_Footer") <!-- Gọi partial view footer -->
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="~/js/SweetAlert2/Toast.js"></script>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script src="~/js/Helper.js"></script>
