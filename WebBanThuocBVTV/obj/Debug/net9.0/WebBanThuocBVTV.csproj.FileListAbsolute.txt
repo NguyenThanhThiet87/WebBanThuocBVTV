@@ -336,7 +336,6 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\4lu73dv71p-zgfg3y
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\ry9i6hjyw2-kquythn5dw.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\6xpea01x60-waoz662znt.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net9.0\Markdig.dll
-D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\9swzgeg2lq-0rpl5y6kcy.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net9.0\Microsoft.ML.OnnxRuntime.dll
 D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net9.0\SixLabors.Fonts.dll
 D:\WebBanThuocBVTV\WebBanThuocBVTV\bin\Debug\net9.0\SixLabors.ImageSharp.dll
@@ -372,7 +371,6 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\mviizlipxm-9zj6y4
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\r6kbo2rfpu-6ueh6rmo9u.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\wp8n4sljx9-djgjugre2d.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\2ryu9f8y8x-atge13bpsp.gz
-D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\r99m8j4587-xo8yvaothj.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\8uwnivp2cv-41mn39nhf4.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\j1769yrivj-u55m3u66cw.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\t9k9ve5h7d-lnf022zwk2.gz
@@ -396,3 +394,5 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\15iw11c79u-mkki1m
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\unsh7iqzed-9ujr2vfnft.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\rfdb0b6rnn-tm51929swq.gz
 D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\cds8emqbs6-ohwghl6dfp.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\9swzgeg2lq-6fz88lnjj2.gz
+D:\WebBanThuocBVTV\WebBanThuocBVTV\obj\Debug\net9.0\compressed\r99m8j4587-4aii8rrueq.gz

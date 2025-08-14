@@ -1,7 +1,7 @@
 ﻿
 <link rel="stylesheet" href="~/css/Login/Index.css">
 <div class="login-container">
-    <form class="login-form" asp-action="LoginAccount" asp-controller="Login" asp-area="Shared">
+    <form class="login-form" asp-action="LoginAccount" asp-controller="Login" asp-area="Shared" onsubmit="showLoading('')">
         <h2>Đăng nhập tài khoản</h2>
         <input name="email" type="email" placeholder="Nhập email của bạn" required>
         
@@ -12,10 +12,9 @@
                 <i class="fa fa-eye-slash d-none" onclick="togglePass('hidden')"></i>
             </span>
         </div>
-        <button type="submit">Đăng nhập</button>
+        <button type="submit" >Đăng nhập</button>
         <p><a asp-controller="Login" asp-action="ForgetPass">Quên mật khẩu?</a>   |   <a asp-controller="Login" asp-action="Register">Đăng ký ngay</a></p>
         <div class="social-login">
-            @* <a class="facebook" asp-action="GoogleLogin" asp-controller="Login">Facebook</a> *@
             <a class="google"  asp-action="GoogleLogin" asp-controller="Login">Google</a>
         </div>
     </form>

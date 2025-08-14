@@ -534,8 +534,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0rpl5y6kcy</Fingerprint>
-      <Integrity>ZD0bt5SG2z6xrwppF8Jd8pamanEASzo79XPsgaIsyis=</Integrity>
+      <Fingerprint>6fz88lnjj2</Fingerprint>
+      <Integrity>ru7o4yiDkZmnDYlezJPQd5SWYzKaH6B+Ft9tWcgbOA4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Login\Index.css'))</OriginalItemSpec>
@@ -1236,8 +1236,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xo8yvaothj</Fingerprint>
-      <Integrity>f/het76ItLvAdcAoa1xTNtJoR/cVkEUoB4Zt3wVKNAk=</Integrity>
+      <Fingerprint>4aii8rrueq</Fingerprint>
+      <Integrity>9E7+ybrn6ijC/FLAEndK6/CiDNPGl3HA82om1Tl5pKI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Customer\Account\UpdatePhone.js'))</OriginalItemSpec>

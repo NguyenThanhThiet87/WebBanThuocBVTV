@@ -7,12 +7,14 @@ var sendOTP = function () {
 
 	var region = document.getElementById("codeCountry").value;
 	var phone = document.getElementById("phone").value;
+
+	phone = region + phone; // Kết hợp mã vùng với số điện thoại
+
 	if (phone == "" || /^\+[0-9]\d{10,15}$/.test(phone.trim()) == false) {
 		showToast("warning", "Số điện thoại không hợp lệ");
 		hideLoading();
 		return;
 	}
-	phone = region + phone; // Kết hợp mã vùng với số điện thoại
 
 	$.ajax({
 		url: "/Customer/Account/SendOTPPhone",
