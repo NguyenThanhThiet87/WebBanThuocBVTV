@@ -1,9 +1,11 @@
-﻿var addProductModal = function () {
+﻿var easyMDE;
+var addProductModal = function () {
 	$.ajax({
 		url: "/Admin/ManageProduct/AddProductPartialView",
 		method: "get",
 		success: function (res) {
 			model_container.innerHTML = res
+			easyMDE = new EasyMDE({ element: document.getElementById('instructions') });
 		},
 		error: function (err) {
 			console.log(err)
@@ -27,7 +29,7 @@ var addProduct = function () {
 	var expiry = document.getElementById("expiryDate").value;
 	var composition = document.getElementById("composition").value;
 	var usage = document.getElementById("usage").value;
-	var instructions = document.getElementById("instructions").value;
+	var instructions = easyMDE.value();
 	var imgFile = document.getElementById("imageInput").files[0];
 
 	const formData = new FormData();
@@ -52,9 +54,11 @@ var addProduct = function () {
 		contentType: false,
 		processData: false,
 		success: function (res) {
+			if (res.type == "success") {
+				addProductModal()
+			}
 			hideLoading()
 			showToast(res.type, res.message);
-			addProductModal()
 		},
 		error: function (err) {
 			hideLoading()

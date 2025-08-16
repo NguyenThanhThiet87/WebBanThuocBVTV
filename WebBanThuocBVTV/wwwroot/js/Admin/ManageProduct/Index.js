@@ -1,4 +1,7 @@
-﻿var model_container = document.getElementById("modal-container");
+﻿var produtModal = document.getElementById("containerModal");
+var modal = new bootstrap.Modal(produtModal);
+
+var model_container = document.getElementById("modal-container");
 
 document.addEventListener("DOMContentLoaded", () => {
 	applyFilters();

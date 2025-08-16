@@ -10,12 +10,34 @@
 	}
 	console.log(pageNumber)
 
+	var trangThaiSp = document.getElementById("activeGroupSelect").value;
+	var nhomSp = document.getElementById("productGroupSelect").value;
+	var nhaSx = document.getElementById("manufacturerSelect").value;
+	var name = document.getElementById("searchInput").value;
+	var sort = document.getElementById("sortSelect").value;
+
+	var priceRadio = document.getElementsByName("priceRange");
+	var price = "";
+	for (var radio of priceRadio) {
+		if (radio.checked) {
+			price = radio.value
+			break;
+		}
+	}
+	var quantityRadio = document.getElementsByName("stockStatus");
+	var quantity = "";
+	for (var radio of quantityRadio) {
+		if (radio.checked) {
+			quantity = radio.value
+		}
+	}
+
 	var tableProduct = document.getElementsByClassName("product-table")[0];
 
 	$.ajax({
-		url: "/Admin/ManageProduct/SearchProduct",
+		url: "/Admin/ManageProduct/FilterProduct",
 		method: "POST",
-		data: { keyword: "", page: pageNumber },
+		data: { keyword: name, isActive: trangThaiSp, maNhomSp: nhomSp, maNhaSx: nhaSx, sortOption: sort, priceArrange: price, quantityOption: quantity , page: pageNumber },
 		success: function (res) {
 			hideLoading()
 			tableProduct.innerHTML = res;

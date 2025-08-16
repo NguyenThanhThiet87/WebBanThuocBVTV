@@ -192,7 +192,6 @@ namespace WebBanThuocBVTV.Repositories
                 throw ex;
             }
         }
-
         public async Task<List<Sanpham>> FeatureProduct()
         {
             try
@@ -303,9 +302,58 @@ namespace WebBanThuocBVTV.Repositories
             }
         }
 
-        public Task<AlertMessage> Delete(string id)
+        public async Task<AlertMessage> Delete(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Sanpham sp = await _contextDB.Sanphams.Include(sp => sp.Hinhanhs).Include(sp => sp.DonhangSanphams).Include(sp => sp.GiohangSanphams).FirstOrDefaultAsync(sp => sp.MaSanPham == id);
+                if (sp != null)
+                {
+                    if(!sp.IsActive && !sp.DonhangSanphams.Any())
+                    {
+                        var imgs = sp.Hinhanhs;
+                        if (imgs != null)
+                        {
+                            _contextDB.Hinhanhs.RemoveRange(imgs); 
+                        }
+                        var spGh = sp.GiohangSanphams;
+                        if (spGh != null)
+                        {
+                            _contextDB.GiohangSanphams.RemoveRange(spGh); 
+                        }
+                        _contextDB.Sanphams.Remove(sp);
+                        await _contextDB.SaveChangesAsync();
+                        return new AlertMessage()
+                        {
+                            Type = "success",
+                            Message = "Xóa thành công"
+                        };
+                    } else
+                    {
+                        return new AlertMessage()
+                        {
+                            Type = "error",
+                            Message = "Xóa thất bại, sản phẩm đang được tham chiếu"
+                        };
+                    }
+                }
+                else
+                {
+                    return new AlertMessage()
+                    {
+                        Type = "error",
+                        Message = "Sản phẩm không tồn tại"
+                    };
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Không thể xóa vì bản ghi đang được tham chiếu ở bảng khác.");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public Dictionary<string, int> Statistic()
         {

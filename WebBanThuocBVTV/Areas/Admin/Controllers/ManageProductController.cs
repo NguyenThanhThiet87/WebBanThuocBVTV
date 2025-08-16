@@ -39,6 +39,7 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> DetailProduct(string maSp)
         {
@@ -131,6 +132,8 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         {
             try
             {
+                
+
                 string url = _cloudinary_Net.Upload(imgProduct, sp.MaNhomSp);
                 if (String.IsNullOrEmpty(url))
                 {
@@ -204,6 +207,23 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
             try
             {
                 AlertMessage alertMessage = await _sanPhamRepository.Sell(maSp);
+                return alertMessage;
+            }
+            catch (Exception ex)
+            {
+                return new AlertMessage
+                {
+                    Type = "error",
+                    Message = ex.Message
+                };
+            }
+        }
+        [HttpPost]
+        public async Task<AlertMessage> DeleteProduct(string maSp)
+        {
+            try
+            {
+                AlertMessage alertMessage = await _sanPhamRepository.Delete(maSp);
                 return alertMessage;
             }
             catch (Exception ex)

@@ -1,4 +1,5 @@
 ﻿//detailProduct
+var easyMDE;
 var detailProductModal = function (maSanPham) {
 	$.ajax({
 		url: "/Admin/ManageProduct/DetailProduct",
@@ -21,6 +22,9 @@ var enterEditMode = function () {
 	for (var i = 0; i < lstElementEditMode.length; i++) {
 		lstElementEditMode[i].classList.remove("d-none");
 	}
+	easyMDE = new EasyMDE({
+		element: document.getElementById('editProductGuide')
+	});
 }
 
 var cancelEditMode = function () {
@@ -32,6 +36,8 @@ var cancelEditMode = function () {
 	for (var i = 0; i < lstElementEditMode.length; i++) {
 		lstElementEditMode[i].classList.add("d-none");
 	}
+	easyMDE.toTextArea();
+	easyMDE = null;
 }
 
 var saveEdit = function (maSanPham) {
@@ -41,12 +47,13 @@ var saveEdit = function (maSanPham) {
 	var name = document.getElementById("editProductName").value;
 	var ingre = document.getElementById("editProductIngredient").value;
 	var usage = document.getElementById("editProductUse").value;
-	var guide = document.getElementById("editProductGuide").value;
+	var guide = easyMDE.value();
 	var price = document.getElementById("editProductPrice").value;
 	var quantity = document.getElementById("editProductQuality").value;
 	var expiry = document.getElementById("editProductExpiry").value;
 	var category = document.getElementById("editProductCategory").value;
 	var provider = document.getElementById("editProductProvider").value;
+	var isActive = document.getElementById("isActive").value;
 
 	var dataSend = {
 		MaSanPham: id,
@@ -58,7 +65,8 @@ var saveEdit = function (maSanPham) {
 		SoLuong: quantity,
 		MaNhomSp: category,
 		MaNhaSx: provider,
-		HanSd: expiry
+		HanSd: expiry,
+		isActive: isActive
 	}
 
 	$.ajax({
@@ -76,4 +84,27 @@ var saveEdit = function (maSanPham) {
 			hideLoading();
 		}
 	});
+}
+
+var deleteProduct = function (maSanPham) {
+	showComfirm("Bạn có chắc muốn xóa sản phẩm?", "Hãy cân nhắc trước khi xóa!", () => {
+		showLoading("");
+		$.ajax({
+			url: "/Admin/ManageProduct/DeleteProduct",
+			method: "post",
+			data: { maSp: maSanPham },
+			success: function (res) {
+				if (res.type == "success") {
+					modal.hide();
+					applyFilters();
+				}
+				hideLoading();
+				showToast(res.type, res.message);
+			},
+			error: function (err) {
+				console.log("Lỗi", err);
+				hideLoading();
+			}
+		});
+	})
 }

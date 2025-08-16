@@ -55,6 +55,7 @@ var increaseQualityCart = function (btn) {
     var soluong = parseInt(soluong_input.value) || 1; //Lấy giá trị hiện tại, chuyển thành số
     var soLuongTonElement = btn.parentElement.querySelector('.soLuongSpTon')
     if (soluong >= soLuongTonElement.value) {
+        soluong_input.value = soLuongTonElement.value; // Gán giá trị mới cho input
         showToast("warning", "Vượt quá số lượng tồn kho");
     } else {
         soluong = soluong + 1; //Tăng giá trị lên 1
@@ -188,6 +189,10 @@ var OrderProductFromCart = function (btn) {
             console.log(document.getElementsByClassName("soluong-" + maSp)[0]?.value)
             if (soLuong > soLuongSpTon) {
                 showToast("warning", tenSp+" vượt quá số lượng tồn kho");
+                return;
+            }
+            if (soLuongSpTon==0) {
+                showToast("warning", tenSp + " sản phẩm hết hàng");
                 return;
             }
             var maSp = lstcheckbox[idx].value;

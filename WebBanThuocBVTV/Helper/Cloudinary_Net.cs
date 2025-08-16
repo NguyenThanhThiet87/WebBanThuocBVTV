@@ -1,5 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using System;
 using System.Threading.Tasks;
 namespace WebBanThuocBVTV.Helper
 {
@@ -20,6 +21,8 @@ namespace WebBanThuocBVTV.Helper
         }
         public string Upload(IFormFile file, string category)
         {
+            if (file == null)
+                return "";
             try
             {
                 string publicId = "WebBanThuocBVTV/";

@@ -1,4 +1,5 @@
-﻿@model WebBanThuocBVTV.Models.Sanpham
+﻿@using Markdig
+@model WebBanThuocBVTV.Models.Sanpham
 
 <link href="~/css/Admin/ManageProduct/DetailProduct.css" rel="stylesheet" />
 
@@ -14,11 +15,12 @@
 	<div class="row">
 		<div class="col-md-3 text-center mb-3">
 			<img src="@Model.Hinhanhs.First().Url"
-				 alt="Avatar" class="img_product" id="customerAvatar">
+			alt="Avatar" class="img_product" id="customerAvatar">
 			<br />
 			<span id="customerId">ID: @Model.MaSanPham</span>
 			<input name="MaSanPham" type="hidden" value="@Model.MaSanPham" />
 			<input type="file" id="avatarInput" class="edit-mode d-none" accept="image/*">
+			<input type="hidden" name="isActive" id="isActive" value="@Model.IsActive.ToString().ToLower()" />
 		</div>
 
 		<div class="col-md-9">
@@ -120,8 +122,8 @@
 				<div class="info-label">
 					<i class="fas fa-phone me-2"></i>Hướng Dẫn Sử Dụng
 				</div>
-				<div class="info-value view-mode" id="productGuide">@Model.HuongDanSd</div>
-				<textarea name="HuongDanSd" class="form-control edit-mode d-none" id="editProductGuide" rows="4">@Model.HuongDanSd</textarea>
+				<div class="info-value view-mode" id="productGuide">@Html.Raw(Markdown.ToHtml(Model.HuongDanSd ?? ""))</div>
+				<textarea name="HuongDanSd" class="form-control edit-mode d-none" id="editProductGuide" rows="10">@Model.HuongDanSd</textarea>
 			</div>
 		</div>
 	</div>
@@ -129,9 +131,15 @@
 
 <div class="modal-footer">
 	<div class="view-mode">
-		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
 			<i class="fas fa-times me-2"></i>Đóng
 		</button>
+		@if(!Model.IsActive)
+		{
+			<button type="button" class="btn btn-secondary btn-danger" onclick="deleteProduct('@Model.MaSanPham')">
+				<i class="fas fa-times me-2"></i>Xóa sản phẩm
+			</button>
+		}
 		<button type="button" class="btn btn-edit" id="editButton" onclick="enterEditMode()">
 			<i class="fas fa-edit me-2"></i>Chỉnh sửa
 		</button>

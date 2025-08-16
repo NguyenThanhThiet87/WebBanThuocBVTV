@@ -172,6 +172,8 @@
     box-shadow: 0 8px 25px rgba(30, 126, 52, 0.1);
     border: 1px solid rgba(30, 126, 52, 0.08);
     transition: all 0.3s ease;
+    overflow-y: scroll;
+    max-height: 500px;
 }
 
     .dashboard-card:hover {

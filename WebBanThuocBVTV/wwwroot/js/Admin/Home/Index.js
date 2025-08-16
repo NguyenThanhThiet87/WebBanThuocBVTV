@@ -5,16 +5,20 @@
         method: "GET",
         success: function (res) {
             if (res != null) {
+                datetime = []
                 data = []
                 for (var item of res) {
                     data.push(item.value)
+                    var date = new Date(item.key)
+                    datetime.push(date.getFullYear()+ "/" + date.getMonth())
                 }
-                data = data.reverse();
+                data = data;
+
                 console.log(data);
                 new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
+                        labels: datetime,
                         datasets: [{
                             label: 'Doanh thu',
                             data: data,

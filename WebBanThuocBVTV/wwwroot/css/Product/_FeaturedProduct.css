@@ -17,6 +17,7 @@
 
     .feature-product .card {
         transition: transform 0.3s ease;
+        min-height: 392px;
     }
 
         .feature-product .card:hover {
