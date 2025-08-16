@@ -41,6 +41,9 @@ namespace WebBanThuocBVTV.Helper
                     case "ND":
                         publicId += "User/";
                         break;
+                    case "STAF":
+                        publicId += "Staff/";
+                        break;
                     default:
 
                         break;

@@ -19,24 +19,30 @@ namespace WebBanThuocBVTV.Repositories
                 await ContextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Thêm ảnh thành công";
+                return alertMessage;
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+            
         }
 
         public async Task<string> CreateId()
         {
-            string newMaImg = String.Empty;
-            var lastMaImg = await ContextDB.Hinhanhs.OrderByDescending(sp => sp.MaHinhAnh).Select(sp => sp.MaHinhAnh).FirstOrDefaultAsync();
-            if (lastMaImg == null)
-                newMaImg = "img0001";
-            else
-                newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
-            return newMaImg;
+            try
+            {
+                string newMaImg = String.Empty;
+                var lastMaImg = await ContextDB.Hinhanhs.OrderByDescending(sp => sp.MaHinhAnh).Select(sp => sp.MaHinhAnh).FirstOrDefaultAsync();
+                if (lastMaImg == null)
+                    newMaImg = "img0001";
+                else
+                    newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
+                return newMaImg;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Task<AlertMessage> Delete(string id)

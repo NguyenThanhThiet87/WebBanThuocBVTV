@@ -24,121 +24,196 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            SavePointSideBar(SideBar.SanPham);
+            try
+            {
+                SavePointSideBar(SideBar.SanPham);
 
-            List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
-            List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
-            ViewBag.lstNSP = lstNSP;
-            ViewBag.lstNSX = lstNSX;
-            return View();
+                List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
+                List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
+                ViewBag.lstNSP = lstNSP;
+                ViewBag.lstNSX = lstNSX;
+                return View();
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> DetailProduct(string maSp)
         {
-            Sanpham sp = await _sanPhamRepository.GetById(maSp);
-            List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
-            List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
-            ViewBag.lstNSP = lstNSP;
-            ViewBag.lstNSX = lstNSX;
-            return PartialView("_DetailProduct",sp);
+            try
+            {
+                Sanpham sp = await _sanPhamRepository.GetById(maSp);
+                List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
+                List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
+                ViewBag.lstNSP = lstNSP;
+                ViewBag.lstNSX = lstNSX;
+                return PartialView("_DetailProduct", sp);
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> SearchProduct(string keyword, int? page)
         {
-            if (keyword == null)
-                keyword = "";
-            if (page == null)
-                page = 1;
+            try
+            {
+                if (keyword == null)
+                    keyword = "";
+                if (page == null)
+                    page = 1;
 
-            List<Sanpham> lstProducts =  await _sanPhamRepository.FilterProduct(keyword);
+                List<Sanpham> lstProducts = await _sanPhamRepository.FilterProduct(keyword);
 
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
-            int pageNumber = page ?? 1;
+                int pageNumber = page ?? 1;
 
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstProducts.Count / pageSize;
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstProducts.Count / pageSize;
 
-            return PartialView("_ListProduct", lstProducts.ToPagedList(pageNumber, pageSize));
+                return PartialView("_ListProduct", lstProducts.ToPagedList(pageNumber, pageSize));
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> UpdateProduct(Sanpham sp)
         {
-            AlertMessage alertMessage = await _sanPhamRepository.Update(sp);
-            if(alertMessage.Type.ToString() == "success")
+            AlertMessage alertMessage = new AlertMessage();
+            try
             {
-                SetAlert(alertMessage.Message, "success");
-            }else
+                alertMessage = await _sanPhamRepository.Update(sp);
+                if (alertMessage.Type.ToString() == "success")
+                {
+                    SetAlert(alertMessage.Message, "success");
+                }
+                else
+                {
+                    SetAlert($"Cập nhật thất bại: {alertMessage.Message}", "error");
+                }
+            }
+            catch (Exception ex)
             {
-                SetAlert($"Cập nhật thất bại: {alertMessage.Message}","error");
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
             }
             return alertMessage;
         }
 
         public async Task<IActionResult> AddProductPartialView()
         {
-            string maSp = await _sanPhamRepository.CreateId();
-            List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
-            List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
-            ViewBag.lstNSP = lstNSP;
-            ViewBag.lstNSX = lstNSX;
-            ViewBag.maSp = maSp;
-            return PartialView("_AddProduct");
+            try
+            {
+                string maSp = await _sanPhamRepository.CreateId();
+                List<Nhomsanpham> lstNSP = await _nhomSanPhamRepository.GetAllAsync();
+                List<Nhasanxuat> lstNSX = await _nhaSanXuatRepository.GetAllAsync();
+                ViewBag.lstNSP = lstNSP;
+                ViewBag.lstNSX = lstNSX;
+                ViewBag.maSp = maSp;
+                return PartialView("_AddProduct");
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<AlertMessage> AddProduct(Sanpham sp, IFormFile imgProduct)
         {
-            string url = _cloudinary_Net.Upload(imgProduct, sp.MaNhomSp);
-            if(String.IsNullOrEmpty(url))
+            try
             {
-                AlertMessage alertMessageERR = new AlertMessage();
-                alertMessageERR.Type = "error";
-                alertMessageERR.Message = "Xảy ra lỗi trên cloudinary";
-                return alertMessageERR;
-            }
-            Hinhanh img = new Hinhanh();
-            img.MaSanPham = sp.MaSanPham;
-            img.Url = url;
-            sp.Hinhanhs.Add(img);
+                string url = _cloudinary_Net.Upload(imgProduct, sp.MaNhomSp);
+                if (String.IsNullOrEmpty(url))
+                {
+                    AlertMessage alertMessageERR = new AlertMessage();
+                    alertMessageERR.Type = "error";
+                    alertMessageERR.Message = "Xảy ra lỗi trên cloudinary";
+                    return alertMessageERR;
+                }
+                Hinhanh img = new Hinhanh();
+                img.MaSanPham = sp.MaSanPham;
+                img.Url = url;
+                sp.Hinhanhs.Add(img);
 
-            AlertMessage alertMessage = await _sanPhamRepository.Add(sp);
-            return alertMessage;
+                AlertMessage alertMessage = await _sanPhamRepository.Add(sp);
+                return alertMessage;
+            }catch(Exception ex)
+            {
+                return new AlertMessage
+                {
+                    Type = "error",
+                    Message = ex.Message
+                };
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> FilterProduct(string keyword,int isActive, string maNhaSx, string maNhomSp, PriceArrange? priceArrange, QuantityOptions? quantityOption, SortOptions sortOption, int? page)
         {
-            bool isActiveProduct = isActive == 1 ? false : true;
-            keyword = keyword ?? "";
-            maNhaSx = maNhaSx ?? "";
-            maNhomSp = maNhomSp ?? "";
-            if (page == null)
-                page = 1;
-            
-            List<Sanpham> lstProducts = await _sanPhamRepository.FilterProduct(keyword, isActiveProduct, maNhomSp, maNhaSx, priceArrange, quantityOption, sortOption);
+            try
+            {
+                bool isActiveProduct = isActive == 1 ? false : true;
+                keyword = keyword ?? "";
+                maNhaSx = maNhaSx ?? "";
+                maNhomSp = maNhomSp ?? "";
+                if (page == null)
+                    page = 1;
 
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+                List<Sanpham> lstProducts = await _sanPhamRepository.FilterProduct(keyword, isActiveProduct, maNhomSp, maNhaSx, priceArrange, quantityOption, sortOption);
 
-            int pageNumber = page ?? 1;
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstProducts.Count / pageSize;
+                int pageNumber = page ?? 1;
 
-            return PartialView("_ListProduct", lstProducts.ToPagedList(pageNumber, pageSize));
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstProducts.Count / pageSize;
+
+                return PartialView("_ListProduct", lstProducts.ToPagedList(pageNumber, pageSize));
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> DiscontinueProduct(string maSp)
         {
-            AlertMessage alertMessage = await _sanPhamRepository.Discontinue(maSp);
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                alertMessage = await _sanPhamRepository.Discontinue(maSp);
+            }catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
             return alertMessage;
         }
         [HttpPost]
         public async Task<AlertMessage> SellProduct(string maSp)
         {
-            AlertMessage alertMessage = await _sanPhamRepository.Sell(maSp);
-            return alertMessage;
+            try
+            {
+                AlertMessage alertMessage = await _sanPhamRepository.Sell(maSp);
+                return alertMessage;
+            }
+            catch (Exception ex)
+            {
+                return new AlertMessage
+                {
+                    Type = "error",
+                    Message = ex.Message
+                };
+            }
         }
     }
 }

@@ -1,0 +1,147 @@
+﻿@model WebBanThuocBVTV.Models.Nguoidung
+@{
+}
+<link href="~/css/Admin/ManageStaff/AddStaff.css" rel="stylesheet" />
+<link href="~/css/Admin/Share/_SendOTPPhone.css" rel="stylesheet" />
+<div class="addStaff-container">
+	<a class="btn-cancel text-decoration-none" href="@Url.Action("Index","ManageStaff",new{area ="Admin"})">
+		<i class="fa-solid fa-arrow-left"></i>
+		Quay lại
+	</a>
+	<h1 class="page-title">Đăng ký nhân viên</h1>
+
+	<div class="card-body">
+		<!-- Form -->
+		<form id="StaffForm" asp-action="InsertStaff" asp-controller="ManageStaff" enctype="multipart/form-data" onsubmit="checkVerified(event)">
+			<!-- Step 1: Basic Information -->
+			<div class="form-step" id="formStep1">
+				<div class="row">
+					<!-- Left Column - Avatar & Personal Info -->
+					<div class="col-lg-6">
+						<!-- Avatar Upload -->
+						<div class="avatar-upload">
+							<div class="avatar-preview" id="avatarPreview">
+								<i class="fas fa-user iconAvatarStaff"></i>
+								<img src="#" alt="Alternate Text" class="d-none imgAvatar" />
+							</div>
+							<button type="button" class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()">
+								<i class="fas fa-camera"></i>
+							</button>
+							<input type="file" id="avatarInput" name="avatar" accept="image/*" value="@ViewBag?.avatar" style="display: none;" onchange="reviewImage(this)">
+						</div>
+
+						<!-- Personal Information -->
+						<div class="form-section">
+							<div class="section-title">
+								<i class="fas fa-user me-2"></i>
+								Thông tin cá nhân
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="floating-label">
+										<input name="HoTen" type="text" class="form-control" id="firstName" required value="@(Model!=null?Model.HoTen:"")">
+										<label for="firstName">Họ tên</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="floating-label">
+										<input name="NgaySinh" type="date" class="form-control" id="birthDate" required value="@(Model!=null?Model.NgaySinh.Value.ToString("yyyy-MM-dd"):"")">
+										<label for="birthDate">Ngày sinh</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="floating-label">
+										<select name="GioiTinh" class="form-control" id="gender" required>
+											<option value="">Chọn giới tính</option>
+											@{
+												if(Model==null)
+												{
+													<option value="true">Nam</option>
+													<option value="false">Nữ</option>
+												}
+												else if(Model.GioiTinh)
+												{
+													<option value="true" selected>Nam</option>
+													<option value="false">Nữ</option>
+												}else if(!Model.GioiTinh)
+												{
+													<option value="true">Nam</option>
+													<option value="false" selected>Nữ</option>
+												}
+											}
+											
+										</select>
+										<label for="gender">Giới tính</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="floating-label">
+										<input name="NgayBdlv" type="date" class="form-control" id="workingdate" required value="@(Model!=null?Model.NgaySinh.Value.ToString("yyyy-MM-dd"):"")">
+										<label for="birthDate">Ngày bắt đầu làm việc</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right Column - Contact Info -->
+					<div class="col-lg-6">
+						<div class="form-section">
+							<div class="section-title">
+								<i class="fas fa-address-book me-2"></i>
+								Thông tin liên hệ
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fas fa-envelope"></i>
+								</span>
+								<input name="Email" type="email" class="form-control" id="email" placeholder="Email" required value="@(Model!=null?Model.Email:"")">
+								<button class="btn btn-outline-primary" type="button" id="verifyEmailBtn" onclick="sendOTPEmail()">
+									Xác thực
+								</button>
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fas fa-phone"></i>
+								</span>
+								<input name="SoDienThoai" type="tel" class="form-control" id="phone" placeholder="Số điện thoại" required value="@(Model!=null?Model.SoDienThoai:"")">
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-text">
+									<i class="fa-solid fa-lock"></i>
+								</span>
+								<input name="PassWord" type="password" class="form-control" id="password" placeholder="Mật khẩu" required value="@(Model!=null?Model.PassWord:"12345678")">
+								<span class="input-group-text label-password">
+									<i class="fa-solid fa-eye" onclick="togglePass('display')"></i>
+									<i class="fa-solid fa-eye-slash d-none" onclick="togglePass('hidden')"></i>
+								</span>
+							</div>
+
+							<div class="floating-label">
+								<input name="DiaChi" type="text" class="form-control" id="address" required value="@(Model!=null?Model.DiaChi:"")">
+								<label for="address">Địa chỉ</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn-primary">Đăng ký</button>
+		</form>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="verifyModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="verifyModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="modal-container">
+		</div>
+	</div>
+</div>
+
+<script src="~/js/Admin/ManageStaff/AddStaff.js"></script>

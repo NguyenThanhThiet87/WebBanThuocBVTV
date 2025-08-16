@@ -71,6 +71,7 @@
 				</div>
 			</div>
 		}
+		@await Html.PartialAsync("~/Areas/Customer/Views/GoogleMap/Index.cshtml") <!-- Gọi GooogleMap modal -->
 		@await Html.PartialAsync("_Footer") <!-- Gọi partial view footer -->
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

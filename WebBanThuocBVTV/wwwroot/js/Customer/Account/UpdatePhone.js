@@ -77,17 +77,20 @@ var verifyPhone = function () {
 var resendOTP = function () {
 	showLoading("");
 
+	var region = document.getElementById("codeCountry").value;
 	var phone = document.getElementById("phone").value;
-	//if (email == "" || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.trim()) == false) {
-	//	showToast("warning", "Email không hợp lệ");
-	//	console.log(modal);
-	//	hideLoading();
-	//	return;
-	//}
+
+	phone = region + phone; // Kết hợp mã vùng với số điện thoại
+
+	if (phone == "" || /^\+[0-9]\d{10,15}$/.test(phone.trim()) == false) {
+		showToast("warning", "Số điện thoại không hợp lệ");
+		hideLoading();
+		return;
+	}
 	$.ajax({
 		url: "/Customer/Account/SendOTPPhone",
 		method: "POST",
-		data: { email },
+		data: { phone },
 		success: function (res) {
 			hideLoading();
 		},

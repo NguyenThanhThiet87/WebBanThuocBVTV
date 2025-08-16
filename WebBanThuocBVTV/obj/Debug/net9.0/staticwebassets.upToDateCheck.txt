@@ -1,8 +1,12 @@
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\OTP\SendSMS.js
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageSystem\Index.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageProduct\_ListProduct.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Login\ForgetPass.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageSystem\_EditCategory.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Shared\_Loading.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageStaff\Index.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\Share\_TopBar.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageStaff\_ListStaff.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Product\_DecriptionDetailProduct.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageCustomer\AddCustomer.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Product\_ReviewProduct.css
@@ -27,6 +31,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Product\_FeatureProduct.j
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Product\_ReviewProduct.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Home\Index.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageSystem\Index.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Product\Index.js
@@ -65,6 +70,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-rebo
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Cart\Index.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Shared\_Header.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageOrder\_AddOrder.js
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\Account\UpdateEmail.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Order\Index.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageCustomer\_ListCustomer.js
@@ -77,8 +83,10 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Account\UpdateEmail.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Login\NhapMaOTP.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Order\DetailOrder.css
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\AddStaff.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Shared\_Footer.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\Index.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery\LICENSE.txt
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Shared\_Header.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Account\Index.css
@@ -92,6 +100,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.css.
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageCustomer\Index.js
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageStaff\AddStaff.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Login\ForgetPassword.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageProduct\_AddProduct.js
@@ -114,7 +123,9 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Shared\WebBanThuocBVTV.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Order\Detail.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Account\UpdatePhone.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery\dist\jquery.js
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\_DetailStaff.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\Account\UpdatePhone.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Login\InputInfoAccount.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
@@ -132,10 +143,12 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Detection\Index.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\_ListStaff.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery-validation\LICENSE.md
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Account\Index.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageStaff\_DetailStaff.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Admin\ManageOrder\_ListOrder.css
 wwwroot\css\Account\Index.css
 wwwroot\css\Account\UpdateEmail.css
@@ -156,6 +169,12 @@ wwwroot\css\Admin\ManageProduct\_AddProduct.css
 wwwroot\css\Admin\ManageProduct\_ListProduct.css
 wwwroot\css\Admin\ManageProduct\DetailProduct.css
 wwwroot\css\Admin\ManageProduct\Index.css
+wwwroot\css\Admin\ManageStaff\_DetailStaff.css
+wwwroot\css\Admin\ManageStaff\_ListStaff.css
+wwwroot\css\Admin\ManageStaff\AddStaff.css
+wwwroot\css\Admin\ManageStaff\Index.css
+wwwroot\css\Admin\ManageSystem\_EditCategory.css
+wwwroot\css\Admin\ManageSystem\Index.css
 wwwroot\css\Admin\Share\_SendOTPPhone.css
 wwwroot\css\Admin\Share\_TopBar.css
 wwwroot\css\Admin\Share\WebBanThuocBVTV_Admin.css
@@ -189,6 +208,8 @@ wwwroot\css\site.css
 wwwroot\css\SweetAlert2\Toast.css
 wwwroot\css\VnPay\PaymentSuccess.css
 wwwroot\favicon.ico
+wwwroot\js\Admin\Account\UpdateEmail.js
+wwwroot\js\Admin\Account\UpdatePhone.js
 wwwroot\js\Admin\Home\Index.js
 wwwroot\js\Admin\ManageComment\Index.js
 wwwroot\js\Admin\ManageCustomer\_DetailCustomer.js
@@ -203,6 +224,11 @@ wwwroot\js\Admin\ManageProduct\_AddProduct.js
 wwwroot\js\Admin\ManageProduct\_DetailProduct.js
 wwwroot\js\Admin\ManageProduct\_ListProduct.js
 wwwroot\js\Admin\ManageProduct\Index.js
+wwwroot\js\Admin\ManageStaff\_DetailStaff.js
+wwwroot\js\Admin\ManageStaff\_ListStaff.js
+wwwroot\js\Admin\ManageStaff\AddStaff.js
+wwwroot\js\Admin\ManageStaff\Index.js
+wwwroot\js\Admin\ManageSystem\Index.js
 wwwroot\js\Customer\Account\Index.js
 wwwroot\js\Customer\Account\UpdateEmail.js
 wwwroot\js\Customer\Account\UpdatePhone.js

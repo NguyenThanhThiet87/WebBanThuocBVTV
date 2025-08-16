@@ -13,7 +13,7 @@
 			<h2 class="actions-title">Thao tác nhanh</h2>
 			<div class="actions-grid">
 				<a class="action-btn" href="@Url.Action("AddCustomer","ManageCustomer",new{area="Admin"})">
-					<span>➕</span>
+					<i class="fa-solid fa-plus"></i>
 					Thêm khách hàng mới
 				</a>
 			</div>
@@ -23,7 +23,7 @@
 		<div class="customer_section-container">
 
 			<div class="table-header">
-				<h2 class="table-title">Danh sách sản phẩm</h2>
+				<h2 class="table-title">Danh sách khách hàng</h2>
 				<div class="active-filters" id="activeFilters" style="display: none;">
 					<strong>Bộ lọc đang áp dụng:</strong>
 					<div id="filterTags"></div>
@@ -37,27 +37,42 @@
 
 				<div class="search-container">
 					<input type="text" class="search-input" placeholder="Tìm kiếm khách hàng..." value="" id="searchInput">
-					<button class="search-btn" onclick="applyFilters()">🔍 Tìm kiếm</button>
+					<button class="search-btn" onclick="applyFilters()">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						Tìm kiếm
+					</button>
 				</div>
 			</div>
 
 			<div class="table-content">
 				<div class="filter-sidebar">
-					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">
+						<i class="fa-solid fa-filter"></i>
+						Bộ lọc
+					</h3>
 					<div class="filter-section">
-						<div class="filter-title">🏭 Loại khách hàng</div>
+						<div class="filter-title">
+							<i class="fa-solid fa-user-tag"></i>
+							Loại khách hàng
+						</div>
 						<select class="sort-select" id="categorySelect" asp-items="Html.GetEnumSelectList<CategoryCustomer>()">
 						</select>
 					</div>
 					<div class="filter-section">
-						<div class="filter-title">🏭 Giới tính</div>
+						<div class="filter-title">
+							<i class="fa-solid fa-mars-and-venus"></i> 
+							Giới tính
+						</div>
 						<select class="sort-select" id="genderSelect" asp-items="Html.GetEnumSelectList<GenderOptions>()">
 						</select>
 					</div>
 
 					<!-- Số lượng tồn kho -->
 					<div class="filter-section">
-						<div class="filter-title">🏭 Ngày tạo</div>
+						<div class="filter-title">
+							<i class="fa-solid fa-calendar-days"></i>
+							Ngày tạo
+						</div>
 						<select class="sort-select" id="createAtSelect" asp-items="Html.GetEnumSelectList<CreateAtOptions>()">
 						</select>
 					</div>

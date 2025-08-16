@@ -32,83 +32,101 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Thêm thành công";
+
+                return alertMessage;
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
         }
         public async Task<string> CreateIdImg()
         {
-            string newMaImg = String.Empty;
-            var lastMaImg = await _contextDB.Hinhanhs.OrderByDescending(img => img.MaHinhAnh).Select(img => img.MaHinhAnh).FirstOrDefaultAsync();
-            if (lastMaImg == null)
-                newMaImg = "img0001";
-            else
-                newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
-            return newMaImg;
+            try
+            {
+                string newMaImg = String.Empty;
+                var lastMaImg = await _contextDB.Hinhanhs.OrderByDescending(img => img.MaHinhAnh).Select(img => img.MaHinhAnh).FirstOrDefaultAsync();
+                if (lastMaImg == null)
+                    newMaImg = "img0001";
+                else
+                    newMaImg = "img" + (int.Parse(lastMaImg.ToString().Substring(3)) + 1).ToString("D4");
+                return newMaImg;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<string> CreateId()
         {
-            string newMaSp = String.Empty;
-            var lastMaSp = await _contextDB.Sanphams.OrderByDescending(sp => sp.MaSanPham).Select(sp => sp.MaSanPham).FirstOrDefaultAsync();
-            if (lastMaSp == null)
-                newMaSp = "sp0001";
-            else
-                newMaSp = "sp" + (int.Parse(lastMaSp.ToString().Substring(2)) + 1).ToString("D4");
-            return newMaSp;
+            try
+            {
+                string newMaSp = String.Empty;
+                var lastMaSp = await _contextDB.Sanphams.OrderByDescending(sp => sp.MaSanPham).Select(sp => sp.MaSanPham).FirstOrDefaultAsync();
+                if (lastMaSp == null)
+                    newMaSp = "sp0001";
+                else
+                    newMaSp = "sp" + (int.Parse(lastMaSp.ToString().Substring(2)) + 1).ToString("D4");
+                return newMaSp;
+            }catch (Exception ex) { throw ex; }
         }
 
         public async Task<AlertMessage> Discontinue(string id) //ngừng kinh doanh sản phẩm
         {
-            AlertMessage alertMessage = new AlertMessage();
-            Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
-            if (sp.IsActive)
+            try
             {
-                sp.IsActive = false;
-                _contextDB.Update(sp);
-                await _contextDB.SaveChangesAsync();
-                alertMessage.Type = "success";
-                alertMessage.Message = "Ngừng kinh doanh thành công";
-            }
-            else
-            {
-                alertMessage.Type = "warning";
-                alertMessage.Message = "Sản phẩm đã ngừng kinh doanh";
-            }
-            return alertMessage;
+                AlertMessage alertMessage = new AlertMessage();
+                Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
+                if (sp.IsActive)
+                {
+                    sp.IsActive = false;
+                    _contextDB.Update(sp);
+                    await _contextDB.SaveChangesAsync();
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "Ngừng kinh doanh thành công";
+                }
+                else
+                {
+                    alertMessage.Type = "warning";
+                    alertMessage.Message = "Sản phẩm đã ngừng kinh doanh";
+                }
+                return alertMessage;
+            }catch(Exception ex) { throw ex; }
         }
         public async Task<AlertMessage> Sell(string id) //kinh doanh sản phẩm
         {
-            AlertMessage alertMessage = new AlertMessage();
-            Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
-            if (!sp.IsActive)
+            try
             {
-                sp.IsActive = true;
-                _contextDB.Update(sp);
-                await _contextDB.SaveChangesAsync();
-                alertMessage.Type = "success";
-                alertMessage.Message = "kinh doanh sản phẩm thành công";
-            }
-            else
-            {
-                alertMessage.Type = "warning";
-                alertMessage.Message = "Sản phẩm đang kinh doanh";
-            }
-            return alertMessage;
+                AlertMessage alertMessage = new AlertMessage();
+                Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == id).FirstOrDefaultAsync();
+                if (!sp.IsActive)
+                {
+                    sp.IsActive = true;
+                    _contextDB.Update(sp);
+                    await _contextDB.SaveChangesAsync();
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "kinh doanh sản phẩm thành công";
+                }
+                else
+                {
+                    alertMessage.Type = "warning";
+                    alertMessage.Message = "Sản phẩm đang kinh doanh";
+                }
+                return alertMessage;
+            }catch(Exception ex) { throw ex; }
         }
         public async Task<List<Sanpham>> GetAllAsync()
         {
-            List<Sanpham> lstSp = await _contextDB.Sanphams
-                                 .Include(sp => sp.Hinhanhs)
-                                 .Include(sp => sp.Binhluans)
-                                 .Include(sp => sp.MaNhaSxNavigation)
-                                 .Include(sp => sp.MaNhomSpNavigation)
-                                 .ToListAsync();
-            return lstSp;
+            try
+            {
+                List<Sanpham> lstSp = await _contextDB.Sanphams
+                                .Include(sp => sp.Hinhanhs)
+                                .Include(sp => sp.Binhluans)
+                                .Include(sp => sp.MaNhaSxNavigation)
+                                .Include(sp => sp.MaNhomSpNavigation)
+                                .ToListAsync();
+                return lstSp;
+            }catch (Exception ex) { throw ex; }
         }
         public async Task<Sanpham> GetById(string maSp)
         {
@@ -129,7 +147,7 @@ namespace WebBanThuocBVTV.Repositories
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         public async Task<Sanpham> GetByIdBase(string maSp)
@@ -143,7 +161,7 @@ namespace WebBanThuocBVTV.Repositories
             }
             catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
         public async Task<AlertMessage> Update(Sanpham entity)
@@ -160,20 +178,26 @@ namespace WebBanThuocBVTV.Repositories
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
-                return alertMessage;
+                throw ex;
             }
         }
         public async Task<int> Count()
         {
-            int count = await _contextDB.Sanphams.CountAsync();
-            return count;
+            try
+            {
+                int count = await _contextDB.Sanphams.CountAsync();
+                return count;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
 
         public async Task<List<Sanpham>> FeatureProduct()
         {
-            List<Sanpham> lstSp = await _contextDB.Sanphams
+            try
+            {
+                List<Sanpham> lstSp = await _contextDB.Sanphams
                 .GroupJoin(_contextDB.DonhangSanphams.Where(dhsp => dhsp.MaDonHangNavigation.MaTrangThai == "CMP"),
                                                                       sp => sp.MaSanPham,
                                                                       dhsp => dhsp.MaSanPham,
@@ -182,11 +206,17 @@ namespace WebBanThuocBVTV.Repositories
                 .Include(sp => sp.Hinhanhs)
                 .ToListAsync();
 
-            return lstSp.GetRange(0, 4);
+                return lstSp.GetRange(0, 4);
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
         public async Task<List<Sanpham>> FilterProduct(string name = "", bool isActive = true, string maNhomSp = "", string maNhaSx = "", PriceArrange? priceArrange = null, QuantityOptions? quantityOption = null, SortOptions? sort = null, SortPrice? sortPrice = null)
         {
-            IQueryable<Sanpham> query = _contextDB.Sanphams
+            try
+            {
+                IQueryable<Sanpham> query = _contextDB.Sanphams
                                   .Where(sp => sp.TenSanPham.Contains(name)
                                                          && sp.MaNhaSx.Contains(maNhaSx)
                                                          && sp.MaNhomSp.Contains(maNhomSp)
@@ -198,75 +228,79 @@ namespace WebBanThuocBVTV.Repositories
                                   .Include(sp => sp.DonhangSanphams)
                                   .ThenInclude(dhsp => dhsp.MaDonHangNavigation);
 
-            switch (priceArrange)
-            {
-                case PriceArrange.Bel150:
-                    query = query.Where(sp => sp.Gia < 150000);
-                    break;
-                case PriceArrange.fr150t350:
-                    query = query.Where(sp => (sp.Gia >= 150000 && sp.Gia <= 350000));
-                    break;
-                case PriceArrange.Abo350:
-                    query = query.Where(sp => sp.Gia > 350000);
-                    break;
-                default:
-                    break;
-            }
+                switch (priceArrange)
+                {
+                    case PriceArrange.Bel150:
+                        query = query.Where(sp => sp.Gia < 150000);
+                        break;
+                    case PriceArrange.fr150t350:
+                        query = query.Where(sp => (sp.Gia >= 150000 && sp.Gia <= 350000));
+                        break;
+                    case PriceArrange.Abo350:
+                        query = query.Where(sp => sp.Gia > 350000);
+                        break;
+                    default:
+                        break;
+                }
 
-            switch (quantityOption)
-            {
-                case QuantityOptions.Avaiable:
-                    query = query.Where(sp => sp.SoLuong >= 10);
-                    break;
-                case QuantityOptions.OutOfShock:
-                    query = query.Where(sp => sp.SoLuong < 10);
-                    break;
-                default:
-                    break;
-            }
+                switch (quantityOption)
+                {
+                    case QuantityOptions.Avaiable:
+                        query = query.Where(sp => sp.SoLuong >= 10);
+                        break;
+                    case QuantityOptions.OutOfShock:
+                        query = query.Where(sp => sp.SoLuong < 10);
+                        break;
+                    default:
+                        break;
+                }
 
-            switch (sort)
+                switch (sort)
+                {
+                    case SortOptions.IdAsc:
+                        query = query.OrderBy(sp => sp.MaSanPham);
+                        break;
+                    case SortOptions.IdDesc:
+                        query = query.OrderByDescending(sp => sp.MaSanPham);
+                        break;
+                    case SortOptions.NameA_Z:
+                        query = query.OrderBy(sp => sp.TenSanPham);
+                        break;
+                    case SortOptions.NameZ_A:
+                        query = query.OrderByDescending(sp => sp.TenSanPham);
+                        break;
+                    case SortOptions.PriceAsc:
+                        query = query.OrderBy(sp => sp.Gia);
+                        break;
+                    case SortOptions.PriceDesc:
+                        query = query.OrderByDescending(sp => sp.Gia);
+                        break;
+                    case SortOptions.QuantityAsc:
+                        query = query.OrderBy(sp => sp.SoLuong);
+                        break;
+                    case SortOptions.QuantityDesc:
+                        query = query.OrderByDescending(sp => sp.SoLuong);
+                        break;
+                    default:
+                        query = query.OrderBy(sp => sp.TenSanPham);
+                        break;
+                }
+                switch (sortPrice)
+                {
+                    case SortPrice.priceAsc:
+                        query = query.OrderBy(sp => sp.Gia);
+                        break;
+                    case SortPrice.priceDesc:
+                        query = query.OrderByDescending(sp => sp.Gia);
+                        break;
+                    default:
+                        break;
+                }
+                return await query.ToListAsync();
+            }catch(Exception ex)
             {
-                case SortOptions.IdAsc:
-                    query = query.OrderBy(sp => sp.MaSanPham);
-                    break;
-                case SortOptions.IdDesc:
-                    query = query.OrderByDescending(sp => sp.MaSanPham);
-                    break;
-                case SortOptions.NameA_Z:
-                    query = query.OrderBy(sp => sp.TenSanPham);
-                    break;
-                case SortOptions.NameZ_A:
-                    query = query.OrderByDescending(sp => sp.TenSanPham);
-                    break;
-                case SortOptions.PriceAsc:
-                    query = query.OrderBy(sp => sp.Gia);
-                    break;
-                case SortOptions.PriceDesc:
-                    query = query.OrderByDescending(sp => sp.Gia);
-                    break;
-                case SortOptions.QuantityAsc:
-                    query = query.OrderBy(sp => sp.SoLuong);
-                    break;
-                case SortOptions.QuantityDesc:
-                    query = query.OrderByDescending(sp => sp.SoLuong);
-                    break;
-                default:
-                    query = query.OrderBy(sp => sp.TenSanPham);
-                    break;
+                throw ex;
             }
-            switch (sortPrice)
-            {
-                case SortPrice.priceAsc:
-                    query = query.OrderBy(sp => sp.Gia);
-                    break;
-                case SortPrice.priceDesc:
-                    query = query.OrderByDescending(sp => sp.Gia);
-                    break;
-                default:
-                    break;
-            }
-            return await query.ToListAsync();
         }
 
         public Task<AlertMessage> Delete(string id)
@@ -275,59 +309,78 @@ namespace WebBanThuocBVTV.Repositories
         }
         public Dictionary<string, int> Statistic()
         {
-            Dictionary<string, int> statistic = new Dictionary<string, int>();
+            try
+            {
+                Dictionary<string, int> statistic = new Dictionary<string, int>();
 
-            int spCurrent = _contextDB.Sanphams.Where(sp => sp.IsActive).Count();
-            int spNoneActive = _contextDB.Sanphams.Where(sp => !sp.IsActive).Count();
-            statistic.Add("Count", spCurrent);
-            statistic.Add("CountNoneActive", spNoneActive);
+                int spCurrent = _contextDB.Sanphams.Where(sp => sp.IsActive).Count();
+                int spNoneActive = _contextDB.Sanphams.Where(sp => !sp.IsActive).Count();
+                statistic.Add("Count", spCurrent);
+                statistic.Add("CountNoneActive", spNoneActive);
 
-            return statistic;
+                return statistic;
+            }
+            catch (Exception ex) {
+                throw ex;
+
+            }
         }
         public async Task<List<Sanpham>> GetOutOfStockProduct()
         {
-            return await _contextDB.Sanphams.Where(sp => sp.SoLuong < 10)
-                                      .Include(sp => sp.MaNhomSpNavigation)
-                                      .ToListAsync();
+            try
+            {
+                return await _contextDB.Sanphams.Where(sp => sp.SoLuong < 10)
+                                     .Include(sp => sp.MaNhomSpNavigation)
+                                     .ToListAsync();
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
         public async Task<AlertMessage> SellProduct(List<Dictionary<string, int>> lstSp)
         {
-            AlertMessage alertMessage = new AlertMessage();
-            List<Sanpham> lst = new List<Sanpham>();
-            foreach (var item in lstSp)
+            try
             {
-                string maSp = item.Keys.First();
-                int soLuong = item.Values.First();
-                Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == maSp).FirstOrDefaultAsync();
-                if (sp != null)
+                AlertMessage alertMessage = new AlertMessage();
+                List<Sanpham> lst = new List<Sanpham>();
+                foreach (var item in lstSp)
                 {
-                    if (sp.SoLuong >= soLuong)
+                    string maSp = item.Keys.First();
+                    int soLuong = item.Values.First();
+                    Sanpham sp = await _contextDB.Sanphams.Where(sp => sp.MaSanPham == maSp).FirstOrDefaultAsync();
+                    if (sp != null)
                     {
-                        sp.SoLuong -= soLuong;
-                        lst.Add(sp);
+                        if (sp.SoLuong >= soLuong)
+                        {
+                            sp.SoLuong -= soLuong;
+                            lst.Add(sp);
+                        }
+                        else
+                        {
+                            alertMessage.Type = "warning";
+                            alertMessage.Message = $"Sản phẩm {sp.TenSanPham} không đủ hàng";
+                            return alertMessage;
+                        }
                     }
                     else
                     {
-                        alertMessage.Type = "warning";
-                        alertMessage.Message = $"Sản phẩm {sp.TenSanPham} không đủ hàng";
+                        alertMessage.Type = "error";
+                        alertMessage.Message = $"Sản phẩm {maSp} không tồn tại";
                         return alertMessage;
                     }
                 }
-                else
+                foreach (var sp in lst)
                 {
-                    alertMessage.Type = "error";
-                    alertMessage.Message = $"Sản phẩm {maSp} không tồn tại";
-                    return alertMessage;
+                    _contextDB.Update(sp);
+                    await _contextDB.SaveChangesAsync();
+                    alertMessage.Type = "success";
+                    alertMessage.Message = "Mua hàng thành công";
                 }
-            }
-            foreach (var sp in lst)
+                return alertMessage;
+            }catch(Exception ex)
             {
-                _contextDB.Update(sp);
-                await _contextDB.SaveChangesAsync();
-                alertMessage.Type = "success";
-                alertMessage.Message = "Mua hàng thành công";
-            }    
-            return alertMessage;
+                throw ex;
+            }
         }
     }
 }

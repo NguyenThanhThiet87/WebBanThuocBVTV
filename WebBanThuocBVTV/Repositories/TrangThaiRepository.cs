@@ -26,7 +26,13 @@ namespace WebBanThuocBVTV.Repositories
 
         public Task<List<Trangthai>> GetAllAsync()
         {
-           return _contextDB.Trangthais.ToListAsync();
+            try
+            {
+                return _contextDB.Trangthais.ToListAsync();
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
 
         public Task<AlertMessage> Update(Trangthai entity)

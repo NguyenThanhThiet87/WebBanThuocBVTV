@@ -49,7 +49,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="floating-label">
-										<input name="NgaySinh" type="date" class="form-control" id="birthDate" required value="@(Model!=null?Model.NgaySinh.ToString():"")">
+										<input name="NgaySinh" type="date" class="form-control" id="birthDate" required value="@(Model!=null?Model.NgaySinh.Value.ToString("yyyy-mm-dd"):"")">
 										<label for="birthDate">Ngày sinh</label>
 									</div>
 								</div>
@@ -104,8 +104,8 @@
 								<span class="input-group-text">
 									<i class="fas fa-phone"></i>
 								</span>
-								<input name="SoDienThoai" type="tel" class="form-control" id="phone" placeholder="Số điện thoại" required value="@(Model!=null?Model.SoDienThoai:"")">
-								<button class="btn btn-outline-primary" type="button" id="verifyPhoneBtn">
+								<input name="SoDienThoai" type="tel" class="form-control" id="phone" placeholder="Số điện thoại" value="@(Model!=null?Model.SoDienThoai:"")">
+								<button class="btn btn-outline-primary" type="button" id="verifyPhoneBtn" onclick="sendOTPPhone()">
 									Xác thực
 								</button>
 							</div>

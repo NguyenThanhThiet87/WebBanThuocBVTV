@@ -4,8 +4,14 @@ var modal = new bootstrap.Modal(verifyModal);
 
 var sendOTPEmail = function () {
 	showLoading("");
-
+	
 	var email = document.getElementById("email").value;
+
+	if (email == "" || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.trim()) == false) {
+		showToast("warning", "Email không hợp lệ");
+		hideLoading();
+		return;
+	}
 
 	$.ajax({
 		url: "/Admin/ManageCustomer/SendOTPEmail",
@@ -19,7 +25,6 @@ var sendOTPEmail = function () {
 			} else {
 				showToast('warning', res.message);
 			}
-
 		},
 		error: function (res) {
 			hideLoading();
@@ -47,6 +52,8 @@ var verifyEmail = function () {
 				showToast('success', res.message);
 				var verifyBtn = document.getElementById("verifyEmailBtn");
 				verifyBtn.style.display = "none";
+				var email = document.getElementById("email");
+				email.setAttribute("readonly", "readonly");
 				modal.hide();
 			} else {
 				showToast('warning', res.message);
@@ -58,6 +65,131 @@ var verifyEmail = function () {
 		}
 	}
 	)
+}
+var resendOTPEmail = function () {
+	showLoading("");
+
+	var email = document.getElementById("email").value;
+
+	if (email == "" || /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.trim()) == false) {
+		showToast("warning", "Email không hợp lệ");
+		hideLoading();
+		return;
+	}
+
+	$.ajax({
+		url: "/Admin/ManageCustomer/SendOTPEmail",
+		method: "post",
+		data: { email: email },
+		success: function (res) {
+			hideLoading();
+			if (res.success == null) {
+				showToast('success', res.message);
+			} else {
+				showToast('warning', res.message);
+			}
+
+		},
+		error: function (res) {
+			hideLoading();
+			showToast('error', res.message);
+		}
+	})
+}
+var sendOTPPhone = function () {
+	showLoading("");
+
+	var phone = document.getElementById("phone").value;
+
+	if (phone == "" || /^[+0-9]\d{9,15}$/.test(phone.trim()) == false) {
+		showToast("warning", "Số điện thoại không hợp lệ");
+		hideLoading();
+		return;
+	}
+
+	$.ajax({
+		url: "/Admin/ManageCustomer/SendOTPPhone",
+		method: "post",
+		data: { phone: phone },
+		success: function (res) {
+			hideLoading();
+			if (res.success == null) {
+				modal_container.innerHTML = res;
+				modal.show();
+			} else {
+				showToast('warning', res.message);
+			}
+
+		},
+		error: function (res) {
+			hideLoading();
+			showToast('error', res.message);
+		}
+	})
+}
+var verifyPhone = function () {
+	var phone = document.getElementById("phone").value;
+
+	var otp = ""
+	var inputs = document.getElementsByClassName("otp-input");
+
+	for (var i = 0; i < inputs.length; i++) {
+		otp += inputs[i].value;
+	}
+
+	$.ajax({
+		url: "/Admin/ManageCustomer/VerifyOTPPhone",
+		method: "post",
+		data: { otp: otp, phone: phone },
+		success: function (res) {
+			hideLoading();
+			if (res.success) {
+				showToast('success', res.message);
+				var verifyBtn = document.getElementById("verifyPhoneBtn");
+				verifyBtn.style.display = "none";
+				var phone = document.getElementById("phone");
+				phone.setAttribute("readonly", "readonly");
+				modal.hide();
+			} else {
+				showToast('warning', res.message);
+			}
+		},
+		error: function (res) {
+			hideLoading();
+			showToast('error', res.message);
+		}
+	}
+	)
+}
+var resendOTPPhone = function () {
+	showLoading("");
+
+	var phone = document.getElementById("phone").value;
+
+	if (phone == "" || /^[+0-9]\d{9,15}$/.test(phone.trim()) == false) {
+		showToast("warning", "Số điện thoại không hợp lệ");
+		hideLoading();
+		return;
+	}
+
+	$.ajax({
+		url: "/Admin/ManageCustomer/SendOTPPhone",
+		method: "post",
+		data: { phone: phone },
+		success: function (res) {
+			hideLoading();
+			if (res.success == null) {
+				showToast('success', res.message);
+			} else {
+				showToast('warning', res.message);
+			}
+
+		},
+		error: function (res) {
+			hideLoading();
+			showToast('error', res.message);
+		}
+	})
 }
 var reviewImage = function (input) {
 

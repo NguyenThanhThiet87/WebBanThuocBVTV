@@ -3,24 +3,72 @@
   "WorkspaceRootPath": "D:\\WebBanThuocBVTV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\js\\customer\\account\\updatephone.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\js\\customer\\account\\updatephone.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\controllers\\managecustomercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\controllers\\managecustomercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\customer\\views\\account\\updatephone.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\customer\\views\\account\\updatephone.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\repositories\\nguoidungrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\repositories\\nguoidungrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\shared\\_sendotpphone.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\shared\\_sendotpphone.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\shared\\_sendotpemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\shared\\_sendotpemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\managecustomer\\addcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\managecustomer\\addcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\js\\admin\\account\\updatephone.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\js\\admin\\account\\updatephone.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\shared\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\shared\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\shared\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\shared\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\manageorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\manageorder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\css\\login\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\css\\login\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\js\\admin\\manageproduct\\_listproduct.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\js\\admin\\manageproduct\\_listproduct.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\wwwroot\\js\\admin\\manageproduct\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\wwwroot\\js\\admin\\manageproduct\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\manageproduct\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\manageproduct\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\managesystem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\managesystem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\managestaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\managestaff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\managecustomer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\managecustomer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\managecomment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\managecomment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|d:\\webbanthuocbvtv\\webbanthuocbvtv\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ADFD9A46-6B99-4962-BED6-5753C5122AD4}|WebBanThuocBVTV\\WebBanThuocBVTV.csproj|solutionrelative:webbanthuocbvtv\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,67 +86,223 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdatePhone.js",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js",
-              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-14T16:33:35.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdatePhone.cshtml",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Customer\\Views\\Account\\UpdatePhone.cshtml",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Customer\\Views\\Account\\UpdatePhone.cshtml",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Customer\\Views\\Account\\UpdatePhone.cshtml",
-              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Customer\\Views\\Account\\UpdatePhone.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T16:33:07.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAEwKoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T16:28:32.553Z",
+              "Title": "_SendOTPPhone.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPPhone.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPPhone.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPPhone.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPPhone.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T12:55:45.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.css",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
-              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAFMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-14T16:22:00.06Z",
+              "Title": "AddCustomer.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\AddCustomer.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\AddCustomer.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\AddCustomer.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\AddCustomer.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T12:55:22.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageCustomerController.cs",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Controllers\\ManageCustomerController.cs",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Controllers\\ManageCustomerController.cs",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Controllers\\ManageCustomerController.cs",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Controllers\\ManageCustomerController.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAApwLUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T10:42:45.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NguoiDungRepository.cs",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NguoiDungRepository.cs",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Repositories\\NguoiDungRepository.cs",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Repositories\\NguoiDungRepository.cs",
+              "RelativeToolTip": "WebBanThuocBVTV\\Repositories\\NguoiDungRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T11:28:29.799Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Views\\Login\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Shared\\Views\\Login\\Index.cshtml",
-              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Views\\Login\\Index.cshtml",
-              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Shared\\Views\\Login\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Title": "_SendOTPEmail.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPEmail.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPEmail.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPEmail.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Shared\\_SendOTPEmail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T16:11:36.97Z",
+              "WhenOpened": "2025-08-16T12:55:59.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T12:49:36.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UpdatePhone.js",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Account\\UpdatePhone.js",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\Account\\UpdatePhone.js",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Account\\UpdatePhone.js",
+              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\Account\\UpdatePhone.js",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-16T12:49:22.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.js",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\Index.js",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\Index.js",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\Index.js",
+              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\Index.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-16T11:01:37.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:45:51.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageComment\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageComment\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageComment\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageComment\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:45:37.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageOrder\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageOrder\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageOrder\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageOrder\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:45:05.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Shared\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAvwGIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T12:00:46.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ListProduct.js",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_ListProduct.js",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_ListProduct.js",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_ListProduct.js",
+              "RelativeToolTip": "WebBanThuocBVTV\\wwwroot\\js\\Admin\\ManageProduct\\_ListProduct.js",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-16T11:03:04.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageCustomer\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:45:22.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageProduct\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageProduct\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageProduct\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageProduct\\Index.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:44:52.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageStaff\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageStaff\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageStaff\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageStaff\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:44:13.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageSystem\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageSystem\\Index.cshtml",
+              "ToolTip": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageSystem\\Index.cshtml",
+              "RelativeToolTip": "WebBanThuocBVTV\\Areas\\Admin\\Views\\ManageSystem\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-16T10:43:59.456Z",
               "EditorCaption": ""
             }
           ]

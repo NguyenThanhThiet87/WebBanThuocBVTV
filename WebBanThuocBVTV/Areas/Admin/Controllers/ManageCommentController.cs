@@ -19,64 +19,117 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            SavePointSideBar(SideBar.BinhLuan);
+            try
+            {
+                SavePointSideBar(SideBar.BinhLuan);
 
-            List<Binhluan> lstBl =await _binhLuanRepository.GetAllAsync();
-            return View(lstBl);
+                List<Binhluan> lstBl = await _binhLuanRepository.GetAllAsync();
+                return View(lstBl);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> ReplyComment(Binhluan bl)
         {
-            Binhluan comment = await _binhLuanRepository.GetById(bl.ThoiGian, bl.MaNd, bl.MaSanPham);
+            try
+            {
+                Binhluan comment = await _binhLuanRepository.GetById(bl.ThoiGian, bl.MaNd, bl.MaSanPham);
 
-            return PartialView("_ReplyComment", comment);
+                return PartialView("_ReplyComment", comment);
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> Reply(Phanhoi ph)
         {
-            ph.NgayPhanHoi = DateTime.Now;
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                ph.NgayPhanHoi = DateTime.Now;
 
-            AlertMessage alert =  await _binhLuanRepository.Reply(ph);
-
-            return alert;
+                alertMessage = await _binhLuanRepository.Reply(ph);
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
+            return alertMessage;
         }
         [HttpPost]
         public async Task<IActionResult> EditReplyComment(string maPh)
         {
-            Phanhoi reply = await _binhLuanRepository.GetReplyById(int.Parse(maPh));
+            try
+            {
+                Phanhoi reply = await _binhLuanRepository.GetReplyById(int.Parse(maPh));
 
-            return PartialView("_EditReply", reply);
+                return PartialView("_EditReply", reply);
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> EditReply(string maPh, string maNv, string noiDung)
         {
-            AlertMessage alert = await _binhLuanRepository.EditReply(int.Parse(maPh), maNv, noiDung);
-
-            return alert;
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                alertMessage = await _binhLuanRepository.EditReply(int.Parse(maPh), maNv, noiDung);
+            }catch(Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
+            return alertMessage;
         }
         [HttpPost]
         public async Task<IActionResult> FilterComment(string keyword="", EvaluateOptions? evaluateOptions=null, IsReply? isReplyOptions = null, StateComment? stateOptions=null, int? page=1)
         {
-            keyword = keyword ?? "";
+            try
+            {
+                keyword = keyword ?? "";
 
-            if (page == null)
-                page = 1;
+                if (page == null)
+                    page = 1;
 
-            List<Binhluan> lstComments = await _binhLuanRepository.FilterComment(keyword,evaluateOptions,isReplyOptions,stateOptions);
+                List<Binhluan> lstComments = await _binhLuanRepository.FilterComment(keyword, evaluateOptions, isReplyOptions, stateOptions);
 
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
-            int pageNumber = page ?? 1;
+                int pageNumber = page ?? 1;
 
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstComments.Count / pageSize;
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstComments.Count / pageSize;
 
-            return PartialView("_ListComment", lstComments.ToPagedList(pageNumber, pageSize));
+                return PartialView("_ListComment", lstComments.ToPagedList(pageNumber, pageSize));
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> DeleteReply(string maPh)
         {
-            AlertMessage alert = await _binhLuanRepository.DeleteReply(int.Parse(maPh));
+            AlertMessage alert = new AlertMessage();
+            try
+            {
+                alert = await _binhLuanRepository.DeleteReply(int.Parse(maPh));
+
+            }catch(Exception ex)
+            {
+                alert.Type = "error";
+                alert.Message = ex.Message;
+            }
             return alert;
         }
     }

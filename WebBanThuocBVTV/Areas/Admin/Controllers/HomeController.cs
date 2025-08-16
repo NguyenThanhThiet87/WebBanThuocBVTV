@@ -27,26 +27,42 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            SavePointSideBar(SideBar.TongQuan);
-            Dictionary<string,int> staUser = _nguoiDungRepository.Statistic();
-            ViewBag.statisticUser = staUser;
-            Dictionary<string, int> staProduct = _sanPhamRepository.Statistic();
-            ViewBag.statisticProduct = staProduct;
-            Dictionary<string, int> staOrder = _donHangRepository.Statistic();
-            ViewBag.statisticOrder = staOrder;
-            ViewBag.CountProcessingOrder = await _donHangRepository.CountProcessingOrder();
-            List<Sanpham> lstOutOsStock = await _sanPhamRepository.GetOutOfStockProduct();
-            ViewBag.OutOfStock = lstOutOsStock;
+            try
+            {
+                SavePointSideBar(SideBar.TongQuan);
+                Dictionary<string, int> staUser = _nguoiDungRepository.Statistic();
+                ViewBag.statisticUser = staUser;
+                Dictionary<string, int> staProduct = _sanPhamRepository.Statistic();
+                ViewBag.statisticProduct = staProduct;
+                Dictionary<string, double> staOrder = _donHangRepository.Statistic();
+                ViewBag.statisticOrder = staOrder;
+                ViewBag.CountProcessingOrder = await _donHangRepository.CountProcessingOrder();
+                List<Sanpham> lstOutOsStock = await _sanPhamRepository.GetOutOfStockProduct();
+                ViewBag.OutOfStock = lstOutOsStock;
 
-            List<Donhang> dh = await _donHangRepository.GetNewOrders();
+                List<Donhang> dh = await _donHangRepository.GetNewOrders();
 
-            return View(dh);
+                return View(dh);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public async Task<List<KeyValuePair<DateTime, double>>> RevenueClostSixMonth()
         {
-            Dictionary<DateTime, double> lst = await _donHangRepository.RevenueClostSixMonth();
-            return lst.ToList();
+            try
+            {
+                Dictionary<DateTime, double> lst = await _donHangRepository.RevenueClostSixMonth();
+                return lst.ToList();
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return null;
+            }
         }
     }
 }

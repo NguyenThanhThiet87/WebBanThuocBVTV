@@ -117,6 +117,8 @@ var getSp = function (input) {
     var priceProduct = parent.querySelector('.priceProduct');
     var totalProduct = parent.querySelector('.totalProduct');
 
+    var quantityStore = parent.querySelector('.quantityStore');
+
     $.ajax({
         url: "/Admin/ManageOrder/GetInfoProduct",
         data: { maSp: maSanPham },
@@ -126,6 +128,7 @@ var getSp = function (input) {
                 nameProduct.value = res.data.tenSanPham;
                 quantityProduct.value = 1;
                 priceProduct.value = new Intl.NumberFormat('vi-VN').format(res.data.gia) + "VNĐ";
+                quantityStore.value = res.data.soLuong;
                 SumPrice(quantityProduct);
             } else {
                 nameProduct.value = "";
@@ -140,11 +143,18 @@ var getSp = function (input) {
         }
     });
 }
+
 var SumPrice = function (input) {
+    var quantityStore = input.nextElementSibling.value;
+    
     var quantity = input.value;
     if (quantity < 1) {
         input.value = 1;
         quantity = 1;
+    }
+    if (quantity > quantityStore) {
+        input.value = quantityStore;
+        showToast("warning", "Vượt quá số lượng");
     }
     var parent = input.parentNode.parentNode;
 
@@ -154,6 +164,7 @@ var SumPrice = function (input) {
     sumPrice.value = total + "VNĐ";
     SumTotalPrice();
 }
+
 var SumTotalPrice = function () {
     var sumPrice = 0
     var totalElement = document.getElementById("guest-total");

@@ -1,0 +1,54 @@
+﻿@{
+}
+<link href="~/css/Admin/ManageSystem/Index.css" rel="stylesheet" />
+<div class="container">
+	<h1>Quản lý hệ thống</h1>
+
+	<div class="tabs">
+		<button class="tab active" onclick="showSection('category', this)">Nhóm sản phẩm</button>
+		<button class="tab" onclick="showSection('manufacturers', this)">Nhà sản xuất</button>
+	</div>
+
+	<!-- Products Section -->
+	<div id="products" class="section active">
+		<div class="section-header">
+			<h2 class="section-title">Danh sách nhóm sản phẩm</h2>
+			<div style="display: flex; align-items: center;">
+				<div class="search-box">
+					<input type="text" id="productSearch" placeholder="Tìm kiếm..." onkeyup="searchCategory()">
+				</div>
+				<button class="btn btn-success" onclick="addCategoryModal()">Thêm mới</button>
+			</div>
+		</div>
+
+		<div class="table-lstNsp">
+			
+		</div>
+	</div>
+
+	<!-- Manufacturers Section -->
+	<div id="manufacturers" class="section">
+		<div class="section-header">
+			<h2 class="section-title">Danh sách nhà sản xuất</h2>
+			<div style="display: flex; align-items: center;">
+				<div class="search-box">
+					<input type="text" id="manufacturerSearch" placeholder="Tìm kiếm..." onkeyup="searchManu()">
+				</div>
+				<button class="btn btn-success" onclick="addManuModal()">Thêm mới</button>
+			</div>
+		</div>
+
+		<div class="table-lstNsx">
+
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="systemModal" tabindex="-1" aria-labelledby="systemModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="modal-container">
+		</div>
+	</div>
+</div>
+
+<script src="~/js/Admin/ManageSystem/Index.js"></script>

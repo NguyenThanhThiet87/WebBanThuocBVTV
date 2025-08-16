@@ -23,13 +23,21 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
         public async Task<IActionResult> Index()
         {
-            AddBreadcrum(new BreadcrumItem() { Text = "Trang Chủ", Url = Url.Action("Index", "Home", new { area = "Customer" }) });
-            Nguoidung Account = new Nguoidung();
-            //_sendOTP.SendOTPByPhone("");
-            //_sendOTP.CheckOTPByPhone("+16464066829", "328457");
-            HttpContext.Session.SetString("IndexPage", "Home");//lưu vào session vị trí hiện tại của trang
+            try
+            {
+                AddBreadcrum(new BreadcrumItem() { Text = "Trang Chủ", Url = Url.Action("Index", "Home", new { area = "Customer" }) });
+                Nguoidung Account = new Nguoidung();
+                //_sendOTP.SendOTPByPhone("");
+                //_sendOTP.CheckOTPByPhone("+16464066829", "328457");
+                HttpContext.Session.SetString("IndexPage", "Home");//lưu vào session vị trí hiện tại của trang
 
-            return View();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

@@ -14,17 +14,38 @@ namespace WebBanThuocBVTV.Repositories
         }
         public Task<AlertMessage> Add(Danhgia entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<string> CreateId()
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<AlertMessage> Delete(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task<List<Danhgia>> GetAllAsync()
@@ -43,7 +64,14 @@ namespace WebBanThuocBVTV.Repositories
 
         public Task<AlertMessage> Update(Danhgia entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

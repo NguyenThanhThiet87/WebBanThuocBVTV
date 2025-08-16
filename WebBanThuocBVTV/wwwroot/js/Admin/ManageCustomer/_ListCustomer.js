@@ -42,3 +42,25 @@ var resetFilters = function () {
 		}
 	})
 }
+
+var deleteCustomer = function (maNd) {
+	showComfirm("Bạn có chắc muốn xóa người dùng này?", "Chỉ người dùng không có dữ liệu mới có thể xóa!", function () {
+		showLoading("");
+		$.ajax({
+			url: "/Admin/ManageCustomer/DeleteCustomer",
+			method: "POST",
+			data: { maNd: maNd },
+			success: function (res) {
+				hideLoading()
+				if (res.type == "success") {
+					applyFilters(); // Cập nhật lại danh sách nhân viên
+				}
+				showToast(res.type, res.message);
+			},
+			error: function (err) {
+				hideLoading()
+				console.log(err);
+			}
+		})
+	});
+}

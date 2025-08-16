@@ -159,7 +159,7 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
                     SetAlert("Đăng nhập thành công - Chào mừng Khách Hàng", "success");
                     return RedirectToAction("Index", "Home", new {area = "Customer"});
                 case "NV":
-                case "AD":
+                case "QL":
                     ViewBag.Layout = "~/Views/Shared/WebBanThuocBVTV.cshtml"; // Layout cho khách hàng
                     SetAlert("Đăng nhập thành công - Chào mừng Quản Lý", "success");
                     return RedirectToAction("Index", "Home", new { area = "Admin" });

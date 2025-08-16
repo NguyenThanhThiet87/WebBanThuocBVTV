@@ -77,9 +77,17 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            AddBreadcrum(new BreadcrumItem() { Text = "Nhận Diện", Url = Url.Action("Index", "Detection", new { area = "Customer" }) });//thêm vào breadcrum
+            try
+            {
+                AddBreadcrum(new BreadcrumItem() { Text = "Nhận Diện", Url = Url.Action("Index", "Detection", new { area = "Customer" }) });//thêm vào breadcrum
 
-            return View();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> Detection(IFormFile img)
@@ -99,78 +107,96 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
 
         public ResultDetection InferenceModel(IFormFile file)
         {
-            //
-            using InferenceSession session = new InferenceSession(modelPath);
-
-            // Tiền xử lý
-            float[] inputData = PreprocessImage(file).ToArray();
-
-            long[] inputShape = { 1, 3, 256, 256 }; 
-
-            using var inputOrtValue = OrtValue.CreateTensorValueFromMemory(inputData, inputShape);
-
-            var inputSession = new Dictionary<string, OrtValue>
+            try
             {
-                { "pixel_values", inputOrtValue }
-            };
+                using InferenceSession session = new InferenceSession(modelPath);
 
-            using var runOptions = new RunOptions();
+                // Tiền xử lý
+                float[] inputData = PreprocessImage(file).ToArray();
 
-            var outputsession = session.Run(runOptions, inputSession, new[] { "logits" });
+                long[] inputShape = { 1, 3, 256, 256 };
 
-            var outputToFeed = outputsession[0].GetTensorDataAsSpan<float>();
-            float[] logits = outputToFeed.ToArray();
-            ResultDetection result = PostProcessInfer(logits);
-            return result;
+                using var inputOrtValue = OrtValue.CreateTensorValueFromMemory(inputData, inputShape);
+
+                var inputSession = new Dictionary<string, OrtValue>
+                {
+                  { "pixel_values", inputOrtValue }
+                };
+
+                using var runOptions = new RunOptions();
+
+                var outputsession = session.Run(runOptions, inputSession, new[] { "logits" });
+
+                var outputToFeed = outputsession[0].GetTensorDataAsSpan<float>();
+                float[] logits = outputToFeed.ToArray();
+                ResultDetection result = PostProcessInfer(logits);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public DenseTensor<float> PreprocessImage(IFormFile file, int size = 256)
         {
-            float[] mean = { 0.485f, 0.456f, 0.406f };
-            float[] std = { 0.229f, 0.224f, 0.225f };
-
-            using var stream = file.OpenReadStream();
-            using Image<Rgb24> image = Image.Load<Rgb24>(stream);
-
-            image.Mutate(x => x.Resize(size, size));
-
-            var tensor = new DenseTensor<float>(new[] { 1, 3, size, size });
-
-            for (int y = 0; y < size; y++)
+            try
             {
-                var row = image.DangerousGetPixelRowMemory(y).Span;
+                float[] mean = { 0.485f, 0.456f, 0.406f };
+                float[] std = { 0.229f, 0.224f, 0.225f };
 
-                for (int x = 0; x < size; x++)
+                using var stream = file.OpenReadStream();
+                using Image<Rgb24> image = Image.Load<Rgb24>(stream);
+
+                image.Mutate(x => x.Resize(size, size));
+
+                var tensor = new DenseTensor<float>(new[] { 1, 3, size, size });
+
+                for (int y = 0; y < size; y++)
                 {
-                    var pixel = row[x];
-                    // Chuyển đổi pixel sang giá trị tensor
-                    float r = pixel.R / 255f;
-                    float g = pixel.G / 255f;
-                    float b = pixel.B / 255f;
-                    // Chuẩn hóa giá trị pixel
-                    tensor[0, 0, y, x] = (pixel.R / 255f - mean[0]) / std[0];
-                    tensor[0, 1, y, x] = (pixel.G / 255f - mean[1]) / std[1];
-                    tensor[0, 2, y, x] = (pixel.B / 255f - mean[2]) / std[2];
+                    var row = image.DangerousGetPixelRowMemory(y).Span;
+
+                    for (int x = 0; x < size; x++)
+                    {
+                        var pixel = row[x];
+                        // Chuyển đổi pixel sang giá trị tensor
+                        float r = pixel.R / 255f;
+                        float g = pixel.G / 255f;
+                        float b = pixel.B / 255f;
+                        // Chuẩn hóa giá trị pixel
+                        tensor[0, 0, y, x] = (pixel.R / 255f - mean[0]) / std[0];
+                        tensor[0, 1, y, x] = (pixel.G / 255f - mean[1]) / std[1];
+                        tensor[0, 2, y, x] = (pixel.B / 255f - mean[2]) / std[2];
+                    }
                 }
+                return tensor;
             }
-            return tensor;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public ResultDetection PostProcessInfer(float[] logits)
         {
-            var y = np.exp(logits - np.max(logits));
-            var probs = y / np.sum(y);
-
-            float[] p = probs.ToArray<float>();
-
-            int best = Array.IndexOf(p, p.Max());
-
-
-            ResultDetection result = new ResultDetection
+            try
             {
-                NameInference = LabelsViSentences[best],
-                ConfInference = p[best]
-            };
-            return result;
+                var y = np.exp(logits - np.max(logits));
+                var probs = y / np.sum(y);
+
+                float[] p = probs.ToArray<float>();
+
+                int best = Array.IndexOf(p, p.Max());
+
+                ResultDetection result = new ResultDetection
+                {
+                    NameInference = LabelsViSentences[best],
+                    ConfInference = p[best]
+                };
+                return result;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 

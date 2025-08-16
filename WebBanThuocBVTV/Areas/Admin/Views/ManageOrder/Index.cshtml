@@ -13,7 +13,7 @@
 			<h2 class="actions-title">Thao tác nhanh</h2>
 			<div class="actions-grid">
 				<a class="action-btn" data-bs-toggle="modal" data-bs-target="#detail_orderModal" onclick="addOrderModal()">
-					<span>➕</span>
+					<i class="fa-solid fa-plus"></i>
 					Thêm đơn hàng mới
 				</a>
 			</div>
@@ -30,22 +30,31 @@
 
 				<div class="sort-options">
 					<label>Sắp xếp</label>
-					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsOrder>()" onchange="searchOrder()">
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsOrder>()" onchange="applyFilters()">
 					</select>
 				</div>
 
 				<div class="search-container">
 					<input type="text" class="search-input" placeholder="Tìm kiếm đơn hàng..." value="" id="searchInput">
-					<button class="search-btn" onclick="applyFilters()">🔍 Tìm kiếm</button>
+					<button class="search-btn" onclick="applyFilters()">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						Tìm kiếm
+					</button>
 				</div>
 			</div>
 
 			<div class="table-content">
 				<div class="filter-sidebar">
-					<h3 style="margin-bottom: 20px; color: #2c3e50;">🔧 Bộ lọc</h3>
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">
+						<i class="fa-solid fa-filter"></i>
+						Bộ lọc
+					</h3>
 
 					<div class="filter-section">
-						<div class="filter-title">🏭 Trạng thái</div>
+						<div class="filter-title">
+							<i class="fa-solid fa-circle-check"></i>
+							Trạng thái
+						</div>
 						<select class="sort-select" id="stateSelect" onchange="applyFilters()">
 							@foreach (var item in ViewBag.TrangThaiDonHang)
 							{

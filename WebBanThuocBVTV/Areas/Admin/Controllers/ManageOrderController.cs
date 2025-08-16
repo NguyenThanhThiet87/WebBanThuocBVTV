@@ -5,6 +5,7 @@ using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories;
 using WebBanThuocBVTV.Repositories.Interfaces;
 using X.PagedList.Extensions;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace WebBanThuocBVTV.Areas.Admin.Controllers
 {
@@ -26,55 +27,106 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            SavePointSideBar(SideBar.DonHang);
+            try
+            {
+                SavePointSideBar(SideBar.DonHang);
 
-            ViewBag.TrangThaiDonHang = await _trangThaiRepository.GetAllAsync();
-            return View();
+                ViewBag.TrangThaiDonHang = await _trangThaiRepository.GetAllAsync();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public IActionResult DetailOrder(string maDh)
         {
-            Donhang dh = _donHangRepository.Get(maDh);
+            try
+            {
+                Donhang dh = _donHangRepository.Get(maDh);
 
-            return PartialView("_DetailOrder", dh);
+                return PartialView("_DetailOrder", dh);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> FilterOrder(string id, string state, SortOptionsOrder sortOption, int? page)
         {
-            id = id ?? "";
-            if (page == null)
-                page = 1;
+            try
+            {
+                id = id ?? "";
+                if (page == null)
+                    page = 1;
 
-            state = state ?? "";
-            List<Donhang> lstCustomers = await _donHangRepository.FilterOrder(id, state, sortOption);
+                state = state ?? "";
+                List<Donhang> lstCustomers = await _donHangRepository.FilterOrder(id, state, sortOption);
 
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
-            int pageNumber = page ?? 1;
+                int pageNumber = page ?? 1;
 
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstCustomers.Count / pageSize;
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstCustomers.Count / pageSize;
 
-            return PartialView("_ListOrder", lstCustomers.ToPagedList(pageNumber, pageSize));
+                return PartialView("_ListOrder", lstCustomers.ToPagedList(pageNumber, pageSize));
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<AlertMessage> SendOrder(string maDh)
         {
-            AlertMessage alertMessage = await _donHangRepository.SendOrder(maDh);
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                alertMessage = await _donHangRepository.SendOrder(maDh);
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
             return alertMessage;
         }
         [HttpPost]
         public async Task<AlertMessage> TransferredOrder(string maDh)
         {
-            AlertMessage alertMessage = await _donHangRepository.TransferredOrder(maDh);
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                alertMessage = await _donHangRepository.TransferredOrder(maDh);
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
             return alertMessage;
         }
         [HttpPost]
         public async Task<AlertMessage> DeleteOrder(string maDh)
         {
-            AlertMessage alertMessage = await _donHangRepository.DeleteOrder(maDh);
+            AlertMessage alertMessage = new AlertMessage();
+            try
+            {
+                alertMessage = await _donHangRepository.DeleteOrder(maDh);
+            }
+            catch (Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
+            }
             return alertMessage;
         }
         [HttpPost]
@@ -85,78 +137,111 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         }
         public async Task<IActionResult> GetInfoCustomer(string maNd)
         {
-            var nguoiDung = await _nguoiDungRepository.GetById(maNd);
-            if(nguoiDung!=null)
+            try
             {
-                return Json(new { success = true, data = nguoiDung });
-            }    
-            return Json(new { success = false, data = nguoiDung });
+                var nguoiDung = await _nguoiDungRepository.GetById(maNd);
+                if (nguoiDung != null)
+                {
+                    return Json(new { success = true, data = nguoiDung });
+                }
+                return Json(new { success = false, data = nguoiDung });
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         public async Task<IActionResult> GetInfoProduct(string maSp)
         {
-            var sanPham = await _sanPhamRepository.GetByIdBase(maSp);
-            if (sanPham != null)
+            try
             {
-                return Json(new { success = true, data = sanPham });
+                var sanPham = await _sanPhamRepository.GetByIdBase(maSp);
+                if (sanPham != null)
+                {
+                    return Json(new { success = true, data = sanPham });
+                }
+                return Json(new { success = false, data = sanPham });
             }
-            return Json(new { success = false, data = sanPham });
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         [HttpPost]
         public async Task<AlertMessage> AddOrder(Donhang dh)
         {
-            dh.MaDonHang = _donHangRepository.CreateId();
-            dh.NgayLap = DateTime.Now;
-            dh.MaTrangThai = "PCD";
-            double sumPrice = 0;
-            foreach(var dhsp in dh.DonhangSanphams)
+            AlertMessage alertMessage = new AlertMessage();
+            try
             {
-                dhsp.MaDonHang = dh.MaDonHang;
-                sumPrice += dh.TongTien;
+                dh.MaDonHang = _donHangRepository.CreateId();
+                dh.NgayLap = DateTime.Now;
+                dh.MaTrangThai = "PCD";
+                double sumPrice = 0;
+                foreach (var dhsp in dh.DonhangSanphams)
+                {
+                    dhsp.MaDonHang = dh.MaDonHang;
+                    sumPrice += dh.TongTien;
+                }
+                dh.TongTien = sumPrice;
+                alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+            }catch(Exception ex)
+            {
+                alertMessage.Type = "error";
+                alertMessage.Message = ex.Message;
             }
-            dh.TongTien = sumPrice;
-            AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
             return alertMessage;
         }
         [HttpPost]
         public async Task<AlertMessage> AddOrderGuest(Donhang dh, Nguoidung nd)
         {
-            nd.MaNd = await _nguoiDungRepository.CreateId();
-            AlertMessage alertCreatUser = await _nguoiDungRepository.AddGuest(nd);
-            if(alertCreatUser.Type=="success")
+            try
             {
-                dh.MaDonHang = _donHangRepository.CreateId();
-                dh.MaNd = nd.MaNd;
-                dh.NgayLap = DateTime.Now;
-                dh.MaTrangThai = "PCD";
-                double sumPrice = 0;
-                foreach (var dhsp in dh.DonhangSanphams)
+                nd.MaNd = await _nguoiDungRepository.CreateId();
+                AlertMessage alertCreatUser = await _nguoiDungRepository.AddGuest(nd);
+                if (alertCreatUser.Type == "success")
                 {
-                    dhsp.MaDonHang = dh.MaDonHang;
-                    sumPrice += dh.TongTien;
+                    dh.MaDonHang = _donHangRepository.CreateId();
+                    dh.MaNd = nd.MaNd;
+                    dh.NgayLap = DateTime.Now;
+                    dh.MaTrangThai = "PCD";
+                    double sumPrice = 0;
+                    foreach (var dhsp in dh.DonhangSanphams)
+                    {
+                        dhsp.MaDonHang = dh.MaDonHang;
+                        sumPrice += dh.TongTien;
+                    }
+                    dh.TongTien = sumPrice;
+                    AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+                    return alertMessage;
                 }
-                dh.TongTien = sumPrice;
-                AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
-                return alertMessage;
-            }else if(alertCreatUser.Type=="exist")
-            {
-                nd.MaNd = alertCreatUser.Message;
-                dh.MaDonHang = _donHangRepository.CreateId();
-                dh.MaNd = nd.MaNd;
-                dh.NgayLap = DateTime.Now;
-                dh.MaTrangThai = "PCD";
-                double sumPrice = 0;
-                foreach (var dhsp in dh.DonhangSanphams)
+                else if (alertCreatUser.Type == "exist")
                 {
-                    dhsp.MaDonHang = dh.MaDonHang;
-                    sumPrice += dh.TongTien;
+                    nd.MaNd = alertCreatUser.Message;
+                    dh.MaDonHang = _donHangRepository.CreateId();
+                    dh.MaNd = nd.MaNd;
+                    dh.NgayLap = DateTime.Now;
+                    dh.MaTrangThai = "PCD";
+                    double sumPrice = 0;
+                    foreach (var dhsp in dh.DonhangSanphams)
+                    {
+                        dhsp.MaDonHang = dh.MaDonHang;
+                        sumPrice += dh.TongTien;
+                    }
+                    dh.TongTien = sumPrice;
+                    AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
+                    return alertMessage;
                 }
-                dh.TongTien = sumPrice;
-                AlertMessage alertMessage = await _donHangRepository.Add(dh.DonhangSanphams.ToList(), dh);
-                return alertMessage;
-            }    
-            else
+                else
+                {
+                    return alertCreatUser;
+                }
+            }
+            catch (Exception ex)
             {
-                return alertCreatUser;
+                return new AlertMessage
+                {
+                    Type = "error",
+                    Message = ex.Message
+                };
             }
         }
     }

@@ -9,8 +9,8 @@ namespace WebBanThuocBVTV.Helper
         DonHang,
         KhachHang,
         BinhLuan,
-        KhoHang,
-        BaoCao
+        NhanVien,
+        HeThong
     }
 
     public enum SortOptions

@@ -1,0 +1,24 @@
+﻿@model List<WebBanThuocBVTV.Models.Nhasanxuat>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Mã nhà sản xuất</th>
+			<th>Tên nhóm nhà sản xuất</th>
+			<th>Thao tác</th>
+		</tr>
+	</thead>
+	<tbody id="productTableBody">
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.MaNhaSx</td>
+				<td>@item.TenNhaSx</td>
+
+				<td>
+					<button class="btn btn-warning btn-small" onclick="editManu('@item.MaNhaSx')">Sửa</button>
+					<button class="btn btn-danger btn-small" onclick="deleteManu('@item.MaNhaSx')">Xóa</button>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

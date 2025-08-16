@@ -32,7 +32,6 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             {
                 ViewBag.Account = null;
             }
-
             ViewBag.IndexPage = HttpContext.Session.GetString("IndexPage");//định vị vị trí hiện tại của trang Home hay product
 
             base.OnActionExecuted(context);

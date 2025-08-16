@@ -23,42 +23,65 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            SavePointSideBar(SideBar.KhachHang);
+            try
+            {
+                SavePointSideBar(SideBar.KhachHang);
 
-            List<Nguoidung> lstUser = await _nguoiDungRepository.GetAllCustomer();
+                List<Nguoidung> lstUser = await _nguoiDungRepository.GetAllCustomer();
 
-            ViewBag.TongKh = lstUser.Count;
-            ViewBag.KhMoi = lstUser.Where(user => user.NgayTao.Value.Month == DateTime.Now.Month && user.NgayTao.Value.Year == DateTime.Now.Year).Count();
-            return View(lstUser);
+                ViewBag.TongKh = lstUser.Count;
+                ViewBag.KhMoi = lstUser.Where(user => user.NgayTao.Value.Month == DateTime.Now.Month && user.NgayTao.Value.Year == DateTime.Now.Year).Count();
+                return View(lstUser);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
-
         [HttpPost]
         public async Task<IActionResult> DetailCustomer(string maNd)
         {
-            Nguoidung nd = await _nguoiDungRepository.GetById(maNd);
-            return PartialView("_DetailCustomer", nd);
+            try
+            {
+                Nguoidung nd = await _nguoiDungRepository.GetById(maNd);
+                return PartialView("_DetailCustomer", nd);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCustomer(Nguoidung nd)
         {
-            Nguoidung user = await _nguoiDungRepository.GetById(nd.MaNd);
-
-            user.HoTen = nd.HoTen;
-            user.NgaySinh = nd.NgaySinh;
-            user.Email = nd.Email;
-            user.SoDienThoai = nd.SoDienThoai;
-            user.DiaChi= nd.DiaChi;
-            user.GioiTinh= nd.GioiTinh;
-
-            AlertMessage alertMessage = await _nguoiDungRepository.Update(user);
-            if(alertMessage.Type=="success")
+            try
             {
-                return PartialView("_DetailCustomer", user);
+                Nguoidung user = await _nguoiDungRepository.GetById(nd.MaNd);
+
+                user.HoTen = nd.HoTen;
+                user.NgaySinh = nd.NgaySinh;
+                user.Email = nd.Email;
+                user.SoDienThoai = nd.SoDienThoai;
+                user.DiaChi = nd.DiaChi;
+                user.GioiTinh = nd.GioiTinh;
+
+                AlertMessage alertMessage = await _nguoiDungRepository.Update(user);
+                if (alertMessage.Type == "success")
+                {
+                    return PartialView("_DetailCustomer", user);
+                }
+                else
+                {
+                    return Json(new { success = false, message = alertMessage.Message });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new { success = false, message=alertMessage.Message});
-            }    
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         public  IActionResult AddCustomer()
         {
@@ -67,127 +90,265 @@ namespace WebBanThuocBVTV.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> SendOTPEmail(string email)
         {
-            bool isExist = await _nguoiDungRepository.EmailIsExist(email);
-            if (isExist)
+            try
             {
-                return Json(new { success = false, message = "Email đã tồn tại" });
+                bool isExist = await _nguoiDungRepository.EmailIsExist(email);
+                if (isExist)
+                {
+                    return Json(new { success = false, message = "Email đã tồn tại" });
+                }
+                else
+                {
+                    AlertMessage alertMessage = await _sendOTP.SendOTPByEmail(email, email);
+                    if (alertMessage.Type == "success")
+                    {
+                        OTPCode data = new OTPCode()
+                        {
+                            email = email,
+                            code = alertMessage.Message
+                        };
+
+                        HttpContext.Session.SetString("OTP", System.Text.Json.JsonSerializer.Serialize(data));
+
+                        return PartialView("_SendOTPEmail", email);
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                    }
+                }
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
             }
-            else
+        }
+        [HttpPost]
+        public async Task<IActionResult> VerifyOTPEmail(string otp, string email)
+        {
+            try
             {
-                AlertMessage alertMessage = await _sendOTP.SendOTPByEmail(email, email);
+                string otpJson = HttpContext.Session.GetString("OTP");
+                if (String.IsNullOrEmpty(otpJson))
+                {
+                    return Json(new { success = false, message = "Mã OTP không hợp lệ" });
+                }
+                else
+                {
+                    OTPCode otpSended = System.Text.Json.JsonSerializer.Deserialize<OTPCode>(otpJson);
+                    if (email == otpSended.email && otp == otpSended.code)
+                    {
+                        OTPStatus data = new OTPStatus { email = email, status = true };
+                        HttpContext.Session.SetString("verifyEmail", System.Text.Json.JsonSerializer.Serialize(data));
+                        return Json(new { success = true, message = "Xác thực thành công" });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "Mã OTP không hợp lệ" });
+                    }
+                }
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendOTPPhone(string phone)
+        {
+            try
+            {
+                AlertMessage alertMessage = await _sendOTP.SendOTPByPhone(phone);
                 if (alertMessage.Type == "success")
                 {
-                    OTPCode data = new OTPCode()
-                    {
-                        email = email,
-                        code = alertMessage.Message
-                    };
-                    
-                   HttpContext.Session.SetString("OTP", System.Text.Json.JsonSerializer.Serialize(data));
-
-                   return PartialView("_SendOTPEmail",email); 
+                    return PartialView("_SendOTPPhone", phone);
                 }
                 else
                 {
                     return Json(new { success = false, message = "Đã xảy ra lỗi" });
                 }
             }
-        }
-        [HttpPost]
-        public async Task<IActionResult> VerifyOTPEmail(string otp, string email)
-        {
-            string otpJson = HttpContext.Session.GetString("OTP");
-            if(String.IsNullOrEmpty(otpJson))
+            catch (Exception ex)
             {
-                return Json(new { success = false, message = "Mã OTP không hợp lệ" });
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
             }
-            else
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyOTPPhone(string otp, string phone)
+        {
+            try
             {
-                OTPCode otpSended = System.Text.Json.JsonSerializer.Deserialize<OTPCode>(otpJson);
-                if (email == otpSended.email && otp == otpSended.code)
+                AlertMessage alertMessage = _sendOTP.CheckOTPByPhone(phone, otp);
+                if(alertMessage.Type=="success")
                 {
-                    OTPStatus data = new OTPStatus{ email = email, status = true };
-                    HttpContext.Session.SetString("verifyEmail", System.Text.Json.JsonSerializer.Serialize(data));
+                    OTPStatusPhone data = new OTPStatusPhone { phone = phone, status = true };
+                    HttpContext.Session.SetString("verifyPhone", System.Text.Json.JsonSerializer.Serialize(data));
                     return Json(new { success = true, message = "Xác thực thành công" });
                 }else
-                {
+                 {
                     return Json(new { success = false, message = "Mã OTP không hợp lệ" });
-                }    
-            }  
+                 }
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> InsertCustomer(Nguoidung nd, IFormFile avatar)
         {
-            var json =  HttpContext.Session.GetString("verifyEmail");
-            if(!string.IsNullOrEmpty(json))
+            try
             {
-                OTPStatus verifyEmailObject = System.Text.Json.JsonSerializer.Deserialize<OTPStatus>(json);
-
-                if (verifyEmailObject.email == nd.Email && verifyEmailObject.status)
+                var json = HttpContext.Session.GetString("verifyEmail");
+                if (!string.IsNullOrEmpty(json))
                 {
-                    string urlAvatar = _cloudinary_Net.Upload(avatar,"ND");
-                    nd.MaNd = await _nguoiDungRepository.CreateId();
-                    nd.NgayTao = DateTime.Now;
-                    nd.MaVaiTro = "KH";
-                    nd.Avatar = urlAvatar;
+                    OTPStatus verifyEmailObject = System.Text.Json.JsonSerializer.Deserialize<OTPStatus>(json);
 
-                    AlertMessage alertMessage = await _nguoiDungRepository.Add(nd);
-                    SetAlert(alertMessage.Message, alertMessage.Type);
-                    return RedirectToAction("AddCustomer");
+                    if (verifyEmailObject.email == nd.Email && verifyEmailObject.status)
+                    {
+                       if(nd.SoDienThoai!=null)
+                        {
+                            var jsonPhone = HttpContext.Session.GetString("verifyPhone");
+                            if (!string.IsNullOrEmpty(jsonPhone))
+                            {
+                                OTPStatusPhone verifyPhoneObject = System.Text.Json.JsonSerializer.Deserialize<OTPStatusPhone>(jsonPhone);
+                                if (verifyPhoneObject.phone == nd.SoDienThoai && verifyPhoneObject.status)
+                                {
+                                    if (avatar != null)
+                                    {
+                                        string urlAvatar = _cloudinary_Net.Upload(avatar, "ND");
+                                        nd.Avatar = urlAvatar;
+                                    }
+                                    nd.MaNd = await _nguoiDungRepository.CreateId();
+                                    nd.NgayTao = DateTime.Now;
+                                    nd.MaVaiTro = "KH";
+
+                                    AlertMessage alertMessage = await _nguoiDungRepository.Add(nd);
+                                    SetAlert(alertMessage.Message, alertMessage.Type);
+                                    return RedirectToAction("AddCustomer");
+                                }
+                                else
+                                {
+                                    SetAlert("Số điện thoại chưa được xác thực", "warning");
+                                    ViewBag.avatar = avatar;
+                                    return View("AddCustomer", nd);
+                                }
+                            }
+                            else
+                            {
+                                SetAlert("Số điện thoại chưa được xác thực", "warning");
+                                ViewBag.avatar = avatar;
+                                return View("AddCustomer", nd);
+                            }
+                        } else
+                        {
+                            if (avatar != null)
+                            {
+                                string urlAvatar = _cloudinary_Net.Upload(avatar, "ND");
+                                nd.Avatar = urlAvatar;
+                            }
+                            nd.MaNd = await _nguoiDungRepository.CreateId();
+                            nd.NgayTao = DateTime.Now;
+                            nd.MaVaiTro = "KH";
+
+                            AlertMessage alertMessage = await _nguoiDungRepository.Add(nd);
+                            SetAlert(alertMessage.Message, alertMessage.Type);
+                            return RedirectToAction("AddCustomer");
+                        }    
+                    }
+                    else
+                    {
+                        SetAlert("Email chưa được xác thực", "warning");
+                        ViewBag.avatar = avatar;
+                        return View("AddCustomer", nd);
+                    }
                 }
-                else
-                {
-                    SetAlert("Email chưa được xác thực", "warning");
-                    ViewBag.avatar = avatar;
-                    return View("AddCustomer", nd);
-                }
+                SetAlert("Email chưa được xác thực", "warning");
+                ViewBag.avatar = avatar;
+                return View("AddCustomer", nd);
+            }catch(Exception ex)
+            {
+                throw ex;
             }
-            SetAlert("Email chưa được xác thực", "warning");
-            ViewBag.avatar = avatar;
-            return View("AddCustomer", nd);
         }
 
         [HttpPost]
         public async Task<IActionResult> SearchCustomer(string keyword, int? page)
         {
-            if (page == null)
-                page = 1;
-
-            List<Nguoidung> lstUsers = null;
-            if (String.IsNullOrEmpty(keyword))
+            try
             {
-                lstUsers = await _nguoiDungRepository.GetAllCustomer();
+                if (page == null)
+                    page = 1;
+
+                List<Nguoidung> lstUsers = null;
+                if (String.IsNullOrEmpty(keyword))
+                {
+                    lstUsers = await _nguoiDungRepository.GetAllCustomer();
+                }
+                else
+                    lstUsers = await _nguoiDungRepository.SearchNguoiDung(keyword);
+
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+
+                int pageNumber = page ?? 1;
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstUsers.Count / pageSize;
+
+                return PartialView("_ListCustomer", lstUsers.ToPagedList(pageNumber, pageSize));
             }
-            else
-                lstUsers = await _nguoiDungRepository.SearchNguoiDung(keyword);
-
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
-
-            int pageNumber = page ?? 1;
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstUsers.Count / pageSize;
-
-            return PartialView("_ListCustomer", lstUsers.ToPagedList(pageNumber, pageSize));
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> FilterCustomer(string keyword, CategoryCustomer loaiKh, GenderOptions gioiTinh, CreateAtOptions ngayTao, SortOptionsCustomer SortOption, int? page)
         {
-            keyword = keyword ?? "";
+            try
+            {
+                keyword = keyword ?? "";
 
-            if (page == null)
-                page = 1;
+                if (page == null)
+                    page = 1;
 
-            List<Nguoidung> lstCustomers = await _nguoiDungRepository.FilterCustomer(keyword, loaiKh, gioiTinh, ngayTao, SortOption);
+                List<Nguoidung> lstCustomers = await _nguoiDungRepository.FilterCustomer(keyword, loaiKh, gioiTinh, ngayTao, SortOption);
 
-            int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
+                int pageSize = 12; // Số sản phẩm hiển thị trên mỗi trang
 
-            int pageNumber = page ?? 1;
+                int pageNumber = page ?? 1;
 
-            ViewBag.PageNumber = pageNumber;
-            ViewBag.PageCount = lstCustomers.Count / pageSize;
+                ViewBag.PageNumber = pageNumber;
+                ViewBag.PageCount = lstCustomers.Count / pageSize;
 
-            return PartialView("_ListCustomer", lstCustomers.ToPagedList(pageNumber, pageSize));
+                return PartialView("_ListCustomer", lstCustomers.ToPagedList(pageNumber, pageSize));
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<AlertMessage> DeleteCustomer(string maNd)
+        {
+            try
+            {
+                AlertMessage alertMessage = await _nguoiDungRepository.Delete(maNd);
+                return alertMessage;
+            }
+            catch (Exception ex)
+            {
+                return new AlertMessage()
+                {
+                    Type = "error",
+                    Message = ex.Message
+                };
+            }
         }
     }
 }

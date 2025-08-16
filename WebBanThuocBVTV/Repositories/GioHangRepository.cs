@@ -17,8 +17,15 @@ namespace WebBanThuocBVTV.Repositories
         }
         public string CreateId()
         {
-            string newMaGh = _idGeneratorHelper.GenerateOrderCode();
-            return newMaGh;
+            try
+            {
+                string newMaGh = _idGeneratorHelper.GenerateOrderCode();
+                return newMaGh;
+            }
+            catch (Exception ex) {
+                throw ex;
+
+            }
         }
         public async Task<AlertMessage> Add(Giohang entity)
         {
@@ -29,13 +36,13 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Tạo giỏ hàng thành công";
+                return alertMessage;
             }
             catch(Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+            
         }
         public async Task<AlertMessage> AddSanPham(GiohangSanpham entity)
         {
@@ -57,13 +64,13 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Thêm vào giỏ hàng thành công";
+                return alertMessage;
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+           
         }
         
         public Task<AlertMessage> Delete(string id)
@@ -80,13 +87,13 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Thêm vào giỏ hàng thành công";
+                return alertMessage;
             }
             catch(Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+            
         }
         public Task<List<Giohang>> GetAllAsync()
         {
@@ -94,13 +101,25 @@ namespace WebBanThuocBVTV.Repositories
         }
         public async Task<Giohang> GetById(string maNd)
         {
-            Giohang gioHang = await _contextDB.Giohangs.Where(gh => gh.MaNd == maNd).Include(gh=>gh.GiohangSanphams).ThenInclude(ghsp=>ghsp.MaSanPhamNavigation).ThenInclude(sp=>sp.Hinhanhs).FirstOrDefaultAsync();
-            return gioHang;
+            try
+            {
+                Giohang gioHang = await _contextDB.Giohangs.Where(gh => gh.MaNd == maNd).Include(gh => gh.GiohangSanphams).ThenInclude(ghsp => ghsp.MaSanPhamNavigation).ThenInclude(sp => sp.Hinhanhs).FirstOrDefaultAsync();
+                return gioHang;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
         public async Task<GiohangSanpham> GetGioHangSanPham(string maGioHang, string maSp)
         {
-            GiohangSanpham gioHangSp = await _contextDB.GiohangSanphams.Where(gh => gh.MaGioHang == maGioHang && gh.MaSanPham == maSp).FirstOrDefaultAsync();
-            return gioHangSp;
+            try
+            {
+                GiohangSanpham gioHangSp = await _contextDB.GiohangSanphams.Where(gh => gh.MaGioHang == maGioHang && gh.MaSanPham == maSp).FirstOrDefaultAsync();
+                return gioHangSp;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
         public async Task<AlertMessage> Update(Giohang entity)
         {
@@ -111,13 +130,13 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Cập nhật thành công";
+                return alertMessage;
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+           
         }
         public async Task<AlertMessage> UpdateProduct(GiohangSanpham entity)
         {
@@ -128,13 +147,13 @@ namespace WebBanThuocBVTV.Repositories
                 await _contextDB.SaveChangesAsync();
                 alertMessage.Type = "success";
                 alertMessage.Message = "Cập nhật thành công";
+                return alertMessage;
             }
             catch (Exception ex)
             {
-                alertMessage.Type = "error";
-                alertMessage.Message = ex.Message;
+                throw ex;
             }
-            return alertMessage;
+            
         }
     }
 }

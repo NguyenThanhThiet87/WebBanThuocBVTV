@@ -21,101 +21,132 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var accountJson = HttpContext.Session.GetString("Account");
-            if (accountJson != null)
+            try
             {
-                Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
-
-                Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
-                if (gioHang.TongTien < 0)
+                var accountJson = HttpContext.Session.GetString("Account");
+                if (accountJson != null)
                 {
-                    double sum = 0;
-                    foreach(var item in gioHang.GiohangSanphams)
+                    Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
+
+                    Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
+                    if (gioHang.TongTien < 0)
                     {
-                        sum += item.TongTien;
+                        double sum = 0;
+                        foreach (var item in gioHang.GiohangSanphams)
+                        {
+                            sum += item.TongTien;
+                        }
+                        gioHang.TongTien = sum;
+                        await _gioHangRepository.Update(gioHang);
                     }
-                    gioHang.TongTien = sum;
-                    await _gioHangRepository.Update(gioHang);
+                    return PartialView(gioHang);
                 }
-                return PartialView(gioHang);
+                return null;
+            }catch(Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
             }
-            return null;
         }
 
         [HttpPost]
         public async Task<IActionResult> AddProduct(string maSp, int soLuong)
         {
-            var accountJson = HttpContext.Session.GetString("Account");
-            if (accountJson != null)
+            try
             {
-                Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
-                Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
-                Sanpham sp = await _sanPhamRepository.GetById(maSp);
-                GiohangSanpham gioHangSanPham = new GiohangSanpham();
-                gioHangSanPham.MaGioHang = gioHang.MaGioHang;
-                gioHangSanPham.MaSanPham = maSp;
-                gioHangSanPham.SoLuong = soLuong;
-                gioHangSanPham.TongTien = (double)(sp.Gia * soLuong);
-                gioHang.TongTien += gioHangSanPham.TongTien;
-
-                AlertMessage alertSanPham = await _gioHangRepository.AddSanPham(gioHangSanPham);
-                if (alertSanPham.Type == "success")
+                var accountJson = HttpContext.Session.GetString("Account");
+                if (accountJson != null)
                 {
-                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
-                    return Json(new { success = true, message = alert.Message });
+                    Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
+                    Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
+                    Sanpham sp = await _sanPhamRepository.GetById(maSp);
+                    GiohangSanpham gioHangSanPham = new GiohangSanpham();
+                    gioHangSanPham.MaGioHang = gioHang.MaGioHang;
+                    gioHangSanPham.MaSanPham = maSp;
+                    gioHangSanPham.SoLuong = soLuong;
+                    gioHangSanPham.TongTien = (double)(sp.Gia * soLuong);
+                    gioHang.TongTien += gioHangSanPham.TongTien;
+
+                    AlertMessage alertSanPham = await _gioHangRepository.AddSanPham(gioHangSanPham);
+                    if (alertSanPham.Type == "success")
+                    {
+                        AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                        return Json(new { success = true, message = alert.Message });
+                    }
+                    return Json(new { success = false, message = alertSanPham.Message });
                 }
-                return Json(new { success = false, message = alertSanPham.Message});
+                return Json(new { success = false, message = "Bạn chưa đăng nhập" });
             }
-            return Json(new { success = false, message = "Bạn chưa đăng nhập" });
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> RemoveProduct(string maSp)
         {
-            var accountJson = HttpContext.Session.GetString("Account");
-            if (accountJson != null)
+            try
             {
-                Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
-                Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
-
-                GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
-                gioHang.TongTien -= gioHangSanPham.TongTien;
-                if (gioHang.TongTien < 0)
-                    gioHang.TongTien = 0;
-                AlertMessage alertSanPham = await _gioHangRepository.Delete(gioHangSanPham);
-                if (alertSanPham.Type == "success")
+                var accountJson = HttpContext.Session.GetString("Account");
+                if (accountJson != null)
                 {
-                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
-                    return Json(new { success = true, message = alert.Message });
+                    Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
+                    Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
+
+                    GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
+                    gioHang.TongTien -= gioHangSanPham.TongTien;
+                    if (gioHang.TongTien < 0)
+                        gioHang.TongTien = 0;
+                    AlertMessage alertSanPham = await _gioHangRepository.Delete(gioHangSanPham);
+                    if (alertSanPham.Type == "success")
+                    {
+                        AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                        return Json(new { success = true, message = alert.Message });
+                    }
+                    return Json(new { success = false, message = alertSanPham.Message });
                 }
-                return Json(new { success = false, message = alertSanPham.Message });
+                return Json(new { success = false, message = "Bạn chưa đăng nhập" });
             }
-            return Json(new { success = false, message = "Bạn chưa đăng nhập" });
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> UpdateSoluongProduct(string maSp, int soLuong)
         {
-            var accountJson = HttpContext.Session.GetString("Account");
-            if (accountJson != null)
+            try
             {
-                Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
-                Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
-
-                GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
-                gioHang.TongTien -= gioHangSanPham.TongTien;
-                double gia = gioHangSanPham.TongTien / gioHangSanPham.SoLuong;
-                gioHangSanPham.SoLuong = soLuong;
-                gioHangSanPham.TongTien = gioHangSanPham.SoLuong * gia;
-                gioHang.TongTien += gioHangSanPham.TongTien;
-
-                AlertMessage alertSanPham = await _gioHangRepository.UpdateProduct(gioHangSanPham);
-                if(alertSanPham.Type=="success")
+                var accountJson = HttpContext.Session.GetString("Account");
+                if (accountJson != null)
                 {
-                    AlertMessage alert = await _gioHangRepository.Update(gioHang);
-                    return Json(new { success = true, message = alert.Message });
-                }    
-                return Json(new { success = false, message = alertSanPham.Message });
+                    Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
+                    Giohang gioHang = await _gioHangRepository.GetById(account.MaNd);
+
+                    GiohangSanpham gioHangSanPham = await _gioHangRepository.GetGioHangSanPham(gioHang.MaGioHang, maSp);
+                    gioHang.TongTien -= gioHangSanPham.TongTien;
+                    double gia = gioHangSanPham.TongTien / gioHangSanPham.SoLuong;
+                    gioHangSanPham.SoLuong = soLuong;
+                    gioHangSanPham.TongTien = gioHangSanPham.SoLuong * gia;
+                    gioHang.TongTien += gioHangSanPham.TongTien;
+
+                    AlertMessage alertSanPham = await _gioHangRepository.UpdateProduct(gioHangSanPham);
+                    if (alertSanPham.Type == "success")
+                    {
+                        AlertMessage alert = await _gioHangRepository.Update(gioHang);
+                        return Json(new { success = true, message = alert.Message });
+                    }
+                    return Json(new { success = false, message = alertSanPham.Message });
+                }
+                return Json(new { success = false, message = "Bạn chưa đăng nhập" });
             }
-            return Json(new { success = false, message = "Bạn chưa đăng nhập" });
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Home");
+            }
         }
         
     }

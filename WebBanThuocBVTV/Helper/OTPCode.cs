@@ -16,4 +16,9 @@
         public string email { get; set; }
         public bool status { get; set; }
     }
+    public class OTPStatusPhone
+    {
+        public string phone { get; set; }
+        public bool status { get; set; }
+    }
 }

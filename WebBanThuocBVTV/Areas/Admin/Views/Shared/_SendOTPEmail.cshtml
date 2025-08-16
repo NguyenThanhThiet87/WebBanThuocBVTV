@@ -12,15 +12,15 @@
 </p>
 
 <div class="otp-input-container">
-	<input type="text" class="otp-input" maxlength="1" >
-	<input type="text" class="otp-input" maxlength="1">
-	<input type="text" class="otp-input" maxlength="1" >
-	<input type="text" class="otp-input" maxlength="1" >
-	<input type="text" class="otp-input" maxlength="1" >
-	<input type="text" class="otp-input" maxlength="1" >
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 1)" onkeydown="previous(this, event, 1)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 2)" onkeydown="previous(this, event, 2)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 3)" onkeydown="previous(this, event, 3)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 4)" onkeydown="previous(this, event, 4)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 5)" onkeydown="previous(this, event, 5)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 6)" onkeydown="previous(this, event, 6)">
 </div>
 
-<button class="verify-btn" id="verifyBtn" onclick="verifyEmail()">
+<button class="verify-btn" id="verifyEmailBtn" onclick="verifyEmail()">
 	Xác thực
 </button>
 
@@ -34,7 +34,7 @@
 
 <div class="resend-section">
 	<span>Không nhận được mã? </span>
-	<button class="resend-btn" id="resendBtn" onclick="resendOtp()">
+	<button class="resend-btn" id="resendBtn" onclick="resendOTPEmail()">
 		Gửi lại mã
 	</button>
 	<span id="countdown" class="countdown" style="display: none;">
