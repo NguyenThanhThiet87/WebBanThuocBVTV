@@ -259,7 +259,7 @@
     }
 
 .notifications {
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -276,17 +276,19 @@
         transform: translateX(8px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-.notification-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.9rem;
-}
+    .notification-item div + div {
+        width: 283px;
+    }
+    .notification-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+    }
 
     .notification-icon.info {
         background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);

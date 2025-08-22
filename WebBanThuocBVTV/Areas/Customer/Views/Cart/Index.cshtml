@@ -54,9 +54,8 @@
 		<p>Tổng cộng: <strong id="cart-total">@(String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @Model.TongTien)) VNĐ</strong></p>
 	</div>
 
-	<form class="cart-actions" asp-action="Index" asp-controller="Order" asp-area="customer" asp-status="1">
+	<form class="cart-actions" asp-action="Index" asp-controller="Order" asp-area="customer">
 		<input id="dataSubmit" name="listSanPhamOrderStr" value="" type="hidden" />
-		<input name="status" value="1" type="hidden" />
 		<button class="checkout-btn" onclick="OrderProductFromCart(this)" type="button">Thanh Toán</button>
 	</form>
 }else

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nb51gt5jUWUI6M24Nh6c7OsZkqLuzfpOIw4gUHYTj1Y=",
+  "Hash": "GnDXivtbSIAToaNji7xuKJ18f0tIT587lxCcxlq5msc=",
   "Source": "WebBanThuocBVTV",
   "BasePath": "_content/WebBanThuocBVTV",
   "Mode": "Default",
@@ -773,12 +773,12 @@
       "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\minimalTheme.js"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-8iztwt2do2.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-2j0dyf4j5k.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/ManageSystem/Index#[.{fingerprint=8iztwt2do2}]?.css.gz",
+      "RelativePath": "css/Admin/ManageSystem/Index#[.{fingerprint=2j0dyf4j5k}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -787,8 +787,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageSystem\\Index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "vyfq6zr5dn",
-      "Integrity": "V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU=",
+      "Fingerprint": "fjhl2w0ld4",
+      "Integrity": "C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageSystem\\Index.css"
@@ -899,12 +899,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageStaff\\Index.css"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zw3rqgabrc.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zlza782y14.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/Share/_TopBar#[.{fingerprint=zw3rqgabrc}]?.css.gz",
+      "RelativePath": "css/Admin/Share/_TopBar#[.{fingerprint=zlza782y14}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -913,8 +913,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\_TopBar.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "kr44zoioa0",
-      "Integrity": "4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU=",
+      "Fingerprint": "u3gdittllf",
+      "Integrity": "NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\_TopBar.css"
@@ -1067,12 +1067,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageOrder\\_DetailOrder.css"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-crpngm413c.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-eal4583fy3.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/ManageProduct/_AddProduct#[.{fingerprint=crpngm413c}]?.css.gz",
+      "RelativePath": "css/Admin/ManageProduct/_AddProduct#[.{fingerprint=eal4583fy3}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1081,8 +1081,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "euk1gbxnob",
-      "Integrity": "xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA=",
+      "Fingerprint": "1puwro9sky",
+      "Integrity": "ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css"
@@ -2054,12 +2054,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Index.css"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-kcjb2ufxsr.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-pe03kbrjii.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/ManageComment/Index#[.{fingerprint=kcjb2ufxsr}]?.css.gz",
+      "RelativePath": "css/Admin/ManageComment/Index#[.{fingerprint=pe03kbrjii}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2068,8 +2068,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageComment\\Index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "v1bjtfjv0r",
-      "Integrity": "TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU=",
+      "Fingerprint": "w0rxckom3p",
+      "Integrity": "EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageComment\\Index.css"
@@ -2243,12 +2243,12 @@
       "OriginalItemSpec": "C:\\Users\\thiet\\.nuget\\packages\\sweetalert2\\1.0.1\\staticwebassets\\borderlessTheme.css"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-ohwghl6dfp.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-g3luckxw0a.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/Share/WebBanThuocBVTV_Admin#[.{fingerprint=ohwghl6dfp}]?.css.gz",
+      "RelativePath": "css/Admin/Share/WebBanThuocBVTV_Admin#[.{fingerprint=g3luckxw0a}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -2257,8 +2257,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\WebBanThuocBVTV_Admin.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "qwqunv2fig",
-      "Integrity": "uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo=",
+      "Fingerprint": "eghcs2t1jv",
+      "Integrity": "Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\WebBanThuocBVTV_Admin.css"
@@ -3020,6 +3020,27 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\l7pcpzg4r2-pbszwax963.gz",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "js/Shared/Login/Register#[.{fingerprint=pbszwax963}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "sjx0o6t9ek",
+      "Integrity": "KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js"
+    },
+    {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\lbh2uqzmcl-q8vbplcxmj.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
@@ -3629,12 +3650,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Customer\\Account\\UpdatePhone.js"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-tm51929swq.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-cb1z4wqbj0.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Admin/Home/Index#[.{fingerprint=tm51929swq}]?.css.gz",
+      "RelativePath": "css/Admin/Home/Index#[.{fingerprint=cb1z4wqbj0}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3643,8 +3664,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Home\\Index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "zw19kb5iyt",
-      "Integrity": "8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI=",
+      "Fingerprint": "cpz7r6g4al",
+      "Integrity": "gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Home\\Index.css"
@@ -3671,12 +3692,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Login\\Register.css"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-sql6oqwfpg.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-0wwnnt7hlx.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "css/Product/Index#[.{fingerprint=sql6oqwfpg}]?.css.gz",
+      "RelativePath": "css/Product/Index#[.{fingerprint=0wwnnt7hlx}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -3685,8 +3706,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Product\\Index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "zp4kdvwjvt",
-      "Integrity": "GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY=",
+      "Fingerprint": "dn2eosbqch",
+      "Integrity": "F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Product\\Index.css"
@@ -4133,12 +4154,12 @@
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-5lvm9xo8q1.gz",
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-xwzsj041u7.gz",
       "SourceId": "WebBanThuocBVTV",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/WebBanThuocBVTV",
-      "RelativePath": "js/Admin/Home/Index#[.{fingerprint=5lvm9xo8q1}]?.js.gz",
+      "RelativePath": "js/Admin/Home/Index#[.{fingerprint=xwzsj041u7}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -4147,8 +4168,8 @@
       "RelatedAsset": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "00ztjq75nb",
-      "Integrity": "kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw=",
+      "Fingerprint": "e4yfmfeh87",
+      "Integrity": "fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js"
@@ -4735,8 +4756,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tm51929swq",
-      "Integrity": "xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=",
+      "Fingerprint": "cb1z4wqbj0",
+      "Integrity": "mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\Home\\Index.css"
@@ -4777,8 +4798,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "kcjb2ufxsr",
-      "Integrity": "tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=",
+      "Fingerprint": "pe03kbrjii",
+      "Integrity": "L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\ManageComment\\Index.css"
@@ -4966,8 +4987,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "crpngm413c",
-      "Integrity": "2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=",
+      "Fingerprint": "eal4583fy3",
+      "Integrity": "OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css"
@@ -5155,8 +5176,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8iztwt2do2",
-      "Integrity": "AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=",
+      "Fingerprint": "2j0dyf4j5k",
+      "Integrity": "Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\ManageSystem\\Index.css"
@@ -5197,8 +5218,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zw3rqgabrc",
-      "Integrity": "k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=",
+      "Fingerprint": "zlza782y14",
+      "Integrity": "x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\Share\\_TopBar.css"
@@ -5218,8 +5239,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ohwghl6dfp",
-      "Integrity": "hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=",
+      "Fingerprint": "g3luckxw0a",
+      "Integrity": "TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Admin\\Share\\WebBanThuocBVTV_Admin.css"
@@ -5617,8 +5638,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "sql6oqwfpg",
-      "Integrity": "bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=",
+      "Fingerprint": "0wwnnt7hlx",
+      "Integrity": "QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Product\\Index.css"
@@ -5911,8 +5932,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5lvm9xo8q1",
-      "Integrity": "aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=",
+      "Fingerprint": "xwzsj041u7",
+      "Integrity": "0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Admin\\Home\\Index.js"
@@ -6609,6 +6630,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Shared\\Login\\ForgetPass.js"
+    },
+    {
+      "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js",
+      "SourceId": "WebBanThuocBVTV",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\",
+      "BasePath": "_content/WebBanThuocBVTV",
+      "RelativePath": "js/Shared/Login/Register#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pbszwax963",
+      "Integrity": "JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Shared\\Login\\Register.js"
     },
     {
       "Identity": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\site.js",
@@ -13702,13 +13744,13 @@
       ]
     },
     {
-      "Route": "css/Admin/Home/Index.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-tm51929swq.gz",
+      "Route": "css/Admin/Home/Index.cb1z4wqbj0.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-cb1z4wqbj0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.004651162791"
+          "Quality": "0.004149377593"
         }
       ],
       "ResponseHeaders": [
@@ -13718,19 +13760,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "214"
+          "Value": "240"
         },
         {
           "Name": "ETag",
-          "Value": "\"8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI=\""
+          "Value": "\"gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -13746,18 +13788,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=\""
+          "Value": "W/\"mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "cb1z4wqbj0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Admin/Home/Index.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc="
+          "Value": "sha256-mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk="
         }
       ]
     },
     {
-      "Route": "css/Admin/Home/Index.css",
+      "Route": "css/Admin/Home/Index.cb1z4wqbj0.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Home\\Index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -13767,7 +13817,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "283"
+          "Value": "331"
         },
         {
           "Name": "Content-Type",
@@ -13775,121 +13825,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=\""
+          "Value": "\"mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/Home/Index.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-tm51929swq.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "214"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/Home/Index.tm51929swq.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-tm51929swq.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.004651162791"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "214"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tm51929swq"
+          "Value": "cb1z4wqbj0"
         },
         {
           "Name": "label",
@@ -13897,13 +13847,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc="
+          "Value": "sha256-mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk="
         }
       ]
     },
     {
-      "Route": "css/Admin/Home/Index.tm51929swq.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Home\\Index.css",
+      "Route": "css/Admin/Home/Index.cb1z4wqbj0.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-cb1z4wqbj0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13912,7 +13862,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "283"
+          "Value": "240"
         },
         {
           "Name": "Content-Type",
@@ -13920,56 +13870,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=\""
+          "Value": "\"gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tm51929swq"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Admin/Home/Index.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/Home/Index.tm51929swq.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-tm51929swq.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "214"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:49 GMT"
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13987,7 +13892,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tm51929swq"
+          "Value": "cb1z4wqbj0"
         },
         {
           "Name": "label",
@@ -13995,7 +13900,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-8+GtvoGaU749gqYtMvhIfiohKc20vO809+Bu4kVsXWI="
+          "Value": "sha256-gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/Home/Index.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-cb1z4wqbj0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.004149377593"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/Home/Index.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Home\\Index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "331"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/Home/Index.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rfdb0b6rnn-cb1z4wqbj0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:41:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gIMRXYFoaF9dL3HsNOnxhP4Yiws3OyZkK8JFDSUwa/Q="
         }
       ]
     },
@@ -14299,12 +14341,12 @@
     },
     {
       "Route": "css/Admin/ManageComment/Index.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-kcjb2ufxsr.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-pe03kbrjii.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000601322910"
+          "Quality": "0.000604229607"
         }
       ],
       "ResponseHeaders": [
@@ -14314,15 +14356,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1662"
+          "Value": "1654"
         },
         {
           "Name": "ETag",
-          "Value": "\"TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU=\""
+          "Value": "\"EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14342,13 +14384,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=\""
+          "Value": "W/\"L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0="
+          "Value": "sha256-L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg="
         }
       ]
     },
@@ -14363,7 +14405,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8039"
+          "Value": "8015"
         },
         {
           "Name": "Content-Type",
@@ -14371,11 +14413,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=\""
+          "Value": "\"L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14385,13 +14427,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0="
+          "Value": "sha256-L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg="
         }
       ]
     },
     {
       "Route": "css/Admin/ManageComment/Index.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-kcjb2ufxsr.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-pe03kbrjii.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14400,7 +14442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1662"
+          "Value": "1654"
         },
         {
           "Name": "Content-Type",
@@ -14408,11 +14450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU=\""
+          "Value": "\"EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14430,18 +14472,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU="
+          "Value": "sha256-EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageComment/Index.kcjb2ufxsr.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-kcjb2ufxsr.gz",
+      "Route": "css/Admin/ManageComment/Index.pe03kbrjii.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-pe03kbrjii.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000601322910"
+          "Quality": "0.000604229607"
         }
       ],
       "ResponseHeaders": [
@@ -14451,15 +14493,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1662"
+          "Value": "1654"
         },
         {
           "Name": "ETag",
-          "Value": "\"TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU=\""
+          "Value": "\"EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14479,13 +14521,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=\""
+          "Value": "W/\"L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kcjb2ufxsr"
+          "Value": "pe03kbrjii"
         },
         {
           "Name": "label",
@@ -14493,12 +14535,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0="
+          "Value": "sha256-L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageComment/Index.kcjb2ufxsr.css",
+      "Route": "css/Admin/ManageComment/Index.pe03kbrjii.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageComment\\Index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -14508,7 +14550,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8039"
+          "Value": "8015"
         },
         {
           "Name": "Content-Type",
@@ -14516,11 +14558,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=\""
+          "Value": "\"L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14530,7 +14572,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kcjb2ufxsr"
+          "Value": "pe03kbrjii"
         },
         {
           "Name": "label",
@@ -14538,13 +14580,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0="
+          "Value": "sha256-L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageComment/Index.kcjb2ufxsr.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-kcjb2ufxsr.gz",
+      "Route": "css/Admin/ManageComment/Index.pe03kbrjii.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\9updajuley-pe03kbrjii.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14553,7 +14595,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1662"
+          "Value": "1654"
         },
         {
           "Name": "Content-Type",
@@ -14561,11 +14603,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU=\""
+          "Value": "\"EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Aug 2025 10:26:14 GMT"
+          "Value": "Mon, 18 Aug 2025 10:35:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14583,7 +14625,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "kcjb2ufxsr"
+          "Value": "pe03kbrjii"
         },
         {
           "Name": "label",
@@ -14591,7 +14633,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TXjH+h8fDk+NldqhoEMX6Gt0m7DCmdQV+6oNlYpiCBU="
+          "Value": "sha256-EGNq/0/TxN1SvMa03teFURc7gexSYYbsz+OnZdKEeEw="
         }
       ]
     },
@@ -16110,7 +16152,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16163,7 +16205,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16200,7 +16242,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16247,7 +16289,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16308,7 +16350,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16353,7 +16395,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:00:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16980,13 +17022,13 @@
       ]
     },
     {
-      "Route": "css/Admin/ManageProduct/_AddProduct.crpngm413c.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-crpngm413c.gz",
+      "Route": "css/Admin/ManageProduct/_AddProduct.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-eal4583fy3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001018329939"
+          "Quality": "0.001009081736"
         }
       ],
       "ResponseHeaders": [
@@ -16996,19 +17038,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "981"
+          "Value": "990"
         },
         {
           "Name": "ETag",
-          "Value": "\"xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA=\""
+          "Value": "\"ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -17024,26 +17066,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=\""
+          "Value": "W/\"OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "crpngm413c"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Admin/ManageProduct/_AddProduct.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g="
+          "Value": "sha256-OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageProduct/_AddProduct.crpngm413c.css",
+      "Route": "css/Admin/ManageProduct/_AddProduct.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17053,7 +17087,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4339"
+          "Value": "4392"
         },
         {
           "Name": "Content-Type",
@@ -17061,11 +17095,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=\""
+          "Value": "\"OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/ManageProduct/_AddProduct.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-eal4583fy3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "990"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/ManageProduct/_AddProduct.eal4583fy3.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-eal4583fy3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001009081736"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "990"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eal4583fy3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Admin/ManageProduct/_AddProduct.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/Admin/ManageProduct/_AddProduct.eal4583fy3.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17075,7 +17254,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "crpngm413c"
+          "Value": "eal4583fy3"
         },
         {
           "Name": "label",
@@ -17083,13 +17262,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g="
+          "Value": "sha256-OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageProduct/_AddProduct.crpngm413c.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-crpngm413c.gz",
+      "Route": "css/Admin/ManageProduct/_AddProduct.eal4583fy3.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-eal4583fy3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17098,7 +17277,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "981"
+          "Value": "990"
         },
         {
           "Name": "Content-Type",
@@ -17106,11 +17285,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA=\""
+          "Value": "\"ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
+          "Value": "Mon, 18 Aug 2025 10:00:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17128,7 +17307,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "crpngm413c"
+          "Value": "eal4583fy3"
         },
         {
           "Name": "label",
@@ -17136,144 +17315,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/ManageProduct/_AddProduct.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-crpngm413c.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001018329939"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "981"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/ManageProduct/_AddProduct.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageProduct\\_AddProduct.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4339"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g="
-        }
-      ]
-    },
-    {
-      "Route": "css/Admin/ManageProduct/_AddProduct.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\34mqekvsza-crpngm413c.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "981"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 31 Jul 2025 06:31:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-xgt9X4zeseV3AGzeEwRZJvXMHo87MJ8tMG1Gu3b0ySA="
+          "Value": "sha256-ZU4NmtPEDa18mZflpUv4GaqPW6CLiAuX5erzEIbEHyQ="
         }
       ]
     },
@@ -19662,13 +19704,13 @@
       ]
     },
     {
-      "Route": "css/Admin/ManageSystem/Index.8iztwt2do2.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-8iztwt2do2.gz",
+      "Route": "css/Admin/ManageSystem/Index.2j0dyf4j5k.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-2j0dyf4j5k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001094091904"
+          "Quality": "0.001067235859"
         }
       ],
       "ResponseHeaders": [
@@ -19678,15 +19720,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "936"
         },
         {
           "Name": "ETag",
-          "Value": "\"V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU=\""
+          "Value": "\"C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19706,13 +19748,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=\""
+          "Value": "W/\"Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8iztwt2do2"
+          "Value": "2j0dyf4j5k"
         },
         {
           "Name": "label",
@@ -19720,12 +19762,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w="
+          "Value": "sha256-Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageSystem/Index.8iztwt2do2.css",
+      "Route": "css/Admin/ManageSystem/Index.2j0dyf4j5k.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\ManageSystem\\Index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -19735,7 +19777,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3397"
+          "Value": "4530"
         },
         {
           "Name": "Content-Type",
@@ -19743,11 +19785,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=\""
+          "Value": "\"Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19757,7 +19799,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8iztwt2do2"
+          "Value": "2j0dyf4j5k"
         },
         {
           "Name": "label",
@@ -19765,13 +19807,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w="
+          "Value": "sha256-Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY="
         }
       ]
     },
     {
-      "Route": "css/Admin/ManageSystem/Index.8iztwt2do2.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-8iztwt2do2.gz",
+      "Route": "css/Admin/ManageSystem/Index.2j0dyf4j5k.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-2j0dyf4j5k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -19780,7 +19822,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "936"
         },
         {
           "Name": "Content-Type",
@@ -19788,11 +19830,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU=\""
+          "Value": "\"C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19810,7 +19852,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8iztwt2do2"
+          "Value": "2j0dyf4j5k"
         },
         {
           "Name": "label",
@@ -19818,18 +19860,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU="
+          "Value": "sha256-C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM="
         }
       ]
     },
     {
       "Route": "css/Admin/ManageSystem/Index.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-8iztwt2do2.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-2j0dyf4j5k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001094091904"
+          "Quality": "0.001067235859"
         }
       ],
       "ResponseHeaders": [
@@ -19839,15 +19881,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "936"
         },
         {
           "Name": "ETag",
-          "Value": "\"V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU=\""
+          "Value": "\"C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19867,13 +19909,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=\""
+          "Value": "W/\"Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w="
+          "Value": "sha256-Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY="
         }
       ]
     },
@@ -19888,7 +19930,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3397"
+          "Value": "4530"
         },
         {
           "Name": "Content-Type",
@@ -19896,11 +19938,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=\""
+          "Value": "\"Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19910,13 +19952,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w="
+          "Value": "sha256-Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY="
         }
       ]
     },
     {
       "Route": "css/Admin/ManageSystem/Index.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-8iztwt2do2.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\0ei2j5q5cx-2j0dyf4j5k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -19925,7 +19967,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "936"
         },
         {
           "Name": "Content-Type",
@@ -19933,11 +19975,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU=\""
+          "Value": "\"C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 07:54:01 GMT"
+          "Value": "Mon, 18 Aug 2025 10:34:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19955,7 +19997,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-V/WXWNsErhV3hNhQYcZs9mgwI2Sdvie9y/FJcv3ZMdU="
+          "Value": "sha256-C07PliigjSR9ts7GTkCZ768hzn1ZhdnImJ7qL4tR2wM="
         }
       ]
     },
@@ -20259,12 +20301,12 @@
     },
     {
       "Route": "css/Admin/Share/_TopBar.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zw3rqgabrc.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zlza782y14.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000688705234"
+          "Quality": "0.000672494956"
         }
       ],
       "ResponseHeaders": [
@@ -20274,15 +20316,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1486"
         },
         {
           "Name": "ETag",
-          "Value": "\"4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU=\""
+          "Value": "\"NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20302,13 +20344,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=\""
+          "Value": "W/\"x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k="
+          "Value": "sha256-x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0="
         }
       ]
     },
@@ -20323,7 +20365,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6577"
+          "Value": "6681"
         },
         {
           "Name": "Content-Type",
@@ -20331,11 +20373,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=\""
+          "Value": "\"x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20345,13 +20387,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k="
+          "Value": "sha256-x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0="
         }
       ]
     },
     {
       "Route": "css/Admin/Share/_TopBar.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zw3rqgabrc.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zlza782y14.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20360,7 +20402,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1486"
         },
         {
           "Name": "Content-Type",
@@ -20368,11 +20410,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU=\""
+          "Value": "\"NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20390,18 +20432,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU="
+          "Value": "sha256-NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/_TopBar.zw3rqgabrc.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zw3rqgabrc.gz",
+      "Route": "css/Admin/Share/_TopBar.zlza782y14.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zlza782y14.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000688705234"
+          "Quality": "0.000672494956"
         }
       ],
       "ResponseHeaders": [
@@ -20411,15 +20453,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1486"
         },
         {
           "Name": "ETag",
-          "Value": "\"4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU=\""
+          "Value": "\"NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20439,13 +20481,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=\""
+          "Value": "W/\"x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zw3rqgabrc"
+          "Value": "zlza782y14"
         },
         {
           "Name": "label",
@@ -20453,12 +20495,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k="
+          "Value": "sha256-x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/_TopBar.zw3rqgabrc.css",
+      "Route": "css/Admin/Share/_TopBar.zlza782y14.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\_TopBar.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -20468,7 +20510,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6577"
+          "Value": "6681"
         },
         {
           "Name": "Content-Type",
@@ -20476,11 +20518,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=\""
+          "Value": "\"x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20490,7 +20532,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zw3rqgabrc"
+          "Value": "zlza782y14"
         },
         {
           "Name": "label",
@@ -20498,13 +20540,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k="
+          "Value": "sha256-x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/_TopBar.zw3rqgabrc.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zw3rqgabrc.gz",
+      "Route": "css/Admin/Share/_TopBar.zlza782y14.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\15iw11c79u-zlza782y14.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20513,7 +20555,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1451"
+          "Value": "1486"
         },
         {
           "Name": "Content-Type",
@@ -20521,11 +20563,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU=\""
+          "Value": "\"NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:44:45 GMT"
+          "Value": "Mon, 18 Aug 2025 16:15:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20543,7 +20585,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zw3rqgabrc"
+          "Value": "zlza782y14"
         },
         {
           "Name": "label",
@@ -20551,18 +20593,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4Is9aILZp0C6GKeooOey02QOEjjAQ/E0/jDIoCxyXIU="
+          "Value": "sha256-NndjqXSbRYe3H6JNRAzU8UpZsbM/TLzYgphdf4hqpME="
         }
       ]
     },
     {
       "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-ohwghl6dfp.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-g3luckxw0a.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.006289308176"
+          "Quality": "0.006451612903"
         }
       ],
       "ResponseHeaders": [
@@ -20572,15 +20614,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "158"
+          "Value": "154"
         },
         {
           "Name": "ETag",
-          "Value": "\"uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo=\""
+          "Value": "\"Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20600,13 +20642,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=\""
+          "Value": "W/\"TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg="
+          "Value": "sha256-TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs="
         }
       ]
     },
@@ -20621,7 +20663,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "227"
+          "Value": "228"
         },
         {
           "Name": "Content-Type",
@@ -20629,11 +20671,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=\""
+          "Value": "\"TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20643,13 +20685,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg="
+          "Value": "sha256-TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs="
         }
       ]
     },
     {
       "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-ohwghl6dfp.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-g3luckxw0a.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20658,7 +20700,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "158"
+          "Value": "154"
         },
         {
           "Name": "Content-Type",
@@ -20666,11 +20708,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo=\""
+          "Value": "\"Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20688,18 +20730,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo="
+          "Value": "sha256-Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.ohwghl6dfp.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-ohwghl6dfp.gz",
+      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.g3luckxw0a.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-g3luckxw0a.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.006289308176"
+          "Quality": "0.006451612903"
         }
       ],
       "ResponseHeaders": [
@@ -20709,15 +20751,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "158"
+          "Value": "154"
         },
         {
           "Name": "ETag",
-          "Value": "\"uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo=\""
+          "Value": "\"Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20737,13 +20779,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=\""
+          "Value": "W/\"TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ohwghl6dfp"
+          "Value": "g3luckxw0a"
         },
         {
           "Name": "label",
@@ -20751,12 +20793,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg="
+          "Value": "sha256-TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.ohwghl6dfp.css",
+      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.g3luckxw0a.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Admin\\Share\\WebBanThuocBVTV_Admin.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -20766,7 +20808,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "227"
+          "Value": "228"
         },
         {
           "Name": "Content-Type",
@@ -20774,11 +20816,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=\""
+          "Value": "\"TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20788,7 +20830,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ohwghl6dfp"
+          "Value": "g3luckxw0a"
         },
         {
           "Name": "label",
@@ -20796,13 +20838,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg="
+          "Value": "sha256-TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs="
         }
       ]
     },
     {
-      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.ohwghl6dfp.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-ohwghl6dfp.gz",
+      "Route": "css/Admin/Share/WebBanThuocBVTV_Admin.g3luckxw0a.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\cds8emqbs6-g3luckxw0a.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -20811,7 +20853,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "158"
+          "Value": "154"
         },
         {
           "Name": "Content-Type",
@@ -20819,11 +20861,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo=\""
+          "Value": "\"Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Aug 2025 15:33:42 GMT"
+          "Value": "Mon, 18 Aug 2025 10:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20841,7 +20883,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ohwghl6dfp"
+          "Value": "g3luckxw0a"
         },
         {
           "Name": "label",
@@ -20849,7 +20891,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-uhbjr3SVu3tuJhFLTjUB+9kubzzp/fq3VmGU61/HkTo="
+          "Value": "sha256-Xtctvu2jHLdNQTMnfJRKFj5s4W825vGTHv5uX/c4BMo="
         }
       ]
     },
@@ -25348,7 +25390,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25409,7 +25451,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25454,7 +25496,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25509,7 +25551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25562,7 +25604,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25599,7 +25641,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:03 GMT"
+          "Value": "Sun, 17 Aug 2025 00:59:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -26218,8 +26260,8 @@
       ]
     },
     {
-      "Route": "css/Product/Index.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-sql6oqwfpg.gz",
+      "Route": "css/Product/Index.0wwnnt7hlx.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-0wwnnt7hlx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -26238,15 +26280,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY=\""
+          "Value": "\"F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -26262,18 +26304,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=\""
+          "Value": "W/\"QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "0wwnnt7hlx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Product/Index.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8="
+          "Value": "sha256-QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY="
         }
       ]
     },
     {
-      "Route": "css/Product/Index.css",
+      "Route": "css/Product/Index.0wwnnt7hlx.css",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Product\\Index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -26291,121 +26341,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=\""
+          "Value": "\"QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8="
-        }
-      ]
-    },
-    {
-      "Route": "css/Product/Index.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-sql6oqwfpg.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "690"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY="
-        }
-      ]
-    },
-    {
-      "Route": "css/Product/Index.sql6oqwfpg.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-sql6oqwfpg.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001447178003"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "690"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "sql6oqwfpg"
+          "Value": "0wwnnt7hlx"
         },
         {
           "Name": "label",
@@ -26413,58 +26363,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8="
+          "Value": "sha256-QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY="
         }
       ]
     },
     {
-      "Route": "css/Product/Index.sql6oqwfpg.css",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Product\\Index.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2720"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "sql6oqwfpg"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Product/Index.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8="
-        }
-      ]
-    },
-    {
-      "Route": "css/Product/Index.sql6oqwfpg.css.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-sql6oqwfpg.gz",
+      "Route": "css/Product/Index.0wwnnt7hlx.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-0wwnnt7hlx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -26481,11 +26386,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY=\""
+          "Value": "\"F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 16:29:51 GMT"
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -26503,7 +26408,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "sql6oqwfpg"
+          "Value": "0wwnnt7hlx"
         },
         {
           "Name": "label",
@@ -26511,7 +26416,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-GeL2JR/hhU7tHvbeVPqubJNCp5GRr4VbwNCJAGY4/gY="
+          "Value": "sha256-F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4="
+        }
+      ]
+    },
+    {
+      "Route": "css/Product/Index.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-0wwnnt7hlx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001447178003"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "690"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY="
+        }
+      ]
+    },
+    {
+      "Route": "css/Product/Index.css",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\css\\Product\\Index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2720"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY="
+        }
+      ]
+    },
+    {
+      "Route": "css/Product/Index.css.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\rpv02v2c13-0wwnnt7hlx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "690"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 17 Aug 2025 01:07:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F8Ns0CDJbFCGrNZNXURZuD9IbfHquo/W9PgMhW9EJT4="
         }
       ]
     },
@@ -30390,13 +30432,13 @@
       ]
     },
     {
-      "Route": "js/Admin/Home/Index.5lvm9xo8q1.js",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-5lvm9xo8q1.gz",
+      "Route": "js/Admin/Home/Index.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-xwzsj041u7.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002032520325"
+          "Quality": "0.001470588235"
         }
       ],
       "ResponseHeaders": [
@@ -30406,19 +30448,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "491"
+          "Value": "679"
         },
         {
           "Name": "ETag",
-          "Value": "\"kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw=\""
+          "Value": "\"fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -30434,26 +30476,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=\""
+          "Value": "W/\"0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "5lvm9xo8q1"
-        },
-        {
-          "Name": "label",
-          "Value": "js/Admin/Home/Index.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc="
+          "Value": "sha256-0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw="
         }
       ]
     },
     {
-      "Route": "js/Admin/Home/Index.5lvm9xo8q1.js",
+      "Route": "js/Admin/Home/Index.js",
       "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -30463,7 +30497,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1382"
+          "Value": "1982"
         },
         {
           "Name": "Content-Type",
@@ -30471,11 +30505,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=\""
+          "Value": "\"0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw="
+        }
+      ]
+    },
+    {
+      "Route": "js/Admin/Home/Index.js.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-xwzsj041u7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "679"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng="
+        }
+      ]
+    },
+    {
+      "Route": "js/Admin/Home/Index.xwzsj041u7.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-xwzsj041u7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001470588235"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "679"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xwzsj041u7"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Admin/Home/Index.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw="
+        }
+      ]
+    },
+    {
+      "Route": "js/Admin/Home/Index.xwzsj041u7.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1982"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -30485,7 +30664,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5lvm9xo8q1"
+          "Value": "xwzsj041u7"
         },
         {
           "Name": "label",
@@ -30493,13 +30672,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc="
+          "Value": "sha256-0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw="
         }
       ]
     },
     {
-      "Route": "js/Admin/Home/Index.5lvm9xo8q1.js.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-5lvm9xo8q1.gz",
+      "Route": "js/Admin/Home/Index.xwzsj041u7.js.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-xwzsj041u7.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -30508,7 +30687,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "491"
+          "Value": "679"
         },
         {
           "Name": "Content-Type",
@@ -30516,11 +30695,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw=\""
+          "Value": "\"fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
+          "Value": "Mon, 18 Aug 2025 16:23:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -30538,7 +30717,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5lvm9xo8q1"
+          "Value": "xwzsj041u7"
         },
         {
           "Name": "label",
@@ -30546,144 +30725,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw="
-        }
-      ]
-    },
-    {
-      "Route": "js/Admin/Home/Index.js",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-5lvm9xo8q1.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.002032520325"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "491"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc="
-        }
-      ]
-    },
-    {
-      "Route": "js/Admin/Home/Index.js",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Admin\\Home\\Index.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1382"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc="
-        }
-      ]
-    },
-    {
-      "Route": "js/Admin/Home/Index.js.gz",
-      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\unsh7iqzed-5lvm9xo8q1.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "491"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 15:29:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-kF4rdA8kgi+Q5CqYmhfZKmQ5gO/hLiqomtvy2EACBZw="
+          "Value": "sha256-fuxH4tP++aIDxW87AtUrCtXiBOvWbjTC7WahSVijGng="
         }
       ]
     },
@@ -36970,7 +37012,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37031,7 +37073,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37076,7 +37118,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37131,7 +37173,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37184,7 +37226,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37221,7 +37263,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 16 Aug 2025 17:10:25 GMT"
+          "Value": "Mon, 18 Aug 2025 10:47:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -40518,6 +40560,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-d36aJxeqFKpkXZSlrpEJvmhD9+pN3nav9Btv31peRlo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\l7pcpzg4r2-pbszwax963.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001182033097"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "845"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2350"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.js.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\l7pcpzg4r2-pbszwax963.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "845"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.pbszwax963.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\l7pcpzg4r2-pbszwax963.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001182033097"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "845"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pbszwax963"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Shared/Login/Register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.pbszwax963.js",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2350"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pbszwax963"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Shared/Login/Register.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo="
+        }
+      ]
+    },
+    {
+      "Route": "js/Shared/Login/Register.pbszwax963.js.gz",
+      "AssetFile": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\obj\\Debug\\net9.0\\compressed\\l7pcpzg4r2-pbszwax963.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "845"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 18 Aug 2025 15:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pbszwax963"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Shared/Login/Register.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KFYFfrZUeC6O7Pkt4ZvfLcMV+flmZEqU6x3SawgrW/M="
         }
       ]
     },

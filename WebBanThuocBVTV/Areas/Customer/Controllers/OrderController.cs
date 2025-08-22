@@ -25,7 +25,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             _donHangRepository = donHangRepository;
         }
         [HttpPost]
-        public async Task<IActionResult> Index(string maSp, int soLuong, string listSanPhamOrderStr, int status) //status 0 là mua ngay, 1 là mua giỏ hàng
+        public async Task<IActionResult> Index(string listSanPhamOrderStr)
         {
             try
             {
@@ -55,21 +55,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                     }
                     else
                     {
-                        if (status == 0)
-                        {
-                            Sanpham sp = await _sanPhamRepository.GetById(maSp);
-                            DonhangSanpham donHangSanPham = new DonhangSanpham();
-                            donHangSanPham.MaDonHang = _donHangRepository.CreateId();
-                            donHangSanPham.MaSanPham = maSp;
-                            donHangSanPham.SoLuongDatMua = soLuong;
-                            donHangSanPham.MaSanPhamNavigation = sp;
-                            donHangSanPham.TongTien = (double)(soLuong * donHangSanPham.MaSanPhamNavigation.Gia);
-
-                            listSanPhamOrder = new List<DonhangSanpham>();
-                            listSanPhamOrder.Add(donHangSanPham);
-                        }
-                        else
-                        {
+                        
                             string maDonHang = _donHangRepository.CreateId();
                             foreach (var dhsp in listSanPhamOrder)
                             {
@@ -79,7 +65,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                                 dhsp.MaSanPhamNavigation = sp;
                                 dhsp.TongTien = (double)(dhsp.SoLuongDatMua * dhsp.MaSanPhamNavigation.Gia);
                             }
-                        }
+                       
                         List<Phuongthucthanhtoan> lstPTThanhToan = await _donHangRepository.GetAllPTThanhToan();
                         ViewBag.LstPTThanhToan = lstPTThanhToan;
                         return View(listSanPhamOrder);
@@ -91,15 +77,82 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                     alertMessage.Message = "Bạn chưa đăng nhập";
                 }
                 SetAlert(alertMessage.Message, alertMessage.Type);
-                if (status == 0)
-                    return RedirectToAction("DetailProduct", "Product", new { maSp });
-                else
-                    return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
                 SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
                 return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> IndexFromDetail(string maSp, int soLuong)
+        {
+            try
+            {
+                List<DonhangSanpham> listSanPhamOrder = null;
+
+                AlertMessage alertMessage = new AlertMessage();
+
+                var accountJson = HttpContext.Session.GetString("Account");
+                if (accountJson != null)
+                {
+                    Nguoidung account = JsonSerializer.Deserialize<Nguoidung>(accountJson);
+                    Nguoidung user = await _nguoiDungRepository.GetById(account.MaNd);
+                    ViewBag.User = user;
+
+                    if (string.IsNullOrEmpty(user.SoDienThoai) || string.IsNullOrEmpty(user.DiaChi))
+                    {
+                        if (string.IsNullOrEmpty(user.SoDienThoai))
+                        {
+                            alertMessage.Type = "warning";
+                            alertMessage.Message = "Bạn chưa xác thực số điện thoại! Vui lòng xác thực số điện thoại trước khi mua hàng.";
+                        }
+                        if (string.IsNullOrEmpty(user.DiaChi))
+                        {
+                            alertMessage.Type = "warning";
+                            alertMessage.Message = "Bạn chưa cập nhật địa chỉ giao hàng! Vui lòng cập nhật địa chỉ trước khi mua hàng.";
+                        }
+                    }
+                    else
+                    {
+                        Sanpham sp = await _sanPhamRepository.GetById(maSp);
+
+                        if (sp.SoLuong < soLuong)
+                        {
+                            SetAlert("Vượt quá số lượng tồn kho", "warning");
+                            return RedirectToAction("DetailProduct", "Product", new { maSp = maSp });
+                        }
+
+                        DonhangSanpham donHangSanPham = new DonhangSanpham();
+                        donHangSanPham.MaDonHang = _donHangRepository.CreateId();
+                        donHangSanPham.MaSanPham = maSp;
+                        donHangSanPham.SoLuongDatMua = soLuong;
+                        donHangSanPham.MaSanPhamNavigation = sp;
+                        donHangSanPham.TongTien = (double)(soLuong * donHangSanPham.MaSanPhamNavigation.Gia);
+
+                        listSanPhamOrder = new List<DonhangSanpham>();
+                        listSanPhamOrder.Add(donHangSanPham);
+
+                        List<Phuongthucthanhtoan> lstPTThanhToan = await _donHangRepository.GetAllPTThanhToan();
+                        ViewBag.LstPTThanhToan = lstPTThanhToan;
+                        return View("Index",listSanPhamOrder);
+                    }
+                }
+                else
+                {
+                    alertMessage.Type = "warning";
+                    alertMessage.Message = "Bạn chưa đăng nhập";
+                }
+                SetAlert(alertMessage.Message, alertMessage.Type);
+
+                return RedirectToAction("DetailProduct", "Product", new { maSp });
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("DetailProduct", "Product", new { maSp });
             }
         }
 
@@ -136,7 +189,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                     if (alertSellProduct.Type != "success")
                     {
                         SetAlert(alertSellProduct.Message, alertSellProduct.Type);
-                        if(orderItems.Count == 1)
+                        if (orderItems.Count == 1)
                         {
                             return RedirectToAction("DetailProduct", "Product", new { maSp = orderItems[0].MaSanPham });
                         }
@@ -171,7 +224,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-   
+
         public async Task<IActionResult> DetailOrder(string maDonHang)
         {
             try
@@ -207,8 +260,8 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 throw ex;
             }
         }
-        [HttpPost] 
-        
+        [HttpPost]
+
         public async Task<IActionResult> PaymentOrderNotPaymented(string maDonHang)
         {
             try

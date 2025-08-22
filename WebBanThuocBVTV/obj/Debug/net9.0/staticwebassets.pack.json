@@ -377,6 +377,10 @@
       "PackagePath": "staticwebassets\\js\\Shared\\Login\\ForgetPass.js"
     },
     {
+      "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\Shared\\Login\\Register.js",
+      "PackagePath": "staticwebassets\\js\\Shared\\Login\\Register.js"
+    },
+    {
       "Id": "D:\\WebBanThuocBVTV\\WebBanThuocBVTV\\wwwroot\\js\\SweetAlert2\\Toast.js",
       "PackagePath": "staticwebassets\\js\\SweetAlert2\\Toast.js"
     },

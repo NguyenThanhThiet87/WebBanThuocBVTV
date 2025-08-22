@@ -266,7 +266,7 @@ namespace WebBanThuocBVTV.Repositories
         {
             try
             {
-                List<Donhang> lstDh = await _contextDB.Donhangs.Where(dh => dh.NgayLap >= DateTime.Now.AddDays(-7))
+                List<Donhang> lstDh = await _contextDB.Donhangs.Where(dh => dh.NgayLap >= DateTime.Now.AddDays(-7) && dh.MaTrangThai!="CMP")
                 .Include(dh => dh.MaTrangThaiNavigation)
                 .Include(dh => dh.DonhangSanphams)
                 .ThenInclude(dhsp => dhsp.MaSanPhamNavigation)

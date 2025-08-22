@@ -1,5 +1,6 @@
 ﻿@model List<WebBanThuocBVTV.Models.Donhang>
 <link href="~/css/Admin/Home/Index.css" rel="stylesheet" />
+<link href="~/css/Admin/ManageOrder/_DetailOrder.css" rel="stylesheet" />
 <!-- Main Content -->
 <!-- Dashboard Content -->
 <div class="dashboard-content">
@@ -88,7 +89,7 @@
 						<tbody>
 							@foreach (var dh in Model)
 							{
-								<tr>
+								<tr onclick="detailOrderHome('@dh.MaDonHang')">
 									<td>@dh.MaDonHang</td>
 									<td>@dh.MaNdNavigation.HoTen</td>
 									<td>@dh.DonhangSanphams.FirstOrDefault().MaSanPhamNavigation.TenSanPham ,...</td>
@@ -108,19 +109,19 @@
 				<div class="notifications">
 					@if (ViewBag.CountProcessingOrder > 0)
 					{
-						<div class="notification-item">
+						<a class="notification-item" href="@Url.Action("Index", "ManageOrder", new {area="Admin"})" style="text-decoration: none">
 							<div class="notification-icon info">
 								<i class="fas fa-info"></i>
 							</div>
-							<div>
+							<div >
 								<strong>Đơn hàng mới</strong>
 								<p class="mb-0 small text-muted">Có @ViewBag.CountProcessingOrder đơn hàng mới cần xử lý</p>
 							</div>
-						</div>
+						</a>
 					}
 					@foreach (var item in ViewBag.OutOfStock)
 					{
-						<div class="notification-item">
+						<a class="notification-item" href="@Url.Action("Index", "ManageOrder", new {area="Admin"})" style="text-decoration: none" onclick="@TempData["search"]='@item.MaSanPham'">
 							<div class="notification-icon warning">
 								<i class="fas fa-exclamation"></i>
 							</div>
@@ -128,11 +129,19 @@
 								<strong>Sản phẩm hết hàng</strong>
 								<p class="mb-0 small text-muted">@item.MaNhomSpNavigation.TenNhomSp @item.TenSanPham (@item.MaSanPham) sắp hết hàng</p>
 							</div>
-						</div>
+						</a>
 					}
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="detail_orderModal" tabindex="-1" aria-labelledby="detail_orderModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
 </div>
 <script src="~/js/Admin/Home/Index.js"></script>
+<script src="~/js/Admin/ManageOrder/_DetailOrder.js"></script>

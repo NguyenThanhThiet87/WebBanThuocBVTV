@@ -28,7 +28,8 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-user me-2"></i>Tên Sản Phẩm
+							<i class="fa-solid fa-box"></i>
+							Tên Sản Phẩm
 						</div>
 						<div class="info-value view-mode" id="productName">@Model.TenSanPham</div>
 						<input name="TenSanPham" type="text" class="form-control edit-mode d-none" id="editProductName" value="@Model.TenSanPham">
@@ -38,7 +39,8 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-venus-mars me-2"></i>Giá
+							<i class="fa-solid fa-tag"></i>
+							Giá
 						</div>
 						<div class="info-value view-mode" id="productPrice">@(String.Format("{0:N0}", @Model.Gia)) VNĐ</div>
 						<input name="Gia" type="text" class="form-control edit-mode d-none" id="editProductPrice" value="@Model.Gia">
@@ -50,7 +52,8 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-calendar me-2"></i>Số Lượng
+							<i class="fa-solid fa-cubes"></i>
+							Số Lượng
 						</div>
 						<div class="info-value view-mode" id="productQuanlity">@Model.SoLuong</div>
 						<input name="SoLuong" type="number" class="form-control edit-mode d-none" id="editProductQuality" value="@Model.SoLuong">
@@ -59,7 +62,7 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-calendar me-2"></i>Hạn sử dụng
+							<i class="fa-solid fa-hourglass-end"></i>Hạn sử dụng
 						</div>
 						<div class="info-value view-mode" id="productExpiry">@Model.HanSd</div>
 						<input name="HanSd" type="date" class="form-control edit-mode d-none" id="editProductExpiry" value="@(Model!=null?Model.HanSd.ToString():"")">
@@ -69,7 +72,7 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-calendar me-2"></i>Nhà Sản Xuất
+							<i class="fa-solid fa-industry"></i>Nhà Sản Xuất
 						</div>
 						<div class="info-value view-mode" id="productProvider">@Model.MaNhaSxNavigation.TenNhaSx</div>
 						<select name="MaNhaSx" class="form-control edit-mode d-none" id="editProductProvider">
@@ -83,7 +86,7 @@
 				<div class="col-md-6">
 					<div class="info-group">
 						<div class="info-label">
-							<i class="fas fa-calendar me-2"></i>Nhóm Sản Phẩm
+							<i class="fa-solid fa-layer-group"></i>Nhóm Sản Phẩm
 						</div>
 						<div class="info-value view-mode" id="productCategory">@Model.MaNhomSpNavigation.TenNhomSp</div>
 						<select name="MaNhomSp" class="form-control edit-mode d-none" id="editProductCategory">
@@ -102,7 +105,7 @@
 		<div class="row">
 			<div class="info-group">
 				<div class="info-label">
-					<i class="fas fa-venus-mars me-2"></i>Thành Phần
+					<i class="fa-solid fa-flask"></i>Thành Phần
 				</div>
 				<div class="info-value view-mode" id="productIngredient">@Model.ThanhPhan</div>
 				<textarea name="ThanhPhan" class="form-control edit-mode d-none" id="editProductIngredient" rows="2">@Model.ThanhPhan</textarea>
@@ -111,7 +114,7 @@
 		<div class="row">
 			<div class="info-group">
 				<div class="info-label">
-					<i class="fas fa-envelope me-2"></i>Công Dụng
+					<i class="fa-solid fa-bullseye"></i>Công Dụng
 				</div>
 				<div class="info-value view-mode" id="productUse">@Model.CongDung</div>
 				<textarea name="CongDung" class="form-control edit-mode d-none" id="editProductUse" rows="4">@Model.CongDung</textarea>
@@ -120,7 +123,7 @@
 		<div class="row">
 			<div class="info-group">
 				<div class="info-label">
-					<i class="fas fa-phone me-2"></i>Hướng Dẫn Sử Dụng
+					<i class="fa-solid fa-book-open"></i>Hướng Dẫn Sử Dụng
 				</div>
 				<div class="info-value view-mode" id="productGuide">@Html.Raw(Markdown.ToHtml(Model.HuongDanSd ?? ""))</div>
 				<textarea name="HuongDanSd" class="form-control edit-mode d-none" id="editProductGuide" rows="10">@Model.HuongDanSd</textarea>

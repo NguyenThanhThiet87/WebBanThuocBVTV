@@ -17,7 +17,7 @@ builder.Services.AddControllersWithViews()
     {
         options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
         options.AreaViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
-        //// Để chắc chắn, bạn cũng có thể thêm vào danh sách tìm kiếm chung (phòng trường hợp dùng ngoài Area)
+        //// 
         options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{0}.cshtml");
         options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
     });

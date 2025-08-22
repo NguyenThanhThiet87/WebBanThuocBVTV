@@ -20,10 +20,11 @@
 						<img src="@img.Url" alt="Hình @(idx + 1)" class="thumbnail" />
 					}
 				</div>
-			}else
+			}
+			else
 			{
 				<div class="product-image-main">
-					<img src="<img src="https: //thumbs.dreamstime.com/blog/2012/07/uploading-technical-error-76339-image21759953.jpg" alt="Thuốc trừ sâu X" class="product-image">" alt="Thuốc trừ sâu X" class="product-image" />
+					<img src="<img src=" https: //thumbs.dreamstime.com/blog/2012/07/uploading-technical-error-76339-image21759953.jpg" alt="Thuốc trừ sâu X" class="product-image">" alt="Thuốc trừ sâu X" class="product-image" />
 				</div>
 				<div class="product-image-thumbnails">
 				</div>
@@ -32,7 +33,7 @@
 		</div>
 
 		<!-- Product Info Section -->
-		<form class="product-info-section" asp-action="Index" asp-controller="Order" asp-area="Customer" asp-status="0" >
+		<form class="product-info-section" asp-action="IndexFromDetail" asp-controller="Order" asp-area="Customer">
 			<input name="maSp" id="maSp" value="@Model.MaSanPham" type="hidden" />
 			<h1 class="product-title">@Model.MaNhomSpNavigation.TenNhomSp @Model.TenSanPham</h1>
 			<div class="product-price-section">
@@ -44,8 +45,15 @@
 				<button type="button" class="quantity-btn increase_quality" onclick="increaseQuality(this)">+</button>
 			</div>
 			<div class="product-actions">
-				<button class="add-to-cart" type="button" onclick="addGioHang()">Thêm vào giỏ hàng</button>
-			    <button class="buy-now" type="submit">Mua ngay</button>
+				@if (Model.SoLuong > 0)
+				{
+					<button class="add-to-cart" type="button" onclick="addGioHang()">Thêm vào giỏ hàng</button>
+					<button class="buy-now" type="submit">Mua ngay</button>
+				}
+				else
+				{
+					<button type="button" class="btn btn-secondary" disabled>Hết hàng</button>
+				}
 			</div>
 		</form>
 	</div>

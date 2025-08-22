@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tm51929swq</Fingerprint>
-      <Integrity>xVPb3Fc6RKRYP8tLuqTfda77995T1qFYRDkT+jBwhrc=</Integrity>
+      <Fingerprint>cb1z4wqbj0</Fingerprint>
+      <Integrity>mKrEjwieJJPFCoeFlRdBk1hWBON7edjSpRtb6XpT6Vk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\Home\Index.css'))</OriginalItemSpec>
@@ -102,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kcjb2ufxsr</Fingerprint>
-      <Integrity>tOA6kXiHA/gC4bTio1kka8/oTRZa3VpJdUboTQDClF0=</Integrity>
+      <Fingerprint>pe03kbrjii</Fingerprint>
+      <Integrity>L8tYek3YC5So1J2G6UbkYT7IkGuUvNmi66mHnIdi7kg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\ManageComment\Index.css'))</OriginalItemSpec>
@@ -318,8 +318,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>crpngm413c</Fingerprint>
-      <Integrity>2HXto3bib1q+72hxJIf40wx6nBeYnoFeLDUQn6Q2x3g=</Integrity>
+      <Fingerprint>eal4583fy3</Fingerprint>
+      <Integrity>OoYmaxstmtPOA0N6/y2ntOC902NbjzZKsp2xie+6E1Y=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\ManageProduct\_AddProduct.css'))</OriginalItemSpec>
@@ -426,8 +426,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8iztwt2do2</Fingerprint>
-      <Integrity>AJPKzb4FRsqL6tRGCKp8xQGyq9KqTOTUFfuMIZsGk6w=</Integrity>
+      <Fingerprint>2j0dyf4j5k</Fingerprint>
+      <Integrity>Er6/OKEiINq8/0wT577fQQ6pNyk7C3sfPYmyOYUMUfY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\ManageSystem\Index.css'))</OriginalItemSpec>
@@ -462,8 +462,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ohwghl6dfp</Fingerprint>
-      <Integrity>hDKKHe9ubN2QzS7iPpd9WNtHNmitqI5HwEtDjHQzEdg=</Integrity>
+      <Fingerprint>g3luckxw0a</Fingerprint>
+      <Integrity>TDIPonprNpBIUCpWEJsSNZQoO+3tfa3kp7t0o/aJVBs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\Share\WebBanThuocBVTV_Admin.css'))</OriginalItemSpec>
@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zw3rqgabrc</Fingerprint>
-      <Integrity>k0YWnz31u8orHEAP5oo0XztEDW8dOxb6/Zd41cxcP4k=</Integrity>
+      <Fingerprint>zlza782y14</Fingerprint>
+      <Integrity>x/mjeGzoKL4GJD+vcw7EpLOREF6aMLKjpouSUWzL6/0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Admin\Share\_TopBar.css'))</OriginalItemSpec>
@@ -786,8 +786,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>sql6oqwfpg</Fingerprint>
-      <Integrity>bMw+Ey8expPNmzVwQw6l11AxU8CM0ZRlIzg/XEgGgJ8=</Integrity>
+      <Fingerprint>0wwnnt7hlx</Fingerprint>
+      <Integrity>QMGnUP/BLywfR6h1uFhrWpOjtx02UrJSVkicZfBqzEY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Product\Index.css'))</OriginalItemSpec>
@@ -1092,8 +1092,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5lvm9xo8q1</Fingerprint>
-      <Integrity>aZZP253xTfQ+8Fpl6eyP9mexBQ3tU2KL9kBihu9A0yc=</Integrity>
+      <Fingerprint>xwzsj041u7</Fingerprint>
+      <Integrity>0RdgkaGifSh0dmf4r2fEmxLxyPFvaben3YcsL8o5TRw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Admin\Home\Index.js'))</OriginalItemSpec>
@@ -1691,6 +1691,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\Login\ForgetPass.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\Login\Register.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>WebBanThuocBVTV</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/WebBanThuocBVTV</BasePath>
+      <RelativePath>js/Shared/Login/Register.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pbszwax963</Fingerprint>
+      <Integrity>JVILxQU/RjYl8YM/lOvpR/26Y1ChUtW21bw6W7dJ6uo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\Login\Register.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>

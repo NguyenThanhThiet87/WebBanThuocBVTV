@@ -74,9 +74,9 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         {
             try
             {
-                AddBreadcrum(new BreadcrumItem() { Text = maSp, Url = Url.Action("DetailProduct", "Product", new { area = "Customer", maSp = maSp }) });//thêm vào breadcrum
-
                 Sanpham sp = await _sanPhamRepository.GetById(maSp);
+
+                AddBreadcrum(new BreadcrumItem() { Text = sp.TenSanPham, Url = Url.Action("DetailProduct", "Product", new { area = "Customer", maSp = maSp }) });//thêm vào breadcrum
                 List<Danhgia> lstDanhGia = await _danhGiaRepository.GetAllAsync();
                 ViewBag.lstDanhGia = lstDanhGia;
                 return View(sp);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebBanThuocBVTV")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+718f8c4b8697a5c89bd485c7c46f8a154f60f829")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0b804a3669d0f547533caec56e3b4e799cbec63")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebBanThuocBVTV")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebBanThuocBVTV")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

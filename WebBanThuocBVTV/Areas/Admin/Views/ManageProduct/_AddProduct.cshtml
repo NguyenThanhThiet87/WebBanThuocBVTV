@@ -21,7 +21,7 @@
 
 					<div class="form-group mb-3">
 						<label for="productName" class="form-label">
-							<i class="bi bi-tag me-1"></i>Tên Sản Phẩm
+							<i class="fa-solid fa-box"></i>Tên Sản Phẩm
 						</label>
 						<input type="text" class="form-control" id="productName" placeholder="Ví dụ: Vi lượng-BOROZINC" required>
 					</div>
@@ -38,7 +38,7 @@
 						<div class="col-md-6">
 							<div class="form-group mb-3">
 								<label for="category" class="form-label">
-									<i class="bi bi-folder me-1"></i>Nhóm Sản Phẩm
+									<i class="fa-solid fa-layer-group"></i>Nhóm Sản Phẩm
 								</label>
 								<select class="form-select" id="category" required>
 									@foreach (var item in ViewBag.lstNSP)
@@ -54,7 +54,7 @@
 						<div class="col-md-6">
 							<div class="form-group mb-3">
 								<label for="price" class="form-label">
-									<i class="bi bi-currency-dollar me-1"></i>Giá
+									<i class="fa-solid fa-tag"></i>Giá
 								</label>
 								<div class="input-group">
 									<input type="number" class="form-control" id="price" placeholder="200000" min="0" required>
@@ -65,7 +65,7 @@
 						<div class="col-md-6">
 							<div class="form-group mb-3">
 								<label for="quantity" class="form-label">
-									<i class="bi bi-box me-1"></i>Số Lượng
+									<i class="fa-solid fa-cubes"></i>Số Lượng
 								</label>
 								<input type="number" class="form-control" id="quantity" placeholder="50" min="0" required>
 							</div>
@@ -76,7 +76,7 @@
 						<div class="col-md-6">
 							<div class="form-group mb-3">
 								<label for="manufacturer" class="form-label">
-									<i class="bi bi-building me-1"></i>Nhà Sản Xuất
+									<i class="fa-solid fa-industry"></i>Nhà Sản Xuất
 								</label>
 								<select class="form-select" id="provider" required>
 									@foreach (var item in ViewBag.lstNSX)
@@ -89,7 +89,7 @@
 						<div class="col-md-6">
 							<div class="form-group mb-3">
 								<label for="expiryDate" class="form-label">
-									<i class="bi bi-calendar me-1"></i>Hạn Sử Dụng
+									<i class="fa-solid fa-hourglass-end"></i>Hạn Sử Dụng
 								</label>
 								<input type="date" class="form-control" id="expiryDate" required>
 							</div>
@@ -125,26 +125,26 @@
 		<!-- Thông tin chi tiết -->
 		<div class="form-section">
 			<h5 class="section-title">
-				<i class="bi bi-clipboard-data me-2"></i>Thông Tin Chi Tiết
+				Thông Tin Chi Tiết
 			</h5>
 
 			<div class="form-group mb-3">
 				<label for="composition" class="form-label">
-					<i class="bi bi-layers me-1"></i>Thành Phần
+					<i class="fa-solid fa-flask"></i>Thành Phần
 				</label>
 				<textarea class="form-control" id="composition" rows="3" placeholder="Bo (B): 130.000 ppm (13% Boron); Kẽm (Zn): 40.000 ppm (4% Kẽm); Ẩm độ: 1%"></textarea>
 			</div>
 
 			<div class="form-group mb-3">
 				<label for="usage" class="form-label">
-					<i class="bi bi-check-circle me-1"></i>Công Dụng
+					<i class="fa-solid fa-bullseye"></i>Công Dụng
 				</label>
 				<textarea class="form-control" id="usage" rows="4" placeholder="Bo và Kẽm là các yếu tố vi lượng thiết yếu cho cây trồng, hỗ trợ tổng hợp protein, enzyme và các hormone tăng trưởng..."></textarea>
 			</div>
 
 			<div class="form-group mb-3">
 				<label for="instructions" class="form-label">
-					<i class="bi bi-book me-1"></i>Hướng Dẫn Sử Dụng
+					<i class="fa-solid fa-book-open"></i>Hướng Dẫn Sử Dụng
 				</label>
 				<textarea class="form-control" id="instructions" rows="3" placeholder="Liều lượng và cách sử dụng chi tiết..."></textarea>
 			</div>

@@ -79,7 +79,7 @@
             }
         .product-container .right-product .card {
             transition: transform 0.3s ease;
-            min-height: 392px;
+            min-height: 380px;
         }
     .product-container .right-product .card:hover {
         transform: scale(1.05);

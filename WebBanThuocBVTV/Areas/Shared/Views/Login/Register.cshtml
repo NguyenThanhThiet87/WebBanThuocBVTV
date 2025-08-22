@@ -11,88 +11,10 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="verifyModal" tabindex="-1" aria-labelledby="verifyModalLabel" aria-hidden="true">
+<div class="modal fade" id="verifyModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="verifyModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content" id="modal-container">
 		</div>
 	</div>
 </div>
-<script>
-	var verifyModal = document.getElementById("verifyModal");
-	var modal = new bootstrap.Modal(verifyModal);
-	var modalContainer = document.getElementById("modal-container");
-
-	var sendOTP = function()
-	{
-		showLoading("");
-
-		var email = document.getElementById("email").value;
-		$.ajax({
-			url:"@Url.Action("SendOTPEmailForRegister", "Login", new { area = "Shared" })",
-			method: "POST",
-			data: {email},
-			success: function(res)
-			{
-				if(res.success != null && res.success==false)
-				{
-					setTimeout(()=>{
-						showToast("error",res.message)
-					},50);
-					modal.hide();
-				}else
-				{
-				    modalContainer.innerHTML = res;
-				}
-				hideLoading();
-				
-			},
-			error: function(err)
-			{
-				console.log(err);
-				hideLoading();
-				modal.hide();
-			}
-		})
-	}
-	var verifyEmail=function()
-		{
-			var email = document.getElementById("email").value;
-
-			var otp =""
-			var inputs = document.getElementsByClassName("otp-input");
-
-			for(var i =0;i<inputs.length;i++)
-			{
-				otp+=inputs[i].value;
-			}
-
-			$.ajax({
-				url:"@Url.Action("VerifyOTP", "Login", new { area = "Shared" })",
-				method:"post",
-				data:{otpCode:otp, email:email},
-				success:function(res){
-					hideLoading();
-					if(res.success)
-					{
-						showToast('success', 'Xác thực thành công! Đang chuyển trang...');
-						setTimeout(function() {
-							  window.location.href = res.redirectUrl;
-						}, 1500); 
-
-						var verifyBtn = document.getElementById("verifyEmailBtn");
-						verifyBtn.style.display="none";
-						modal.hide();
-					}else
-					{
-						showToast('warning',res.message);
-					}
-				},
-				error:function(res)
-				{
-					hideLoading();
-					showToast('error',res.message);
-				}
-			}
-			)
-		}
-</script>
+<script src="~/js/Shared/Login/Register.js"></script>

@@ -86,6 +86,7 @@ D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\css\Order\DetailOrder.css
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\AddStaff.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Shared\_Footer.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Shared\Login\Register.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Admin\ManageStaff\Index.js
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\lib\jquery\LICENSE.txt
 D:\WebBanThuocBVTV\WebBanThuocBVTV\wwwroot\js\Customer\Shared\_Header.js
@@ -244,6 +245,7 @@ wwwroot\js\Customer\Shared\_Header.js
 wwwroot\js\Helper.js
 wwwroot\js\OTP\SendSMS.js
 wwwroot\js\Shared\Login\ForgetPass.js
+wwwroot\js\Shared\Login\Register.js
 wwwroot\js\site.js
 wwwroot\js\SweetAlert2\Toast.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

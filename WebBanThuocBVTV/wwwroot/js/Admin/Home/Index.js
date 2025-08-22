@@ -1,4 +1,8 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿var modalElement = document.getElementById('detail_orderModal');
+var modal = new bootstrap.Modal(modalElement);
+var model_container = document.getElementById("modal-container");
+
+document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('revenueChart');
     $.ajax({
         url: "/Admin/Home/RevenueClostSixMonth",
@@ -20,7 +24,7 @@
                     data: {
                         labels: datetime,
                         datasets: [{
-                            label: 'Doanh thu',
+                            label: 'Doanh thu 6 tháng gần nhất',
                             data: data,
                             borderWidth: 1
                         }]
@@ -42,4 +46,18 @@
     )
 })
 
-
+var detailOrderHome = function (maDonHang) {
+    console.log("kkk")
+    $.ajax({
+        url: "/Admin/ManageOrder/DetailOrder",
+        method: "post",
+        data: { maDh: maDonHang },
+        success: function (res) {
+            model_container.innerHTML = res;
+            modal.show()
+        },
+        error: function (res) {
+            console.log(res);
+        }
+    });
+}
