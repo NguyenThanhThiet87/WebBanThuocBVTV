@@ -1,0 +1,159 @@
+﻿@using Markdig
+@model WebBanThuocBVTV.Models.Sanpham
+
+<link href="~/css/Admin/ManageProduct/DetailProduct.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h5 class="modal-title" id="customerModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Thông Tin Sản Phẩm</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+</div>
+
+<div class="modal-body detail_product-body p-5">
+	<div class="row">
+		<div class="col-md-3 text-center mb-3">
+			<img src="@Model.Hinhanhs.First().Url"
+			alt="Avatar" class="img_product" id="customerAvatar">
+			<br />
+			<span id="customerId">ID: @Model.MaSanPham</span>
+			<input name="MaSanPham" type="hidden" value="@Model.MaSanPham" />
+			<input type="file" id="avatarInput" class="edit-mode d-none" accept="image/*">
+			<input type="hidden" name="isActive" id="isActive" value="@Model.IsActive.ToString().ToLower()" />
+		</div>
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-box"></i>
+							Tên Sản Phẩm
+						</div>
+						<div class="info-value view-mode" id="productName">@Model.TenSanPham</div>
+						<input name="TenSanPham" type="text" class="form-control edit-mode d-none" id="editProductName" value="@Model.TenSanPham">
+					</div>
+
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-tag"></i>
+							Giá
+						</div>
+						<div class="info-value view-mode" id="productPrice">@(String.Format("{0:N0}", @Model.Gia)) VNĐ</div>
+						<input name="Gia" type="text" class="form-control edit-mode d-none" id="editProductPrice" value="@Model.Gia">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-cubes"></i>
+							Số Lượng
+						</div>
+						<div class="info-value view-mode" id="productQuanlity">@Model.SoLuong</div>
+						<input name="SoLuong" type="number" class="form-control edit-mode d-none" id="editProductQuality" value="@Model.SoLuong">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-hourglass-end"></i>Hạn sử dụng
+						</div>
+						<div class="info-value view-mode" id="productExpiry">@Model.HanSd</div>
+						<input name="HanSd" type="date" class="form-control edit-mode d-none" id="editProductExpiry" value="@(Model!=null?Model.HanSd.ToString():"")">
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-industry"></i>Nhà Sản Xuất
+						</div>
+						<div class="info-value view-mode" id="productProvider">@Model.MaNhaSxNavigation.TenNhaSx</div>
+						<select name="MaNhaSx" class="form-control edit-mode d-none" id="editProductProvider">
+							@foreach (var item in ViewBag.lstNSX)
+							{
+								<option value="@item.MaNhaSx">@item.TenNhaSx</option>
+							}
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="info-group">
+						<div class="info-label">
+							<i class="fa-solid fa-layer-group"></i>Nhóm Sản Phẩm
+						</div>
+						<div class="info-value view-mode" id="productCategory">@Model.MaNhomSpNavigation.TenNhomSp</div>
+						<select name="MaNhomSp" class="form-control edit-mode d-none" id="editProductCategory">
+							@foreach (var item in ViewBag.lstNSP)
+							{
+								<option value="@item.MaNhomSp">@item.TenNhomSp</option>
+							}
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fa-solid fa-flask"></i>Thành Phần
+				</div>
+				<div class="info-value view-mode" id="productIngredient">@Model.ThanhPhan</div>
+				<textarea name="ThanhPhan" class="form-control edit-mode d-none" id="editProductIngredient" rows="2">@Model.ThanhPhan</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fa-solid fa-bullseye"></i>Công Dụng
+				</div>
+				<div class="info-value view-mode" id="productUse">@Model.CongDung</div>
+				<textarea name="CongDung" class="form-control edit-mode d-none" id="editProductUse" rows="4">@Model.CongDung</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="info-group">
+				<div class="info-label">
+					<i class="fa-solid fa-book-open"></i>Hướng Dẫn Sử Dụng
+				</div>
+				<div class="info-value view-mode" id="productGuide">@Html.Raw(Markdown.ToHtml(Model.HuongDanSd ?? ""))</div>
+				<textarea name="HuongDanSd" class="form-control edit-mode d-none" id="editProductGuide" rows="10">@Model.HuongDanSd</textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<div class="view-mode">
+		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+			<i class="fas fa-times me-2"></i>Đóng
+		</button>
+		@if(!Model.IsActive)
+		{
+			<button type="button" class="btn btn-secondary btn-danger" onclick="deleteProduct('@Model.MaSanPham')">
+				<i class="fas fa-times me-2"></i>Xóa sản phẩm
+			</button>
+		}
+		<button type="button" class="btn btn-edit" id="editButton" onclick="enterEditMode()">
+			<i class="fas fa-edit me-2"></i>Chỉnh sửa
+		</button>
+	</div>
+
+	<div class="edit-mode d-none">
+		<button type="button" class="btn btn-cancel" id="cancelButton" onclick="cancelEditMode()">
+			<i class="fas fa-times me-2"></i>Hủy
+		</button>
+		<button type="submit" class="btn btn-save" id="saveButton" onclick="saveEdit('@Model.MaSanPham')">
+			<i class="fas fa-save me-2"></i>Lưu thay đổi
+		</button>
+	</div>
+</div>

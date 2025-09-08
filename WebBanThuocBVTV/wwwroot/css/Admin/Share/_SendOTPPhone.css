@@ -1,0 +1,230 @@
+﻿
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.3s ease;
+    position: relative;
+    margin:auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+    .close-btn:hover {
+        background: #f0f0f0;
+        color: #333;
+    }
+
+.otp-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    animation: pulse 2s infinite;
+}
+
+    .otp-icon::before {
+        content: "🔒";
+        font-size: 32px;
+        color: white;
+    }
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.phone-display {
+    color: #4285f4;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.otp-input-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.otp-input {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+    .otp-input:focus {
+        border-color: #4285f4;
+        box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        transform: scale(1.05);
+    }
+
+    .otp-input.filled {
+        border-color: #34a853;
+        background: rgba(52, 168, 83, 0.05);
+    }
+
+.verify-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+    .verify-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
+    }
+
+    .verify-btn:disabled {
+        background: #e0e0e0;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+.resend-section {
+    color: #666;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: #4285f4;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+    .resend-btn:hover {
+        color: #34a853;
+    }
+
+    .resend-btn:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+        text-decoration: none;
+    }
+
+.countdown {
+    color: #4285f4;
+    font-weight: 600;
+}
+
+.error-message {
+    color: #ea4335;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(234, 67, 53, 0.1);
+    border-radius: 8px;
+    display: none;
+}
+
+.success-message {
+    color: #34a853;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(52, 168, 83, 0.1);
+    border-radius: 8px;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .otp-input-container {
+        gap: 8px;
+    }
+
+    .otp-input {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+}

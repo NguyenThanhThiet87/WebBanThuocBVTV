@@ -1,0 +1,125 @@
+﻿.detailOrder-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+    .detailOrder-container  .header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .detailOrder-container .content {
+        padding: 20px;
+    }
+
+    .detailOrder-container .order-info {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .detailOrder-container .section {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+    .detailOrder-container .section-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .detailOrder-container .product-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+
+    .detailOrder-container .product-image {
+        width: 60px;
+        height: 60px;
+        background-color: #ddd;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #666;
+    }
+        .detailOrder-container .product-image img {
+            width: fit-content;
+            height: 100%;
+        }
+    .detailOrder-container .product-details {
+        flex: 1;
+    }
+
+    .detailOrder-container .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .detailOrder-container .info-label {
+        font-weight: bold;
+    }
+
+    .detailOrder-container .total-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-top: 2px solid #4CAF50;
+        font-weight: bold;
+        font-size: 18px;
+        color: #4CAF50;
+    }
+
+    .detailOrder-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .detailOrder-container .btn-danger {
+        background-color: #fe0000;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+    }
+        .detailOrder-container .btn:hover {
+            background-color: #45a049;
+        }
+
+    .detailOrder-container .btn-secondary {
+        background-color: white;
+        color: #4CAF50;
+        border: 1px solid #4CAF50;
+    }
+
+        .detailOrder-container .btn-secondary:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .detailOrder-container .actions {
+        text-align: center;
+        margin-top: 20px;
+    }

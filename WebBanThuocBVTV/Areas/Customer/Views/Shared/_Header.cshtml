@@ -1,0 +1,82 @@
+﻿@{
+}
+<link href="~/css/Shared/_Header.css" rel="stylesheet" />
+<link href="~/css/Shared/_Loading.css" rel="stylesheet" />
+<div id="header" class="header-container">
+	<div class="header">
+		<!-- Logo -->
+		<div class="logo">
+			<div class="logo-circle">
+				<div class="logo-inner">
+					<span class="logo-leaf">🌾</span>
+				</div>
+			</div>
+			<div class="logo-text">
+				AGRI MART<br>
+				<small style="font-size: 10px; color: #666;">T&T</small>
+			</div>
+		</div>
+
+		<!-- Search Box -->
+		<div class="search-container">
+			<input type="text" class="search-box" placeholder="Tìm kiếm sản phẩm..." onkeyup="performSearch(this)">
+			<i class="fa-solid fa-magnifying-glass search-icon" style="color: #ffffff;"></i>
+			<div class="results-container hidden" id="resultsContainer"></div>
+		</div>
+
+		<!-- Header Items -->
+		<div class="header-items">
+			<a class="header-item" data-bs-toggle="modal" data-bs-target="#google_map_modal">
+				<i class="fa-solid fa-location-dot header-icon icon-location" style="color: #069322;"></i>
+				<div class="header-text">
+					Cửa hàng<br>
+					gần bạn
+				</div>
+			</a>
+
+			<a class="header-item" href="@Url.Action("Index","Detection",new{area = "Customer"})">
+				<i class="fas fa-box-open header-icon icon-package" style="color: #069322;"></i>
+				<div class="header-text">
+					Nhận diện<br>
+					bệnh lá
+				</div>
+			</a>
+			@{
+				if (ViewBag.Account != null)
+				{
+					<a class="header-item" data-bs-toggle="modal" data-bs-target="#cartModalToggle">
+						<i class="fas fa-cart-shopping header-icon icon-cart" style="color: #069322;"></i>
+						<div class="header-text">
+							Giỏ hàng
+						</div>
+					</a>
+					
+					<a class="header-item" href="@Url.Action("Index","Account",new{area = "Customer"})">
+						@if(ViewBag.Account.Avatar != null)
+						{
+							<img name="avatar" src="@(ViewBag.Account?.Avatar??"")" alt="Alternate Text" class="avatar" />
+						}else
+						{
+							<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+						}
+
+						<div class="header-text">
+							@ViewBag.Account.HoTen
+						</div>
+					</a>
+				}
+				else
+				{
+					<a class="header-item" href="@Url.Action("Index","Login",new{area="Shared"})">
+						<i class="fas fa-user header-icon icon-user" style="color: #069322;"></i>
+						<div class="header-text">
+							Đăng nhập
+						</div>
+					</a>
+				}
+			}
+		</div>
+	</div>
+</div>
+<script src="~/js/Customer/Shared/_Header.js"></script>
+<script src="~/js/Customer/Cart/Index.js"></script>

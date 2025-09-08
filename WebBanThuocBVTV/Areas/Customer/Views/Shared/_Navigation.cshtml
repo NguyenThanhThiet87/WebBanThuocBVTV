@@ -1,0 +1,11 @@
+﻿@{
+}
+<link href="~/css/Shared/_Navigation.css" rel="stylesheet" />
+<nav class="nav-bar">
+    <div class="nav-container">
+        <ul class="nav-menu">
+            <li class="nav-item "><a class="@(ViewBag.IndexPage=="Home"?"active":"")" href="@Url.Action("Index","Home",new{area = "Customer"})" >Trang chủ</a></li>
+            <li class="nav-item "><a class="@(ViewBag.IndexPage=="Product"?"active":"")" href="@Url.Action("Index","Product",new{area = "Customer"})" >Sản phẩm</a></li>
+        </ul>
+    </div>
+</nav>

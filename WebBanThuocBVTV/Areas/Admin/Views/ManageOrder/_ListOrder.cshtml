@@ -1,0 +1,65 @@
+﻿@model IPagedList<WebBanThuocBVTV.Models.Donhang>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using System.Globalization
+@if (Model.Count > 0)
+{
+	<table class="customer-table">
+		<thead>
+			<tr>
+				<th>Mã đơn hàng</th>
+				<th>Khách hàng</th>
+				<th>Ngày đặt</th>
+				<th>Số lượng</th>
+				<th>Tổng tiền</th>
+				<th>Trạng thái</th>
+				<th>Thao tác</th>
+			</tr>
+		</thead>
+		<tbody id="customerTableBody">
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>#@item.MaDonHang</td>
+					<td>@item.MaNdNavigation.HoTen</td>
+					<td>@item.NgayLap</td>
+					<td>@item.DonhangSanphams.Count</td>
+					<td>@String.Format("{0:N0}", @item.TongTien) VNĐ</td>
+					<td>@item.MaTrangThaiNavigation.TenTrangThai</td>
+					<td>
+						<div class="action-buttons">
+							<button class="btn-view btn btn-lg" data-bs-toggle="modal" data-bs-target="#detail_orderModal" onclick="detailOrder('@item.MaDonHang')">
+								<i class="fas fa-eye me-2"></i>Xem
+							</button>
+
+							<button class="btn btn-delete" onclick="deleteOrder('@item.MaDonHang')">🗑️ Xóa</button>
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<lottie-player id="animation-empty-user" class="w-100 h-50" src="https://lottie.host/3fbc8aea-fdf2-4ce8-9a98-7a3de0c5cee5/No6vcVStET.json" background="##FFFFFF" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
+	<p id="title_empty_order">Chưa có đơn hàng nào</p>
+}
+@if (ViewBag.PageCount > 0)
+{
+	<nav aria-label="Page navigation" class="pt-3">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Previous</a></li>
+			@{
+				int i = ViewBag.PageNumber <= 6 ? 1 : (ViewBag.PageNumber / 6) * 6;
+				int end = i + 5;
+				while (i <= ViewBag.PageCount && i <= end)
+				{
+					<li class="page-item @(i == ViewBag.PageNumber ? "active":"")"><a class="page-link" onclick="pageList(this)">@i</a></li>
+					i++;
+				}
+			}
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Next</a></li>
+		</ul>
+	</nav>
+}

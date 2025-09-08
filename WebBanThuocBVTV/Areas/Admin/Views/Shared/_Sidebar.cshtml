@@ -1,0 +1,62 @@
+﻿@using WebBanThuocBVTV.Helper
+@{
+}
+<link href="/css/Admin/Home/_Sidebar.css" rel="stylesheet" />
+<div class="sidebar collapsed" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <i class="fas fa-seedling"></i>
+        </div>
+        <h4>AgriProtect</h4>
+        <small>Admin Panel</small>
+    </div>
+    <nav class="sidebar-nav">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Home", new { area = "Admin" })" class="nav-link @(ViewBag.CurrentSideBar == SideBar.TongQuan ? "active" : "")">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Tổng quan</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "ManageProduct", new { area = "Admin" })" class="nav-link @(ViewBag.CurrentSideBar == SideBar.SanPham ? "active" : "")">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Sản phẩm</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewBag.CurrentSideBar == SideBar.DonHang ? "active" : "")" href="@Url.Action("Index", "ManageOrder", new { area = "Admin" })">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Đơn hàng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(ViewBag.CurrentSideBar == SideBar.KhachHang ? "active" : "")" href="@Url.Action("Index", "ManageCustomer", new { area = "Admin" })">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Khách hàng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "ManageComment", new{area="Admin"})" class="nav-link @(ViewBag.CurrentSideBar == SideBar.BinhLuan ? "active" : "")">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Bình luận</span>
+                </a>
+            </li>
+            @if (ViewBag.Account?.MaVaiTro == "QL")
+            {
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "ManageStaff", new{area="Admin"})" class="nav-link @(ViewBag.CurrentSideBar == SideBar.NhanVien ? "active" : "")">
+                        <i class="fa-solid fa-id-badge"></i>
+                        <span>Nhân viên</span>
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="@Url.Action("Index", "ManageSystem", new{area="Admin"})" class="nav-link @(ViewBag.CurrentSideBar == SideBar.HeThong ? "active" : "")">
+                        <i class="fas fa-warehouse"></i>
+                        <span>Hệ thống</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

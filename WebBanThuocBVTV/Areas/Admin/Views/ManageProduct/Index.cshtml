@@ -1,0 +1,163 @@
+﻿@using WebBanThuocBVTV.Helper
+@model List<WebBanThuocBVTV.Models.Nguoidung>
+@{
+}
+@* <link href="~/css/Admin/ManageProduct/_ListProduct.css" rel="stylesheet" /> *@
+<link href="/css/Admin/ManageProduct/Index.css" rel="stylesheet" />
+<div class="manage_product-container">
+	<h1 class="page-title">Quản Lý Sản Phẩm</h1>
+
+	<div class="content-container">
+		<!-- Thao tác nhanh -->
+		<div class="actions-section">
+			<h2 class="actions-title">Thao tác nhanh</h2>
+			<div class="actions-grid">
+				<a class="action-btn" data-bs-toggle="modal" data-bs-target="#containerModal" onclick="addProductModal()">
+					<i class="fa-solid fa-plus"></i>
+					Thêm sản phẩm mới
+				</a>
+			</div>
+		</div>
+
+		<!-- Bảng sản phẩm -->
+		<div class="customer_section-container">
+
+			<div class="table-header">
+				<h2 class="table-title">Danh sách sản phẩm</h2>
+				<div class="active-filters" id="activeFilters" style="display: none;">
+					<strong>Bộ lọc đang áp dụng:</strong>
+					<div id="filterTags"></div>
+				</div>
+
+				<div class="sort-options">
+					<label>Sắp xếp theo:</label>
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptions>()" onchange="applyFilters()">
+					</select>
+				</div>
+
+				<div class="search-container">
+					<input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." value="" id="searchInput">
+					<button class="search-btn" onclick="applyFilters()">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						Tìm kiếm
+					</button>
+				</div>
+			</div>
+
+			<div class="table-content">
+				<div class="filter-sidebar">
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">
+						<i class="fa-solid fa-filter"></i>
+						Bộ lọc
+					</h3>
+
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-circle-check"></i>
+							Trạng Thái Sản Phẩm
+						</div>
+						<select class="filter-select" id="activeGroupSelect" asp-items="Html.GetEnumSelectList<IsActiveProduct>()">
+						</select>
+					</div>
+
+					<!-- Nhóm sản phẩm -->
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-layer-group"></i>
+							Nhóm sản phẩm
+						</div>
+						<select class="filter-select" id="productGroupSelect">
+							<option value="">Tất cả</option>
+							@foreach (var item in ViewBag.lstNSP)
+							{
+								<option value="@item.MaNhomSp">@item.TenNhomSp</option>
+							}
+						</select>
+					</div>
+
+					<!-- Nhà sản xuất -->
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-industry"></i>
+							Nhà sản xuất</div>
+						<select class="filter-select" id="manufacturerSelect">
+							<option value="">Tất cả</option>
+							@foreach (var item in ViewBag.lstNSX)
+							{
+								<option value="@item.MaNhaSx">@item.TenNhaSx</option>
+							}
+						</select>
+					</div>
+
+					<!-- Khoảng giá -->
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-coins"></i>
+							Khoảng giá</div>
+						<div style="margin-top: 10px;">
+							@{
+								var i = 1;
+								foreach (var item in Html.GetEnumSelectList<PriceArrange>())
+								{
+									<div class="filter-option">
+										<input type="radio" id="price@(i)" name="priceRange" value="@item.Value">
+										<label for="price1">@item.Text</label>
+									</div>
+									i++;
+								}
+							}
+						</div>
+					</div>
+
+					<!-- Số lượng tồn kho -->
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-box-open"></i>
+							Số lượng tồn kho
+						</div>
+						<div style="margin-top: 10px;">
+							@{
+								foreach (var item in Html.GetEnumSelectList<QuantityOptions>())
+								{
+									<div class="filter-option">
+										<input type="radio" id="inStock" name="stockStatus" value="@item.Value">
+										<label for="inStock">@item.Text</label>
+									</div>
+								}
+							}
+						</div>
+					</div>
+
+					<div class="filter-actions">
+						<button class="btn-apply" onclick="applyFilters()">Áp dụng</button>
+						<button class="btn-reset" onclick="resetFilters()">Đặt lại</button>
+					</div>
+				</div>
+
+				<div class="product-table">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="containerModal" tabindex="-1" aria-labelledby="containerModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+<script src="~/js/Admin/ManageProduct/Index.js"></script>
+<script src="~/js/Admin/ManageProduct/_ListProduct.js"></script>
+<script src="~/js/Admin/ManageProduct/_DetailProduct.js"></script>
+<script src="~/js/Admin/ManageProduct/_AddProduct.js"></script>
+<script>
+	// 	  const mde = new EasyMDE({
+	//   element: document.getElementById('instructions'),
+	//   spellChecker: false,
+	//   thanh công cụ đủ xài
+	//   toolbar: ['bold','italic','heading','unordered-list','ordered-list','link','preview','guide']
+	// });
+</script>

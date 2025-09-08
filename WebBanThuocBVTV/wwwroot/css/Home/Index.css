@@ -1,0 +1,12 @@
+﻿.home-container {
+    width: 80%;
+    margin: auto;
+    padding: 0% 0%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
+}
+    .home-container .carousel-inner {
+        border-radius: 0 60px;
+    }
+

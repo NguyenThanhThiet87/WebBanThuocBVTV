@@ -1,0 +1,33 @@
+﻿@model List<WebBanThuocBVTV.Models.Sanpham>
+
+@if (Model.Count > 0)
+{
+	foreach (var sp in Model)
+	{
+		<a href="@Url.Action("DetailProduct","Product",new{area="Customer", maSp =@sp.MaSanPham })">
+			<div class="result-item p-3">
+				<div class="d-flex align-items-center">
+					<div class="result-icon me-3">
+						<img src="@sp.Hinhanhs.First().Url" alt="img" />
+					</div>
+					<div class="flex-grow-1">
+						<div class="d-flex justify-content-between align-items-start mb-1">
+							<h6 class="result-title mb-0">@sp.TenSanPham | @sp.MaNhomSpNavigation.TenNhomSp</h6>
+						</div>
+						<p class="result-description mb-0">@(String.Format("{0:N0}", sp.Gia)) VNĐ</p>
+					</div>
+				</div>
+			</div>
+		</a>
+		
+	}
+}else
+{
+	<dotlottie-player src="https://lottie.host/8f648a07-a3b3-43b6-b015-f84f9dce685e/78uWlTXGyD.lottie"
+					  background="transparent"
+					  speed="1"
+					  loop
+					  autoplay></dotlottie-player>
+	<p>Không tìm thấy kết quả</p>
+}
+

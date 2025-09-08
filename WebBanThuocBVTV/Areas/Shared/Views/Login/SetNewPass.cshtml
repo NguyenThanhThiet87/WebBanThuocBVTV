@@ -1,0 +1,56 @@
+﻿<link href="~/css/Login/SetNewPass.css" rel="stylesheet" />
+<div class="setnewpass-container">
+	<h1 class="title">Thay đổi mật khẩu</h1>
+
+	<form id="passwordForm" asp-action="ChangePass" asp-controller="Login" asp-area="Shared">
+		<div class="form-group">
+			<label for="email" class="form-label">Email</label>
+			<input type="email" id="email" name="email" class="form-input readonly" value="@(ViewBag.email??"")" readonly>
+		</div>
+
+		<div class="form-group">
+			<label for="newPassword" class="form-label">Mật khẩu mới</label>
+			<div class="input-wrapper">
+				<input type="password" id="newPassword" name="newPass" class="form-input pass-input" value="@(ViewBag.newPass??"")" placeholder="Nhập mật khẩu mới" required>
+				<span class="toggle-password" onclick="togglePass(this)">
+					<i class="fa fa-eye"></i>
+					<i class="fa fa-eye-slash d-none"></i>
+				</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
+			<div class="input-wrapper">
+				<input type="password" id="confirmPassword" name="comfPass" class="form-input pass-input" value="@(ViewBag.comfPass??"")" placeholder="Nhập lại mật khẩu mới" required>
+				<span class="toggle-password" onclick="togglePass(this)">
+					<i class="fa fa-eye"></i>
+					<i class="fa fa-eye-slash d-none"></i>
+				</span>
+			</div>
+		</div>
+
+		<button type="submit" class="submit-btn">
+			Đổi mật khẩu
+		</button>
+	</form>
+</div>
+
+<script>
+	var togglePass = function (group) {
+		var eye = group.querySelector(".fa-eye");
+		var eyeSlash = group.querySelector(".fa-eye-slash");
+		var password = group.previousElementSibling;
+		console.log(password);
+
+		if (eye.classList.contains("d-none")) {
+			password.type = "password";
+			eye.classList.remove("d-none");
+			eyeSlash.classList.add("d-none");
+		} else {
+		    password.type = "text";
+			eye.classList.add("d-none");
+			eyeSlash.classList.remove("d-none");
+		}
+	}
+</script>

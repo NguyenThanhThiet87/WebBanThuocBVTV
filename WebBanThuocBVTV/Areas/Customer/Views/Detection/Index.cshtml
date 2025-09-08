@@ -1,0 +1,35 @@
+﻿<link rel="stylesheet" href="/css/Detection/Index.css" />
+<div class="detection_plant-container">
+	<h1>🌿 Nhận diện bệnh lá cây</h1>
+
+	<div class="detection_plant-top">
+		<div class="upload-area">
+			 @if(ViewBag?.Img==null) 
+			 { 
+				<div class="upload-icon guide">🍃</div>
+				<div class="upload-text guide">Chọn ảnh lá cây cần chẩn đoán</div>
+				<div class="upload-hint guide">Hỗ trợ: JPG, PNG, JPEG (tối đa 5MB)</div>
+			}
+			<img id="img_uploaded" src="@(ViewBag.Img??"")" class="preview-img" alt="Chọn ảnh lá cây">
+			<br />
+			<input name="img" type="file" id="fileInput" accept="image/*" onchange="ChoosePicture(this)">
+		</div>
+
+		<div class="result-area">
+			<div class="result-title">Kết quả chẩn đoán</div>
+			<div class="diagnosis-box">
+				<div class="disease-name">Khả năng @ViewBag?.Result</div>
+				<div class="confidence">Độ tin cậy: @(ViewBag?.Conf * 100)%</div>
+			</div>
+		</div>
+	</div>
+
+	<button class="btn" onclick="Detect()">
+		🔬 Nhận diện bệnh lá
+	</button>
+
+	<div class="footer">
+		<p>⚠️ Kết quả chỉ mang tính chất tham khảo. Nên tham khảo ý kiến chuyên gia để có phương pháp điều trị chính xác.</p>
+	</div>
+</div>
+<script src="~/js/Customer/Detection/Index.js"></script>>

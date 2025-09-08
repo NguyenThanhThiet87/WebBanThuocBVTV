@@ -1,0 +1,147 @@
+﻿@model List<WebBanThuocBVTV.Models.Donhang>
+<link href="~/css/Admin/Home/Index.css" rel="stylesheet" />
+<link href="~/css/Admin/ManageOrder/_DetailOrder.css" rel="stylesheet" />
+<!-- Main Content -->
+<!-- Dashboard Content -->
+<div class="dashboard-content">
+	<h1 class="page-title">Tổng quan Dashboard</h1>
+
+	<!-- Stats Cards -->
+	<div class="stats-cards">
+		<div class="stat-card">
+			<div class="stat-card-icon orders">
+				<i class="fas fa-shopping-cart"></i>
+			</div>
+			<h3>@ViewBag.statisticOrder["dhCurrentMonth"]</h3>
+			<p>Đơn hàng mới</p>
+			<div class="stat-change positive">
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticOrder["percent"] so với tháng trước
+			</div>
+		</div>
+		<div class="stat-card">
+			<div class="stat-card-icon revenue">
+				<i class="fas fa-dollar-sign"></i>
+			</div>
+			<h3>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", ViewBag.statisticOrder["revenueCurrentMonth"])</h3>
+			<p>Doanh thu (VNĐ)</p>
+			<div class="stat-change positive">
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticOrder["percentRevenue"]% so với tháng trước
+			</div>
+		</div>
+		<div class="stat-card">
+			<div class="stat-card-icon customers">
+				<i class="fas fa-users"></i>
+			</div>
+			<h3>@ViewBag.statisticUser["ndCurrentMonth"]</h3>
+			<p>Khách hàng</p>
+			<div class="stat-change positive">
+				<i class="fas fa-arrow-up"></i> @ViewBag.statisticUser["percent"]% so với tháng trước
+			</div>
+		</div>
+		<div class="stat-card">
+			<div class="stat-card-icon products">
+				<i class="fas fa-spray-can"></i>
+			</div>
+			<h3>@ViewBag.statisticProduct["Count"]</h3>
+			<p>Sản phẩm BVTV</p>
+			<div class="stat-change positive">
+				<i class="fa-solid fa-shop-lock" style="color: #f22c54;"></i>
+				@ViewBag.statisticProduct["CountNoneActive"] sản phẩm ngừng kinh doanh
+			</div>
+		</div>
+	</div>
+
+	<!-- Dashboard Grid -->
+	<div class="dashboard-grid">
+		<div class="dashboard-card">
+			<h5>Biểu đồ doanh thu</h5>
+			<div class="chart-container">
+				<canvas id="revenueChart"></canvas>
+			</div>
+		</div>
+
+		<div class="dashboard-card">
+			<h5>Thao tác nhanh</h5>
+			<div class="quick-actions">
+				<a href="@Url.Action("Index","ManageCustomer",new{area = "Admin"})" class="action-btn">
+					<i class="fas fa-users"></i>
+					<span>Quản lý khách hàng</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-4">
+		<div class="col-md-8">
+			<div class="dashboard-card">
+				<h5>Đơn hàng gần đây</h5>
+				<div class="recent-orders">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Mã đơn</th>
+								<th>Khách hàng</th>
+								<th>Sản phẩm</th>
+								<th>Giá trị</th>
+								<th>Trạng thái</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var dh in Model)
+							{
+								<tr onclick="detailOrderHome('@dh.MaDonHang')">
+									<td>@dh.MaDonHang</td>
+									<td>@dh.MaNdNavigation.HoTen</td>
+									<td>@dh.DonhangSanphams.FirstOrDefault().MaSanPhamNavigation.TenSanPham ,...</td>
+									<td>@dh.TongTien</td>
+									<td><span class="order-status completed">@dh.MaTrangThaiNavigation.TenTrangThai</span></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="dashboard-card">
+				<h5>Thông báo</h5>
+				<div class="notifications">
+					@if (ViewBag.CountProcessingOrder > 0)
+					{
+						<a class="notification-item" href="@Url.Action("Index", "ManageOrder", new {area="Admin"})" style="text-decoration: none">
+							<div class="notification-icon info">
+								<i class="fas fa-info"></i>
+							</div>
+							<div >
+								<strong>Đơn hàng mới</strong>
+								<p class="mb-0 small text-muted">Có @ViewBag.CountProcessingOrder đơn hàng mới cần xử lý</p>
+							</div>
+						</a>
+					}
+					@foreach (var item in ViewBag.OutOfStock)
+					{
+						<a class="notification-item" href="@Url.Action("Index", "ManageOrder", new {area="Admin"})" style="text-decoration: none" onclick="@TempData["search"]='@item.MaSanPham'">
+							<div class="notification-icon warning">
+								<i class="fas fa-exclamation"></i>
+							</div>
+							<div>
+								<strong>Sản phẩm hết hàng</strong>
+								<p class="mb-0 small text-muted">@item.MaNhomSpNavigation.TenNhomSp @item.TenSanPham (@item.MaSanPham) sắp hết hàng</p>
+							</div>
+						</a>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="detail_orderModal" tabindex="-1" aria-labelledby="detail_orderModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+<script src="~/js/Admin/Home/Index.js"></script>
+<script src="~/js/Admin/ManageOrder/_DetailOrder.js"></script>

@@ -1,0 +1,60 @@
+﻿@{
+}
+@model WebBanThuocBVTV.Models.Binhluan
+
+<link href="~/css/Admin/ManageComment/_ReplyComment.css" rel="stylesheet" />
+<!-- Header -->
+<div class="modal-header">
+	<h3 class="modal-title">Trả lời đánh giá khách hàng</h3>
+	<button class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+</div>
+
+<!-- Body -->
+<div class="modal-body">
+	<!-- Thông tin bình luận gốc -->
+	<div class="comment-info">
+		<div class="comment-header">
+			<div class="customer-avatar">
+				@if (Model.MaNdNavigation.Avatar != null)
+				{
+					<img name="avatar" src="@Model.MaNdNavigation.Avatar" alt="Alternate Text" class="avatar" />
+				}
+				else
+				{
+					<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+				}
+			</div>
+			<div class="customer-info">
+				<div class="customer-name">@Model.MaNdNavigation.HoTen</div>
+				<div class="comment-date">@Model.ThoiGian</div>
+			</div>
+			<div class="rating-stars">
+				<span class="star @(Model.MaDanhGia >= 1?"":"empty")">★</span>
+				<span class="star @(Model.MaDanhGia >= 2?"":"empty")">★</span>
+				<span class="star @(Model.MaDanhGia >= 3?"":"empty")">★</span>
+				<span class="star @(Model.MaDanhGia >= 4?"":"empty")">★</span>
+				<span class="star @(Model.MaDanhGia >= 5?"":"empty")">★</span>
+				<span style="margin-left: 8px; color: #666; font-size: 12px;">(@Model.MaDanhGia/5 sao)</span>
+			</div>
+		</div>
+		<div class="comment-content">
+			<strong>Sản phẩm:</strong> @Model.MaSanPhamNavigation.TenSanPham<br>
+			<strong>Nội dung:</strong> 
+			<textarea class="form-textarea" maxlength="1000" readonly>@Model.NoiDung</textarea>
+		</div>
+	</div>
+
+	<!-- Form trả lời -->
+	<div class="reply-form" id="replyForm">
+		<div class="form-group">
+			<label for="replyContent" class="form-label">Nội dung trả lời <span style="color: red;">*</span></label>
+			<textarea id="replyContent" class="form-textarea"  placeholder="Nhập nội dung trả lời cho khách hàng..."  maxlength="1000"></textarea>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<div class="modal-footer">
+	<button type="button" class="btn btn-cancel" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+	<button type="button" class="btn btn-primary" id="submitBtn" onclick="reply('@(Model.ThoiGian.ToString("o"))', '@Model.MaNd', '@Model.MaSanPham','@ViewBag.Account.MaNd')">Gửi trả lời</button>
+</div>

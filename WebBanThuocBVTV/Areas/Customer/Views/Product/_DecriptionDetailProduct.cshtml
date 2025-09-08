@@ -1,0 +1,61 @@
+﻿@using Markdig
+@model WebBanThuocBVTV.Models.Sanpham;
+@{
+
+}
+
+<link rel="stylesheet" href="/css/Product/_DecriptionDetailProduct.css" />
+
+<div class="infoDetailProduct-container">
+    <h1 class="product-title">Chi tiết sản phẩm</h1>
+
+    <!-- Thông tin cơ bản -->
+    <div class="info-section">
+        <h3 class="section-title">Thông tin sản phẩm</h3>
+        <div class="section-content">
+            <div class="info-item">
+                <span class="info-label">Hãng sản xuất:</span> @(Model.MaNhaSxNavigation.TenNhaSx??"Đang cập nhật")
+            </div>
+            <div class="info-item">
+                <span class="info-label">Hạn sử dụng:</span> @(Model.HanSd != null ? Model.HanSd:"Đang cập nhật")
+            </div>
+        </div>
+    </div>
+
+    <!-- Thành phần -->
+    <div class="info-section">
+        <h3 class="section-title">Thành phần</h3>
+        <div class="section-content">
+            <ul class="composition-list">
+                @{
+                    var thanhphans = Model?.ThanhPhan.Split(";");
+                    foreach (var tp in thanhphans)
+                    {
+                        var token = tp.Split(":");
+                        if(token.Length>=2)
+                        {
+                            <li><strong>@token[0]:</strong> @token[1]</li>
+                        }else
+                        {
+                            <li><strong>@token[0]</strong></li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+
+    <!-- Công dụng -->
+    <div class="info-section">
+        <h3 class="section-title">Công dụng</h3>
+        <div class="section-content">
+            <p>@Model?.CongDung</p>
+        </div>
+    </div>
+
+    <!-- Hướng dẫn sử dụng -->
+     <div class="info-section"> 
+         <h3 class="section-title">Hướng dẫn sử dụng</h3>
+        @Html.Raw(Markdown.ToHtml(Model.HuongDanSd ?? ""))
+     </div> 
+</div>

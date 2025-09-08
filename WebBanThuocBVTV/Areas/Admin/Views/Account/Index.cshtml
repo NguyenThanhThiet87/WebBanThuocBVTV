@@ -1,0 +1,152 @@
+﻿@{
+}
+@model WebBanThuocBVTV.Models.Donhang
+@using System.Linq
+
+<link href="~/css/Account/Index.css" rel="stylesheet" />
+<div class="account-container">
+	<h2>Quản lý tài khoản</h2>
+	<!-- Tabs -->
+	<div>
+		<div class="tabs">
+			<button class="tab-btn @(ViewBag.active=="personal"?"active":"")" data-tab="profile">Thông tin cá nhân</button>
+			<button class="tab-btn @(ViewBag.active=="password"?"active":"")" data-tab="password">Đổi mật khẩu</button>
+		</div>
+	</div>
+	<!-- Profile Section -->
+	<section id="profile" class="tab-content @(ViewBag.active=="personal"?"active":"")">
+		<h3>Thông tin cá nhân</h3>
+		<form class="profile-form" asp-action="ChangePersonal" asp-controller="Account" enctype="multipart/form-data">
+			<!-- Avatar Upload -->
+			<div class="avatar-upload">
+				<div class="avatar-preview" id="avatarPreview">
+					<i class="fas fa-user iconAvatarCustomer @(ViewBag.User.Avatar==null?"":"d-none")"></i>
+					<img src="@(ViewBag.User.Avatar??"")" alt="Alternate Text" class="imgAvatar @(ViewBag.User.Avatar==null?"d-none": "")" />
+				</div>
+				<button type="button" class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()">
+					<i class="fas fa-camera"></i>
+				</button>
+				<input type="file" id="avatarInput" name="avatar" class="d-none" accept="image/*" value="@ViewBag?.avatar" onchange="reviewImage(this)">
+			</div>
+
+			<label>Họ và tên</label>
+			<input name="name" type="text" id="fullName" value="@ViewBag.User.HoTen" required>
+
+			<label>Giới tính</label>
+			@if (ViewBag.User.GioiTinh == true)
+			{
+				<div class="radio-gioitinh">
+					<input name="gioitinh" type="radio" value="true" checked />
+					<label class="radio-gioitinh">Nam</label>
+				</div>
+				<div class="radio-gioitinh">
+					<input name="gioitinh" type="radio" value="false" />
+					<label class="radio-gioitinh">Nữ</label>
+				</div>
+			}
+			else
+			{
+				<div class="radio-gioitinh">
+					<input name="gioitinh" type="radio" value="true" />
+					<label class="radio-gioitinh">Nam</label>
+				</div>
+				<div class="radio-gioitinh">
+					<input name="gioitinh" type="radio" value="false" checked />
+					<label class="radio-gioitinh">Nữ</label>
+				</div>
+			}
+
+			<label>Số điện thoại</label>
+			<div>
+				<input name="phone" type="tel" id="phone" value="@(ViewBag.User.SoDienThoai??"")" placeholder="Vui lòng cập nhật số điện thoại" required readonly>
+				<a class="btn btn-success" href="@Url.Action("UpdatePhone","Account",new {area = "Admin"})">Cập nhật</a>
+			</div>
+
+			<label>Email</label>
+			<div>
+				<input name="email" type="email" id="email" value="@ViewBag.User.Email" required readonly>
+				<a class="btn btn-success" href="@Url.Action("UpdateEmail","Account",new {area = "Admin"})">Cập nhật</a>
+			</div>
+
+			<label>Địa chỉ</label>
+			<input name="address" type="text" id="address" value="@(ViewBag.User.DiaChi??"")" placeholder="Vui lòng cập nhật địa chỉ" required>
+			<button id="saveProfileBtn" type="submit">Lưu thay đổi</button>
+		</form>
+
+	</section>
+
+	<!-- Password Section -->
+	<section id="password" class="tab-content @(ViewBag.active=="password"?"active":"")">
+		<h3>Đổi mật khẩu</h3>
+		<form class="password-form" asp-action="ChangePass" asp-controller="Account" method="post">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input name="email" class="form-control" value="@ViewBag.User?.Email" required />
+			</div>
+			<div class="form-group position-relative">
+				<label for="oldPass">Mật khẩu cũ</label>
+				<input type="password" name="oldPass" id="oldPass" class="form-control" value="@ViewBag.hisOldPass" required />
+				<span class="toggle-password" onclick="togglePassword('oldPass', this)">
+					<i class="fa fa-eye"></i>
+					<i class="fa fa-eye-slash"></i>
+				</span>
+			</div>
+			<div class="form-group position-relative">
+				<label for="newPass">Mật khẩu mới</label>
+				<input type="password" name="newPass" id="newPass" class="form-control" value="@ViewBag.hisNewPass" required />
+				<span class="toggle-password" onclick="togglePassword('newPass', this)">
+					<i class="fa fa-eye"></i>
+					<i class="fa fa-eye-slash"></i>
+				</span>
+			</div>
+			<div class="form-group position-relative">
+				<label for="comfPass">Xác nhận mật khẩu</label>
+				<input type="password" name="comfPass" id="comfPass" class="form-control" value="@ViewBag.hisComfPass" required />
+				<span class="toggle-password" onclick="togglePassword('comfPass', this)">
+					<i class="fa fa-eye"></i>
+					<i class="fa fa-eye-slash"></i>
+				</span>
+			</div>
+			<button id="changePasswordBtn" type="submit">Đổi mật khẩu</button>
+		</form>
+	</section>
+</div>
+
+<script>
+		// Tab switching
+	const tabButtons = document.querySelectorAll('.tab-btn');
+	const tabContents = document.querySelectorAll('.tab-content');
+
+	tabButtons.forEach(button => {
+	  button.addEventListener('click', () => {
+		tabButtons.forEach(btn => btn.classList.remove('active'));
+		tabContents.forEach(content => content.classList.remove('active'));
+
+		button.classList.add('active');
+		document.getElementById(button.getAttribute('data-tab')).classList.add('active');
+	  });
+	});
+
+	function togglePassword(inputId, toggleElement) {
+		var input = document.getElementById(inputId);
+		var toggle = toggleElement;
+		if (input.type === "password") {
+			input.type = "text";
+			toggle.classList.add("active");
+		} else {
+			input.type = "password";
+			toggle.classList.remove("active");
+		}
+	}
+
+	var reviewImage = function(input)
+	{
+		var file = input.files[0];
+		var imgElement = document.getElementsByClassName("imgAvatar")[0];
+		var iconElement = document.getElementsByClassName("iconAvatarCustomer")[0];
+		iconElement.classList.add("d-none");
+		console.log(imgElement);
+		imgElement.classList.remove("d-none");
+		imgElement.src = URL.createObjectURL(file);
+	}
+</script>

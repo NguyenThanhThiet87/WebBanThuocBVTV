@@ -1,0 +1,43 @@
+﻿@{
+}
+<link href="~/css/Admin/Share/_SendOTPPhone.css" rel="stylesheet" />
+<button class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+
+<div class="otp-icon"></div>
+
+<h2 class="modal-title">Xác thực OTP</h2>
+<p class="modal-subtitle">
+	Chúng tôi đã gửi mã xác thực đến số điện thoại<br>
+	<span class="phone-display">@Model</span>
+</p>
+
+<div class="otp-input-container">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 1)" onkeydown="previous(this, event, 1)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 2)" onkeydown="previous(this, event, 2)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 3)" onkeydown="previous(this, event, 3)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 4)" onkeydown="previous(this, event, 4)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 5)" onkeydown="previous(this, event, 5)">
+	<input type="text" class="otp-input" maxlength="1" oninput="nextCell(this, event, 6)" onkeydown="previous(this, event, 6)">
+</div>
+
+<button class="verify-btn" id="verifyBtn" onclick="verifyPhone()">
+	Xác thực
+</button>
+
+<div class="error-message" id="errorMessage">
+	Mã OTP không chính xác. Vui lòng thử lại.
+</div>
+
+<div class="success-message" id="successMessage">
+	Xác thực thành công!
+</div>
+
+<div class="resend-section">
+	<span>Không nhận được mã? </span>
+	<button class="resend-btn" id="resendBtn" onclick="resendOTPPhone()">
+		Gửi lại mã
+	</button>
+	<span id="countdown" class="countdown" style="display: none;">
+		(<span id="timer">60</span>s)
+	</span>
+</div>

@@ -1,0 +1,65 @@
+﻿@model WebBanThuocBVTV.Models.Giohang
+<link href="~/css/Cart/Index.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h2>Giỏ Hàng Của Bạn</h2>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+@if(Model.GiohangSanphams.Count>0)
+{
+	var total = 0;
+	<table class="cart-table">
+		<thead>
+			<tr>
+				<th><input type="checkbox" onclick="chooseAllProduct(this)" checked/></th>
+				<th>Sản Phẩm</th>
+				<th>Đơn Giá</th>
+				<th>Số Lượng</th>
+				<th>Tổng</th>
+				<th>Hành Động</th>
+			</tr>
+		</thead>
+		<tbody id="cart-items">
+			@foreach (var sp in Model.GiohangSanphams)
+			{
+				<tr class="sp">
+					<td>
+						<input type="checkbox" class="checkbox" value="@sp.MaSanPham" checked="@(true)" onchange="update_SumPrice()" />
+					</td>
+					<td>
+						<img src="@sp.MaSanPhamNavigation.Hinhanhs.First().Url" alt="Anonin 1EC"/>
+						<span class="tensp-@sp.MaSanPham">@sp.MaSanPhamNavigation.TenSanPham</span>
+					</td>
+					<td>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", sp.MaSanPhamNavigation.Gia) VNĐ</td>
+					<td>
+						<div class="quantity-controls">
+							<input class="maSp-@sp.MaSanPham" name="maSpCart" value="@sp.MaSanPham" type="hidden" />
+							<input class="soLuongSpTon-@sp.MaSanPham soLuongSpTon" type="hidden" value="@sp.MaSanPhamNavigation.SoLuong" />
+							<button onclick="decreaseQualityCart(this)">-</button>
+							<input class="soluong-@sp.MaSanPham" type="number" value="@sp.SoLuong" min="1" onchange="changeQuality(this)"/>
+							<button onclick="increaseQualityCart(this)">+</button>
+						</div>
+					</td>
+					<td id="total-0">@(String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @sp.TongTien)) VNĐ</td>
+					<td>
+						<input name="maSpCart" value="@sp.MaSanPham" type="hidden" />
+						<button class="remove-btn" onclick="removeProduct(this)">Xóa</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<div class="cart-summary">
+		<p>Tổng cộng: <strong id="cart-total">@(String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @Model.TongTien)) VNĐ</strong></p>
+	</div>
+
+	<form class="cart-actions" asp-action="Index" asp-controller="Order" asp-area="customer">
+		<input id="dataSubmit" name="listSanPhamOrderStr" value="" type="hidden" />
+		<button class="checkout-btn" onclick="OrderProductFromCart(this)" type="button">Thanh Toán</button>
+	</form>
+}else
+{
+	<lottie-player id="animation-empty-cart" src="https://lottie.host/13a5158b-2038-4b3f-ac38-ce2ba51d5702/Y3Y4J9KlpT.json" background="##FFFFFF" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
+	<p id="title_empty_order">Chưa có sản phẩm nào trong giỏ hàng</p>
+}

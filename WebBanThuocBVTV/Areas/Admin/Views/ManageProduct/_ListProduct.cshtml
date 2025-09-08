@@ -1,0 +1,75 @@
+﻿@model IPagedList<WebBanThuocBVTV.Models.Sanpham>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using System.Globalization
+
+<link href="~/css/Admin/ManageProduct/_ListProduct.css" rel="stylesheet" />
+@if (Model.Count > 0)
+{
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+				<th>Số lượng</th>
+				<th>Nhà sản xuất</th>
+				<th>Nhóm sản phẩm</th>
+				<th>Thao tác</th>
+			</tr>
+		</thead>
+		<tbody id="customerTableBody">
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>#@item.MaSanPham</td>
+					<td>@item.TenSanPham</td>
+					<td>@item.Gia</td>
+					<td>@item.SoLuong</td>
+					<td>@item.MaNhaSxNavigation.TenNhaSx</td>
+					<td>@item.MaNhomSpNavigation.TenNhomSp</td>
+					<td>
+						<div class="action-buttons">
+							<button class="btn-view btn btn-lg" data-bs-toggle="modal" data-bs-target="#containerModal" onclick="detailProductModal('@item.MaSanPham')">
+								<i class="fas fa-eye me-2"></i>Xem
+							</button>
+							@if(item.IsActive)
+							{
+								<button class="btn btn-discontinue" onclick="discontinueProduct('@item.MaSanPham')">🗑️ Ngừng bán</button>
+							}else
+							{
+								<button class="btn btn-sell" onclick="sellProduct('@item.MaSanPham')">🗑️Kinh doanh</button>
+							}
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<lottie-player id="animation-empty-user" class="w-100 h-50" src="https://lottie.host/3fbc8aea-fdf2-4ce8-9a98-7a3de0c5cee5/No6vcVStET.json" background="##FFFFFF" speed="1" loop autoplay direction="1" mode="normal"></lottie-player>
+	<p id="title_empty_order">Sản phẩm không tồn tại</p>
+}
+
+@if(ViewBag.PageCount>0)
+{
+	<nav aria-label="Page navigation" class="pt-3">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Previous</a></li>
+			@{
+				int i = ViewBag.PageNumber <= 6 ? 1 : (ViewBag.PageNumber / 6) * 6;
+				int end = i + 5;
+				while (i <= ViewBag.PageCount && i <= end)
+				{
+					<li class="page-item @(i == ViewBag.PageNumber ? "active":"")"><a class="page-link" onclick="pageList(this)">@i</a></li>
+					i++;
+				}
+			}
+			<li class="page-item"><a class="page-link" onclick="pageList(this, @ViewBag.PageNumber, @ViewBag.PageCount)">Next</a></li>
+		</ul>
+	</nav>
+}
+
+

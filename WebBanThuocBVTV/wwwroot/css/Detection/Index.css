@@ -1,0 +1,163 @@
+﻿.detection_plant-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 60vw;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.detection_plant-container h1 {
+    color: #2E7D32;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+    .detection_plant-container .detection_plant-top {
+        display: grid;
+        grid-template-columns: 25vw 25vw;
+        column-gap: 5vw;
+    }
+    .detection_plant-container .upload-area {
+        border: 3px dashed #4CAF50;
+        border-radius: 15px;
+        padding: 40px;
+        background: #f1f8e9;
+        transition: all 0.3s ease;
+    }
+
+        .detection_plant-container .upload-area:hover {
+            border-color: #388E3C;
+            background: #e8f5e8;
+            transform: translateY(-2px);
+        }
+
+    .detection_plant-container .upload-icon {
+        font-size: 3em;
+        color: #4CAF50;
+        margin-bottom: 15px;
+    }
+
+    .detection_plant-container .upload-text {
+        color: #388E3C;
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    .detection_plant-container .upload-hint {
+        color: #666;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .detection_plant-container #fileInput {
+        margin: 20px 0;
+        padding: 10px;
+        border: 2px solid #4CAF50;
+        border-radius: 10px;
+        background: #f9f9f9;
+        font-size: 1em;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .detection_plant-container .btn {
+        background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 5vh;
+        font-weight: 600;
+    }
+
+        .detection_plant-container .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+        }
+
+    .detection_plant-container .image-preview {
+        padding: 20px;
+        background: #f1f8e9;
+        border-radius: 15px;
+        border: 2px solid #4CAF50;
+    }
+
+    .detection_plant-container .preview-label {
+        color: #2E7D32;
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+
+    .detection_plant-container .preview-img {
+        max-width: 100%;
+        max-height: 195px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        margin-bottom: 15px;
+    }
+
+    .detection_plant-container .file-info {
+        color: #666;
+        font-size: 0.9em;
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .detection_plant-container .result-area {
+        padding: 25px;
+        background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%);
+        border-radius: 15px;
+        border: 2px solid #4CAF50;
+        transition: all 0.3s ease;
+    }
+        .detection_plant-container .result-area:hover {
+            border-color: #388E3C;
+            background: #e8f5e8;
+            transform: translateY(-2px);
+        }
+    .detection_plant-container .result-title {
+        color: #2E7D32;
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .detection_plant-container .diagnosis-box {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px 0;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+    }
+
+    .detection_plant-container .disease-name {
+        color: #D32F2F;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .detection_plant-container .confidence {
+        color: #FF9800;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .detection_plant-container .footer {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #E0E0E0;
+        color: #666;
+        font-size: 0.9em;
+    }

@@ -1,0 +1,192 @@
+﻿#commentModal .modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#commentModal .modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+#commentModal .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+    #commentModal .close-btn:hover {
+        background-color: #f8f9fa;
+        color: #666;
+    }
+
+/* Modal body */
+#commentModal .modal-body {
+    padding: 24px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Comment info */
+#commentModal .comment-info {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-left: 4px solid #007bff;
+}
+
+#commentModal .comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+#commentModal .customer-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+#commentModal .customer-info {
+    flex: 1;
+}
+
+#commentModal .customer-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+#commentModal .comment-date {
+    color: #666;
+    font-size: 12px;
+}
+
+#commentModal .rating-stars {
+    margin-left: auto;
+}
+
+#commentModal .star {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+    #commentModal .star.empty {
+        color: #e9ecef;
+    }
+
+#commentModal .comment-content {
+    color: #555;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Reply form */
+#commentModal .reply-form {
+    margin-top: 20px;
+}
+
+#commentModal .form-group {
+    margin-bottom: 16px;
+}
+
+#commentModal .form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+#commentModal .form-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+    #commentModal .form-textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+
+#commentModal .char-counter {
+    text-align: right;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Modal footer */
+#commentModal .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background-color: #f8f9fa;
+}
+
+#commentModal .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+#commentModal .btn-cancel {
+    background: white;
+    color: #666;
+    border-color: #ddd;
+}
+
+    #commentModal .btn-cancel:hover {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+#commentModal .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    #commentModal .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    #commentModal .btn-primary:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }

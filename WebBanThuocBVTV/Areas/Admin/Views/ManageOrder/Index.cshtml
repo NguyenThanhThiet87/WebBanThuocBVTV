@@ -1,0 +1,91 @@
+﻿@using WebBanThuocBVTV.Helper
+@{
+}
+<link href="~/css/Admin/ManageOrder/Index.css" rel="stylesheet" />
+<link href="~/css/Admin/ManageOrder/_ListOrder.css" rel="stylesheet" />
+<div class="manage_order-container">
+	<!-- Header -->
+	<h1 class="page-title">Quản Lý Đơn Hàng</h1>
+
+	<div class="content-container">
+		<!-- Thao tác nhanh -->
+		<div class="actions-section">
+			<h2 class="actions-title">Thao tác nhanh</h2>
+			<div class="actions-grid">
+				<a class="action-btn" data-bs-toggle="modal" data-bs-target="#detail_orderModal" onclick="addOrderModal()">
+					<i class="fa-solid fa-plus"></i>
+					Thêm đơn hàng mới
+				</a>
+			</div>
+		</div>
+
+		<!-- Bảng đơn hàng -->
+		<div class="customer_section-container">
+			<div class="table-header">
+				<h2 class="table-title">Danh sách đơn hàng</h2>
+				<div class="active-filters" id="activeFilters" style="display: none;">
+					<strong>Bộ lọc đang áp dụng:</strong>
+					<div id="filterTags"></div>
+				</div>
+
+				<div class="sort-options">
+					<label>Sắp xếp</label>
+					<select class="sort-select" id="sortSelect" asp-items="Html.GetEnumSelectList<SortOptionsOrder>()" onchange="applyFilters()">
+					</select>
+				</div>
+
+				<div class="search-container">
+					<input type="text" class="search-input" placeholder="Tìm kiếm đơn hàng..." value="" id="searchInput">
+					<button class="search-btn" onclick="applyFilters()">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						Tìm kiếm
+					</button>
+				</div>
+			</div>
+
+			<div class="table-content">
+				<div class="filter-sidebar">
+					<h3 style="margin-bottom: 20px; color: #2c3e50;">
+						<i class="fa-solid fa-filter"></i>
+						Bộ lọc
+					</h3>
+
+					<div class="filter-section">
+						<div class="filter-title">
+							<i class="fa-solid fa-circle-check"></i>
+							Trạng thái
+						</div>
+						<select class="sort-select" id="stateSelect" onchange="applyFilters()">
+							@foreach (var item in ViewBag.TrangThaiDonHang)
+							{
+								if(item.MaTrangThai=="PCD")
+								{
+									<option value="@item.MaTrangThai" selected>@item.TenTrangThai</option>
+								}else
+								{
+									<option value="@item.MaTrangThai">@item.TenTrangThai</option>
+								}
+								
+							}
+						</select>
+					</div>
+				</div>
+
+				<div class="order-table">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="detail_orderModal" tabindex="-1" aria-labelledby="detail_orderModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content" id="modal-container">
+			</div>
+		</div>
+	</div>
+</div>
+<script src="~/js/Admin/ManageOrder/Index.js"></script>
+<script src="~/js/Admin/ManageOrder/_ListOrder.js"></script>
+<script src="~/js/Admin/ManageOrder/_DetailOrder.js"></script>
+<script src="~/js/Admin/ManageOrder/_AddOrder.js"></script>

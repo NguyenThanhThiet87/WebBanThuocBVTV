@@ -1,0 +1,162 @@
+﻿<link href="/css/Admin/ManageProduct/_AddProduct.css" rel="stylesheet" />
+
+<div class="modal-header">
+	<h5 class="modal-title" id="addProductModalLabel">
+		<i class="fas fa-user-circle me-2"></i>
+		<span id="modalTitle">Thêm sản phẩm</span>
+	</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+</div>
+
+<div class="modal-body position-relative">
+	<div id="productForm">
+		<div class="row">
+			<!-- Form Section -->
+			<div class="col-lg-7">
+				<!-- Thông tin cơ bản -->
+				<div class="form-section">
+					<h5 class="section-title">
+						<i class="bi bi-info-circle me-2"></i>Thông Tin Cơ Bản
+					</h5>
+
+					<div class="form-group mb-3">
+						<label for="productName" class="form-label">
+							<i class="fa-solid fa-box"></i>Tên Sản Phẩm
+						</label>
+						<input type="text" class="form-control" id="productName" placeholder="Ví dụ: Vi lượng-BOROZINC" required>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="productId" class="form-label">
+									<i class="bi bi-upc me-1"></i>ID Sản Phẩm
+								</label>
+								<input type="text" class="form-control" id="productId" placeholder="sp0001" readonly value="@ViewBag.maSp">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="category" class="form-label">
+									<i class="fa-solid fa-layer-group"></i>Nhóm Sản Phẩm
+								</label>
+								<select class="form-select" id="category" required>
+									@foreach (var item in ViewBag.lstNSP)
+									{
+										<option value="@item.MaNhomSp">@item.TenNhomSp</option>
+									}
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="price" class="form-label">
+									<i class="fa-solid fa-tag"></i>Giá
+								</label>
+								<div class="input-group">
+									<input type="number" class="form-control" id="price" placeholder="200000" min="0" required>
+									<span class="input-group-text">VND</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="quantity" class="form-label">
+									<i class="fa-solid fa-cubes"></i>Số Lượng
+								</label>
+								<input type="number" class="form-control" id="quantity" placeholder="50" min="0" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="manufacturer" class="form-label">
+									<i class="fa-solid fa-industry"></i>Nhà Sản Xuất
+								</label>
+								<select class="form-select" id="provider" required>
+									@foreach (var item in ViewBag.lstNSX)
+									{
+										<option value="@item.MaNhaSx">@item.TenNhaSx</option>
+									}
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group mb-3">
+								<label for="expiryDate" class="form-label">
+									<i class="fa-solid fa-hourglass-end"></i>Hạn Sử Dụng
+								</label>
+								<input type="date" class="form-control" id="expiryDate" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Image Upload Section -->
+			<div class="col-lg-5">
+				<div class="form-section">
+					<h5 class="section-title">
+						<i class="bi bi-image me-2"></i>Hình Ảnh Sản Phẩm
+					</h5>
+
+					<div class="image-upload-area">
+						<div class="image-preview" id="imagePreview">
+							<img src="#" alt="Alternate Text" id="imageProduct"/>
+						</div>
+
+						<button type="button" class="btn btn-upload" onclick="document.getElementById('imageInput').click()">
+							<i class="bi bi-upload me-2"></i>Chọn Hình Ảnh
+						</button>
+						<input type="file" id="imageInput" class="d-none" accept="image/*" onchange="reviewImage(this)">
+
+						<p class="text-muted small mb-0">
+							Chọn hình ảnh có định dạng JPG, PNG hoặc WebP
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Thông tin chi tiết -->
+		<div class="form-section">
+			<h5 class="section-title">
+				Thông Tin Chi Tiết
+			</h5>
+
+			<div class="form-group mb-3">
+				<label for="composition" class="form-label">
+					<i class="fa-solid fa-flask"></i>Thành Phần
+				</label>
+				<textarea class="form-control" id="composition" rows="3" placeholder="Bo (B): 130.000 ppm (13% Boron); Kẽm (Zn): 40.000 ppm (4% Kẽm); Ẩm độ: 1%"></textarea>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="usage" class="form-label">
+					<i class="fa-solid fa-bullseye"></i>Công Dụng
+				</label>
+				<textarea class="form-control" id="usage" rows="4" placeholder="Bo và Kẽm là các yếu tố vi lượng thiết yếu cho cây trồng, hỗ trợ tổng hợp protein, enzyme và các hormone tăng trưởng..."></textarea>
+			</div>
+
+			<div class="form-group mb-3">
+				<label for="instructions" class="form-label">
+					<i class="fa-solid fa-book-open"></i>Hướng Dẫn Sử Dụng
+				</label>
+				<textarea class="form-control" id="instructions" rows="3" placeholder="Liều lượng và cách sử dụng chi tiết..."></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button type="button" class="btn btn-reset me-2" onclick="addProductModal()">
+		<i class="bi bi-arrow-clockwise me-2"></i>Làm Mới
+	</button>
+	<button type="button" class="btn btn-save" onclick="addProduct()">
+		<i class="bi bi-check-lg me-2"></i>Lưu Sản Phẩm
+	</button>
+</div>

@@ -1,0 +1,80 @@
+﻿@model WebBanThuocBVTV.Models.Sanpham;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link rel="stylesheet" href="/css/Product/_ReviewProduct.css" />
+<div class="review-container">
+	<h2 class="review-title">Bình luận & Đánh giá</h2>
+
+	<!-- Danh sách đánh giá -->
+	<div class="reviews-list">
+		@foreach (var item in Model.Binhluans)
+		{
+			<div class="review-item">
+				<div class="review-user">
+					<div class="reviewer-section">
+						<div class="info">
+							@if (item.MaNdNavigation.Avatar != null)
+							{
+								<img name="avatar" src="@item.MaNdNavigation.Avatar" alt="Alternate Text" class="avatar" />
+							}
+							else
+							{
+								<img name="avatar" src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Alternate Text" class="avatar" />
+							}
+							<span>@item.MaNdNavigation.HoTen</span>
+						</div>
+						<span class="review-date">@item.ThoiGian</span>
+						<span class="star-rating">
+							@for (int i = 0; i < item.MaDanhGia; i++)
+							{
+								<span class="star filled">★</span>
+							}
+						</span>
+					</div>
+					<div class="review-content">@item.NoiDung</div>
+				</div>
+
+				@if (item.Phanhois.Count > 0)
+				{
+					<div class="reply-section">
+						<div class="reply-item">
+							<div class="reply-author">Trả lời bởi: <strong>@item.Phanhois.FirstOrDefault().MaNhanVienNavigation.HoTen (Nhân viên CSKH)</strong></div>
+							<div class="reply-content">@item.Phanhois.FirstOrDefault().NoiDungPhanHoi</div>
+							<div class="reply-date">Ngày: @item.Phanhois.FirstOrDefault().NgayPhanHoi</div>
+						</div>
+					</div>
+				}
+			</div>
+			
+		}
+	</div>
+
+	<!-- Form đánh giá -->
+	<div class="review-form">
+		<form id="reviewForm" asp-action="ReviewingSanPham" asp-controller="Product" asp-route-maSp="@Model.MaSanPham" onsubmit="validateReviewForm(event)">
+			<div class="mb-3">
+				<label class="form-label">Đánh giá:</label>
+				<div class="rating-input">
+					<div class="rating-stars" id="ratingStars">
+						<input name="maDg" id="maDg" type="hidden" value=""/>
+						@foreach (var item in ViewBag.lstDanhGia)
+						{
+							<span class="rating-star" id="@item.MaDanhGia.ToString()" data-rating="@item.MaDanhGia" onclick="choseStar(this)">★</span>
+						}
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="reviewText" class="form-label">Viết bình luận hoặc đánh giá của bạn...</label>
+				<textarea name="content" class="form-control textarea-custom"
+						  id="reviewText"
+						  placeholder="Viết bình luận hoặc đánh giá của bạn..."></textarea>
+			</div>
+
+			<button type="submit" class="btn-submit">Gửi bình luận</button>
+		</form>
+	</div>
+</div>
+<script src="~/js/Customer/Product/_ReviewProduct.js"></script>

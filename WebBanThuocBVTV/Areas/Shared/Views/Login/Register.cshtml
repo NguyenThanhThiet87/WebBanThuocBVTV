@@ -1,0 +1,20 @@
+﻿@{
+}
+<link href="~/css/Login/Register.css" rel="stylesheet" />
+<div class="register-container">
+    <div class="register-form">
+        <h2>Đăng ký tài khoản</h2>
+        <input name="flow" type="hidden" value="Register" >
+        <input id="email" name="email" type="email" placeholder="Nhập email của bạn" required>
+		<button type="submit" onclick="sendOTP()" data-bs-toggle="modal" data-bs-target="#verifyModal">Tiếp theo</button>
+        <p><a asp-controller="Login" asp-action="Index">Đã có tài khoản? Đăng nhập</a></p>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="verifyModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="verifyModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="modal-container">
+		</div>
+	</div>
+</div>
+<script src="~/js/Shared/Login/Register.js"></script>

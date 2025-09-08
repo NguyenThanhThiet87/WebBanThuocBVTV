@@ -1,0 +1,50 @@
+﻿/* Navigation Bar */
+.nav-bar {
+    background: #4CAF50;
+    padding: 12px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+    .nav-item a:hover {
+        opacity: 0.8;
+    }
+
+        .nav-item a:hover::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255,255,255,0.8);
+        }
+    .nav-item a.active::after {
+        content: ""; /* Bắt buộc có content để pseudo-element hiển thị */
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: rgba(255,255,255,0.8); /* Màu giống như hover */
+    }

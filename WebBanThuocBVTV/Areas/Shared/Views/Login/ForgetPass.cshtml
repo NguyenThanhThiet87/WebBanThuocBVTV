@@ -1,0 +1,21 @@
+﻿@{
+}
+<link href="~/css/Login/ForgetPass.css" rel="stylesheet" />
+<div class="forgetpass-container">
+	<div class="forgot-password-form">
+		<h2>Quên mật khẩu</h2>
+		<p>Nhập email của bạn để nhận liên kết đặt lại mật khẩu.</p>
+		<input id="email" name="email" type="text" placeholder="Nhập email của bạn" required>
+		<button onclick="sendOTP()">Gửi yêu cầu</button>
+		<p><a asp-controller="Login" asp-action="Index">Quay lại</a></p>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="verifyModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="verifyModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="modal-container">
+		</div>
+	</div>
+</div>
+
+<script src="~/js/Shared/Login/ForgetPass.js"></script>

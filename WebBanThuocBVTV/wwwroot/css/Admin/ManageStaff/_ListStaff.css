@@ -1,0 +1,89 @@
+﻿.manage_Staff-container .table-container {
+    overflow-x: auto;
+}
+
+.Staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 57vw;
+}
+
+    .Staff-table th,
+    .Staff-table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .Staff-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .Staff-table tr:hover {
+        background: #f9fafb;
+    }
+
+    .Staff-table .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .Staff-table .status-active {
+        background: #d1fae5;
+        color: #059669;
+    }
+
+    .Staff-table .status-inactive {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    .Staff-table .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .Staff-table .btn {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .Staff-table .btn-view {
+        background: #dbeafe;
+        color: #1d4ed8;
+    }
+
+        .Staff-table .btn-view:hover {
+            background: #bfdbfe;
+        }
+
+    .Staff-table .btn-edit {
+        background: #fef3c7;
+        color: #d97706;
+    }
+
+        .Staff-table .btn-edit:hover {
+            background: #fde68a;
+        }
+
+    .Staff-table .btn-delete {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+        .Staff-table .btn-delete:hover {
+            background: #fecaca;
+        }
+
+.Staff-table #title_empty_order {
+    text-align: center;
+}

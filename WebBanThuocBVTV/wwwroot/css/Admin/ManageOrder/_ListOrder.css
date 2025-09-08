@@ -1,0 +1,92 @@
+﻿.manage_order-container .table-container {
+    overflow-x: auto;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 57vw;
+}
+
+    .order-table table {
+        width: 100%;
+    }
+
+    .order-table th,
+    .order-table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .order-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .order-table tr:hover {
+        background: #f9fafb;
+    }
+
+    .order-table .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .order-table .status-active {
+        background: #d1fae5;
+        color: #059669;
+    }
+
+    .order-table .status-inactive {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+    .order-table .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .order-table .btn {
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .order-table .btn-view {
+        background: #dbeafe;
+        color: #1d4ed8;
+    }
+
+        .order-table .btn-view:hover {
+            background: #bfdbfe;
+        }
+
+    .order-table .btn-edit {
+        background: #fef3c7;
+        color: #d97706;
+    }
+
+        .order-table .btn-edit:hover {
+            background: #fde68a;
+        }
+
+    .order-table .btn-delete {
+        background: #fee2e2;
+        color: #dc2626;
+    }
+
+        .order-table .btn-delete:hover {
+            background: #fecaca;
+        }
+     #title_empty_order {
+        text-align: center;
+    }

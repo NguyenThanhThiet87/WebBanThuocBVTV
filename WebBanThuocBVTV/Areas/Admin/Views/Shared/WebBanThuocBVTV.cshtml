@@ -1,0 +1,107 @@
+﻿
+@{
+	@using Newtonsoft.Json
+	@using WebBanThuocBVTV.Helper
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - WebBanThuocBVTV</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/SweetAlert2/Toast.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Slick JS -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!--LottiesFile Library-->
+	@Html.Raw("<script src='https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js'></script>")
+	@Html.Raw("<script src='https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs' type='module'></script>")
+	<!--Firebase-->
+	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jsrsasign/lib/jsrsasign-all-min.js"></script>
+	<!--iziToast-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!--Chart.js-->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!--Easy MDE-->
+	<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+	<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+
+	<link href="~/css/Admin/Share/WebBanThuocBVTV_Admin.css" rel="stylesheet" />
+</head>
+<body>
+	<div>
+		<main role="main">
+			 @{ 
+			 	var alertJson = TempData["Alert"] as string; 
+			 	string icon = ""; 
+			 	string title = ""; 
+
+			 	if (!string.IsNullOrEmpty(alertJson)) 
+			 	{ 
+			 		var alert = JsonConvert.DeserializeObject<AlertMessage>(alertJson); 
+			 		icon = alert?.Type ?? "success"; 
+			 		title = alert?.Message ?? "Thông báo"; 
+			 		Console.WriteLine("TYPE: " + icon); 
+			 		Console.WriteLine("Message: " + title); 
+			 	} 
+			 } 
+
+			 @if (!string.IsNullOrEmpty(alertJson)) 
+			 { 
+			 	<script> 
+			 		document.addEventListener("DOMContentLoaded", function () { 
+			 			showToast('@icon', '@title') 
+
+			 		}); 
+
+			 	</script> 
+			 } 
+			<div class="admin-container">
+				<!-- Sidebar -->
+				@Html.Partial("_Sidebar")
+				<div class="main-content" id="mainContent">
+					<!-- Top Bar -->
+					@Html.Partial("_Topbar")
+					@RenderBody()
+				</div>
+			</div>
+
+		</main>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="~/js/SweetAlert2/Toast.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<script>
+	// Sidebar toggle functionality
+	const sidebarToggle = document.getElementById('sidebarToggle');
+	const sidebar = document.getElementById('sidebar');
+	const mainContent = document.getElementById('mainContent');
+
+	sidebarToggle.addEventListener('click', function() {
+		sidebar.classList.toggle('collapsed');
+		mainContent.classList.toggle('expanded');
+	});
+	// Navigation active state
+	// 	const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+	// 	navLinks.forEach(link => {
+	// 		link.addEventListener('click', function(e) {
+	// 			navLinks.forEach(l => l.classList.remove('active'));
+	// 			this.classList.add('active');
+	// 		});
+	// 	});
+
+</script>
+<script src="~/js/Helper.js"></script>

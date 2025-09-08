@@ -1,0 +1,55 @@
+﻿@model WebBanThuocBVTV.Models.VnPay.PaymentResponseModel
+@{
+}
+<link rel="stylesheet" href="~/css/VnPay/PaymentSuccess.css" />
+<div class="payment_success-container">
+    <div class="header">
+        <div class="vnpay-logo">VNPAY</div>
+        <div class="status-icon status-success" id="statusIcon">✓</div>
+        <h1 class="status-title" id="statusTitle">Thanh toán thành công</h1>
+        <p class="status-message" id="statusMessage">Giao dịch của bạn đã được xử lý thành công</p>
+    </div>
+
+    <div class="payment-details">
+        <div class="detail-row">
+            <span class="detail-label">Mã giao dịch:</span>
+            <span class="detail-value transaction-id" id="transactionId">@Model.TransactionId</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Số tiền:</span>
+            <span class="detail-value amount" id="amount">@ViewBag.DonHang.TongTien</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Ngân hàng:</span>
+            <span class="detail-value" id="bankCode">@Model.BankCode</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Thời gian:</span>
+            <span class="detail-value" id="paymentTime">03/07/2025 - 14:30:25</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Nội dung:</span>
+            <span class="detail-value" id="orderInfo">Thanh toán đơn hàng @ViewBag.DonHang.MaDonHang</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Mã đơn hàng:</span>
+            <span class="detail-value" id="orderId">@ViewBag.DonHang.MaDonHang</span>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-primary" href="/">
+            🏠 Về trang chủ
+        </a>
+        <form asp-action="DetailOrder" asp-controller="Order" asp-route-maDonHang="@Model.OrderId">
+            <button type="submit" class="btn btn-secondary" onclick="viewOrderDetails()">
+                📋 Xem thông tin đơn hàng
+            </button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Cảm ơn bạn đã sử dụng dịch vụ thanh toán VNPAY</p>
+        <p>Hotline hỗ trợ: 1900 5555 88</p>
+    </div>
+</div>

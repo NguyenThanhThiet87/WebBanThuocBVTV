@@ -1,0 +1,95 @@
+﻿@model WebBanThuocBVTV.Models.Donhang
+@{
+}
+<link href="~/css/Order/DetailOrder.css" rel="stylesheet" />
+<div class="detailOrder-container">
+    <div class="header">
+        <h2>Đơn hàng</h2>
+        <p>Cảm ơn bạn đã đặt hàng!</p>
+    </div>
+    <div class="content">
+        <div class="order-info">
+            <div class="info-row">
+                <span id="maDh"><strong>Mã đơn hàng:</strong> @Model.MaDonHang </span>
+                <span><strong>Ngày lập đơn:</strong> @Model.NgayLap.Date</span>
+            </div>
+            <div class="info-row">
+                @if (Model.MaTrangThai != "PCD" && Model.MaTrangThai != "CMP")
+                {
+                    <span><strong>Thời gian nhận hàng:</strong> @Model.NgayLap.Date.AddDays(3).Day - @Model.NgayLap.Date.AddDays(5)</span>
+                }else if(Model.MaTrangThai == "CMP")
+                {
+                    <span><strong>Ngày nhận hàng: @Model.NgayGiaoHang.Value.Date</strong> </span>
+                }else
+                {
+                    <span><strong>Thời gian nhận hàng:</strong> 3-5 ngày làm việc</span>
+                }
+            </div>
+            <div class="info-row">
+                <span><strong>Trạng thái:</strong> @Model.MaTrangThaiNavigation.TenTrangThai</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Sản phẩm đã đặt</div>
+            @foreach(var item in Model.DonhangSanphams)
+            {
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="@item.MaSanPhamNavigation.Hinhanhs.First().Url" />
+                    </div>
+                    <div class="product-details">
+                        <div><strong>@item.MaSanPhamNavigation.TenSanPham</strong></div>
+                        <div>Số lượng: @item.SoLuongDatMua</div>
+                    </div>
+                    <div><strong>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @item.TongTien) VNĐ</strong></div>
+                </div>
+            }
+        </div>
+
+        <div class="section">
+            <div class="section-title">Thông tin khách hàng</div>
+            <div class="info-row">
+                <span class="info-label">Họ tên:</span>
+                <span>@Model.MaNdNavigation.HoTen</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Điện thoại:</span>
+                <span>@Model.MaNdNavigation.SoDienThoai</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Địa chỉ:</span>
+                <span>@Model.MaNdNavigation.DiaChi</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Tóm tắt đơn hàng</div>
+            <div class="total-row">
+                <span>Tổng cộng:</span>
+                <span>@String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0}", @Model.TongTien) VNĐ</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            @if ((Model.MaTrangThai == "PCD" && Model.MaPhuongThucTt =="NH") || Model.MaTrangThai == "UNP")
+            {
+                <button class="btn-danger" onclick="cancelOrder('@Model.MaDonHang')">Hủy đơn</button>
+            }
+            @if(Model.MaTrangThai=="UNP")
+            {
+                <form asp-action="PaymentOrderNotPaymented" asp-controller="Order" asp-route-maDonHang="@Model.MaDonHang" asp-area="Customer">
+                    <button type="submit" class="btn">Thanh toán ngay</button>
+                </form>
+                
+            }else if(Model.MaTrangThai == "SHP")
+            {
+                <form asp-action="CompletingOrder" asp-controller="Order" asp-route-maDonHang="@Model.MaDonHang" asp-area="Customer">
+                    <button class="btn">Xác nhận đã nhận hàng</button>
+                </form>
+            }
+            <a class="btn btn-secondary" asp-action="Index" asp-controller="Home" asp-area="Customer">Tiếp tục mua sắm</a>
+        </div>
+    </div>
+</div>
+<script src="~/js/Customer/Order/Detail.js"></script>

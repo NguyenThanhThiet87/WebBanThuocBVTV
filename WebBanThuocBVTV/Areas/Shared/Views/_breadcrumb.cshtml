@@ -1,0 +1,24 @@
+﻿@{
+	int count = 0;
+}
+<link href="~/css/Shared/_breadcrumb .css" rel="stylesheet" />
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+	<ol class="breadcrumb-list" id="breadcrumbList">
+
+		@foreach (var item in ViewBag.Breadcrum)
+		{
+			count++;
+			<li class="breadcrumb-item">
+				<a class="breadcrumb-link" asp-action="BackBreadcrum" asp-controller="Base" asp-route-text="@item.Text">
+					@if (item.Text == "Trang Chủ")
+					{
+						<i class="fa-solid fa-house"></i>
+					}
+					@item.Text
+					@(count==ViewBag.Breadcrum.Count?"/":"")
+				</a>
+			</li>
+		}
+	</ol>
+</nav>

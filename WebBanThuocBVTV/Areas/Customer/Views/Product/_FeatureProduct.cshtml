@@ -1,0 +1,40 @@
+﻿@model List<WebBanThuocBVTV.Models.Sanpham>
+@using System.Globalization
+<link href="~/css/Product/_FeaturedProduct.css" rel="stylesheet" />
+
+<h2>Sản phẩm nổi bật</h2>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+	@foreach (var sp in Model)
+	{
+		int sumEvaluate = 0;
+		int sumProductBuyed = 0;
+		<a href="@Url.Action("DetailProduct","Product",new {area = "Customer", maSp=@sp.MaSanPham})" style="text-decoration:none; color: black;">
+			<div class="col">
+				<div class="card">
+					<img src="@sp.Hinhanhs.First().Url" class="card-img-top" alt="error_img">
+					<div class="card-body">
+						<h5 class="card-title">@(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(sp.TenSanPham.ToLower() ?? "Không tên"))</h5>
+						<h5 class="card-text" style="color: red">@(String.Format("{0:N0}", @sp?.Gia)) vnđ</h5>
+						<p>
+							<i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+
+							@foreach (var evaluate in sp.Binhluans)
+							{
+								sumEvaluate += evaluate.MaDanhGia;
+							}
+							@(sumEvaluate == 0 ? 5 : sumEvaluate / sp.Binhluans.Count)
+							@foreach (var order in sp.DonhangSanphams)
+							{
+								if (order.MaDonHangNavigation.MaTrangThai == "CMP")
+								{
+									sumProductBuyed += order.SoLuongDatMua;
+								}
+							}
+							Đã bán @(sumProductBuyed >= 1000 ? sumProductBuyed / 1000 + "k" : sumProductBuyed)
+						</p>
+					</div>
+				</div>
+			</div>
+		</a>
+	}
+</div>

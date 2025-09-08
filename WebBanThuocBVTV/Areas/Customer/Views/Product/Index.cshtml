@@ -1,0 +1,84 @@
+﻿@using WebBanThuocBVTV.Helper
+@{
+
+
+}
+<link href="~/css/Product/Index.css" rel="stylesheet" />
+
+<div class="product-container">
+	<div class="left-product">
+		<div class="nav-product">
+			<a class="btn btn-primary nav-title" data-bs-toggle="collapse" data-bs-target="#lst-typeproduct" aria-expanded="true" aria-controls="lst-typeproduct">
+				THUỐC BẢO VỆ THỰC VẬT
+			</a>
+			<form id="form-nav-product" asp-action="FilterProduct" asp-controller="Product">
+				<input id="maNhomSp" type="hidden" name="maNhomSp" value="@ViewBag.maNhomSp" />
+				<ul class="collapse show" id="lst-typeproduct">
+					@foreach (var nsp in ViewBag.nhomSanPham)
+					{
+						if (nsp.MaNhomSp == @ViewBag.maNhomSp)
+						{
+							<li class="categoryProduct active" onclick="selectGroup(this,'@nsp.MaNhomSp')">@nsp.TenNhomSp</li>
+						}
+						else
+						{
+							<li class="categoryProduct" onclick="selectGroup(this,'@nsp.MaNhomSp')">@nsp.TenNhomSp</li>
+						}
+					}
+				</ul>
+			</form>
+		</div>
+		<div class="banner-product">
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Plasti_xtcige.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Chubeca_hsjlfs.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Plasti_xtcige.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665467/WebBanThuocBVTV/banner/Chubeca_hsjlfs.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="banner-content">
+				<img src="https://res.cloudinary.com/duouljna1/image/upload/v1748665466/WebBanThuocBVTV/banner/Lacasoto_scokpr.png" class="d-block w-100" alt="...">
+			</div>
+		</div>
+	</div>
+	<div class="right-product">
+		<div class="filter-container">
+			<div class="filter-header">
+				<h2 class="filter-title">Bộ lọc</h2>
+			</div>
+			<div class="filter-content">
+				<div class="filter-group">
+					<label class="filter-label">Lọc theo giá</label>
+					<select class="filter-select" id="priceFilter" asp-items="@Html.GetEnumSelectList<SortPrice>()" onchange="applyFilter()">
+					</select>
+				</div>
+
+				<!-- Filter theo số lượng mua -->
+				<div class="filter-group">
+					<label class="filter-label">Nhà sản xuất</label>
+					<select class="filter-select" id="manufactorFilter" onchange="applyFilter()">
+						<option value="">Tất cả nhà sản xuất</option>
+						@foreach (var nsp in ViewBag.NhaSx)
+						{
+							<option value="@nsp.MaNhaSx">@nsp.TenNhaSx</option>
+						}
+					</select>
+				</div>
+
+			</div>
+		</div>
+		<!--Danh sách sản phẩm-->
+		<div class="listProduct">
+
+		</div>
+	</div>
+</div>
+<script src="~/js/Customer/Product/Index.js"></script>
