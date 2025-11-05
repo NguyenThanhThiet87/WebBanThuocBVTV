@@ -34,7 +34,7 @@ Dự án xây dựng hệ thống website bán thuốc bảo vệ thực vật, 
 
 # Trang Home
 
-<img width="915" height="434" alt="image" src="https://github.com/user-attachments/assets/c07de38b-e4d3-44ec-8040-81db41c87a0d" />
+<img width="915" height="436" alt="image" src="https://github.com/user-attachments/assets/860a1cac-e155-4474-ae03-2aca9c98e382" />
 
 # Trang sản phẩm
 
@@ -42,7 +42,7 @@ Dự án xây dựng hệ thống website bán thuốc bảo vệ thực vật, 
 
 # Trang nhận diện bệnh cây trồng
 
-<img width="586" height="279" alt="image" src="https://github.com/user-attachments/assets/860a1cac-e155-4474-ae03-2aca9c98e382" />
+<img width="915" height="434" alt="image" src="https://github.com/user-attachments/assets/c07de38b-e4d3-44ec-8040-81db41c87a0d" />
 
 # Trang quản trị
 
