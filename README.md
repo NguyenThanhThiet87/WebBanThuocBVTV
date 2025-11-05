@@ -32,23 +32,23 @@ Dự án xây dựng hệ thống website bán thuốc bảo vệ thực vật, 
 
 🤖 Nhận diện bệnh cây trồng
 
-#Trang Home
+# Trang Home
 
 <img width="915" height="434" alt="image" src="https://github.com/user-attachments/assets/c07de38b-e4d3-44ec-8040-81db41c87a0d" />
 
-#Trang sản phẩm
+# Trang sản phẩm
 
 <img width="915" height="436" alt="image" src="https://github.com/user-attachments/assets/b1fa7f72-4cfc-4bad-ae30-b174378ffb54" />
 
-#Trang nhận diện bệnh cây trồng
+# Trang nhận diện bệnh cây trồng
 
 <img width="586" height="279" alt="image" src="https://github.com/user-attachments/assets/860a1cac-e155-4474-ae03-2aca9c98e382" />
 
-#Trang quản trị
+# Trang quản trị
 
 <img width="915" height="426" alt="image" src="https://github.com/user-attachments/assets/dfd94e2e-c82f-4ee2-af6b-e933b1f93c73" />
 
-#Thêm khách hàng
+# Thêm khách hàng
 
 <img width="915" height="426" alt="image" src="https://github.com/user-attachments/assets/782f80b1-a603-44d5-80f5-ba707ced36bb" />
 
