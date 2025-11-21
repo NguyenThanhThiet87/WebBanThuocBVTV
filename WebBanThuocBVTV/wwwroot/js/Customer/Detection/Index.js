@@ -32,7 +32,27 @@ var Detect = function () {
 			if (res.success) {
 				document.querySelector(".disease-name").textContent = "Khả năng: " + res.message.nameInference;
 				document.querySelector(".confidence").textContent = "Độ tin cậy: " + (res.message.confInference * 100) + "%";
-				console.log(res.message)
+				console.log(res.disease)
+
+				$.ajax({
+					url: "/Customer/Product/SuggestProduct",
+					method: "POST",
+					data: { keyword: res.disease },
+					success: function (ressp) {
+						if (ressp) {
+							document.querySelector(".suggest-product").innerHTML = ressp;
+							console.log(ressp)
+						}
+						else {
+							showToast("error", ressp);
+						}
+						hideLoading();
+					},
+					error: function (error) {
+						showToast("error", error);
+						hideLoading();
+					}
+				})
 			}
 			else {
 				showToast("error", res.message);

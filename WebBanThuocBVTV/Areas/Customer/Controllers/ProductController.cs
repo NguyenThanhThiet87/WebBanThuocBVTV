@@ -147,5 +147,20 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> SuggestProduct(string keyword)
+        {
+            try
+            {
+                List<Sanpham> lstSp = await _sanPhamRepository.SuggestProduct(keyword);
+                return PartialView("_SuggestProduct", lstSp);
+            }
+            catch (Exception ex)
+            {
+                SetAlert($"Xảy ra lỗi: {ex.Message}", "error");
+                return RedirectToAction("Index", "Detection");
+            }
+        }
     }
 }
