@@ -1,0 +1,25 @@
+﻿@model List<WebBanThuocBVTV.Models.Sanpham>
+@{
+}
+<div class="suggested-products-container">
+	<h2>🛒 Sản phẩm gợi ý</h2>
+	<div class="suggested-products-list">
+		@if (Model.Count != 0)
+		{
+			foreach (Sanpham product in Model)
+			{
+				<a href="@Url.Action("DetailProduct","Product",new {area = "Customer", maSp=product.MaSanPham})" style="text-decoration:none; color: black;">
+					<div class="suggested-product-item">
+						<img src="@product.Hinhanhs.First().Url" alt="@product.TenSanPham" class="product-image" />
+						<div class="product-name">@product.TenSanPham</div>
+						<div class="product-price">@String.Format("{0:N0}₫", product.Gia)</div>
+					</div>
+				</a>
+			}
+		}
+		else
+		{
+			<div>Không có sản phẩm gợi ý.</div>
+		}
+	</div>
+</div>

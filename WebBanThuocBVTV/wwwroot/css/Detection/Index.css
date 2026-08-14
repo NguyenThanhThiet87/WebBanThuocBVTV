@@ -161,3 +161,43 @@
         color: #666;
         font-size: 0.9em;
     }
+
+    .detection_plant-container .suggested-products-container {
+        margin-top: 32px;
+        padding: 16px;
+        background: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .detection_plant-container .suggested-products-list {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+
+    .detection_plant-container .suggested-product-item {
+        width: 160px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .detection_plant-container .product-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 8px;
+    }
+
+    .detection_plant-container .product-name {
+        font-weight: 500;
+        margin-bottom: 4px;
+    }
+
+    .detection_plant-container .product-price {
+        color: #e53935;
+        font-weight: bold;
+    }
+

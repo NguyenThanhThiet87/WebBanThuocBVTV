@@ -430,5 +430,16 @@ namespace WebBanThuocBVTV.Repositories
                 throw ex;
             }
         }
+        public async Task<List<Sanpham>> SuggestProduct(string keyword)
+        {
+            try
+            {
+                return await _contextDB.Sanphams.Where(sp => sp.CongDung.ToLower().Contains(keyword.ToLower())).Include(sp => sp.Hinhanhs).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

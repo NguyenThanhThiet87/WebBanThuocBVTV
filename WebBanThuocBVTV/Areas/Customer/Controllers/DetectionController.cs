@@ -90,6 +90,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> Detection(IFormFile img)
         {
@@ -97,7 +98,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
             try
             {
                 ResultDetection result = InferenceModel(img);
-                return Json(new { success = true, message = result });
+                return Json(new { success = true, message = result, disease = result.NameInference.Substring(result.NameInference.LastIndexOf("có thể bị bệnh ")+15)});
             }
             catch (Exception ex)
             {
