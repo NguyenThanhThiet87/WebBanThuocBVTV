@@ -8,10 +8,11 @@ namespace WebBanThuocBVTV.Helper
     public class ServerDetection
     {
         private readonly HttpClient _httpClient;
-        private readonly string ServerUrl = "http://127.0.0.1:5000/NhanDienBenhCayTrong"; // Địa chỉ URL của server
-        public ServerDetection()
+        private readonly string _serverUrl;
+        public ServerDetection(IConfiguration config)
         {
             _httpClient = new HttpClient();
+            _serverUrl = config["Server:Url"] ?? throw new InvalidOperationException("Missing required configuration: Server:Url.");
         }
 
         public async Task<(string Class, float conf)> Post(IFormFile img)
@@ -32,7 +33,7 @@ namespace WebBanThuocBVTV.Helper
                 content.Add(fileContent, "img", img.FileName);
 
                 // Gửi yêu cầu POST đến server
-                var response = await _httpClient.PostAsync(ServerUrl, content);
+                var response = await _httpClient.PostAsync(_serverUrl, content);
 
                 // Kiểm tra response
                 if (!response.IsSuccessStatusCode)

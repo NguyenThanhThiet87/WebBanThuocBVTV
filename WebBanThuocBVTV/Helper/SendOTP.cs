@@ -22,14 +22,12 @@ namespace WebBanThuocBVTV.Helper
         public SendOTP(IConfiguration config)
         {
             _config = config;
-            var accountSid = "ACcfe8b4e065015b6e32ce8a032ea9ec96";
-            var authToken = "98a25c919228e99df8ddd51bbad33d2b";
-            TwilioClient.Init(accountSid, authToken);
+            TwilioClient.Init(_config["SmsSettings:AccountSID"], _config["SmsSettings:AuthToken"]);
         }
         private string CreateOTP()
         {
             // Tạo khóa bí mật (secret key) dạng byte array (base32 decode hoặc generate mới)
-            byte[] secretKey = Base32Encoding.ToBytes("JBSWY3DPEHPK3PXP");
+            byte[] secretKey = Base32Encoding.ToBytes(_config["OtpSettings:SecretKey"]!);
             // Khởi tạo đối tượng Totp với khóa bí mật, tùy chọn thuật toán băm, kích thước mã, thời gian bước (step)
             var totp = new Totp(secretKey, step: 30, totpSize: 6, mode: OtpHashMode.Sha1);
             // Tính toán mã OTP dựa trên thời gian hiện tại
@@ -66,7 +64,7 @@ Agri T&T"
 
                 using (var client = new SmtpClient())
                 {
-                    await client.ConnectAsync("smtp.gmail.com", 587, false);
+                    await client.ConnectAsync(_config["SmtpSettings:Host"], int.Parse(_config["SmtpSettings:Port"]!), false);
 
                     // Note: only needed if the SMTP server requires authentication
                     await client.AuthenticateAsync(_config["SmtpSettings:Mail"], _config["SmtpSettings:Password"]);
@@ -92,7 +90,7 @@ Agri T&T"
                 var verification = VerificationResource.Create(
                                    to: phoneNumber,
                                    channel: "sms",
-                                   pathServiceSid: "VAad7e4833b5525ce5d58aed402cb55faf"
+                                   pathServiceSid: _config["SmsSettings:VerifyServiceSID"]
                                    );
 
                 alertMessage.Type = "success";
@@ -111,7 +109,7 @@ Agri T&T"
             AlertMessage alertMessage = new AlertMessage();
             try
             {
-                var serviceSid = "VAad7e4833b5525ce5d58aed402cb55faf";
+                var serviceSid = _config["SmsSettings:VerifyServiceSID"];
                 var check = VerificationCheckResource.Create(
                     to: phoneNumber,
                     code: code,

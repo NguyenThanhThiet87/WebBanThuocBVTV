@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,6 +11,40 @@ using WebBanThuocBVTV.Models;
 using WebBanThuocBVTV.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Missing required configuration: ConnectionStrings:DefaultConnection.");
+
+var requiredConfigurationKeys = new[]
+{
+    "Authentication:Google:ClientId",
+    "Authentication:Google:ClientSecret",
+    "SmtpSettings:Host",
+    "SmtpSettings:Mail",
+    "SmtpSettings:Password",
+    "SmsSettings:AccountSID",
+    "SmsSettings:AuthToken",
+    "SmsSettings:OwnPhone",
+    "SmsSettings:VerifyServiceSID",
+    "OtpSettings:SecretKey",
+    "Server:Url",
+    "Vnpay:TmnCode",
+    "Vnpay:HashSecret",
+    "Vnpay:BaseUrl",
+    "Vnpay:PaymentBackReturnUrl",
+    "Cloudinary:cloud_name",
+    "Cloudinary:api_key",
+    "Cloudinary:api_secret"
+};
+
+var missingConfigurationKeys = requiredConfigurationKeys
+    .Where(key => string.IsNullOrWhiteSpace(builder.Configuration[key]))
+    .ToArray();
+
+if (missingConfigurationKeys.Length > 0)
+{
+    throw new InvalidOperationException($"Missing required configuration: {string.Join(", ", missingConfigurationKeys)}.");
+}
 
 // Add services to the container.
 builder.Services.AddControllersWithViews()
@@ -66,7 +101,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddDbContext<WebBanThuocBvtvContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 
 var app = builder.Build();
@@ -74,6 +109,10 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
+    app.UseForwardedHeaders(new ForwardedHeadersOptions
+    {
+        ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+    });
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
