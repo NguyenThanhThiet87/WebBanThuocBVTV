@@ -13,7 +13,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
-ENV ASPNETCORE_ENVIRONMENT=Production
+# Render containers have a low inotify watcher limit. Config files do not need
+# hot reload in production, so disable it before ASP.NET builds configuration.
+ENV ASPNETCORE_ENVIRONMENT=Production \
+    DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false \
+    DOTNET_USE_POLLING_FILE_WATCHER=1
 EXPOSE 10000
 
 # Render provides PORT at runtime (10000 by default).
