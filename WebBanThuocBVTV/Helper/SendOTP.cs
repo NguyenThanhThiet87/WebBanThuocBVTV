@@ -3,6 +3,7 @@ using Microsoft.Identity.Client;
 using MimeKit;
 using OtpNet;
 using Twilio.Types;
+using System.Net.Http.Json;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Rest.Verify.V2.Service;
@@ -19,9 +20,12 @@ namespace WebBanThuocBVTV.Helper
     public class SendOTP
     {
         private readonly IConfiguration _config;
-        public SendOTP(IConfiguration config)
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public SendOTP(IConfiguration config, IHttpClientFactory httpClientFactory)
         {
             _config = config;
+            _httpClientFactory = httpClientFactory;
             TwilioClient.Init(_config["SmsSettings:AccountSID"], _config["SmsSettings:AuthToken"]);
         }
         private string CreateOTP()
@@ -43,14 +47,16 @@ namespace WebBanThuocBVTV.Helper
                 // Tạo mã OTP
                 string otpCode = CreateOTP();
 
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress(_config["SmtpSettings:Name"], _config["SmtpSettings:Mail"]));
-                message.To.Add(new MailboxAddress(name, email));
-                message.Subject = "Mã xác thực OTP của bạn";
-
-                message.Body = new TextPart("plain")
+                var requestBody = new
                 {
-                    Text = $@"Xin chào {name},
+                    sender = new
+                    {
+                        name = _config["Brevo:SenderName"],
+                        email = _config["Brevo:SenderEmail"]
+                    },
+                    to = new[] { new { email, name } },
+                    subject = "Mã xác thực OTP của bạn",
+                    textContent = $@"Xin chào {name},
 
 Mã OTP của bạn là: {otpCode}
 
@@ -62,32 +68,28 @@ Cảm ơn bạn,
 Agri T&T"
                 };
 
-                using (var client = new SmtpClient())
+                using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email")
                 {
-                    using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
-                    client.Timeout = 15000;
+                    Content = JsonContent.Create(requestBody)
+                };
+                request.Headers.Add("api-key", _config["Brevo:ApiKey"]);
 
-                    await client.ConnectAsync(
-                        _config["SmtpSettings:Host"],
-                        int.Parse(_config["SmtpSettings:Port"]!),
-                        MailKit.Security.SecureSocketOptions.StartTls,
-                        timeout.Token);
-
-                    await client.AuthenticateAsync(
-                        _config["SmtpSettings:Mail"],
-                        _config["SmtpSettings:Password"],
-                        timeout.Token);
-
-                    await client.SendAsync(message, timeout.Token);
-                    await client.DisconnectAsync(true, timeout.Token);
+                using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+                var client = _httpClientFactory.CreateClient();
+                using var response = await client.SendAsync(request, timeout.Token);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var detail = await response.Content.ReadAsStringAsync(timeout.Token);
+                    throw new InvalidOperationException($"Brevo API trả về {(int)response.StatusCode}: {detail}");
                 }
+
                 alerMessage.Type = "success";
                 alerMessage.Message = $"{otpCode}";
             }
             catch (OperationCanceledException)
             {
                 alerMessage.Type = "error";
-                alerMessage.Message = "Không thể kết nối máy chủ gửi email. Vui lòng thử lại sau.";
+                alerMessage.Message = "Dịch vụ gửi email không phản hồi. Vui lòng thử lại sau.";
             }
             catch (Exception ex)
             {

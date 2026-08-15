@@ -12,15 +12,12 @@ services:
         sync: false
       - key: Authentication__Google__ClientSecret
         sync: false
-      - key: SmtpSettings__Host
+      - key: Brevo__ApiKey
         sync: false
-      - key: SmtpSettings__Port
-        value: "587"
-      - key: SmtpSettings__Name
+      - key: Brevo__SenderEmail
         sync: false
-      - key: SmtpSettings__Mail
-        sync: false
-      - key: SmtpSettings__Password
+      - key: Brevo__SenderName
+        value: Agri T&T
         sync: false
       - key: SmsSettings__AccountSID
         sync: false

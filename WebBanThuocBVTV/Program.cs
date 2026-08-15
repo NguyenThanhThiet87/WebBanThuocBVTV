@@ -19,9 +19,9 @@ var requiredConfigurationKeys = new[]
 {
     "Authentication:Google:ClientId",
     "Authentication:Google:ClientSecret",
-    "SmtpSettings:Host",
-    "SmtpSettings:Mail",
-    "SmtpSettings:Password",
+    "Brevo:ApiKey",
+    "Brevo:SenderEmail",
+    "Brevo:SenderName",
     "SmsSettings:AccountSID",
     "SmsSettings:AuthToken",
     "SmsSettings:OwnPhone",
@@ -57,6 +57,7 @@ builder.Services.AddControllersWithViews()
         options.ViewLocationFormats.Insert(0, "/Areas/Shared/Views/{1}/{0}.cshtml");
     });
 
+builder.Services.AddHttpClient();
 builder.Services.AddScoped<SendOTP>();
 builder.Services.AddScoped<NguoiDungRepository>();
 builder.Services.AddScoped<DonHangRepository>();
