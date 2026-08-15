@@ -7,7 +7,12 @@ namespace WebBanThuocBVTV.Repositories
 {
     public class NhomSanPhamRepository
     {
-        WebBanThuocBvtvContext _contextDB = new WebBanThuocBvtvContext();
+        private readonly WebBanThuocBvtvContext _contextDB;
+
+        public NhomSanPhamRepository(WebBanThuocBvtvContext contextDB)
+        {
+            _contextDB = contextDB;
+        }
         public async Task<AlertMessage> Add(Nhomsanpham entity)
         {
             AlertMessage alertMessage = new AlertMessage();

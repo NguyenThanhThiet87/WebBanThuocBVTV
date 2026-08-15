@@ -65,6 +65,7 @@ builder.Services.AddScoped<BinhLuanRepository>();
 builder.Services.AddScoped<DanhGiaRepository>();
 builder.Services.AddScoped<DonHangRepository>();
 builder.Services.AddScoped<GioHangRepository>();
+builder.Services.AddScoped<HinhAnhRepository>();
 builder.Services.AddScoped<NhomSanPhamRepository>();
 builder.Services.AddScoped<NhaSanXuatRepository>();
 builder.Services.AddScoped<TrangThaiRepository>();
