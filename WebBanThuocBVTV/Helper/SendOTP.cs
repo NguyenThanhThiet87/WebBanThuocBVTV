@@ -64,16 +64,30 @@ Agri T&T"
 
                 using (var client = new SmtpClient())
                 {
-                    await client.ConnectAsync(_config["SmtpSettings:Host"], int.Parse(_config["SmtpSettings:Port"]!), false);
+                    using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+                    client.Timeout = 15000;
 
-                    // Note: only needed if the SMTP server requires authentication
-                    await client.AuthenticateAsync(_config["SmtpSettings:Mail"], _config["SmtpSettings:Password"]);
+                    await client.ConnectAsync(
+                        _config["SmtpSettings:Host"],
+                        int.Parse(_config["SmtpSettings:Port"]!),
+                        MailKit.Security.SecureSocketOptions.StartTls,
+                        timeout.Token);
 
-                    await client.SendAsync(message);
-                    await client.DisconnectAsync(true);
+                    await client.AuthenticateAsync(
+                        _config["SmtpSettings:Mail"],
+                        _config["SmtpSettings:Password"],
+                        timeout.Token);
+
+                    await client.SendAsync(message, timeout.Token);
+                    await client.DisconnectAsync(true, timeout.Token);
                 }
                 alerMessage.Type = "success";
                 alerMessage.Message = $"{otpCode}";
+            }
+            catch (OperationCanceledException)
+            {
+                alerMessage.Type = "error";
+                alerMessage.Message = "Không thể kết nối máy chủ gửi email. Vui lòng thử lại sau.";
             }
             catch (Exception ex)
             {

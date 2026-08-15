@@ -17,12 +17,18 @@ var sendOTP = function () {
 		method: "POST",
 		data: { email },
 		success: function (res) {
+			if (typeof res === "object" && res.success === false) {
+				showToast("error", res.message || "Không thể gửi mã OTP");
+				hideLoading();
+				return;
+			}
 			modalContainer.innerHTML = res;
 			modal.show();
 			hideLoading();
 		},
 		error: function (err) {
 			console.log(err);
+			showToast("error", "Không thể gửi mã OTP. Vui lòng thử lại sau.");
 			hideLoading();
 		}
 	})

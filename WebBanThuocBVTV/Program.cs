@@ -89,7 +89,9 @@ builder.Services.AddAuthentication(options =>
 {
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    options.SaveTokens = true; //Bật savetokens để lưu id_token
+    options.SaveTokens = true;
+    options.Scope.Add("email");
+    options.Scope.Add("profile");
     options.Events = new OAuthEvents
     {
         OnRedirectToAuthorizationEndpoint = ctx =>
