@@ -11,13 +11,14 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
     [Area("Customer")]
     public class ProductController : BaseController
     {
-        private NhomSanPhamRepository nhomSanPhamRepository = new NhomSanPhamRepository();
-        private SanPhamRepository _sanPhamRepository;
-        private BinhLuanRepository _binhLuanRepository;
-        private DanhGiaRepository _danhGiaRepository;
-        private NhaSanXuatRepository _nhaSanXuatRepository;
-        public ProductController(SanPhamRepository sanPhamRepository, BinhLuanRepository binhLuanRepository, DanhGiaRepository danhGiaRepository, NhaSanXuatRepository nhaSanXuatRepository)
+        private readonly NhomSanPhamRepository _nhomSanPhamRepository;
+        private readonly SanPhamRepository _sanPhamRepository;
+        private readonly BinhLuanRepository _binhLuanRepository;
+        private readonly DanhGiaRepository _danhGiaRepository;
+        private readonly NhaSanXuatRepository _nhaSanXuatRepository;
+        public ProductController(SanPhamRepository sanPhamRepository, BinhLuanRepository binhLuanRepository, DanhGiaRepository danhGiaRepository, NhaSanXuatRepository nhaSanXuatRepository, NhomSanPhamRepository nhomSanPhamRepository)
         {
+            _nhomSanPhamRepository = nhomSanPhamRepository;
             _sanPhamRepository = sanPhamRepository;
             _binhLuanRepository = binhLuanRepository;
             _danhGiaRepository = danhGiaRepository;
@@ -30,7 +31,7 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
                 AddBreadcrum(new BreadcrumItem() { Text = "Sản Phẩm", Url = Url.Action("Index", "Product", new { area = "Customer" }) });//thêm vào breadcrum
                 HttpContext.Session.SetString("IndexPage", "Product");//lưu vào session vị trí hiện tại của trang
 
-                ViewBag.nhomSanPham = await nhomSanPhamRepository.GetAllAsync();
+                ViewBag.nhomSanPham = await _nhomSanPhamRepository.GetAllAsync();
                 @ViewBag.maNhomSp = "P&H";
                 ViewBag.NhaSx = await _nhaSanXuatRepository.GetAllAsync();
 

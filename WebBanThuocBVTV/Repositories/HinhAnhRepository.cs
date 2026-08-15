@@ -7,7 +7,12 @@ namespace WebBanThuocBVTV.Repositories
 {
     public class HinhAnhRepository : IRepository<Hinhanh>
     {
-        WebBanThuocBvtvContext ContextDB = new WebBanThuocBvtvContext();
+        private readonly WebBanThuocBvtvContext ContextDB;
+
+        public HinhAnhRepository(WebBanThuocBvtvContext contextDB)
+        {
+            ContextDB = contextDB;
+        }
 
         public async Task<AlertMessage> Add(Hinhanh entity)
         {

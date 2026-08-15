@@ -68,11 +68,12 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
     };
 
         private readonly IConfiguration _config;
-        private ServerDetection serverDetection = new ServerDetection();
-        const string modelPath = "D:/WebBanThuocBVTV/WebBanThuocBVTV/Models/Detection/MobileViTv2.onnx";
+        private readonly ServerDetection serverDetection;
+        private static readonly string modelPath = Path.Combine(Directory.GetCurrentDirectory(), "Models", "Detection", "MobileViTv2.onnx");
         public DetectionController(IConfiguration config)
         {
             _config = config;
+            serverDetection = new ServerDetection(config);
         }
 
         public IActionResult Index()

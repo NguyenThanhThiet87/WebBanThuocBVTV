@@ -208,13 +208,13 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
             var email = claims?.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
             var name = claims?.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
 
-            var accessToken = authenticateResult.Properties.GetTokenValue("access_token"); // Lấy access_token
+            // Google handler đã ánh xạ subject (sub) vào NameIdentifier. Dùng claim này
+            // tránh phụ thuộc vào một request bổ sung đến UserInfo API sau callback.
+            var googleId = claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-            var googleId = await GetGoogleUserIdFromUserInfo(accessToken);
-
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(googleId))
             {
-                SetAlert("Không lấy được email từ Google", "error");
+                SetAlert("Không lấy được thông tin định danh từ Google. Vui lòng thử lại.", "error");
                 return RedirectToAction("Index");
             }
 
@@ -302,7 +302,7 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                    return Json(new { success = false, message = alertMessage.Message });
                 }
             }
         }
@@ -333,7 +333,7 @@ namespace WebBanThuocBVTV.Areas.Shared.Controllers
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                    return Json(new { success = false, message = alertMessage.Message });
                 }
             }
         }

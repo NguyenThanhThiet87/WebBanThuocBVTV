@@ -3,6 +3,7 @@ using Microsoft.Identity.Client;
 using MimeKit;
 using OtpNet;
 using Twilio.Types;
+using System.Net.Http.Json;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Rest.Verify.V2.Service;
@@ -19,17 +20,18 @@ namespace WebBanThuocBVTV.Helper
     public class SendOTP
     {
         private readonly IConfiguration _config;
-        public SendOTP(IConfiguration config)
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public SendOTP(IConfiguration config, IHttpClientFactory httpClientFactory)
         {
             _config = config;
-            var accountSid = "ACcfe8b4e065015b6e32ce8a032ea9ec96";
-            var authToken = "98a25c919228e99df8ddd51bbad33d2b";
-            TwilioClient.Init(accountSid, authToken);
+            _httpClientFactory = httpClientFactory;
+            TwilioClient.Init(_config["SmsSettings:AccountSID"], _config["SmsSettings:AuthToken"]);
         }
         private string CreateOTP()
         {
             // Tạo khóa bí mật (secret key) dạng byte array (base32 decode hoặc generate mới)
-            byte[] secretKey = Base32Encoding.ToBytes("JBSWY3DPEHPK3PXP");
+            byte[] secretKey = Base32Encoding.ToBytes(_config["OtpSettings:SecretKey"]!);
             // Khởi tạo đối tượng Totp với khóa bí mật, tùy chọn thuật toán băm, kích thước mã, thời gian bước (step)
             var totp = new Totp(secretKey, step: 30, totpSize: 6, mode: OtpHashMode.Sha1);
             // Tính toán mã OTP dựa trên thời gian hiện tại
@@ -45,14 +47,16 @@ namespace WebBanThuocBVTV.Helper
                 // Tạo mã OTP
                 string otpCode = CreateOTP();
 
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress(_config["SmtpSettings:Name"], _config["SmtpSettings:Mail"]));
-                message.To.Add(new MailboxAddress(name, email));
-                message.Subject = "Mã xác thực OTP của bạn";
-
-                message.Body = new TextPart("plain")
+                var requestBody = new
                 {
-                    Text = $@"Xin chào {name},
+                    sender = new
+                    {
+                        name = _config["Brevo:SenderName"],
+                        email = _config["Brevo:SenderEmail"]
+                    },
+                    to = new[] { new { email, name } },
+                    subject = "Mã xác thực OTP của bạn",
+                    textContent = $@"Xin chào {name},
 
 Mã OTP của bạn là: {otpCode}
 
@@ -64,18 +68,28 @@ Cảm ơn bạn,
 Agri T&T"
                 };
 
-                using (var client = new SmtpClient())
+                using var request = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email")
                 {
-                    await client.ConnectAsync("smtp.gmail.com", 587, false);
+                    Content = JsonContent.Create(requestBody)
+                };
+                request.Headers.Add("api-key", _config["Brevo:ApiKey"]);
 
-                    // Note: only needed if the SMTP server requires authentication
-                    await client.AuthenticateAsync(_config["SmtpSettings:Mail"], _config["SmtpSettings:Password"]);
-
-                    await client.SendAsync(message);
-                    await client.DisconnectAsync(true);
+                using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+                var client = _httpClientFactory.CreateClient();
+                using var response = await client.SendAsync(request, timeout.Token);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var detail = await response.Content.ReadAsStringAsync(timeout.Token);
+                    throw new InvalidOperationException($"Brevo API trả về {(int)response.StatusCode}: {detail}");
                 }
+
                 alerMessage.Type = "success";
                 alerMessage.Message = $"{otpCode}";
+            }
+            catch (OperationCanceledException)
+            {
+                alerMessage.Type = "error";
+                alerMessage.Message = "Dịch vụ gửi email không phản hồi. Vui lòng thử lại sau.";
             }
             catch (Exception ex)
             {
@@ -92,7 +106,7 @@ Agri T&T"
                 var verification = VerificationResource.Create(
                                    to: phoneNumber,
                                    channel: "sms",
-                                   pathServiceSid: "VAad7e4833b5525ce5d58aed402cb55faf"
+                                   pathServiceSid: _config["SmsSettings:VerifyServiceSID"]
                                    );
 
                 alertMessage.Type = "success";
@@ -111,7 +125,7 @@ Agri T&T"
             AlertMessage alertMessage = new AlertMessage();
             try
             {
-                var serviceSid = "VAad7e4833b5525ce5d58aed402cb55faf";
+                var serviceSid = _config["SmsSettings:VerifyServiceSID"];
                 var check = VerificationCheckResource.Create(
                     to: phoneNumber,
                     code: code,

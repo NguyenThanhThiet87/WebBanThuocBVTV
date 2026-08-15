@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: web-ban-thuoc-bvtv
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
+      - key: Authentication__Google__ClientId
+        sync: false
+      - key: Authentication__Google__ClientSecret
+        sync: false
+      - key: Brevo__ApiKey
+        sync: false
+      - key: Brevo__SenderEmail
+        sync: false
+      - key: Brevo__SenderName
+        value: Agri T&T
+        sync: false
+      - key: SmsSettings__AccountSID
+        sync: false
+      - key: SmsSettings__AuthToken
+        sync: false
+      - key: SmsSettings__OwnPhone
+        sync: false
+      - key: SmsSettings__VerifyServiceSID
+        sync: false
+      - key: OtpSettings__SecretKey
+        sync: false
+      - key: Server__Url
+        sync: false
+      - key: Vnpay__TmnCode
+        sync: false
+      - key: Vnpay__HashSecret
+        sync: false
+      - key: Vnpay__BaseUrl
+        value: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+      - key: Vnpay__CurrCode
+        value: VND
+      - key: Vnpay__Command
+        value: pay
+      - key: Vnpay__Version
+        value: "2.1.0"
+      - key: Vnpay__Locale
+        value: vn
+      - key: Vnpay__PaymentBackReturnUrl
+        sync: false
+      - key: TimeZoneId
+        value: SE Asia Standard Time
+      - key: Cloudinary__cloud_name
+        sync: false
+      - key: Cloudinary__api_key
+        sync: false
+      - key: Cloudinary__api_secret
+        sync: false

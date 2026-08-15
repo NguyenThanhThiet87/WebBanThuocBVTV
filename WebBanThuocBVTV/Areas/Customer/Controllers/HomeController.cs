@@ -15,9 +15,9 @@ namespace WebBanThuocBVTV.Areas.Customer.Controllers
         SendOTP _sendOTP;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration _config)
+        public HomeController(ILogger<HomeController> logger, SendOTP sendOTP)
         {
-            _sendOTP = new SendOTP(_config);
+            _sendOTP = sendOTP;
             _logger = logger;
         }
 

@@ -11,6 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Models\Detection\MobileViTv2.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="CloudinaryDotNet" Version="1.27.6" />
     <PackageReference Include="Google.Maps.Routing.V2" Version="1.0.0" />
